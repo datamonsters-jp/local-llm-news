@@ -1,0 +1,131 @@
+{
+  "updated": "2026.06.08",
+  "ticker": [
+    "⚡ Qwen3.5-72B — ノートPCで商用モデル並みの性能を実現",
+    "🟢 Gemma 4 12B — Apache 2.0、マルチモーダル対応で一般公開",
+    "🔥 Kimi K2.5 — GPT-5.2を一部ベンチで上回る衝撃スコア",
+    "💾 Ollama・vLLM がOpenAI互換APIを標準装備",
+    "🖥️ RTX 5090 vs Mac Studio M4 Max ローカル推論ベンチ比較が話題"
+  ],
+  "ranking": [
+    {
+      "name": "Qwen3.5-72B",
+      "size": "72B",
+      "score": 97,
+      "reason": "コーディング・推論でトップクラス。Q4量子化でVRAM24GB動作",
+      "badges": ["Alibaba", "Apache 2.0", "マルチモーダル"]
+    },
+    {
+      "name": "Kimi K2.5",
+      "size": "128B",
+      "score": 94,
+      "reason": "一部ベンチでGPT-5.2超え。Mixture-of-Experts構造で効率的",
+      "badges": ["Moonshot AI", "MoE", "超大型"]
+    },
+    {
+      "name": "Llama 3.3-70B",
+      "size": "70B",
+      "score": 89,
+      "reason": "Meta公式最新。バランス最良でエージェント用途に最適",
+      "badges": ["Meta", "Llama License", "エージェント"]
+    },
+    {
+      "name": "Gemma 4-27B",
+      "size": "27B",
+      "score": 85,
+      "reason": "Googleが4月リリース。画像認識対応でApache 2.0の優等生",
+      "badges": ["Google", "Apache 2.0", "マルチモーダル"]
+    },
+    {
+      "name": "DeepSeek-R2",
+      "size": "236B",
+      "score": 82,
+      "reason": "推論特化の超大型MoEモデル。サーバー環境向け最強クラス",
+      "badges": ["DeepSeek", "MoE", "推論特化"]
+    },
+    {
+      "name": "Mistral-Large-3",
+      "size": "123B",
+      "score": 79,
+      "reason": "欧州発の大型モデル。多言語性能が高くビジネス用途に強い",
+      "badges": ["Mistral AI", "多言語", "商用可"]
+    },
+    {
+      "name": "Qwen3.5-14B",
+      "size": "14B",
+      "score": 76,
+      "reason": "VRAM12GBで動く中型の優等生。日本語品質が特に優秀",
+      "badges": ["Alibaba", "日本語強", "省VRAM"]
+    },
+    {
+      "name": "Gemma 4-12B",
+      "size": "12B",
+      "score": 72,
+      "reason": "スマホでも秒速50トークン。エッジデバイス最強候補",
+      "badges": ["Google", "エッジ向け", "高速"]
+    }
+  ],
+  "featured": {
+    "tag": "trend",
+    "date": "2026.06.08",
+    "title": "2026年上半期のローカルLLM総括：Qwen3.5・Gemma 4が商用モデルに迫る驚異の進化",
+    "summary": "2026年のローカルLLMで最も特徴的なのが性能の大幅向上。3月リリースのQwen3.5シリーズ（アリババ）と4月登場のGemma 4シリーズ（Google）は、一般的なノートPCを含むさまざまなデバイスで動作可能なサイズで提供。ベンチマーク結果では2025年の基準点だったGPT-OSSシリーズを上回り、一部は商用モデルに近い利用感を実現しました。",
+    "url": ""
+  },
+  "articles": [
+    {
+      "tag": "model",
+      "date": "2026.06.03",
+      "title": "Gemma 4 12B が正式リリース — エンコーダレス・マルチモーダルでApache 2.0対応",
+      "summary": "Googleが公開したGemma 4 12Bはエンコーダレスのマルチモーダルモデル。Apache 2.0ライセンスで完全オープン。スマホで毎秒50トークンを達成し、画像認識も対応。"
+    },
+    {
+      "tag": "tool",
+      "date": "2026.06.01",
+      "title": "Ollama・vLLM がOpenAI互換APIを標準搭載 — 既存アプリからの移行がゼロコストに",
+      "summary": "ローカルLLMのランタイムが大きく成熟。CLI/API連携はOllama、高スループット本番環境はvLLM、GUI派はLM Studioという選択肢が確立。移行コストがほぼゼロになった。"
+    },
+    {
+      "tag": "trend",
+      "date": "2026.05.28",
+      "title": "ローカルLLMのAIエージェント化が加速 — 自律タスク実行が現実のものに",
+      "summary": "ローカルLLMをAIエージェントとして自律稼働させる事例が急増。社内データをクラウドに送らないプライベートエージェントの需要が企業を中心に急拡大している。"
+    },
+    {
+      "tag": "research",
+      "date": "2026.05.22",
+      "title": "Kimi K2.5 が一部ベンチでGPT-5.2・Claude Opus 4.5を超える衝撃スコア",
+      "summary": "中国発のKimi K2.5が複数のベンチマークで商用最先端モデルを上回る結果を記録。オープンウェイトモデルの急速な追い上げが改めて注目を集めている。"
+    },
+    {
+      "tag": "hw",
+      "date": "2026.05.15",
+      "title": "RTX 5090 vs Mac Studio M4 Max — ローカル推論ベンチで実力差が明らかに",
+      "summary": "NVIDIA RTX 5090とApple M4 Maxのローカル推論比較が盛んに行われている。Llama 3.1 70B をFP8で動かした際のスループット比較でそれぞれの強みが明確になった。"
+    },
+    {
+      "tag": "tool",
+      "date": "2026.05.10",
+      "title": "量子化技術の成熟：Q4_K_MでVRAMを約70%削減、実用品質を維持",
+      "summary": "量子化技術（Q4_K_M）がローカルLLMの敷居を大幅に引き下げた。12Bクラスのモデルが4〜6GBのVRAMで実用品質で動作し、ミドルレンジGPU搭載PCでも十分な環境が整った。"
+    },
+    {
+      "tag": "model",
+      "date": "2026.05.05",
+      "title": "DeepSeekもローカルで動く — 中国・米国のLLMをオフライン環境で実行する方法",
+      "summary": "DeepSeekをはじめとする中国発の最先端LLMがローカル環境で動作可能に。企業のセキュリティ要件を満たしながら先端AIを活用するハイブリッド運用が注目される。"
+    },
+    {
+      "tag": "trend",
+      "date": "2026.04.28",
+      "title": "ローカルLLM関連アプリが高機能化 — AI Edge GalleryやLM Studioが急成長",
+      "summary": "ローカルLLMを手軽に起動・管理できるアプリが充実。AI Edge Galleryは5分でローカルLLMを体験できる環境を提供し、スマートフォンでの動作も当たり前になりつつある。"
+    },
+    {
+      "tag": "research",
+      "date": "2026.04.20",
+      "title": "ローカルvsクラウドのコスト試算：API課金からの切り替えで月次コストが最大80%削減",
+      "summary": "API課金との比較試算が各所で公開されている。継続的なAPI利用コストが増大している組織では、ローカルLLMへの移行投資が1〜2年で回収できるケースが増えている。"
+    }
+  ]
+}
