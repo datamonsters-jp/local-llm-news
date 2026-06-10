@@ -34,10 +34,13 @@ SYSTEM_PROMPT = """
   "ranking": [
     {
       "name": "モデル名（例: Qwen3.5-72B）",
-      "size": "パラメータ数（例: 72B）",
+      "size": "パラメータ数（例: 72B、109B MoE）",
       "score": 97,
+      "country": "国名（例: 中国、米国、仏国）",
+      "flag": "国コード: cn/us/fr のいずれか（その他の国は \"\" にする）",
+      "org": "開発組織（例: Alibaba、Meta、OpenAI）",
       "reason": "選定理由・特徴（40文字以内）",
-      "badges": ["開発元", "特徴1", "特徴2"]
+      "badges": ["ライセンス", "特徴1", "特徴2"]
     }
   ],
   "featured": {
@@ -52,7 +55,8 @@ SYSTEM_PROMPT = """
       "tag": "trend|model|tool|hw|research のいずれか",
       "date": "YYYY.MM.DD",
       "title": "記事タイトル（50文字以内）",
-      "summary": "記事の要約（80〜120文字）"
+      "summary": "記事の要約（80〜120文字）",
+      "url": "確実に実在する元記事や公式ページのURL。不明な場合は空文字 \"\" にする（架空のURLは絶対に作らない）"
     }
   ]
 }
