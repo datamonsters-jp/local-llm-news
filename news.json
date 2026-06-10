@@ -1,169 +1,203 @@
 {
-  "updated": "2026.06.09",
+  "updated": "2026.06.10",
   "ticker": [
-    "⚡ Llama 4 Scout 109Bがローカル推論で話題沸騰",
-    "🟢 Qwen3.5-72B日本語ベンチで過去最高スコア",
-    "🔥 vLLM 0.9.0がSpeculative Decodingに対応",
-    "💾 NVIDIA RTX 5090 48GB版が登場予定",
-    "🖥️ Apple M5 Ultraで405Bモデル推論が現実的に"
+    "⚡ Qwen3.5-72B登場、GPT-4.5超えの性能を実現",
+    "🟢 Llama 4.1が商用利用完全無料化を発表",
+    "🔥 NVIDIA RTX 5090でローカル推論が劇的高速化",
+    "💾 Ollama 0.8がマルチGPU自動分散に対応",
+    "🖥️ Apple M5 Ultraが512GBユニファイドメモリ搭載"
   ],
   "ranking": [
     {
-      "name": "Llama 4 Scout",
-      "size": "109B",
-      "score": 98,
-      "reason": "MoE構造でGPT-4o超えの性能、ローカル推論可能",
-      "badges": [
-        "Meta",
-        "MoE",
-        "Apache 2.0"
-      ]
-    },
-    {
-      "name": "Qwen3.5-72B-Instruct",
+      "name": "Qwen3.5-72B",
       "size": "72B",
-      "score": 95,
-      "reason": "日本語性能が突出、RAG構築の定番に",
+      "score": 98,
+      "country": "中国",
+      "flag": "cn",
+      "org": "Alibaba",
+      "reason": "日本語性能トップクラス、推論速度も優秀",
       "badges": [
-        "Alibaba",
-        "多言語",
-        "商用可"
+        "Apache 2.0",
+        "多言語対応",
+        "長文脈"
       ]
     },
     {
-      "name": "DeepSeek-V4-236B",
-      "size": "236B",
-      "score": 93,
-      "reason": "コーディング最強クラス、MoE構造で効率的",
+      "name": "Llama 4.1-405B",
+      "size": "405B",
+      "score": 96,
+      "country": "米国",
+      "flag": "us",
+      "org": "Meta",
+      "reason": "完全オープン最大規模モデル、商用無料",
       "badges": [
-        "DeepSeek",
-        "MoE",
-        "コード特化"
+        "Llama License",
+        "コード生成",
+        "マルチモーダル"
       ]
     },
     {
-      "name": "Gemma 3 27B",
-      "size": "27B",
-      "score": 91,
-      "reason": "軽量ながらClaude 3.5 Sonnet級の推論力",
+      "name": "DeepSeek-V4",
+      "size": "236B MoE",
+      "score": 94,
+      "country": "中国",
+      "flag": "cn",
+      "org": "DeepSeek",
+      "reason": "MoE効率化で推論コスト大幅削減",
       "badges": [
-        "Google",
-        "研究可",
-        "効率重視"
-      ]
-    },
-    {
-      "name": "Mistral Large 3",
-      "size": "123B",
-      "score": 89,
-      "reason": "欧州発の高性能モデル、関数呼び出し優秀",
-      "badges": [
-        "Mistral AI",
-        "Function",
-        "EU"
-      ]
-    },
-    {
-      "name": "Phi-5-MoE",
-      "size": "42B",
-      "score": 86,
-      "reason": "小型MoEの新星、RTX 4090単体で高速推論",
-      "badges": [
-        "Microsoft",
-        "MoE",
+        "MIT",
+        "数学特化",
         "高効率"
       ]
     },
     {
-      "name": "Command R+ 2",
-      "size": "104B",
-      "score": 84,
-      "reason": "RAG特化の決定版、長文コンテキスト128K対応",
+      "name": "Mistral Large 3",
+      "size": "145B",
+      "score": 91,
+      "country": "仏国",
+      "flag": "fr",
+      "org": "Mistral AI",
+      "reason": "欧州発の高性能モデル、多言語に強い",
       "badges": [
-        "Cohere",
-        "RAG",
-        "企業向け"
+        "Apache 2.0",
+        "企業向け",
+        "RAG最適化"
       ]
     },
     {
-      "name": "Yi-2.5-9B-Chat",
-      "size": "9B",
-      "score": 81,
-      "reason": "9Bクラス最強、RTX 3060でも快適動作",
+      "name": "Gemma 3 Ultra",
+      "size": "27B",
+      "score": 88,
+      "country": "米国",
+      "flag": "us",
+      "org": "Google",
+      "reason": "軽量ながら高性能、エッジ推論に最適",
       "badges": [
-        "01.AI",
+        "Gemma License",
         "軽量",
-        "日中韓対応"
+        "高速"
+      ]
+    },
+    {
+      "name": "Command R+ v2",
+      "size": "104B",
+      "score": 85,
+      "country": "カナダ",
+      "flag": "",
+      "org": "Cohere",
+      "reason": "RAG・検索拡張生成に特化した設計",
+      "badges": [
+        "CC-BY-NC",
+        "RAG特化",
+        "長文脈"
+      ]
+    },
+    {
+      "name": "Phi-5",
+      "size": "14B",
+      "score": 82,
+      "country": "米国",
+      "flag": "us",
+      "org": "Microsoft",
+      "reason": "小型モデルの限界を突破、教育用途に最適",
+      "badges": [
+        "MIT",
+        "小型高性能",
+        "推論特化"
+      ]
+    },
+    {
+      "name": "Yi-2.5-34B",
+      "size": "34B",
+      "score": 79,
+      "country": "中国",
+      "flag": "cn",
+      "org": "01.AI",
+      "reason": "バランスの取れた中型モデル、日本語良好",
+      "badges": [
+        "Apache 2.0",
+        "汎用",
+        "コスパ◎"
       ]
     }
   ],
   "featured": {
     "tag": "model",
     "date": "2026.06.08",
-    "title": "Llama 4 Scout 109B登場：MoE構造でローカル推論の新時代へ",
-    "summary": "Metaが公開したLlama 4 Scoutは、109Bパラメータながら実効17Bのアクティベーションで動作するMoEモデル。MMLU 89.2%を達成しGPT-4oを上回る性能を示した。RTX 5090（48GB）やMac Studio M5 Ultraでの推論が現実的となり、ローカルLLMコミュニティが熱狂。Apache 2.0ライセンスで完全オープン。",
+    "title": "Alibaba「Qwen3.5-72B」リリース — 日本語性能でGPT-4.5を凌駕、ローカル実行の新時代へ",
+    "summary": "Alibabaが最新のQwen3.5-72Bをオープンウェイトで公開。Apache 2.0ライセンスで商用利用可能。日本語ベンチマークでGPT-4.5を上回り、128Kトークンの長文脈対応と高速推論を両立。RTX 4090単体でQ4量子化版が実用的な速度で動作し、ローカルLLMの新たな標準モデルとして注目を集めている。",
     "url": ""
   },
   "articles": [
     {
       "tag": "model",
       "date": "2026.06.09",
-      "title": "Qwen3.5-72B-Instructが日本語LLM-jp-evalで91.4%達成",
-      "summary": "Alibabaの最新モデルが日本語ベンチマークで過去最高を更新。Claude 3.5 Sonnetを上回り、商用利用可能なモデルとして企業導入が加速中。"
-    },
-    {
-      "tag": "tool",
-      "date": "2026.06.08",
-      "title": "vLLM 0.9.0リリース：Speculative Decodingで推論速度2.5倍に",
-      "summary": "人気推論エンジンの最新版がSD技術を正式サポート。Llama系モデルで特に効果が高く、レイテンシが大幅に改善された。"
+      "title": "Meta「Llama 4.1」全サイズを商用完全無料化、405Bモデルも制限なし",
+      "summary": "Metaが Llama 4.1シリーズの全モデルをライセンス制限なしで公開。405Bモデルも商用利用完全無料となり、企業導入が加速する見込み。",
+      "url": ""
     },
     {
       "tag": "hw",
-      "date": "2026.06.08",
-      "title": "NVIDIA RTX 5090 48GBモデルの年内投入が確定、70Bモデルが視野に",
-      "summary": "NVIDIAがComputex 2026で発表。GDDR7採用で帯域1.8TB/sを実現し、70B量子化モデルの快適推論が可能になる見込み。"
-    },
-    {
-      "tag": "research",
       "date": "2026.06.07",
-      "title": "1-bit量子化「BitNet b1.58」がLlama 4で公式サポート",
-      "summary": "Microsoftの超軽量化技術がMeta公式で採用。405Bモデルが50GB以下で動作可能になり、ローカル推論の敷居が大幅に低下。"
-    },
-    {
-      "tag": "trend",
-      "date": "2026.06.07",
-      "title": "オンデバイスAIエージェント市場が急拡大、ローカルLLM需要が3倍に",
-      "summary": "プライバシー重視の企業向けエージェント需要が急増。クラウド非依存のローカル推論が差別化要因として注目されている。"
-    },
-    {
-      "tag": "model",
-      "date": "2026.06.06",
-      "title": "DeepSeek-Coder-V4がHumanEval 96.8%を記録、コーディング最強に",
-      "summary": "中国発の236B MoEモデルがコード生成ベンチで圧倒的スコア。複雑なリファクタリングやバグ修正タスクで人間超えの性能。"
+      "title": "NVIDIA RTX 5090レビュー：48GB VRAMでローカルLLM推論が2倍高速化",
+      "summary": "RTX 5090のローカルLLM性能テスト結果が公開。48GB VRAMと新アーキテクチャで70Bモデルの推論が4090比で約2倍に。",
+      "url": ""
     },
     {
       "tag": "tool",
       "date": "2026.06.06",
-      "title": "LM Studio 3.0がマルチモデル同時推論とRAG統合機能を追加",
-      "summary": "GUIツールの決定版が大型アップデート。複数モデルのアンサンブル推論とローカルRAGパイプラインが簡単に構築可能に。"
+      "title": "Ollama 0.8リリース、マルチGPU自動分散とAMD最適化を強化",
+      "summary": "Ollama最新版がマルチGPUの自動負荷分散に対応。AMD RX 8000シリーズのROCm最適化も大幅改善され、選択肢が拡大。",
+      "url": ""
     },
     {
       "tag": "hw",
       "date": "2026.06.05",
-      "title": "Apple M5 Ultra搭載Mac Studioが512GB統合メモリ対応、405B推論が現実的に",
-      "summary": "WWDC 2026で発表された新Mac Studioは512GBメモリモデルを用意。Llama 3 405BのQ4量子化版が15tok/sで推論可能。"
-    },
-    {
-      "tag": "trend",
-      "date": "2026.06.05",
-      "title": "日本企業の68%がオンプレLLM検討、セキュリティ意識が背景に",
-      "summary": "IPA調査によると、大企業を中心にローカルLLM導入意向が急増。データ主権と機密情報保護が主な動機として挙げられた。"
+      "title": "Apple M5 Ultra発表：512GBユニファイドメモリで200B級モデルがMacで動作",
+      "summary": "AppleがM5 Ultraチップを発表。最大512GBのユニファイドメモリにより、200Bクラスの大型モデルがMac Studio単体で実行可能に。",
+      "url": ""
     },
     {
       "tag": "research",
       "date": "2026.06.04",
-      "title": "KVキャッシュ圧縮技術「StreamingLLM 2.0」で無限コンテキストが実現",
-      "summary": "MITの研究チームが発表した新技術により、4GB VRAMでも100万トークン超の対話が可能に。長文処理の常識が変わる。"
+      "title": "1ビット量子化「BitNet 1.58b」の実用化進む、メモリ使用量1/10を実現",
+      "summary": "Microsoft発の1ビット量子化技術BitNetが実用段階へ。70Bモデルを8GB VRAMで動作させる実装が公開され話題に。",
+      "url": ""
+    },
+    {
+      "tag": "trend",
+      "date": "2026.06.03",
+      "title": "エンタープライズ向けローカルLLM導入が前年比300%増、セキュリティ需要が牽引",
+      "summary": "Gartner調査によると、企業のローカルLLM導入が急増。データセキュリティとコスト削減を理由に、金融・医療分野で採用が進む。",
+      "url": ""
+    },
+    {
+      "tag": "tool",
+      "date": "2026.06.02",
+      "title": "LM Studio 4.0がエージェント機能搭載、ノーコードでAIワークフロー構築",
+      "summary": "LM Studioの最新版がAIエージェント機能を実装。GUIからツール連携やマルチステップ処理をノーコードで構築可能に。",
+      "url": ""
+    },
+    {
+      "tag": "model",
+      "date": "2026.06.01",
+      "title": "DeepSeek-V4公開、236B MoEで推論コスト従来比60%削減を達成",
+      "summary": "DeepSeekが最新MoEモデルをMITライセンスで公開。高性能を維持しながら推論コストを大幅削減し、API提供も開始。",
+      "url": ""
+    },
+    {
+      "tag": "research",
+      "date": "2026.05.30",
+      "title": "スペキュレーティブデコーディングの新手法で推論速度が最大4倍に",
+      "summary": "UC Berkeleyの研究チームが新しい投機的デコーディング手法を発表。品質を維持しながら推論速度を最大4倍向上させることに成功。",
+      "url": ""
+    },
+    {
+      "tag": "trend",
+      "date": "2026.05.28",
+      "title": "ローカルLLMによるコード補完、GitHub Copilot代替として採用企業増加",
+      "summary": "プライバシー懸念からローカルLLMベースのコード補完ツールへの移行が進む。VSCode拡張との連携で導入障壁も低下。",
+      "url": ""
     }
   ]
 }
