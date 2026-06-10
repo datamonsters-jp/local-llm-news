@@ -3,7 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LOCAL LLM NEWS</title>
+<title>LOCAL LLM NEWS // ローカルLLM最新情報まとめ</title>
+<meta name="description" content="ローカルLLM（オープンウェイトモデル）の最新ニュース・モデルランキング・アーカイブを毎朝AIが自動更新するニュースサイト">
+<meta property="og:title" content="LOCAL LLM NEWS — ローカルLLM最新情報まとめ">
+<meta property="og:description" content="モデルランキング・最新ニュース・アーカイブを毎朝AIが自動更新。ネオンライトなローカルLLMニュースハブ">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://datamonsters-jp.github.io/local-llm-news/">
+<meta property="og:image" content="https://datamonsters-jp.github.io/local-llm-news/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23050510'/%3E%3Ctext x='50' y='62' font-size='40' text-anchor='middle' fill='%2300f5ff' font-family='monospace' font-weight='bold'%3ELL%3C/text%3E%3Ctext x='50' y='88' font-size='22' text-anchor='middle' fill='%23ff2d78' font-family='monospace' font-weight='bold'%3ENEWS%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
 :root{--neon-pink:#ff2d78;--neon-cyan:#00f5ff;--neon-yellow:#ffe600;--neon-green:#39ff14;--neon-purple:#bf5fff;--neon-orange:#ff6b1a;--bg-dark:#050510;--bg-card:#0a0a20;--text-main:#e8e8ff;--text-muted:#8888bb}
@@ -152,7 +160,7 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
 <div class="glow-blob g3"></div>
 
 <header>
-  <div class="logo-sub">// 2026.06.09 UPDATE //</div>
+  <div class="logo-sub" id="hdrDate">// 2026.06.09 UPDATE //</div>
   <div class="logo-main"><span class="t1">LOCAL</span>&nbsp;<span class="t2">LLM</span>&nbsp;<span class="t3">NEWS</span></div>
   <div class="tagline">ローカルLLM最新情報まとめ — POWERED BY OPEN SOURCE AI</div>
   <div class="hline"></div>
@@ -160,7 +168,7 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
 
 <div class="ticker-wrap">
   <div class="ticker-lbl">LIVE</div>
-  <div class="ticker-track">
+  <div class="ticker-track" id="tickerTrack">
     <span class="ti">⚡ Qwen3.5-72B — ノートPCで商用モデル並みの性能を実現</span><span class="ts"> ★ </span>
     <span class="ti">🟢 Gemma 4 12B — Apache 2.0、マルチモーダル対応で一般公開</span><span class="ts"> ★ </span>
     <span class="ti">🔥 Kimi K2.5 — GPT-5.2を一部ベンチで上回る衝撃スコア</span><span class="ts"> ★ </span>
@@ -185,7 +193,7 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
     <span class="sec-sub">注目度・性能・話題性の総合スコア</span>
   </div>
   <div class="rank-legend">スコアの基準：<span>ベンチマーク性能</span> × 話題量 × <span>実用性（VRAM効率・ライセンス）</span> を100点満点で評価。毎朝Claude AIが自動更新。</div>
-  <div class="rank-grid">
+  <div class="rank-grid" id="rankGrid">
 
     <div class="rc r1">
       <div class="rh">
@@ -309,7 +317,7 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
   <div class="sec-line" style="background:var(--neon-pink)"></div>
   <span class="ubadge"><span class="udot"></span>最新更新</span>
 </div>
-<div class="hero">
+<div class="hero" id="heroBox">
   <div class="hmeta"><span class="tag ttrend">TREND</span><span class="ndate">2026.06.09</span></div>
   <h3>2026年上半期のローカルLLM総括：Qwen3.5・Gemma 4が商用モデルに迫る驚異の進化</h3>
   <p>2026年のローカルLLMで最も特徴的なのが性能の大幅向上。3月リリースのQwen3.5シリーズ（アリババ）と4月登場のGemma 4シリーズ（Google）は、一般的なノートPCを含むさまざまなデバイスで動作可能なサイズで提供。ベンチマーク結果では2025年の基準点だったGPT-OSSシリーズを上回り、一部は商用モデルに近い利用感を実現しました。</p>
@@ -365,10 +373,10 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
 
 <footer>
   <div class="flogo">LOCAL LLM NEWS</div>
-  <div class="ftxt">© 2026 — 最終更新: 2026.06.09 // ローカルLLMの最前線をお届け</div>
+  <div class="ftxt" id="ftxt">© 2026 — 最終更新: 2026.06.09 // ローカルLLMの最前線をお届け</div>
 </footer>
 
-<button class="abtn" id="ab" onclick="togAudio()" title="環境音を再生">
+<button class="abtn" id="ab" onclick="togAudio()" title="環境音を再生" aria-label="環境音の再生・停止">
   <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
 </button>
 
@@ -482,6 +490,69 @@ function togAudio(){
     btn.classList.add('playing'); pico();
   }
 }
+
+/* ===== HYBRID LOADER =====
+   埋め込みデータをデフォルト表示しつつ、news.json の取得に
+   成功したら最新データに差し替える。失敗時は何もしない
+   （ローカルファイルで開いた場合もそのまま動く） */
+(function(){
+  var TM={model:'tmodel',tool:'ttool',hw:'thw',research:'tresearch',trend:'ttrend'};
+  var COLS=['cyan','purple','green','yellow','orange','pink'];
+  var MED=['🥇','🥈','🥉'];
+  var FLAGS={
+    cn:'<svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5,2 6.18,5.09 9.51,5.09 6.84,7.05 7.82,10.18 5,8.5 2.18,10.18 3.16,7.05 0.49,5.09 3.82,5.09" fill="#FFDE00"/></svg>',
+    us:'<svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#fff"/><rect width="30" height="1.54" y="0" fill="#B22234"/><rect width="30" height="1.54" y="3.08" fill="#B22234"/><rect width="30" height="1.54" y="6.15" fill="#B22234"/><rect width="30" height="1.54" y="9.23" fill="#B22234"/><rect width="30" height="1.54" y="12.31" fill="#B22234"/><rect width="30" height="1.54" y="15.38" fill="#B22234"/><rect width="30" height="1.54" y="18.46" fill="#B22234"/><rect width="12" height="10.77" fill="#3C3B6E"/></svg>',
+    fr:'<svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#ED2939"/><rect width="20" height="20" fill="#fff"/><rect width="10" height="20" fill="#002395"/></svg>'
+  };
+  function tagOf(t){return TM[t]||'ttrend';}
+  function rankCard(m,i){
+    var rank=i+1, cls=rank<=3?'r'+rank:'ro', medal=rank<=3?MED[i]:'#'+rank;
+    var flag=FLAGS[m.flag]?'<div class="rflag">'+FLAGS[m.flag]+'</div>':'';
+    var org=(m.country||m.org)?'<div class="rorg">'+flag+'<span class="rcountry">'+(m.country||'')+(m.country&&m.org?' · ':'')+(m.org||'')+'</span></div>':'';
+    var badges=(m.badges||[]).map(function(b){return '<span class="rbadge">'+b+'</span>';}).join('');
+    return '<div class="rc '+cls+'"><div class="rh"><div class="rnum">'+medal+'</div>'
+      +'<div class="rnw"><div class="rname">'+m.name+'</div>'+org+'</div>'
+      +'<div class="rsize">'+m.size+'</div></div>'
+      +'<div class="rbar-bg"><div class="rbar" style="width:'+(m.score||50)+'%"></div></div>'
+      +'<div class="rmeta"><span class="rscore">SCORE '+(m.score||'—')+'</span>'
+      +'<span class="rreason">'+(m.reason||'')+'</span></div>'
+      +(badges?'<div class="rbadges">'+badges+'</div>':'')+'</div>';
+  }
+  function newsCard(a,i){
+    var link=a.url?'<a href="'+a.url+'" target="_blank" rel="noopener" class="clink">READ MORE →</a>':'';
+    return '<div class="nc '+COLS[i%COLS.length]+'" data-t="'+a.tag+'">'
+      +'<div class="cmeta"><span class="tag '+tagOf(a.tag)+'">'+a.tag.toUpperCase()+'</span>'
+      +'<span class="ndate">'+a.date+'</span></div>'
+      +'<h3>'+a.title+'</h3><p>'+a.summary+'</p>'+link+'</div>';
+  }
+  fetch('news.json?v='+Date.now())
+    .then(function(r){if(!r.ok)throw new Error();return r.json();})
+    .then(function(d){
+      if(d.updated){
+        document.getElementById('hdrDate').textContent='// '+d.updated+' UPDATE //';
+        document.getElementById('ftxt').textContent='© 2026 — 最終更新: '+d.updated+' // ローカルLLMの最前線をお届け';
+      }
+      if(d.ticker&&d.ticker.length){
+        var t=d.ticker.map(function(x){return '<span class="ti">'+x+'</span><span class="ts"> ★ </span>';}).join('');
+        document.getElementById('tickerTrack').innerHTML=t+t;
+      }
+      if(d.ranking&&d.ranking.length){
+        document.getElementById('rankGrid').innerHTML=d.ranking.map(rankCard).join('');
+      }
+      if(d.featured){
+        var f=d.featured;
+        document.getElementById('heroBox').innerHTML=
+          '<div class="hmeta"><span class="tag '+tagOf(f.tag)+'">'+f.tag.toUpperCase()+'</span>'
+          +'<span class="ndate">'+f.date+'</span></div>'
+          +'<h3>'+f.title+'</h3><p>'+f.summary+'</p>'
+          +(f.url?'<a href="'+f.url+'" target="_blank" rel="noopener" class="rdmore">READ MORE →</a>':'');
+      }
+      if(d.articles&&d.articles.length){
+        document.getElementById('ng').innerHTML=d.articles.map(newsCard).join('');
+      }
+    })
+    .catch(function(){/* news.json が読めない環境では埋め込みデータをそのまま表示 */});
+})();
 </script>
 </body>
 </html>
