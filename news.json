@@ -1,203 +1,203 @@
 {
-  "updated": "2026.06.10",
+  "updated": "2026.06.11",
   "ticker": [
-    "⚡ Llama 4 Scout 109B MoEが本日公開、GPT-4o超えを達成",
-    "🟢 Qwen3.5-72B日本語性能でClaude 3.5に匹敵",
-    "🔥 NVIDIA RTX 5090でLlama 70B推論が実用速度に",
-    "💾 Ollama 1.0正式版リリース、WebUI統合を発表",
-    "🖥️ Apple M4 Ultra搭載Mac Studio、192GB統合メモリ対応"
+    "⚡ Gemma 4 QATリリース、メモリ72%削減でノートPC推論を実現",
+    "🟢 Ollama 0.30安定版、llama.cpp互換性向上とCodexアプリ対応",
+    "🔥 DeepSeek V4 Pro、1M コンテキスト対応でGPT-5.5と同日発表",
+    "💾 NVIDIA Nemotron 3 Ultra、米国オープンモデル最高の550B MoEリリース",
+    "🖥️ Qwen3.6-27B公開、SWE-bench 77.2%で消費者GPUで動作可能"
   ],
   "ranking": [
     {
-      "name": "Llama 4 Scout",
-      "size": "109B MoE (17B active)",
+      "name": "Kimi K2.6",
+      "size": "1T MoE (32B active)",
       "score": 98,
-      "country": "米国",
-      "flag": "us",
-      "org": "Meta",
-      "reason": "MoE採用でGPT-4o超え、商用利用可能",
-      "badges": [
-        "Llama License",
-        "MoE",
-        "マルチモーダル"
-      ]
-    },
-    {
-      "name": "Qwen3.5-72B",
-      "size": "72B",
-      "score": 95,
       "country": "中国",
       "flag": "cn",
-      "org": "Alibaba",
-      "reason": "日本語・コード生成で最高クラスの性能",
+      "org": "Moonshot AI",
+      "reason": "SWE-Bench Pro 58.6%、長期自律エージェントで最高峰",
       "badges": [
-        "Apache 2.0",
-        "日本語強化",
-        "128K Context"
+        "Modified MIT",
+        "1T MoE",
+        "256K Context"
       ]
     },
     {
-      "name": "DeepSeek-V4",
-      "size": "236B MoE (37B active)",
-      "score": 93,
+      "name": "DeepSeek V4-Pro",
+      "size": "1.6T MoE (49B active)",
+      "score": 96,
       "country": "中国",
       "flag": "cn",
       "org": "DeepSeek",
-      "reason": "コスト効率最高峰、推論特化アーキテクチャ",
+      "reason": "SWE-bench 80.6%、1Mコンテキスト、MIT License",
       "badges": [
-        "MIT License",
-        "MoE",
-        "長文推論"
+        "MIT",
+        "1M Context",
+        "思考モード対応"
       ]
     },
     {
-      "name": "Mistral Large 3",
-      "size": "123B",
-      "score": 91,
-      "country": "仏国",
-      "flag": "fr",
-      "org": "Mistral AI",
-      "reason": "欧州発の高性能モデル、多言語対応強化",
+      "name": "Qwen3.6-27B",
+      "size": "27B Dense",
+      "score": 94,
+      "country": "中国",
+      "flag": "cn",
+      "org": "Alibaba",
+      "reason": "SWE-bench 77.2%、24GB VRAMで動作、コード特化",
       "badges": [
         "Apache 2.0",
-        "32言語対応",
-        "Function Calling"
+        "Dense",
+        "Agent Coding"
       ]
     },
     {
-      "name": "Gemma 3 Ultra",
-      "size": "27B",
-      "score": 88,
+      "name": "NVIDIA Nemotron 3 Ultra",
+      "size": "550B MoE (55B active)",
+      "score": 92,
+      "country": "米国",
+      "flag": "us",
+      "org": "NVIDIA",
+      "reason": "米国オープンモデル首位、300+ tok/s高速推論",
+      "badges": [
+        "OpenMDW-1.1",
+        "Mamba-Transformer",
+        "NVFP4"
+      ]
+    },
+    {
+      "name": "Gemma 4 31B",
+      "size": "31B Dense",
+      "score": 90,
       "country": "米国",
       "flag": "us",
       "org": "Google DeepMind",
-      "reason": "27Bで70Bクラスの性能、効率性重視",
+      "reason": "Arena Textリーダーボード3位、マルチモーダル対応",
       "badges": [
-        "Gemma License",
-        "軽量高性能",
-        "TPU最適化"
+        "Apache 2.0",
+        "Multimodal",
+        "MTP対応"
       ]
     },
     {
-      "name": "Command R+ 2",
-      "size": "104B",
-      "score": 85,
-      "country": "カナダ",
-      "flag": "",
-      "org": "Cohere",
-      "reason": "RAG・企業向けに特化、日本語対応改善",
-      "badges": [
-        "CC-BY-NC",
-        "RAG特化",
-        "Grounding"
-      ]
-    },
-    {
-      "name": "Phi-5",
-      "size": "14B",
-      "score": 82,
+      "name": "Llama 4 Scout",
+      "size": "109B MoE (17B active)",
+      "score": 88,
       "country": "米国",
       "flag": "us",
-      "org": "Microsoft",
-      "reason": "小型モデルの革命、70B並みの推論能力",
+      "org": "Meta",
+      "reason": "10Mトークンコンテキスト、単一H100で動作可能",
       "badges": [
-        "MIT License",
-        "小型高性能",
-        "エッジ向け"
+        "Llama License",
+        "10M Context",
+        "MoE 16 Experts"
       ]
     },
     {
-      "name": "Yi-2-200B",
-      "size": "200B",
-      "score": 79,
+      "name": "MiniMax M3",
+      "size": "未公開 MoE",
+      "score": 86,
       "country": "中国",
       "flag": "cn",
-      "org": "01.AI",
-      "reason": "超大型オープンモデル、研究用途に最適",
+      "org": "MiniMax",
+      "reason": "SWE-Bench Pro 59.0%、1Mコンテキスト、マルチモーダル",
       "badges": [
-        "Yi License",
-        "200B Dense",
-        "研究向け"
+        "Open Weight",
+        "1M Context",
+        "Coding特化"
+      ]
+    },
+    {
+      "name": "Gemma 4 12B",
+      "size": "12B Dense",
+      "score": 84,
+      "country": "米国",
+      "flag": "us",
+      "org": "Google DeepMind",
+      "reason": "エンコーダフリー統合アーキテクチャ、音声入力対応",
+      "badges": [
+        "Apache 2.0",
+        "Any-to-Any",
+        "256K Context"
       ]
     }
   ],
   "featured": {
     "tag": "model",
-    "date": "2026.06.10",
-    "title": "Meta、Llama 4 Scoutを公開 - 109B MoEでGPT-4oを超える性能を達成",
-    "summary": "Metaは本日、Llama 4ファミリーの最新モデル「Llama 4 Scout」を公開しました。109BパラメータのMixture of Expertsアーキテクチャを採用し、推論時は17Bのみアクティブ化することで、RTX 4090単体でも実用的な速度で動作します。MMLU、HumanEval、MT-Benchの全てでGPT-4oを上回り、商用利用も可能なLlama Licenseで提供されます。",
-    "url": ""
+    "date": "2026.06.04",
+    "title": "NVIDIA Nemotron 3 Ultra発表 — 550B MoEで米国オープンモデル最強、5倍高速推論を実現",
+    "summary": "NVIDIAはComputex 2026で550B パラメータのMoEモデル「Nemotron 3 Ultra」を発表。55Bアクティブパラメータで300+ tok/sの高速推論を実現し、Artificial Analysis Intelligence Indexで48点を獲得。米国発オープンウェイトモデルとして最高性能を達成した。長期エージェントワークフロー向けに設計され、ハイブリッドMamba-Transformer構造とNVFP4量子化で最大5倍のスループット向上を実現。重み・学習データ・レシピをOpenMDW-1.1ライセンスで完全公開。",
+    "url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-ultra-powers-faster-more-efficient-reasoning-for-long-running-agents/"
   },
   "articles": [
     {
       "tag": "model",
-      "date": "2026.06.09",
-      "title": "Alibaba、Qwen3.5シリーズを発表 - 日本語性能が大幅向上",
-      "summary": "Qwen3.5-72Bは日本語ベンチマークでClaude 3.5 Sonnetに匹敵する性能を達成。128Kコンテキスト対応でRAG用途にも最適。",
-      "url": ""
-    },
-    {
-      "tag": "tool",
-      "date": "2026.06.08",
-      "title": "Ollama 1.0正式リリース、WebUIを標準搭載へ",
-      "summary": "ローカルLLM実行ツールOllamaが正式版1.0に到達。ブラウザベースのWebUIが標準搭載され、非エンジニアでも簡単に利用可能に。",
-      "url": ""
-    },
-    {
-      "tag": "hw",
-      "date": "2026.06.07",
-      "title": "Apple M4 Ultra搭載Mac Studio発表、192GB統合メモリでLlama 70Bを高速推論",
-      "summary": "Appleの新型Mac Studioは192GBの統合メモリを搭載。Llama 3.1-70Bを量子化なしで動作させ、30トークン/秒の速度を実現。",
-      "url": ""
-    },
-    {
-      "tag": "research",
-      "date": "2026.06.06",
-      "title": "1-bit LLMの実用化が加速、BitNet b1.58がLlama 3と同等性能を達成",
-      "summary": "Microsoft Researchの1-bit量子化技術BitNet b1.58が進化。70Bモデルを8GB VRAMで動作させる研究成果が発表された。",
-      "url": ""
-    },
-    {
-      "tag": "tool",
       "date": "2026.06.05",
-      "title": "vLLM 0.8リリース、Speculative Decodingで推論速度2倍に",
-      "summary": "高速推論エンジンvLLMがメジャーアップデート。投機的デコーディングの改善により、品質を維持したまま速度が大幅向上。",
-      "url": ""
-    },
-    {
-      "tag": "trend",
-      "date": "2026.06.04",
-      "title": "日本企業のローカルLLM導入率が40%突破、セキュリティ懸念が後押し",
-      "summary": "国内IT調査会社の報告によると、大企業のローカルLLM導入率が前年比2倍の40%に。クラウドAPI依存からの脱却が加速。",
-      "url": ""
+      "title": "Google、Gemma 4 QATモデルをリリース — メモリ72%削減でノートPCでも動作可能に",
+      "summary": "Google DeepMindがQuantization-Aware Training（QAT）で最適化されたGemma 4を公開。26B-A4BモデルがQ4量子化で約15GBに収まり、16GB Macで動作可能。モバイル向けの新しい量子化形式も同時リリース。",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/quantization-aware-training-gemma-4/"
     },
     {
       "tag": "model",
       "date": "2026.06.03",
-      "title": "DeepSeek-V4公開、236B MoEながら消費電力はGPT-4の10分の1",
-      "summary": "中国DeepSeekが効率性を極めた新モデルを発表。MoEアーキテクチャの最適化により、低コストでGPT-4級の性能を実現。",
-      "url": ""
-    },
-    {
-      "tag": "hw",
-      "date": "2026.06.02",
-      "title": "NVIDIA RTX 5090レビュー続報、32GB VRAMでLlama 70B Q4が実用速度に",
-      "summary": "発売から3ヶ月経過したRTX 5090のLLM用途での評価が定着。70Bモデルの4bit量子化で20トークン/秒の速度を記録。",
-      "url": ""
+      "title": "Gemma 4 12B Unified発表 — エンコーダフリー統合マルチモーダルアーキテクチャ",
+      "summary": "Google DeepMindが12Bパラメータの統合マルチモーダルモデルを公開。画像・音声・テキストを単一アーキテクチャで処理し、256Kコンテキストをサポート。16GB VRAMのラップトップで動作可能。",
+      "url": "https://developers.googleblog.com/gemma-4-12b-the-developer-guide/"
     },
     {
       "tag": "tool",
+      "date": "2026.06.08",
+      "title": "Ollama 0.30リリース — llama.cpp互換性向上とNemotron 3 Ultra対応",
+      "summary": "Ollama最新版でllama.cppバックエンドの互換性が大幅向上。Apple SiliconでのMetal GPUオフロード改善、Gemma 4 QATモデル対応、Hermes Desktop統合などが追加された。",
+      "url": "https://github.com/ollama/ollama/releases"
+    },
+    {
+      "tag": "model",
+      "date": "2026.04.24",
+      "title": "DeepSeek V4 Pro & Flash公開 — 1.6T MoEで1Mコンテキスト、MITライセンス",
+      "summary": "中国DeepSeekが1.6T（49Bアクティブ）のV4-Proと284B（13Bアクティブ）のV4-Flashを同時公開。1Mトークンコンテキスト対応、SWE-bench 80.6%を達成。GPT-5.5と同日発表で注目を集めた。",
+      "url": "https://api-docs.deepseek.com/news/news260424"
+    },
+    {
+      "tag": "tool",
+      "date": "2026.05.28",
+      "title": "2026年5月のローカルAIランタイム総まとめ — Ollama/vLLM/llama.cpp/MLX大型アップデート",
+      "summary": "Ollama 0.24でCodex App対応、vLLM 0.21でDeepSeek V4のBlackwell安定化、llama.cppがMTP推測デコード実装、MLXがM5で4倍高速化。ローカルLLM環境が大幅進化。",
+      "url": "https://codersera.com/blog/local-ai-runtimes-may-2026-update/"
+    },
+    {
+      "tag": "model",
+      "date": "2026.04.22",
+      "title": "Qwen3.6-27B公開 — SWE-bench 77.2%、消費者GPU（24GB）で動作",
+      "summary": "AlibabaがQwen3.6シリーズの27B Denseモデルを公開。Apache 2.0ライセンスでSWE-bench 77.2%を達成。Q4量子化で24GB VRAMに収まり、ローカルコーディングに最適。",
+      "url": "https://github.com/QwenLM/Qwen3.6"
+    },
+    {
+      "tag": "model",
       "date": "2026.06.01",
-      "title": "LM Studio 4.0発表、ワンクリックでRAGパイプライン構築が可能に",
-      "summary": "GUIベースのLLMツールLM Studioが大型アップデート。ドキュメントをドラッグ&ドロップするだけでRAGシステムを構築可能に。",
-      "url": ""
+      "title": "MiniMax M3、SWE-Bench Pro 59.0%でオープンウェイト最高性能を更新",
+      "summary": "MiniMax社が6月にM3をリリース。1Mコンテキスト・ネイティブマルチモーダル・フロンティアコーディングを初めて1モデルで実現し、オープンウェイトSWE-Bench Proで59.0%のトップスコアを達成。",
+      "url": "https://kilo.ai/open-source-models"
     },
     {
       "tag": "research",
-      "date": "2026.05.30",
-      "title": "東京大学、日本語特化SLM「Tsukuba-7B」を公開 - 医療・法律分野に強み",
-      "summary": "東大松尾研が開発した7Bモデルが公開。日本の医療・法律文書で学習し、専門分野でQwen-72Bに匹敵する性能を達成。",
-      "url": ""
+      "date": "2026.06.01",
+      "title": "オープンウェイトモデル、プロプライエタリとの差は約3ヶ月に — Epoch AI調査",
+      "summary": "Epoch AIの調査によると、オープンウェイトモデルは最先端プロプライエタリモデルから平均約3ヶ月の遅れで追随。2026年のQwen、DeepSeek、Kimiなどが急速に差を縮めている状況を反映。",
+      "url": "https://www.bentoml.com/blog/navigating-the-world-of-open-source-large-language-models"
+    },
+    {
+      "tag": "hw",
+      "date": "2026.06.05",
+      "title": "Gemma 4 QAT、16GB GPUで26B MoEモデルを動作可能に — Unsloth最適化GGUFも公開",
+      "summary": "Google発表のQATチェックポイントとUnslothのUD-Q4_K_XL GGUFにより、Gemma 4 26B-A4Bが約15GBで動作。Ollama/llama.cpp/vLLMで即座に利用可能、モバイル向け1GB版も。",
+      "url": "https://lushbinary.com/blog/gemma-4-qat-self-hosting-guide-ollama-llama-cpp-vllm/"
+    },
+    {
+      "tag": "model",
+      "date": "2026.04.02",
+      "title": "Google Gemma 4シリーズ正式発表 — Apache 2.0でE2B/E4B/26B MoE/31B Dense公開",
+      "summary": "Google DeepMindがGemma 4ファミリーを公開。Gemini 3研究に基づく最高性能オープンモデルとして、エッジからサーバーまで対応。Arena Text 3位、400M以上のダウンロード実績。",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/"
     }
   ]
 }
