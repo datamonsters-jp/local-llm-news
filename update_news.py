@@ -16,7 +16,7 @@ import anthropic
 # ── 設定 ──────────────────────────────────────────────
 MODEL = "claude-opus-4-5"
 NEWS_JSON = "news.json"
-MAX_SEARCHES = 8           # 1回の更新で使うWeb検索の上限
+MAX_SEARCHES = 4           # 1回の更新で使うWeb検索の上限
 TODAY = datetime.date.today().strftime("%Y.%m.%d")
 # ──────────────────────────────────────────────────────
 
