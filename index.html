@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LOCAL LLM NEWS // ローカルLLM最新情報まとめ</title>
+<title>LOCAL LLM NEWS</title>
 <meta name="description" content="ローカルLLM（オープンウェイトモデル）の最新ニュース・モデルランキング・アーカイブを毎朝AIが自動更新するニュースサイト">
 <meta property="og:title" content="LOCAL LLM NEWS — ローカルLLM最新情報まとめ">
 <meta property="og:description" content="モデルランキング・最新ニュース・アーカイブを毎朝AIが自動更新。ネオンライトなローカルLLMニュースハブ">
@@ -64,6 +64,8 @@ main{position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:32px 20
 .ro .rnum{color:var(--text-muted)}
 .rnw{flex:1;min-width:0}
 .rname{font-family:'Orbitron',sans-serif;font-size:.88rem;font-weight:700;color:#fff;margin-bottom:3px}
+.rname a{color:inherit;text-decoration:none;border-bottom:1px dotted rgba(255,255,255,.35);transition:color .18s,border-color .18s}
+.rname a:hover{color:var(--neon-cyan);border-bottom-color:var(--neon-cyan)}
 .rorg{display:flex;align-items:center;gap:5px}
 .rflag{width:20px;height:13px;border-radius:2px;overflow:hidden;flex-shrink:0;box-shadow:0 1px 3px rgba(0,0,0,.5)}
 .rflag svg{width:100%;height:100%;display:block}
@@ -510,8 +512,11 @@ function togAudio(){
     var flag=FLAGS[m.flag]?'<div class="rflag">'+FLAGS[m.flag]+'</div>':'';
     var org=(m.country||m.org)?'<div class="rorg">'+flag+'<span class="rcountry">'+(m.country||'')+(m.country&&m.org?' · ':'')+(m.org||'')+'</span></div>':'';
     var badges=(m.badges||[]).map(function(b){return '<span class="rbadge">'+b+'</span>';}).join('');
+    var nm=(m.url&&m.url.indexOf('http')===0)
+      ? '<a href="'+m.url+'" target="_blank" rel="noopener">'+m.name+'</a>'
+      : m.name;
     return '<div class="rc '+cls+'"><div class="rh"><div class="rnum">'+medal+'</div>'
-      +'<div class="rnw"><div class="rname">'+m.name+'</div>'+org+'</div>'
+      +'<div class="rnw"><div class="rname">'+nm+'</div>'+org+'</div>'
       +'<div class="rsize">'+m.size+'</div></div>'
       +'<div class="rbar-bg"><div class="rbar" style="width:'+(m.score||50)+'%"></div></div>'
       +'<div class="rmeta"><span class="rscore">SCORE '+(m.score||'—')+'</span>'
