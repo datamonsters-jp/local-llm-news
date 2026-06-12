@@ -49,7 +49,8 @@ SYSTEM_PROMPT = """
       "flag": "国コード: cn/us/fr のいずれか（その他の国は \\"\\" にする）",
       "org": "開発組織（例: Alibaba、Meta、OpenAI）",
       "reason": "選定理由・特徴（40文字以内）",
-      "badges": ["ライセンス", "特徴1", "特徴2"]
+      "badges": ["ライセンス", "特徴1", "特徴2"],
+      "url": "モデルの公式ページURL（HuggingFace・GitHub・公式ブログなど。検索で確認した実在URLのみ。不明なら \\"\\"）"
     }
   ],
   "featured": {
