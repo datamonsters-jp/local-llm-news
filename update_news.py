@@ -17,7 +17,8 @@ import anthropic
 MODEL = "claude-opus-4-5"
 NEWS_JSON = "news.json"
 MAX_SEARCHES = 4           # 1回の更新で使うWeb検索の上限
-TODAY = datetime.date.today().strftime("%Y.%m.%d")
+JST = datetime.timezone(datetime.timedelta(hours=9))
+TODAY = datetime.datetime.now(JST).strftime("%Y.%m.%d")  # 日本時間で日付を取得
 # ──────────────────────────────────────────────────────
 
 SYSTEM_PROMPT = """
