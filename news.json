@@ -1,197 +1,197 @@
 {
-  "updated": "2026.06.13",
+  "updated": "2026.06.14",
   "ticker": [
-    "⚡ Qwen3.7-Plus正式リリース、マルチモーダル対応で低価格路線",
-    "🟢 MiniMax M3がSWE-Bench Proで59%達成、オープンウェイト首位",
-    "🔥 Mistral Small 4が統合推論モデルとして注目を集める",
-    "💾 GLM-5.1がエージェント型開発タスクで最強の座を獲得",
-    "🖥️ Llama 4 Scout、10Mトークン対応でコードベース丸ごと処理可能に"
+    "⚡ Qwen3.7-Plus マルチモーダルエージェント正式GA",
+    "🟢 MiniMax M3が6月リリース、SWE-Bench Pro 59%達成",
+    "🔥 Kimi-K2.7-Code 推論トークン30%削減で登場",
+    "💾 Mistral Small 4が推論・マルチモーダル・コーディング統合",
+    "🖥️ DeepSeek V4-Pro 1Mコンテキスト対応で好評"
   ],
   "ranking": [
     {
-      "name": "GLM-5.1",
+      "name": "MiniMax M3",
       "size": "非公開",
       "score": 98,
       "country": "中国",
       "flag": "cn",
-      "org": "Zhipu AI (Z.ai)",
-      "reason": "エージェント型長時間タスクで最強、複雑な開発ワークフローに最適",
-      "badges": [
-        "オープンソース",
-        "エージェント特化",
-        "コーディング"
-      ],
-      "url": "https://www.bentoml.com/blog/navigating-the-world-of-open-source-large-language-models"
-    },
-    {
-      "name": "MiniMax M3",
-      "size": "非公開",
-      "score": 97,
-      "country": "中国",
-      "flag": "cn",
       "org": "MiniMax",
-      "reason": "SWE-Bench Pro 59%達成、1Mコンテキスト＋マルチモーダル統合",
+      "reason": "SWE-Bench Pro 59%、1Mコンテキスト対応の初フロンティアモデル",
       "badges": [
-        "オープンウェイト",
-        "マルチモーダル",
-        "1Mコンテキスト"
+        "Open-weight",
+        "1M Context",
+        "Multimodal"
       ],
       "url": "https://kilo.ai/open-source-models"
     },
     {
-      "name": "Kimi K2.6",
-      "size": "1.1T",
+      "name": "Qwen3.7-Plus",
+      "size": "非公開 MoE",
       "score": 96,
       "country": "中国",
       "flag": "cn",
-      "org": "Moonshot AI",
-      "reason": "エージェントスウォーム・長時間自律実行に特化、Modified MITライセンス",
+      "org": "Alibaba",
+      "reason": "視覚・動画理解対応、エージェント特化で$0.40/1M入力",
       "badges": [
-        "Modified MIT",
-        "エージェント",
-        "超大規模"
+        "Proprietary",
+        "Multimodal",
+        "Agent"
       ],
-      "url": "https://huggingface.co/blog/daya-shankar/open-source-llms"
+      "url": "https://qwen.ai/research"
     },
     {
-      "name": "Qwen3.6-35B-A3B",
-      "size": "35B MoE (3B active)",
+      "name": "Kimi-K2.6",
+      "size": "1T MoE / 32B active",
       "score": 95,
       "country": "中国",
       "flag": "cn",
-      "org": "Alibaba",
-      "reason": "効率重視のMoEモデル、セルフホスト向けに最適化",
+      "org": "Moonshot AI",
+      "reason": "256Kコンテキスト、エージェント向けコーディング特化",
       "badges": [
-        "Apache 2.0",
+        "Modified MIT",
         "MoE",
-        "効率的"
+        "Long Context"
       ],
-      "url": "https://github.com/QwenLM/Qwen3.6"
+      "url": "https://www.bentoml.com/blog/navigating-the-world-of-open-source-large-language-models"
+    },
+    {
+      "name": "GLM-5.1",
+      "size": "非公開",
+      "score": 94,
+      "country": "中国",
+      "flag": "cn",
+      "org": "Z.ai (Zhipu)",
+      "reason": "長期エージェント向けコーディング最強のオープンソースモデル",
+      "badges": [
+        "Open-source",
+        "Agentic",
+        "Coding"
+      ],
+      "url": "https://kilo.ai/open-source-models"
+    },
+    {
+      "name": "DeepSeek V4-Pro",
+      "size": "非公開 MoE",
+      "score": 93,
+      "country": "中国",
+      "flag": "cn",
+      "org": "DeepSeek",
+      "reason": "LiveCodeBench首位、1Mコンテキスト対応",
+      "badges": [
+        "Open-weight",
+        "1M Context",
+        "Coding"
+      ],
+      "url": "https://kilo.ai/open-source-models"
     },
     {
       "name": "Llama 4 Scout",
-      "size": "109B MoE (17B active)",
-      "score": 94,
+      "size": "109B MoE / 17B active",
+      "score": 92,
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "10Mトークンの超長コンテキスト、オープンウェイト最大",
+      "reason": "10Mトークンコンテキスト、オープンウェイト最長",
       "badges": [
         "Llama License",
-        "10Mコンテキスト",
-        "MoE"
+        "10M Context",
+        "Multimodal"
       ],
       "url": "https://codersera.com/blog/llama-4-complete-guide-2026/"
     },
     {
       "name": "Llama 4 Maverick",
-      "size": "400B MoE (17B active)",
-      "score": 93,
+      "size": "400B MoE / 17B active",
+      "score": 91,
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "128エキスパート構成、1Mコンテキスト対応の大規模モデル",
+      "reason": "128エキスパート、1Mコンテキストの大規模MoE",
       "badges": [
         "Llama License",
         "MoE",
-        "マルチモーダル"
+        "128 Experts"
       ],
       "url": "https://codersera.com/blog/llama-4-complete-guide-2026/"
     },
     {
-      "name": "DeepSeek V4-Pro",
-      "size": "非公開 MoE",
-      "score": 92,
-      "country": "中国",
-      "flag": "cn",
-      "org": "DeepSeek",
-      "reason": "LiveCodeBenchと1Mコンテキストタスクでトップクラス",
-      "badges": [
-        "オープンウェイト",
-        "コーディング",
-        "長文脈"
-      ],
-      "url": "https://kilo.ai/open-source-models"
-    },
-    {
-      "name": "Mistral Small 4",
-      "size": "119B MoE",
-      "score": 91,
+      "name": "Mistral Large 3",
+      "size": "非公開",
+      "score": 90,
       "country": "仏国",
       "flag": "fr",
       "org": "Mistral AI",
-      "reason": "推論・マルチモーダル・コーディングを統合、NVIDIA NIM対応",
+      "reason": "欧州データ主権対応、GPT-4o級で40%低コスト",
       "badges": [
         "Apache 2.0",
-        "統合モデル",
-        "MoE"
+        "EU Hosting",
+        "Enterprise"
       ],
-      "url": "https://serenitiesai.com/articles/mistral-ai-models-2026-complete-guide"
+      "url": "https://pristren.com/blog/mistral-models-guide/"
     }
   ],
   "featured": {
     "tag": "model",
     "date": "2026.06.01",
-    "title": "Qwen3.7-Plusが正式リリース — マルチモーダル対応の低価格エージェントモデル",
-    "summary": "Alibaba Cloudが6月1日にQwen3.7-Plusを正式リリースした。このモデルはビジョン・動画理解機能をQwen 3.7のエージェントバックボーンに統合し、100万トークンのコンテキストウィンドウを持つ。価格はQwen 3.7 Maxの約6分の1（$0.40/$1.60 per 1M tokens）と設定され、コスト重視のエージェントパイプラインに最適。GUIとコマンドラインの操作を単一ループ内で処理可能。",
+    "title": "Alibaba Qwen3.7-Plus正式リリース：マルチモーダルエージェントが$0.40/1Mトークンで利用可能に",
+    "summary": "AlibabaがQwen3.7-Plusを正式リリース。視覚・動画理解をエージェントバックボーンに統合し、100万トークンのコンテキストウィンドウを搭載。Qwen 3.7 Maxの約6分の1の価格（$0.40入力/$1.60出力/1Mトークン）で提供され、予算重視のエージェントパイプラインに最適。5月14日のプレビュー開始から約18日間のテストを経てGA版となった。",
     "url": "https://www.digitalapplied.com/blog/qwen-3-7-plus-alibaba-multimodal-agent-model-2026-release"
   },
   "articles": [
     {
       "tag": "model",
       "date": "2026.06.01",
-      "title": "MiniMax M3がオープンウェイトモデル初のフロンティア級性能を達成",
-      "summary": "MiniMax M3は6月リリースで、オープンウェイト初となるフロンティアコーディング・1Mコンテキスト・ネイティブマルチモーダルを統合。SWE-Bench Proで59.0%を記録。",
+      "title": "MiniMax M3リリース：オープンウェイト初の1Mコンテキスト＋マルチモーダル統合",
+      "summary": "MiniMax M3が2026年6月にリリース。フロンティアコーディング、1Mコンテキスト、ネイティブマルチモーダルを組み合わせた初のオープンウェイトモデルで、SWE-Bench Proで59.0%を達成。",
       "url": "https://kilo.ai/open-source-models"
     },
     {
       "tag": "model",
-      "date": "2026.05.19",
-      "title": "Qwen 3.7-Maxが「Agent Frontier」として発表、長時間自律タスクに特化",
-      "summary": "Alibaba Qwenチームが5月19日にQwen 3.7-Maxを発表。数時間〜数日に及ぶ長時間エージェントタスク向けに設計され、Claude Opus 4.6と競合する位置づけ。",
-      "url": "https://www.yottalabs.ai/post/qwen-3-7-max-release-date-features-open-source-status-and-how-to-access-2026"
+      "date": "2026.06.01",
+      "title": "Kimi-K2.7-Code登場：推論トークン使用量30%削減を実現",
+      "summary": "Moonshot AIがKimi K2.7-Codeをリリース。K2.6比で推論トークン使用量を30%削減し、Modified MITライセンスで公開。エージェント向け長期コーディングタスクに特化。",
+      "url": "https://llm-stats.com/ai-news"
     },
     {
       "tag": "model",
-      "date": "2026.04.22",
-      "title": "Qwen3.6-27BがHugging Face・ModelScopeで公開",
-      "summary": "Alibaba Qwenシリーズの最新オープンウェイトモデルQwen3.6-27Bがリリース。セルフホスト環境での利用が可能で、効率的な推論を実現。",
-      "url": "https://github.com/QwenLM/Qwen3.6"
+      "date": "2026.05.29",
+      "title": "Qwen3.7-Max発表：エージェント時代向けプロプライエタリモデル",
+      "summary": "AlibabaがQwen3.7-Maxを発表。エージェント時代向けに設計された最新プロプライエタリモデルで、OpenRouterで$2.50入力/$7.50出力のAPI価格を設定。",
+      "url": "https://qwen.ai/research"
+    },
+    {
+      "tag": "trend",
+      "date": "2026.06.07",
+      "title": "MistralがEmmi AI統合：産業エンジニアリング向け物理AIを提供開始",
+      "summary": "Mistral AIがEmmi AIをエンタープライズプラットフォームに統合。製造、航空宇宙、エネルギー、半導体向けに高速シミュレーションとリアルタイムデジタルツインを提供。",
+      "url": "https://releasebot.io/updates/mistral"
     },
     {
       "tag": "model",
       "date": "2026.04.08",
-      "title": "Meta、クローズドモデル「Muse Spark」をリリース — Llamaとの二本立て戦略",
-      "summary": "Meta Superintelligence LabsがAPIオンリーの推論モデルMuse Sparkを発表。Llamaオープンウェイト戦略と並行して、商用フロンティアモデル路線に参入。",
+      "title": "Meta Muse Sparkリリース：初のプロプライエタリフロンティアモデル",
+      "summary": "MetaがMuse Sparkをリリース。同社初のクローズドウェイトAPI専用推論モデルで、Artificial Analysis Intelligence Indexで52点を記録。Meta AIアプリの基盤に。",
       "url": "https://codersera.com/blog/llama-4-complete-guide-2026/"
     },
     {
-      "tag": "model",
-      "date": "2026.03.16",
-      "title": "Mistral AIがNVIDIA Nemotron Coalitionの創設メンバーに",
-      "summary": "MistralがNVIDIA主導のNemotron Coalitionに参加。Cursor、LangChain、Perplexityらと共にNemotron 4の共同開発を開始。",
-      "url": "https://serenitiesai.com/articles/mistral-ai-models-2026-complete-guide"
+      "tag": "tool",
+      "date": "2026.04.24",
+      "title": "Mistral Small 4：推論・マルチモーダル・コーディングを統合した万能モデル",
+      "summary": "Mistral Small 4がMagistral（推論）、Pixtral（マルチモーダル）、Devstral（エージェントコーディング）を単一モデルに統合。効率性と汎用性を両立。",
+      "url": "https://aizolo.com/blog/mistral-ai-models-2026/"
     },
     {
-      "tag": "tool",
-      "date": "2026.03.26",
-      "title": "Mistral Small 4がリリース、推論・マルチモーダル・コーディングを統合",
-      "summary": "Mistral Small 4は119B MoEモデルで、Magistral（推論）、Pixtral（マルチモーダル）、Devstral（コーディング）の機能を統合。NVIDIA NIMで利用可能。",
-      "url": "https://serenitiesai.com/articles/mistral-ai-models-2026-complete-guide"
-    },
-    {
-      "tag": "tool",
-      "date": "2026.03.26",
-      "title": "Voxtral TTS — Mistralのオープンソース音声合成モデルが登場",
-      "summary": "Mistralが9言語対応のオープンソースTTSモデルVoxtralをリリース。8GBで単一GPU実行可能、エンタープライズ音声エージェント向け。",
+      "tag": "hw",
+      "date": "2026.03.01",
+      "title": "Mistral AI、パリとスウェーデンに新データセンター建設へ8.3億ドル調達",
+      "summary": "Mistral AIが8.3億ドルを調達し、パリ近郊とスウェーデンに新データセンターを建設予定。ARRは1年で2000万ドルから4億ドルに急成長、評価額138億ドルに到達。",
       "url": "https://aizolo.com/blog/mistral-ai-models-2026/"
     },
     {
       "tag": "research",
-      "date": "2026.03.05",
-      "title": "2026年オープンソースLLM革命 — 中国モデルが覇権を握る",
-      "summary": "2026年初頭、DeepSeek、Qwen、GLM、MiniMax、Kimiなど中国発オープンウェイトモデルが西側を凌駕。ベンチマークで新記録を連発中。",
-      "url": "https://www.alphamatch.ai/blog/open-source-llm-comparison-blog-2026"
+      "date": "2026.05.20",
+      "title": "Qwen3.5-LiveTranslate：視覚コンテキスト対応のリアルタイム通訳モデル",
+      "summary": "Alibabaがリアルタイム同時通訳モデルQwen3.5-LiveTranslate-Flashを発表。音声認識・翻訳に加え、視覚コンテキストを理解してより正確な翻訳を実現。",
+      "url": "https://qwen.ai/research"
     }
   ]
 }
