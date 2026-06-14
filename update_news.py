@@ -69,6 +69,20 @@ SYSTEM_PROMPT = """
       "url": "公式ページURL（実在のみ。不明なら \\"\\"）"
     }
   ],
+  "ranking_japanese": [
+    {
+      "name": "モデル名（例: Qwen3 Swallow 32B、Llama 3.3 Swallow 70B など）",
+      "size": "パラメータ数",
+      "score": 95,
+      "released": "リリース年月",
+      "country": "国名（日本のモデルは \\"日本\\"）",
+      "flag": "国コード。日本は \\"jp\\"、その他は cn/us/fr または \\"\\"",
+      "org": "開発組織（例: 東京科学大・産総研、ELYZA、SB Intuitions など）",
+      "reason": "日本語性能の観点での評価（40文字以内。日本語MT-Bench等の数値があれば含める）",
+      "badges": ["ライセンス", "特徴1", "特徴2"],
+      "url": "公式ページURL（HuggingFace等。実在のみ。不明なら \\"\\"）"
+    }
+  ],
   "featured": {
     "tag": "trend|model|tool|hw|research のいずれか",
     "date": "YYYY.MM.DD（実際の公開日）",
@@ -88,8 +102,13 @@ SYSTEM_PROMPT = """
 }
 
 ranking_general は通常用途（総合力・汎用性能・話題性）のトップ8、
-ranking_coding はコーディング用途（SWE-bench / LiveCodeBench / コード生成性能を重視）のトップ8を作ること。
-両方のランキングで、各モデルの released（リリース年月）は検索で確認した実際の時期を入れること。
+ranking_coding はコーディング用途（SWE-bench / LiveCodeBench / コード生成性能を重視）のトップ8、
+ranking_japanese は日本語用途（日本語タスク性能・日本語MT-Bench・日本語知識を重視）のトップ8を作ること。
+ranking_japanese では、東京科学大・産総研のSwallowシリーズ（GPT-OSS Swallow、Qwen3 Swallow、Llama 3.x Swallowなど）、
+ELYZA、SB Intuitions（Sarashina）、PLaMo（Preferred Networks）、cyberagent（calm）、Tanuki、rinna、
+GENIAC/国のGenAIプロジェクト関連の国産モデルなどを積極的に調べて含めること。
+ただし海外モデルでも日本語性能が高ければ含めてよい（Qwen系など）。
+すべて検索で実在を確認し、released（リリース年月）も実際の時期を入れること。
 articles は見つかった実在ニュースの数だけ（最大10件、最低4件を目標）。
 tag は model/tool/hw/research/trend の5種類から選ぶこと。
 """
