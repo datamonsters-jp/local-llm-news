@@ -46,6 +46,12 @@ main{position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:32px 20
 .sec-sub{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--text-muted);white-space:nowrap}
 /* RANKING */
 .rank-section{margin:32px 0}
+.rank-tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.rtab{font-family:'Orbitron',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;padding:8px 20px;border-radius:6px;border:1px solid rgba(255,230,0,.25);background:transparent;color:var(--neon-yellow);cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:6px}
+.rtab:hover,.rtab.ac{background:rgba(255,230,0,.12);border-color:var(--neon-yellow);box-shadow:0 0 16px rgba(255,230,0,.2);color:#fff}
+.rtab .ico{font-size:13px}
+.rdate{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--text-muted);margin-top:2px;letter-spacing:.5px}
+.rdate b{color:rgba(0,245,255,.7);font-weight:400}
 .rank-legend{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--text-muted);margin-bottom:14px;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid rgba(255,255,255,.06)}
 .rank-legend span{color:var(--neon-cyan)}
 .rank-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
@@ -194,6 +200,10 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
     <div class="sec-line" style="background:var(--neon-yellow)"></div>
     <span class="sec-sub">注目度・性能・話題性の総合スコア</span>
   </div>
+  <div class="rank-tabs">
+    <button class="rtab ac" onclick="rankTab(this,'general')"><span class="ico">⭐</span>通常用途</button>
+    <button class="rtab" onclick="rankTab(this,'coding')"><span class="ico">💻</span>コーディング用途</button>
+  </div>
   <div class="rank-legend">スコアの基準：<span>ベンチマーク性能</span> × 話題量 × <span>実用性（VRAM効率・ライセンス）</span> を100点満点で評価。毎朝Claude AIが自動更新。</div>
   <div class="rank-grid" id="rankGrid">
 
@@ -203,6 +213,7 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
         <div class="rnw">
           <div class="rname">Qwen3.5-72B</div>
           <div class="rorg"><div class="rflag"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5,2 6.18,5.09 9.51,5.09 6.84,7.05 7.82,10.18 5,8.5 2.18,10.18 3.16,7.05 0.49,5.09 3.82,5.09" fill="#FFDE00"/></svg></div><span class="rcountry">中国 · Alibaba</span></div>
+          <div class="rdate">📅 <b>2026.02 リリース</b></div>
         </div>
         <div class="rsize">72B</div>
       </div>
@@ -210,6 +221,12 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
       <div class="rmeta"><span class="rscore">SCORE 97</span><span class="rreason">コーディング・推論でトップクラス。Q4量子化でVRAM24GB動作。SWE-bench 72.4%</span></div>
       <div class="rbadges"><span class="rbadge">Apache 2.0</span><span class="rbadge">コーディング最強</span><span class="rbadge">日本語強</span></div>
     </div>
+
+  </div>
+</div>
+<!-- 旧:静的ランキングカード（JS未読込時のフォールバック。実際は news.json から描画） -->
+<div style="display:none">
+  <div class="rank-grid">
 
     <div class="rc r2">
       <div class="rh">
@@ -511,18 +528,29 @@ function togAudio(){
     var rank=i+1, cls=rank<=3?'r'+rank:'ro', medal=rank<=3?MED[i]:'#'+rank;
     var flag=FLAGS[m.flag]?'<div class="rflag">'+FLAGS[m.flag]+'</div>':'';
     var org=(m.country||m.org)?'<div class="rorg">'+flag+'<span class="rcountry">'+(m.country||'')+(m.country&&m.org?' · ':'')+(m.org||'')+'</span></div>':'';
+    var rel=m.released?'<div class="rdate">📅 <b>'+m.released+' リリース</b></div>':'';
     var badges=(m.badges||[]).map(function(b){return '<span class="rbadge">'+b+'</span>';}).join('');
     var nm=(m.url&&m.url.indexOf('http')===0)
       ? '<a href="'+m.url+'" target="_blank" rel="noopener">'+m.name+'</a>'
       : m.name;
     return '<div class="rc '+cls+'"><div class="rh"><div class="rnum">'+medal+'</div>'
-      +'<div class="rnw"><div class="rname">'+nm+'</div>'+org+'</div>'
+      +'<div class="rnw"><div class="rname">'+nm+'</div>'+org+rel+'</div>'
       +'<div class="rsize">'+m.size+'</div></div>'
       +'<div class="rbar-bg"><div class="rbar" style="width:'+(m.score||50)+'%"></div></div>'
       +'<div class="rmeta"><span class="rscore">SCORE '+(m.score||'—')+'</span>'
       +'<span class="rreason">'+(m.reason||'')+'</span></div>'
       +(badges?'<div class="rbadges">'+badges+'</div>':'')+'</div>';
   }
+  // ランキングデータを保持してタブ切替で再描画
+  window.__rankData={general:[],coding:[]};
+  window.rankTab=function(btn,key){
+    document.querySelectorAll('.rtab').forEach(function(b){b.classList.remove('ac');});
+    btn.classList.add('ac');
+    var list=window.__rankData[key]||[];
+    document.getElementById('rankGrid').innerHTML=list.length
+      ? list.map(rankCard).join('')
+      : '<div class="empty">// データがありません //</div>';
+  };
   function newsCard(a,i){
     var link=a.url?'<a href="'+a.url+'" target="_blank" rel="noopener" class="clink">READ MORE →</a>':'';
     return '<div class="nc '+COLS[i%COLS.length]+'" data-t="'+a.tag+'">'
@@ -541,8 +569,18 @@ function togAudio(){
         var t=d.ticker.map(function(x){return '<span class="ti">'+x+'</span><span class="ts"> ★ </span>';}).join('');
         document.getElementById('tickerTrack').innerHTML=t+t;
       }
-      if(d.ranking&&d.ranking.length){
-        document.getElementById('rankGrid').innerHTML=d.ranking.map(rankCard).join('');
+      // ランキング: 新形式(ranking_general/ranking_coding) と 旧形式(ranking) の両対応
+      var gen = d.ranking_general || d.ranking || [];
+      var cod = d.ranking_coding || [];
+      window.__rankData.general = gen;
+      window.__rankData.coding = cod;
+      if(gen.length){
+        document.getElementById('rankGrid').innerHTML=gen.map(rankCard).join('');
+      }
+      // コーディング用ランキングが無い場合はタブを隠す
+      if(!cod.length){
+        var tabs=document.querySelector('.rank-tabs');
+        if(tabs) tabs.style.display='none';
       }
       if(d.featured){
         var f=d.featured;
