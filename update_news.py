@@ -16,7 +16,7 @@ import anthropic
 # ── 設定 ──────────────────────────────────────────────
 MODEL = "claude-opus-4-5"
 NEWS_JSON = "news.json"
-MAX_SEARCHES = 4           # 1回の更新で使うWeb検索の上限
+MAX_SEARCHES = 8           # 1回の更新で使うWeb検索の上限
 JST = datetime.timezone(datetime.timedelta(hours=9))
 TODAY = datetime.datetime.now(JST).strftime("%Y.%m.%d")  # 日本時間で日付を取得
 # ──────────────────────────────────────────────────────
@@ -41,17 +41,32 @@ SYSTEM_PROMPT = """
     "💾 ティッカー見出し4",
     "🖥️ ティッカー見出し5"
   ],
-  "ranking": [
+  "ranking_general": [
     {
       "name": "モデル名（例: Qwen3.5-72B）",
       "size": "パラメータ数（例: 72B、109B MoE）",
       "score": 97,
+      "released": "リリース年月（例: 2026.02。検索で確認した実際のリリース時期）",
       "country": "国名（例: 中国、米国、仏国）",
       "flag": "国コード: cn/us/fr のいずれか（その他の国は \\"\\" にする）",
       "org": "開発組織（例: Alibaba、Meta、OpenAI）",
       "reason": "選定理由・特徴（40文字以内）",
       "badges": ["ライセンス", "特徴1", "特徴2"],
       "url": "モデルの公式ページURL（HuggingFace・GitHub・公式ブログなど。検索で確認した実在URLのみ。不明なら \\"\\"）"
+    }
+  ],
+  "ranking_coding": [
+    {
+      "name": "モデル名",
+      "size": "パラメータ数",
+      "score": 96,
+      "released": "リリース年月",
+      "country": "国名",
+      "flag": "cn/us/fr または \\"\\"",
+      "org": "開発組織",
+      "reason": "コーディング性能の観点での評価（40文字以内。SWE-bench等の数値があれば含める）",
+      "badges": ["ライセンス", "特徴1", "特徴2"],
+      "url": "公式ページURL（実在のみ。不明なら \\"\\"）"
     }
   ],
   "featured": {
@@ -72,7 +87,10 @@ SYSTEM_PROMPT = """
   ]
 }
 
-ranking は8件、articles は見つかった実在ニュースの数だけ（最大10件、最低4件を目標）。
+ranking_general は通常用途（総合力・汎用性能・話題性）のトップ8、
+ranking_coding はコーディング用途（SWE-bench / LiveCodeBench / コード生成性能を重視）のトップ8を作ること。
+両方のランキングで、各モデルの released（リリース年月）は検索で確認した実際の時期を入れること。
+articles は見つかった実在ニュースの数だけ（最大10件、最低4件を目標）。
 tag は model/tool/hw/research/trend の5種類から選ぶこと。
 """
 
