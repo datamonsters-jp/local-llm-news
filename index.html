@@ -204,6 +204,7 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
     <button class="rtab ac" onclick="rankTab(this,'general')"><span class="ico">⭐</span>通常用途</button>
     <button class="rtab" onclick="rankTab(this,'coding')"><span class="ico">💻</span>コーディング用途</button>
     <button class="rtab" onclick="rankTab(this,'japanese')"><span class="ico">🇯🇵</span>日本語用途</button>
+    <button class="rtab" onclick="rankTab(this,'edge')"><span class="ico">📟</span>エッジAI用途</button>
   </div>
   <div class="rank-legend">スコアの基準：<span>ベンチマーク性能</span> × 話題量 × <span>実用性（VRAM効率・ライセンス）</span> を100点満点で評価。毎朝Claude AIが自動更新。</div>
   <div class="rank-grid" id="rankGrid">
@@ -544,7 +545,7 @@ function togAudio(){
       +(badges?'<div class="rbadges">'+badges+'</div>':'')+'</div>';
   }
   // ランキングデータを保持してタブ切替で再描画
-  window.__rankData={general:[],coding:[],japanese:[]};
+  window.__rankData={general:[],coding:[],japanese:[],edge:[]};
   window.rankTab=function(btn,key){
     document.querySelectorAll('.rtab').forEach(function(b){b.classList.remove('ac');});
     btn.classList.add('ac');
@@ -571,20 +572,22 @@ function togAudio(){
         var t=d.ticker.map(function(x){return '<span class="ti">'+x+'</span><span class="ts"> ★ </span>';}).join('');
         document.getElementById('tickerTrack').innerHTML=t+t;
       }
-      // ランキング: 新形式(ranking_general/coding/japanese) と 旧形式(ranking) の両対応
+      // ランキング: 新形式(ranking_general/coding/japanese/edge) と 旧形式(ranking) の両対応
       var gen = d.ranking_general || d.ranking || [];
       var cod = d.ranking_coding || [];
       var jpn = d.ranking_japanese || [];
+      var edg = d.ranking_edge || [];
       window.__rankData.general = gen;
       window.__rankData.coding = cod;
       window.__rankData.japanese = jpn;
+      window.__rankData.edge = edg;
       if(gen.length){
         document.getElementById('rankGrid').innerHTML=gen.map(rankCard).join('');
       }
       // データが無いタブは個別に隠す
       var tabBtns=document.querySelectorAll('.rtab');
-      var has={general:gen.length,coding:cod.length,japanese:jpn.length};
-      var keys=['general','coding','japanese'];
+      var has={general:gen.length,coding:cod.length,japanese:jpn.length,edge:edg.length};
+      var keys=['general','coding','japanese','edge'];
       tabBtns.forEach(function(b,idx){
         if(!has[keys[idx]]) b.style.display='none';
       });
