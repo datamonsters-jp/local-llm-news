@@ -83,6 +83,20 @@ SYSTEM_PROMPT = """
       "url": "公式ページURL（HuggingFace等。実在のみ。不明なら \\"\\"）"
     }
   ],
+  "ranking_edge": [
+    {
+      "name": "モデル名（例: Gemma 3n、Qwen3 0.6B、Llama 3.2 1B など）",
+      "size": "パラメータ数（例: 0.6B、1B、2B など小型中心）",
+      "score": 94,
+      "released": "リリース年月",
+      "country": "国名",
+      "flag": "国コード: cn/us/fr/jp または \\"\\"",
+      "org": "開発組織",
+      "reason": "エッジ動作の観点での評価（40文字以内。RAM要件・トークン/秒・対応デバイス等）",
+      "badges": ["ライセンス", "省メモリ", "特徴"],
+      "url": "公式ページURL（実在のみ。不明なら \\"\\"）"
+    }
+  ],
   "featured": {
     "tag": "trend|model|tool|hw|research のいずれか",
     "date": "YYYY.MM.DD（実際の公開日）",
@@ -103,7 +117,11 @@ SYSTEM_PROMPT = """
 
 ranking_general は通常用途（総合力・汎用性能・話題性）のトップ8、
 ranking_coding はコーディング用途（SWE-bench / LiveCodeBench / コード生成性能を重視）のトップ8、
-ranking_japanese は日本語用途（日本語タスク性能・日本語MT-Bench・日本語知識を重視）のトップ8を作ること。
+ranking_japanese は日本語用途（日本語タスク性能・日本語MT-Bench・日本語知識を重視）のトップ8、
+ranking_edge はエッジAI用途（Raspberry Pi・スマホ・組み込み機器など低リソース環境で動く超軽量モデル）のトップ8を作ること。
+ranking_edge では、Gemma 3n、Qwen3 0.6B/1.7B、Llama 3.2 1B/3B、Phi-4-mini、SmolLM、TinyLlama、
+MobileLLM、BitNet系（1bit LLM）など、おおむね4B以下でメモリ数GB以内・CPU/NPUで動くモデルを中心に選ぶこと。
+reasonにはRAM要件やトークン/秒、対応デバイス（ラズパイ・スマホ等）を含めると良い。
 ranking_japanese では、東京科学大・産総研のSwallowシリーズ（GPT-OSS Swallow、Qwen3 Swallow、Llama 3.x Swallowなど）、
 ELYZA、SB Intuitions（Sarashina）、PLaMo（Preferred Networks）、cyberagent（calm）、Tanuki、rinna、
 GENIAC/国のGenAIプロジェクト関連の国産モデルなどを積極的に調べて含めること。
