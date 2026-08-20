@@ -1,11 +1,11 @@
 {
-  "updated": "2026.08.20",
+  "updated": "2026.08.21",
   "ticker": [
-    "⚡ Qwen 3.8-Max 2.4T & 27Bのオープンウェイト公開",
-    "🟢 Kimi K3 2.8T — 世界最大のオープンウェイトMoE",
-    "🔥 Meta Muse Glimmer 30B Apache 2.0でリリース",
-    "💾 Ollama v0.32最新版がQwen 3.8 27Bに対応",
-    "🖥️ vLLM 0.21がDeepSeek V4をBlackwellで安定化"
+    "⚡ Qwen3.8-27B オープンウェイト公開！ローカル推論に最適",
+    "🟢 GLM-5.3 が8月14日リリース、Z.AI最新モデル",
+    "🔥 Kimi K3が2.8兆パラメータで史上最大のオープンウェイト",
+    "💾 Meta Muse Glimmer 30B Apache 2.0でローカル対応",
+    "🖥️ Mistral Shieldstral セーフティモデル公開"
   ],
   "ranking_general": [
     {
@@ -16,13 +16,13 @@
       "country": "中国",
       "flag": "cn",
       "org": "Moonshot AI",
-      "reason": "世界最大オープンウェイトMoE、GPQA 93.5、1Mコンテキスト",
+      "reason": "史上最大オープンウェイト。Terminal-Bench 88.3、GPQA 93.5",
       "badges": [
         "Kimi License",
-        "Multimodal",
+        "MoE",
         "1M Context"
       ],
-      "url": "https://huggingface.co/moonshotai"
+      "url": "https://huggingface.co/moonshot-ai"
     },
     {
       "name": "Qwen3.8-Max",
@@ -32,11 +32,11 @@
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba",
-      "reason": "Kimi K3に次ぐ巨大MoE、テキスト＋Vision対応",
+      "reason": "マルチモーダル対応、1Mコンテキスト、API価格$2/$6",
       "badges": [
-        "Apache 2.0",
-        "Multimodal",
-        "1M Context"
+        "Custom License",
+        "MoE",
+        "Vision"
       ],
       "url": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
     },
@@ -44,97 +44,97 @@
       "name": "GLM-5.2",
       "size": "753B",
       "score": 96,
-      "released": "2026.06",
+      "released": "2026.07",
       "country": "中国",
       "flag": "cn",
-      "org": "Z.ai (Zhipu)",
-      "reason": "MIT License、SWE-bench Pro 62.1%、AIME 2026で99.2",
+      "org": "Z.ai",
+      "reason": "MITライセンス最強。SWE-bench Pro 62.1%、AIME 99.2",
       "badges": [
         "MIT",
         "1M Context",
         "Reasoning"
       ],
-      "url": "https://huggingface.co/THUDM"
-    },
-    {
-      "name": "DeepSeek V4",
-      "size": "1.6T MoE",
-      "score": 95,
-      "released": "2026.04",
-      "country": "中国",
-      "flag": "cn",
-      "org": "DeepSeek",
-      "reason": "コーディング最強クラス、MIT License、効率的MoE設計",
-      "badges": [
-        "MIT",
-        "MoE",
-        "Coding"
-      ],
-      "url": "https://huggingface.co/deepseek-ai"
+      "url": ""
     },
     {
       "name": "Qwen3.8-27B",
       "size": "27B",
-      "score": 93,
+      "score": 94,
       "released": "2026.08",
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba",
-      "reason": "ローカル実行可能なQwen最新、単一GPU動作",
+      "reason": "単一GPUで動作可能、ローカルAI最適解",
       "badges": [
         "Apache 2.0",
-        "Local Friendly",
-        "Coding"
+        "Dense",
+        "ローカル向け"
       ],
       "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
     },
     {
       "name": "Llama 4 Maverick",
       "size": "400B MoE (17B active)",
-      "score": 92,
+      "score": 93,
       "released": "2025.04",
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "1Mコンテキスト、マルチモーダル、広いエコシステム",
+      "reason": "128エキスパートMoE、1Mコンテキスト、マルチモーダル",
       "badges": [
         "Llama License",
-        "Multimodal",
-        "1M Context"
+        "MoE",
+        "Vision"
       ],
       "url": "https://huggingface.co/meta-llama"
     },
     {
+      "name": "DeepSeek V4",
+      "size": "MoE",
+      "score": 92,
+      "released": "2026.07",
+      "country": "中国",
+      "flag": "cn",
+      "org": "DeepSeek",
+      "reason": "コーディング・推論ベンチで高評価、MIT License",
+      "badges": [
+        "MIT",
+        "MoE",
+        "Coding"
+      ],
+      "url": ""
+    },
+    {
       "name": "Muse Glimmer",
-      "size": "30B",
+      "size": "30B Dense",
       "score": 90,
       "released": "2026.08",
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "Apache 2.0、128Kコンテキスト、ローカル動作可能",
+      "reason": "Apache 2.0、128Kコンテキスト、20GB以下でローカル動作",
       "badges": [
         "Apache 2.0",
         "Multimodal",
-        "Local Friendly"
+        "128K"
       ],
       "url": "https://huggingface.co/meta-llama"
     },
     {
-      "name": "Qwen3.5",
-      "size": "397B MoE",
+      "name": "Mistral Large 3",
+      "size": "Large",
       "score": 89,
-      "released": "2026.02",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "Apache 2.0、幅広い言語サポート、安定した汎用性能",
+      "released": "2026.03",
+      "country": "仏国",
+      "flag": "fr",
+      "org": "Mistral AI",
+      "reason": "マルチモーダル67点、数学65点でMistral最強",
       "badges": [
         "Apache 2.0",
-        "Multilingual",
-        "MoE"
+        "Vision",
+        "EU"
       ],
-      "url": "https://huggingface.co/Qwen"
+      "url": "https://huggingface.co/mistralai"
     }
   ],
   "ranking_coding": [
@@ -142,17 +142,17 @@
       "name": "GLM-5.2",
       "size": "753B",
       "score": 98,
-      "released": "2026.06",
+      "released": "2026.07",
       "country": "中国",
       "flag": "cn",
-      "org": "Z.ai (Zhipu)",
-      "reason": "SWE-bench Pro 62.1%、Terminal-Bench 81.0、MIT License",
+      "org": "Z.ai",
+      "reason": "SWE-bench Pro 62.1%、Terminal-Bench 81.0で最強クラス",
       "badges": [
         "MIT",
-        "SWE-bench Leader",
-        "Reasoning"
+        "1M Context",
+        "Coding"
       ],
-      "url": "https://huggingface.co/THUDM"
+      "url": ""
     },
     {
       "name": "Kimi K3",
@@ -162,448 +162,434 @@
       "country": "中国",
       "flag": "cn",
       "org": "Moonshot AI",
-      "reason": "Terminal-Bench 88.3、FrontierSWE 81.2、DeepSWE 67.5",
+      "reason": "FrontierSWE 81.2、DeepSWE 67.5の高スコア",
       "badges": [
         "Kimi License",
-        "Coding",
+        "MoE",
         "Agentic"
-      ],
-      "url": "https://huggingface.co/moonshotai"
-    },
-    {
-      "name": "DeepSeek V4",
-      "size": "1.6T MoE",
-      "score": 96,
-      "released": "2026.04",
-      "country": "中国",
-      "flag": "cn",
-      "org": "DeepSeek",
-      "reason": "LiveCodeBench/SWE-Bench最高クラス、MIT License",
-      "badges": [
-        "MIT",
-        "Coding",
-        "MoE"
-      ],
-      "url": "https://huggingface.co/deepseek-ai"
-    },
-    {
-      "name": "Qwen3-Coder-480B",
-      "size": "480B MoE",
-      "score": 94,
-      "released": "2025.10",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "コード特化MoE、Ollama Cloud対応、エージェント向け",
-      "badges": [
-        "Apache 2.0",
-        "Code Agent",
-        "MoE"
-      ],
-      "url": "https://huggingface.co/Qwen"
-    },
-    {
-      "name": "Qwen3.8-27B",
-      "size": "27B",
-      "score": 92,
-      "released": "2026.08",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "コーディング・エージェント向け最適化、ローカル実行可能",
-      "badges": [
-        "Apache 2.0",
-        "Local Coding",
-        "Agent"
-      ],
-      "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
-    },
-    {
-      "name": "MiniMax M3",
-      "size": "MoE (大規模)",
-      "score": 91,
-      "released": "2026.06",
-      "country": "中国",
-      "flag": "cn",
-      "org": "MiniMax",
-      "reason": "SWE-Bench Pro 59.0%、1Mコンテキスト、マルチモーダル",
-      "badges": [
-        "Custom License",
-        "Multimodal",
-        "Coding"
       ],
       "url": ""
     },
     {
+      "name": "DeepSeek V4",
+      "size": "MoE",
+      "score": 96,
+      "released": "2026.07",
+      "country": "中国",
+      "flag": "cn",
+      "org": "DeepSeek",
+      "reason": "LiveCodeBench/SWE-Bench Verifiedでトップクラス",
+      "badges": [
+        "MIT",
+        "MoE",
+        "Reasoning"
+      ],
+      "url": ""
+    },
+    {
+      "name": "Qwen3.8-Max",
+      "size": "2.4T MoE (95B active)",
+      "score": 95,
+      "released": "2026.08",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Alibaba",
+      "reason": "コーディングエージェント向け最適化済み",
+      "badges": [
+        "Custom License",
+        "MoE",
+        "Agent"
+      ],
+      "url": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+    },
+    {
+      "name": "Devstral",
+      "size": "Medium",
+      "score": 92,
+      "released": "2026.05",
+      "country": "仏国",
+      "flag": "fr",
+      "org": "Mistral AI",
+      "reason": "コード特化、セルフホスト可能なコーディングアシスタント",
+      "badges": [
+        "Apache 2.0",
+        "Code",
+        "Self-host"
+      ],
+      "url": "https://huggingface.co/mistralai"
+    },
+    {
+      "name": "Codestral",
+      "size": "22B",
+      "score": 91,
+      "released": "2026.02",
+      "country": "仏国",
+      "flag": "fr",
+      "org": "Mistral AI",
+      "reason": "軽量コーディングモデル、ローカル推論に最適",
+      "badges": [
+        "Apache 2.0",
+        "Code",
+        "Efficient"
+      ],
+      "url": "https://huggingface.co/mistralai"
+    },
+    {
       "name": "Llama 4 Maverick",
       "size": "400B MoE (17B active)",
-      "score": 89,
+      "score": 90,
       "released": "2025.04",
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "豊富なファインチューン派生、10Mコンテキスト対応Scout系も",
+      "reason": "コード生成でGPT-4oに匹敵、オープンウェイト",
       "badges": [
         "Llama License",
-        "Multimodal",
-        "Ecosystem"
+        "MoE",
+        "Multimodal"
       ],
       "url": "https://huggingface.co/meta-llama"
     },
     {
-      "name": "Qwen3-Coder-Next",
-      "size": "不明",
+      "name": "Qwen3.8-27B",
+      "size": "27B",
       "score": 88,
-      "released": "2026.02",
+      "released": "2026.08",
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba",
-      "reason": "コーディングエージェント・ローカル開発タスク向け",
+      "reason": "単一GPU動作、ローカルコーディングに実用的",
       "badges": [
         "Apache 2.0",
-        "Agent",
-        "Local Dev"
+        "Dense",
+        "Local"
       ],
-      "url": "https://huggingface.co/Qwen"
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
     }
   ],
   "ranking_japanese": [
     {
-      "name": "Qwen3-235B-A22B",
-      "size": "235B MoE (22B active)",
-      "score": 96,
-      "released": "2025.04",
+      "name": "Qwen3.8-27B",
+      "size": "27B",
+      "score": 95,
+      "released": "2026.08",
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba",
-      "reason": "日本語含む多言語で高性能、Apache 2.0、汎用推論強い",
+      "reason": "多言語200言語対応、日本語性能も高水準",
       "badges": [
         "Apache 2.0",
         "Multilingual",
-        "MoE"
+        "Local"
       ],
-      "url": "https://huggingface.co/Qwen"
-    },
-    {
-      "name": "Qwen3.5-72B",
-      "size": "72B",
-      "score": 94,
-      "released": "2026.02",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "日本語タスクでトップクラス、広い言語サポート",
-      "badges": [
-        "Apache 2.0",
-        "Japanese",
-        "Dense"
-      ],
-      "url": "https://huggingface.co/Qwen"
-    },
-    {
-      "name": "Llama 3.3 Swallow 70B",
-      "size": "70B",
-      "score": 92,
-      "released": "2025.03",
-      "country": "日本",
-      "flag": "jp",
-      "org": "東京科学大・産総研",
-      "reason": "日本語継続事前学習、MT-Bench-JP上位、国産モデル",
-      "badges": [
-        "Llama License",
-        "Japanese",
-        "Academic"
-      ],
-      "url": "https://huggingface.co/tokyotech-llm"
-    },
-    {
-      "name": "Qwen3 Swallow 32B",
-      "size": "32B",
-      "score": 91,
-      "released": "2025.05",
-      "country": "日本",
-      "flag": "jp",
-      "org": "東京科学大・産総研",
-      "reason": "Qwen3ベースの日本語強化版、ローカル実行可能サイズ",
-      "badges": [
-        "Apache 2.0",
-        "Japanese",
-        "Local Friendly"
-      ],
-      "url": "https://huggingface.co/tokyotech-llm"
-    },
-    {
-      "name": "ELYZA-japanese-Llama-3-70B",
-      "size": "70B",
-      "score": 89,
-      "released": "2024.12",
-      "country": "日本",
-      "flag": "jp",
-      "org": "ELYZA",
-      "reason": "日本語ビジネス用途に最適化、商用利用可",
-      "badges": [
-        "Llama License",
-        "Japanese",
-        "Business"
-      ],
-      "url": "https://huggingface.co/elyza"
-    },
-    {
-      "name": "Sarashina2-70B",
-      "size": "70B",
-      "score": 88,
-      "released": "2024.11",
-      "country": "日本",
-      "flag": "jp",
-      "org": "SB Intuitions",
-      "reason": "日本語特化大規模モデル、高品質日本語生成",
-      "badges": [
-        "Custom License",
-        "Japanese",
-        "Enterprise"
-      ],
-      "url": "https://huggingface.co/sbintuitions"
-    },
-    {
-      "name": "PLaMo-100B",
-      "size": "100B",
-      "score": 87,
-      "released": "2024.09",
-      "country": "日本",
-      "flag": "jp",
-      "org": "Preferred Networks",
-      "reason": "国産大規模モデル、日本語知識充実",
-      "badges": [
-        "Custom License",
-        "Japanese",
-        "Research"
-      ],
-      "url": "https://huggingface.co/pfnet"
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
     },
     {
       "name": "Llama 4 Maverick",
       "size": "400B MoE (17B active)",
-      "score": 86,
+      "score": 93,
       "released": "2025.04",
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "多言語学習で日本語も良好、豊富な日本語ファインチューン",
+      "reason": "多言語10倍トークン学習、200言語対応",
       "badges": [
         "Llama License",
-        "Multilingual",
-        "Ecosystem"
+        "200 Languages",
+        "MoE"
       ],
       "url": "https://huggingface.co/meta-llama"
+    },
+    {
+      "name": "Llama 4 Scout",
+      "size": "109B MoE (17B active)",
+      "score": 91,
+      "released": "2025.04",
+      "country": "米国",
+      "flag": "us",
+      "org": "Meta",
+      "reason": "10Mコンテキスト、日本語長文処理に強み",
+      "badges": [
+        "Llama License",
+        "10M Context",
+        "MoE"
+      ],
+      "url": "https://huggingface.co/meta-llama"
+    },
+    {
+      "name": "Mistral Large 3",
+      "size": "Large",
+      "score": 89,
+      "released": "2026.03",
+      "country": "仏国",
+      "flag": "fr",
+      "org": "Mistral AI",
+      "reason": "欧州発、多言語対応でバランス良好",
+      "badges": [
+        "Apache 2.0",
+        "Multilingual",
+        "EU"
+      ],
+      "url": "https://huggingface.co/mistralai"
+    },
+    {
+      "name": "GLM-5.2",
+      "size": "753B",
+      "score": 88,
+      "released": "2026.07",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Z.ai",
+      "reason": "MITライセンス、中国語ベースで日本語も対応",
+      "badges": [
+        "MIT",
+        "1M Context",
+        "Multilingual"
+      ],
+      "url": ""
+    },
+    {
+      "name": "Muse Glimmer",
+      "size": "30B Dense",
+      "score": 86,
+      "released": "2026.08",
+      "country": "米国",
+      "flag": "us",
+      "org": "Meta",
+      "reason": "Apache 2.0、ローカル日本語処理に実用的",
+      "badges": [
+        "Apache 2.0",
+        "128K",
+        "Local"
+      ],
+      "url": ""
+    },
+    {
+      "name": "Kimi K3",
+      "size": "2.8T MoE (104B active)",
+      "score": 85,
+      "released": "2026.07",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Moonshot AI",
+      "reason": "最大規模オープンウェイト、多言語対応",
+      "badges": [
+        "Kimi License",
+        "MoE",
+        "1M Context"
+      ],
+      "url": ""
+    },
+    {
+      "name": "Mistral Small 4",
+      "size": "Small",
+      "score": 83,
+      "released": "2026.04",
+      "country": "仏国",
+      "flag": "fr",
+      "org": "Mistral AI",
+      "reason": "軽量で多言語対応、コスト効率良好",
+      "badges": [
+        "Apache 2.0",
+        "Efficient",
+        "Multilingual"
+      ],
+      "url": "https://huggingface.co/mistralai"
     }
   ],
   "ranking_edge": [
     {
-      "name": "Qwen3-0.6B",
-      "size": "0.6B",
-      "score": 94,
-      "released": "2025.04",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "512MB RAM可、スマホ・ラズパイ対応、高速推論",
+      "name": "Ministral 3 14B",
+      "size": "14B",
+      "score": 95,
+      "released": "2026.06",
+      "country": "仏国",
+      "flag": "fr",
+      "org": "Mistral AI",
+      "reason": "推論特化、BenchLMスコア49.7でMistral最高",
       "badges": [
         "Apache 2.0",
-        "Edge",
-        "Ultra Light"
-      ],
-      "url": "https://huggingface.co/Qwen"
-    },
-    {
-      "name": "Qwen3-1.7B",
-      "size": "1.7B",
-      "score": 93,
-      "released": "2025.04",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "1-2GB RAM、エッジデバイス最適、バランス良好",
-      "badges": [
-        "Apache 2.0",
-        "Edge",
+        "Reasoning",
         "Efficient"
       ],
-      "url": "https://huggingface.co/Qwen"
+      "url": "https://huggingface.co/mistralai"
     },
     {
-      "name": "Gemma 3n",
-      "size": "2B/4B (E2B/E4B)",
+      "name": "Mistral 7B",
+      "size": "7B",
       "score": 92,
-      "released": "2025.06",
-      "country": "米国",
-      "flag": "us",
-      "org": "Google",
-      "reason": "スマホ向け最適化、1-2GB動作、Android対応",
-      "badges": [
-        "Gemma License",
-        "Mobile",
-        "On-device"
-      ],
-      "url": "https://huggingface.co/google"
-    },
-    {
-      "name": "Llama 3.2 1B",
-      "size": "1B",
-      "score": 91,
       "released": "2024.09",
-      "country": "米国",
-      "flag": "us",
-      "org": "Meta",
-      "reason": "軽量でエッジ最適化、llama.cpp完全対応",
-      "badges": [
-        "Llama License",
-        "Edge",
-        "1B"
-      ],
-      "url": "https://huggingface.co/meta-llama"
-    },
-    {
-      "name": "Llama 3.2 3B",
-      "size": "3B",
-      "score": 90,
-      "released": "2024.09",
-      "country": "米国",
-      "flag": "us",
-      "org": "Meta",
-      "reason": "3-4GB RAM、ラズパイ5で実用速度、汎用性高い",
-      "badges": [
-        "Llama License",
-        "Edge",
-        "Balanced"
-      ],
-      "url": "https://huggingface.co/meta-llama"
-    },
-    {
-      "name": "Phi-4-mini",
-      "size": "3.8B",
-      "score": 89,
-      "released": "2025.02",
-      "country": "米国",
-      "flag": "us",
-      "org": "Microsoft",
-      "reason": "高品質小型モデル、Windows NPU対応、推論効率高",
-      "badges": [
-        "MIT",
-        "NPU",
-        "Windows"
-      ],
-      "url": "https://huggingface.co/microsoft"
-    },
-    {
-      "name": "SmolLM2-1.7B",
-      "size": "1.7B",
-      "score": 88,
-      "released": "2024.11",
-      "country": "米国",
-      "flag": "us",
-      "org": "Hugging Face",
-      "reason": "極軽量、ブラウザ動作可能、WebGPU対応",
+      "country": "仏国",
+      "flag": "fr",
+      "org": "Mistral AI",
+      "reason": "オープンソースAIの定番、4GB RAM可、50+ tok/s",
       "badges": [
         "Apache 2.0",
-        "Browser",
-        "Ultra Light"
+        "省メモリ",
+        "定番"
       ],
-      "url": "https://huggingface.co/HuggingFaceTB"
+      "url": "https://huggingface.co/mistralai/Mistral-7B-v0.1"
     },
     {
-      "name": "Gemma 2 2B",
-      "size": "2B",
-      "score": 87,
-      "released": "2024.06",
+      "name": "Llama 4 Scout",
+      "size": "109B MoE (17B active)",
+      "score": 90,
+      "released": "2025.04",
       "country": "米国",
       "flag": "us",
-      "org": "Google",
-      "reason": "安定した小型モデル、幅広いデバイス対応",
+      "org": "Meta",
+      "reason": "17Bアクティブで効率的、10Mコンテキスト",
       "badges": [
-        "Gemma License",
-        "Stable",
+        "Llama License",
+        "MoE",
+        "Long Context"
+      ],
+      "url": "https://huggingface.co/meta-llama"
+    },
+    {
+      "name": "Muse Glimmer",
+      "size": "30B",
+      "score": 88,
+      "released": "2026.08",
+      "country": "米国",
+      "flag": "us",
+      "org": "Meta",
+      "reason": "20GB以下、4bit量子化で消費者GPUやMac対応",
+      "badges": [
+        "Apache 2.0",
+        "Multimodal",
+        "Consumer GPU"
+      ],
+      "url": ""
+    },
+    {
+      "name": "Mixtral 8x22B",
+      "size": "141B MoE",
+      "score": 86,
+      "released": "2024.04",
+      "country": "仏国",
+      "flag": "fr",
+      "org": "Mistral AI",
+      "reason": "MoE効率、BenchLMスコア48.9、セルフホスト定番",
+      "badges": [
+        "Apache 2.0",
+        "MoE",
+        "Self-host"
+      ],
+      "url": "https://huggingface.co/mistralai/Mixtral-8x22B-v0.1"
+    },
+    {
+      "name": "Qwen3.8-27B",
+      "size": "27B",
+      "score": 85,
+      "released": "2026.08",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Alibaba",
+      "reason": "単一GPU動作、ローカル推論に最適な最新モデル",
+      "badges": [
+        "Apache 2.0",
+        "Dense",
+        "Single GPU"
+      ],
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
+    },
+    {
+      "name": "Mistral Small 4",
+      "size": "Small",
+      "score": 83,
+      "released": "2026.04",
+      "country": "仏国",
+      "flag": "fr",
+      "org": "Mistral AI",
+      "reason": "軽量高効率、エッジ展開向け最適化",
+      "badges": [
+        "Apache 2.0",
+        "Efficient",
         "Edge"
       ],
-      "url": "https://huggingface.co/google"
+      "url": "https://huggingface.co/mistralai"
+    },
+    {
+      "name": "Shieldstral",
+      "size": "Small",
+      "score": 80,
+      "released": "2026.08",
+      "country": "仏国",
+      "flag": "fr",
+      "org": "Mistral AI",
+      "reason": "軽量セーフティモデル、7倍大きいLLMを上回る性能",
+      "badges": [
+        "Open Weight",
+        "Safety",
+        "Multimodal"
+      ],
+      "url": ""
     }
   ],
   "featured": {
     "tag": "model",
     "date": "2026.08.08",
-    "title": "Alibaba Qwen 3.8-Max & 27Bのオープンウェイト公開 — 2.4兆パラメータ時代の幕開け",
-    "summary": "Alibabaが8月8日にQwen3.8-2.4T-A95BとQwen3.8-27BのオープンウェイトをHugging Faceで公開。2.4兆パラメータのMaxはテキストのみ・思考モード固定だが、27Bは単一GPUで動作しローカルAI開発者に最適。Kimi K3との競争が激化する中、中国発オープンウェイトモデルがフロンティアを牽引している。",
+    "title": "Alibaba Qwen3.8オープンウェイト公開 — 2.4兆パラメータMaxと27Bの両方がHugging Faceで利用可能に",
+    "summary": "Alibabaは8月8日、Qwen3.8-Max（2.4兆パラメータMoE、95Bアクティブ）とQwen3.8-27B（単一GPU動作可能）のオープンウェイトを公開した。MaxはKimi K3に次ぐ史上2番目の規模のオープンウェイトモデル。27BはApache 2.0ライセンスでローカルAIコミュニティに最適な選択肢として注目されている。APIは$2/$6の価格設定。",
     "url": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
   },
   "articles": [
     {
       "tag": "model",
-      "date": "2026.07.27",
-      "title": "Moonshot AI、世界最大のオープンウェイトモデル Kimi K3 を公開",
-      "summary": "2.8兆パラメータ（104Bアクティブ）のMoEモデル。GPQA Diamond 93.5、Terminal-Bench 88.3を達成。1Mトークンコンテキストとマルチモーダル入力に対応。",
-      "url": "https://www.morphllm.com/best-open-source-llm"
+      "date": "2026.08.14",
+      "title": "GLM-5.3がZ.AIからリリース — 8月最新のフラッグシップモデル",
+      "summary": "Z.AIが8月14日にGLM-5.3をリリース。8月に入り11の新モデルがリリースされる活発な動きの中、最新のフラッグシップとして登場。LLM Gatewayで即時利用可能。",
+      "url": "https://llmgateway.io/timeline"
     },
     {
       "tag": "model",
       "date": "2026.08.10",
-      "title": "Meta、Muse Glimmer 30BをApache 2.0でオープンウェイト公開",
-      "summary": "30B密モデルで128Kコンテキスト対応。消費者向けGPUやMacで20GB以下で動作可能。Llama 4以来初のMetaオープンウェイトモデル。",
+      "title": "Meta Muse Glimmer 30B公開 — Apache 2.0でローカル動作可能",
+      "summary": "Metaが30Bパラメータのマルチモーダルモデル「Muse Glimmer」をApache 2.0で公開。128Kコンテキスト、4bit量子化で20GB以下、消費者GPUやMacで動作可能。",
       "url": "https://codersera.com/blog/llama-4-complete-guide-2026/"
     },
     {
       "tag": "model",
-      "date": "2026.06.13",
-      "title": "Z.ai GLM-5.2リリース — SWE-bench Pro 62.1%でコーディング最強クラス",
-      "summary": "753Bパラメータ、MIT License。AIME 2026で99.2を達成し、NISTから最も能力の高いオープンウェイトモデルと評価された。",
+      "date": "2026.08.05",
+      "title": "Mistral Shieldstral発表 — 軽量マルチモーダルセーフティモデル",
+      "summary": "Mistral AIが軽量セーフティモデル「Shieldstral」を発表。7倍大きいLLMを上回る性能で、自然言語でポリシー定義可能。テキストと画像の両方に対応。",
+      "url": "https://siliconangle.com/2026/08/05/mistral-introduces-shieldstral-provide-lightweight-policy-aware-moderation-ai-models/"
+    },
+    {
+      "tag": "model",
+      "date": "2026.07.27",
+      "title": "Kimi K3が史上最大のオープンウェイトモデルとして公開",
+      "summary": "Moonshot AIが2.8兆パラメータのKimi K3をオープンウェイトで公開。104Bアクティブ、1Mコンテキスト、Terminal-Bench 88.3でフロンティア級性能を実現。",
       "url": "https://www.morphllm.com/best-open-source-llm"
     },
     {
       "tag": "tool",
-      "date": "2026.08.16",
-      "title": "Ollama最新版がQwen 3.8 27Bに正式対応、Apple Silicon最適化強化",
-      "summary": "Ollama v0.32でQwen3.8-27Bをサポート。M5 Maxでのプリフィル速度が7-8%向上。コーディングエージェント向け最適化も。",
-      "url": "https://releasebot.io/updates/ollama"
+      "date": "2026.08.12",
+      "title": "Mistral Leanstral 1.5リリース — Lean 4形式証明エンジニアリングモデル",
+      "summary": "Mistralが形式証明用モデル「Leanstral 1.5」を公開。SFT品質向上と長文コンテキスト推論を強化。2026年9月末まで利用可能。",
+      "url": "https://docs.mistral.ai/resources/changelogs"
     },
     {
       "tag": "tool",
-      "date": "2026.05.28",
-      "title": "ローカルAIランタイム5月アップデート: vLLM 0.21、llama.cpp MTP対応",
-      "summary": "vLLM 0.21がDeepSeek V4をBlackwellで安定化。llama.cppはMTP投機的デコーディングをマージ。MLXはM5で4倍高速化。",
-      "url": "https://codersera.com/blog/local-ai-runtimes-may-2026-update/"
-    },
-    {
-      "tag": "tool",
-      "date": "2026.06.17",
-      "title": "Ollamaの進化 — ollama launchでコーディングエージェントが一発起動",
-      "summary": "2026年6月の大型機能追加。環境変数設定とモデルダウンロードを自動化し、単一コマンドでフルコーディングエージェントを起動可能に。",
-      "url": "https://angelo-lima.fr/en/ollama-2026-state-of-the-art-en/"
+      "date": "2026.08.01",
+      "title": "Ollama、vLLM、Unslothがローカル推論の3大ツールとして定着",
+      "summary": "ローカルLLM実行にはOllama（簡単起動）、vLLM（高速推論）、Unsloth（効率的ファインチューニング）の3ツールが標準に。Llama 4もollama runで即実行可能。",
+      "url": "https://www.thundercompute.com/blog/best-open-source-llms"
     },
     {
       "tag": "trend",
-      "date": "2026.06.04",
-      "title": "vLLM vs Ollama 2026: 並列処理で19倍のスループット差",
-      "summary": "単一ユーザーでは同等だが、並列リクエストでvLLMが圧倒的優位。PagedAttentionにより5-6リクエスト以上でOllamaのP99レイテンシが急上昇。",
-      "url": "https://tech-insider.org/vllm-vs-ollama-2026/"
+      "date": "2026.08.02",
+      "title": "EU AI Act第50条透明性義務が発効 — AI利用の開示が必須に",
+      "summary": "8月2日からEU AI Actの透明性義務が発効。企業はユーザーがAIと対話していることを開示し、AI生成コンテンツに機械可読マークを付ける必要がある。",
+      "url": "https://augusto.digital/insights/blogs/monthly-llm-news-august-2026/"
     },
     {
-      "tag": "model",
-      "date": "2026.06.01",
-      "title": "MiniMax M3 — フロンティアコーディング×1Mコンテキスト×マルチモーダル",
-      "summary": "SWE-Bench Pro 59.0%を達成した初のオープンウェイトモデルとして注目。1Mトークンコンテキストとネイティブマルチモーダル入力を両立。",
-      "url": "https://fazm.ai/t/latest-open-source-llm-releases-2026"
-    },
-    {
-      "tag": "model",
-      "date": "2026.04.24",
-      "title": "DeepSeek V4プレビュー公開 — 1.6T MoE、MIT License",
-      "summary": "DeepSeek-R1の後継となるV4がプレビュー公開。トークンワイズ圧縮とDeepSeek Sparse技術を組み合わせた効率的なMoEアーキテクチャ。",
-      "url": "https://hidekazu-konishi.com/entry/open_weights_llm_release_history_and_timeline.html"
-    },
-    {
-      "tag": "model",
-      "date": "2026.02.17",
-      "title": "Alibaba Qwen3.5公開 — 397B MoEオープンウェイト、Apache 2.0",
-      "summary": "Qwen3.5は397BパラメータのMoEモデルとして公開。広範な言語サポートとApache 2.0ライセンスで商用利用も自由。",
-      "url": "https://alternativeto.net/software/qwen/news"
+      "tag": "hw",
+      "date": "2026.08.15",
+      "title": "Mistral、フランスに10MW推論専用データセンター建設へ",
+      "summary": "Mistral AIがフランス・エソンヌ県レ・ユリに10MWの推論専用施設を建設。2026年Q3開設予定で、ハードウェア供給リスクに対応しセキュリティを強化。",
+      "url": "https://releasebot.io/updates/mistral"
     }
   ]
 }
