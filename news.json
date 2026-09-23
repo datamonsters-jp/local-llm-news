@@ -1,11 +1,11 @@
 {
-  "updated": "2026.09.22",
+  "updated": "2026.09.23",
   "ticker": [
-    "⚡ DeepSeek-V4.1-Flash登場、MIT licenseで90.6 Terminal-Bench達成",
-    "🟢 Qwen-Image-2.1公開、7Bで画像生成・編集を統合",
-    "🔥 GLM-5.3リリース、オープン重みコーディングで最強クラス",
-    "💾 Gemma 4がApache 2.0で公開、エッジ向け強化",
-    "🖥️ Meta Muse Glimmer 30B公開、1GPU動作可能"
+    "⚡ Qwen4が「間もなく」リリース予定、Apsara会議で発表",
+    "🟢 Qwen-Image-2.1オープンソース公開、7Bで画像生成・編集を統合",
+    "🔥 Kimi K3が2.8T最大オープンウェイトモデルとして君臨",
+    "💾 Meta Muse Glimmer 30B、Apache 2.0でローカル向け公開",
+    "🖥️ Gemma 4がApache 2.0でオープンウェイト化"
   ],
   "ranking_general": [
     {
@@ -16,207 +16,61 @@
       "country": "中国",
       "flag": "cn",
       "org": "Moonshot AI",
-      "reason": "Terminal-Bench 88.3、1Mコンテキスト、最大規模オープン",
+      "reason": "最大規模オープンウェイト、1Mコンテキスト、896エキスパート",
       "badges": [
-        "MIT (modified)",
+        "MIT License",
         "MoE",
         "Multimodal"
       ],
-      "url": "https://huggingface.co/moonshotai"
-    },
-    {
-      "name": "DeepSeek-V4.1-Flash",
-      "size": "552B MoE (8-16B active)",
-      "score": 97,
-      "released": "2026.09",
-      "country": "中国",
-      "flag": "cn",
-      "org": "DeepSeek",
-      "reason": "Terminal-Bench 90.6、DeepSWE 74.2、MIT license",
-      "badges": [
-        "MIT",
-        "MoE",
-        "1M context"
-      ],
-      "url": "https://huggingface.co/deepseek-ai"
-    },
-    {
-      "name": "GLM-5.3",
-      "size": "753B MoE (40B active)",
-      "score": 96,
-      "released": "2026.08",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Zhipu AI",
-      "reason": "DeepSWE・Terminal-Benchでトップクラス、MIT",
-      "badges": [
-        "MIT",
-        "MoE",
-        "Coding強化"
-      ],
-      "url": "https://huggingface.co/THUDM"
+      "url": "https://en.wikipedia.org/wiki/Kimi_(chatbot)"
     },
     {
       "name": "Qwen3.8-Max",
       "size": "2.4T MoE (95B active)",
-      "score": 95,
-      "released": "2026.08",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "Kimi K3に次ぐ規模、マルチモーダル対応",
-      "badges": [
-        "Custom License",
-        "MoE",
-        "Multimodal"
-      ],
-      "url": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
-    },
-    {
-      "name": "Qwen3.8-27B",
-      "size": "27B (dense)",
-      "score": 94,
-      "released": "2026.08",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "SWE-bench 77.2%、1GPU動作、Apache 2.0",
-      "badges": [
-        "Apache 2.0",
-        "Dense",
-        "Single GPU"
-      ],
-      "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
-    },
-    {
-      "name": "Llama 4 Maverick",
-      "size": "400B MoE (17B active)",
-      "score": 93,
-      "released": "2025.04",
-      "country": "米国",
-      "flag": "us",
-      "org": "Meta",
-      "reason": "GPT-4o超えベンチ、1Mコンテキスト、広い展開基盤",
-      "badges": [
-        "Llama Community",
-        "MoE",
-        "Multimodal"
-      ],
-      "url": "https://llama.meta.com/"
-    },
-    {
-      "name": "Gemma 4",
-      "size": "27B",
-      "score": 92,
-      "released": "2026.04",
-      "country": "米国",
-      "flag": "us",
-      "org": "Google DeepMind",
-      "reason": "Apache 2.0、Gemini技術ベース、エッジ最適化",
-      "badges": [
-        "Apache 2.0",
-        "Multimodal",
-        "140言語"
-      ],
-      "url": "https://deepmind.google/models/gemma/"
-    },
-    {
-      "name": "Muse Glimmer",
-      "size": "30B (dense)",
-      "score": 91,
-      "released": "2026.08",
-      "country": "米国",
-      "flag": "us",
-      "org": "Meta",
-      "reason": "Apache 2.0、128Kコンテキスト、ローカル動作可",
-      "badges": [
-        "Apache 2.0",
-        "Multimodal",
-        "Local-first"
-      ],
-      "url": "https://huggingface.co/meta-llama"
-    }
-  ],
-  "ranking_coding": [
-    {
-      "name": "DeepSeek-V4.1-Flash",
-      "size": "552B MoE (8-16B active)",
-      "score": 98,
-      "released": "2026.09",
-      "country": "中国",
-      "flag": "cn",
-      "org": "DeepSeek",
-      "reason": "DeepSWE 74.2%、Terminal-Bench 90.6、MIT license",
-      "badges": [
-        "MIT",
-        "MoE",
-        "Coding特化"
-      ],
-      "url": "https://huggingface.co/deepseek-ai"
-    },
-    {
-      "name": "GLM-5.3",
-      "size": "753B MoE (40B active)",
       "score": 97,
       "released": "2026.08",
       "country": "中国",
       "flag": "cn",
-      "org": "Zhipu AI",
-      "reason": "DeepSWEとTerminal-Benchでオープン最強クラス",
+      "org": "Alibaba",
+      "reason": "第2位の規模、マルチモーダル対応、テキスト版は公開済",
       "badges": [
-        "MIT",
+        "Custom License",
+        "MoE",
+        "1M Context"
+      ],
+      "url": "https://qwen.ai/research/"
+    },
+    {
+      "name": "GLM-5.2",
+      "size": "744B MoE (40B active)",
+      "score": 96,
+      "released": "2026.06",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Zhipu AI",
+      "reason": "AI Index v4.1で#1、SWE-bench Pro 62.1%達成",
+      "badges": [
+        "MIT License",
         "MoE",
         "Coding"
       ],
-      "url": "https://huggingface.co/THUDM"
+      "url": "https://www.shakudo.io/blog/top-9-large-language-models"
     },
     {
       "name": "Qwen3.8-27B",
-      "size": "27B (dense)",
-      "score": 96,
-      "released": "2026.08",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "SWE-bench Verified 77.2%、1GPUで動作",
-      "badges": [
-        "Apache 2.0",
-        "Dense",
-        "Single GPU"
-      ],
-      "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
-    },
-    {
-      "name": "Kimi K3",
-      "size": "2.8T MoE (104B active)",
-      "score": 95,
-      "released": "2026.07",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Moonshot AI",
-      "reason": "FrontierSWE 81.2%、大規模だが高性能",
-      "badges": [
-        "MIT (modified)",
-        "MoE",
-        "1M context"
-      ],
-      "url": "https://huggingface.co/moonshotai"
-    },
-    {
-      "name": "Qwen3.6-27B",
-      "size": "27B (dense)",
+      "size": "27B Dense",
       "score": 94,
-      "released": "2026.04",
+      "released": "2026.09",
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba",
-      "reason": "SWE-bench Verified 77.2%達成、Apache 2.0",
+      "reason": "Apache 2.0、単一GPU動作、フロンティアに4pt差",
       "badges": [
         "Apache 2.0",
         "Dense",
-        "Coder"
+        "Distilled"
       ],
-      "url": "https://huggingface.co/Qwen"
+      "url": "https://qwen.ai/research/"
     },
     {
       "name": "Llama 4 Maverick",
@@ -226,225 +80,355 @@
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "LiveCodeBench上位、MoE効率とコード性能両立",
+      "reason": "GPT-4o超え、1Mコンテキスト、オープンウェイト",
       "badges": [
-        "Llama Community",
+        "Llama License",
         "MoE",
         "Multimodal"
       ],
-      "url": "https://llama.meta.com/"
+      "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
     },
     {
-      "name": "Qwen3.8-Flash-Next",
-      "size": "125B MoE (6B active)",
-      "score": 92,
-      "released": "2026.08",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "Qwen4アーキテクチャプレビュー、262Kコンテキスト",
-      "badges": [
-        "Apache 2.0",
-        "MoE",
-        "Next-gen"
-      ],
-      "url": "https://huggingface.co/Qwen"
-    },
-    {
-      "name": "GLM-5.3-Flash",
-      "size": "320B MoE (18B active)",
-      "score": 91,
-      "released": "2026.08",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Zhipu AI",
-      "reason": "MIT license最強Flash、効率的なコーディング",
-      "badges": [
-        "MIT",
-        "MoE",
-        "Flash"
-      ],
-      "url": "https://huggingface.co/THUDM"
-    }
-  ],
-  "ranking_japanese": [
-    {
-      "name": "Qwen3.8-27B",
-      "size": "27B (dense)",
-      "score": 96,
-      "released": "2026.08",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "140言語対応、日本語性能も高い、Apache 2.0",
-      "badges": [
-        "Apache 2.0",
-        "Multilingual",
-        "Single GPU"
-      ],
-      "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
-    },
-    {
-      "name": "Gemma 3 27B",
-      "size": "27B",
-      "score": 95,
-      "released": "2025.03",
-      "country": "米国",
-      "flag": "us",
-      "org": "Google DeepMind",
-      "reason": "140言語対応、日本語含む多言語データ2倍",
-      "badges": [
-        "Gemma ToU",
-        "Multimodal",
-        "128K context"
-      ],
-      "url": "https://huggingface.co/google/gemma-3-27b-it"
-    },
-    {
-      "name": "Llama 4 Maverick",
+      "name": "Llama 4.5 Maverick",
       "size": "400B MoE (17B active)",
-      "score": 94,
-      "released": "2025.04",
+      "score": 92,
+      "released": "2026.06",
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "多言語対応強化、日本語ファインチューン可能",
+      "reason": "エージェント安定性向上、ハルシネーション低減",
       "badges": [
-        "Llama Community",
+        "Llama License",
         "MoE",
-        "Multimodal"
+        "Agentic"
       ],
-      "url": "https://llama.meta.com/"
+      "url": "https://presenc.ai/research/llama-4-5-release-brief"
     },
     {
       "name": "Gemma 4",
-      "size": "27B",
-      "score": 93,
+      "size": "27B Dense",
+      "score": 91,
       "released": "2026.04",
       "country": "米国",
       "flag": "us",
       "org": "Google DeepMind",
-      "reason": "Apache 2.0、日本語含む多言語最適化",
+      "reason": "Apache 2.0正式採用、単一GPU動作",
       "badges": [
         "Apache 2.0",
         "Multimodal",
-        "Edge"
+        "128K Context"
       ],
       "url": "https://deepmind.google/models/gemma/"
     },
     {
-      "name": "GLM-5.3-Flash",
-      "size": "320B MoE (18B active)",
-      "score": 92,
-      "released": "2026.08",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Zhipu AI",
-      "reason": "中国語ベースだが多言語対応、MIT license",
-      "badges": [
-        "MIT",
-        "MoE",
-        "Flash"
-      ],
-      "url": "https://huggingface.co/THUDM"
-    },
-    {
-      "name": "Qwen3.6-27B",
-      "size": "27B (dense)",
-      "score": 91,
-      "released": "2026.04",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "日本語含む多言語対応、Apache 2.0",
-      "badges": [
-        "Apache 2.0",
-        "Dense",
-        "Multilingual"
-      ],
-      "url": "https://huggingface.co/Qwen"
-    },
-    {
       "name": "Muse Glimmer",
-      "size": "30B (dense)",
+      "size": "30B Dense",
       "score": 90,
       "released": "2026.08",
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "Apache 2.0、多言語対応、ローカル動作",
+      "reason": "Apache 2.0、128Kコンテキスト、ローカル向け20GB以下",
       "badges": [
         "Apache 2.0",
         "Multimodal",
         "Local"
       ],
-      "url": "https://huggingface.co/meta-llama"
+      "url": "https://codersera.com/blog/llama-4-complete-guide-2026/"
+    }
+  ],
+  "ranking_coding": [
+    {
+      "name": "GLM-5.3",
+      "size": "753B MoE (40B active)",
+      "score": 98,
+      "released": "2026.08",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Zhipu AI",
+      "reason": "DeepSWE/Terminal-Bench 2.1でトップ",
+      "badges": [
+        "MIT License",
+        "MoE",
+        "Coding"
+      ],
+      "url": "https://www.thundercompute.com/blog/best-open-source-llms"
     },
     {
-      "name": "Gemma 3 12B",
-      "size": "12B",
-      "score": 89,
+      "name": "GLM-5.2",
+      "size": "744B MoE (40B active)",
+      "score": 96,
+      "released": "2026.06",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Zhipu AI",
+      "reason": "SWE-bench Pro 62.1%、GPT-5.5超え",
+      "badges": [
+        "MIT License",
+        "MoE",
+        "Coding"
+      ],
+      "url": "https://www.shakudo.io/blog/top-9-large-language-models"
+    },
+    {
+      "name": "DeepSeek V4",
+      "size": "MoE",
+      "score": 95,
+      "released": "2026.04",
+      "country": "中国",
+      "flag": "cn",
+      "org": "DeepSeek",
+      "reason": "LiveCodeBench/SWE-Bench Verifiedでトップクラス",
+      "badges": [
+        "MIT License",
+        "MoE",
+        "Reasoning"
+      ],
+      "url": "https://hidekazu-konishi.com/entry/open_weights_llm_release_history_and_timeline.html"
+    },
+    {
+      "name": "DeepSeek V4.1 Flash",
+      "size": "MoE",
+      "score": 94,
+      "released": "2026.09",
+      "country": "中国",
+      "flag": "cn",
+      "org": "DeepSeek",
+      "reason": "最新版、高速推論向け最適化",
+      "badges": [
+        "MIT License",
+        "MoE",
+        "Flash"
+      ],
+      "url": "https://llmgateway.io/timeline"
+    },
+    {
+      "name": "Qwen3.8-Max",
+      "size": "2.4T MoE (95B active)",
+      "score": 93,
+      "released": "2026.08",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Alibaba",
+      "reason": "コーディング性能で大幅向上",
+      "badges": [
+        "Custom License",
+        "MoE",
+        "Multimodal"
+      ],
+      "url": "https://releasebot.io/updates/qwen"
+    },
+    {
+      "name": "Kimi K3",
+      "size": "2.8T MoE (104B active)",
+      "score": 92,
+      "released": "2026.07",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Moonshot AI",
+      "reason": "最大規模でコーディングも高性能",
+      "badges": [
+        "MIT License",
+        "MoE",
+        "1M Context"
+      ],
+      "url": "https://en.wikipedia.org/wiki/Kimi_(chatbot)"
+    },
+    {
+      "name": "Llama 4 Maverick",
+      "size": "400B MoE (17B active)",
+      "score": 90,
+      "released": "2025.04",
+      "country": "米国",
+      "flag": "us",
+      "org": "Meta",
+      "reason": "オープンウェイトで高いコード生成能力",
+      "badges": [
+        "Llama License",
+        "MoE",
+        "Multimodal"
+      ],
+      "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
+    },
+    {
+      "name": "Qwen3.8-27B",
+      "size": "27B Dense",
+      "score": 88,
+      "released": "2026.09",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Alibaba",
+      "reason": "単一GPU動作でコーディング用途に最適",
+      "badges": [
+        "Apache 2.0",
+        "Dense",
+        "Local"
+      ],
+      "url": "https://qwen.ai/research/"
+    }
+  ],
+  "ranking_japanese": [
+    {
+      "name": "Qwen3.8-27B",
+      "size": "27B Dense",
+      "score": 95,
+      "released": "2026.09",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Alibaba",
+      "reason": "日本語含む140+言語対応、Apache 2.0",
+      "badges": [
+        "Apache 2.0",
+        "Multilingual",
+        "Dense"
+      ],
+      "url": "https://qwen.ai/research/"
+    },
+    {
+      "name": "Gemma 4",
+      "size": "27B Dense",
+      "score": 93,
+      "released": "2026.04",
+      "country": "米国",
+      "flag": "us",
+      "org": "Google DeepMind",
+      "reason": "140+言語対応、日本語性能が大幅向上",
+      "badges": [
+        "Apache 2.0",
+        "Multimodal",
+        "Multilingual"
+      ],
+      "url": "https://deepmind.google/models/gemma/"
+    },
+    {
+      "name": "Gemma 3 27B",
+      "size": "27B Dense",
+      "score": 91,
       "released": "2025.03",
       "country": "米国",
       "flag": "us",
       "org": "Google DeepMind",
-      "reason": "140言語、軽量で日本語タスクにも対応",
+      "reason": "140言語対応、128Kコンテキスト",
       "badges": [
-        "Gemma ToU",
+        "Gemma License",
         "Multimodal",
-        "Lightweight"
+        "Multilingual"
       ],
-      "url": "https://huggingface.co/google/gemma-3-12b-it"
+      "url": "https://deepmind.google/models/gemma/gemma-3/"
+    },
+    {
+      "name": "Llama 4 Maverick",
+      "size": "400B MoE (17B active)",
+      "score": 90,
+      "released": "2025.04",
+      "country": "米国",
+      "flag": "us",
+      "org": "Meta",
+      "reason": "多言語対応、日本語ファインチューン可能",
+      "badges": [
+        "Llama License",
+        "MoE",
+        "Multilingual"
+      ],
+      "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
+    },
+    {
+      "name": "Kimi K3",
+      "size": "2.8T MoE (104B active)",
+      "score": 89,
+      "released": "2026.07",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Moonshot AI",
+      "reason": "アジア言語に強い、1Mコンテキスト",
+      "badges": [
+        "MIT License",
+        "MoE",
+        "Multimodal"
+      ],
+      "url": "https://en.wikipedia.org/wiki/Kimi_(chatbot)"
+    },
+    {
+      "name": "GLM-5.2",
+      "size": "744B MoE (40B active)",
+      "score": 88,
+      "released": "2026.06",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Zhipu AI",
+      "reason": "中国語ベースで日本語にも対応",
+      "badges": [
+        "MIT License",
+        "MoE",
+        "Multilingual"
+      ],
+      "url": "https://www.shakudo.io/blog/top-9-large-language-models"
+    },
+    {
+      "name": "Muse Glimmer",
+      "size": "30B Dense",
+      "score": 86,
+      "released": "2026.08",
+      "country": "米国",
+      "flag": "us",
+      "org": "Meta",
+      "reason": "Apache 2.0、ローカル動作で日本語可",
+      "badges": [
+        "Apache 2.0",
+        "Multimodal",
+        "Local"
+      ],
+      "url": "https://codersera.com/blog/llama-4-complete-guide-2026/"
+    },
+    {
+      "name": "DeepSeek V4",
+      "size": "MoE",
+      "score": 85,
+      "released": "2026.04",
+      "country": "中国",
+      "flag": "cn",
+      "org": "DeepSeek",
+      "reason": "多言語対応、MIT License",
+      "badges": [
+        "MIT License",
+        "MoE",
+        "Multilingual"
+      ],
+      "url": "https://hidekazu-konishi.com/entry/open_weights_llm_release_history_and_timeline.html"
     }
   ],
   "ranking_edge": [
     {
       "name": "Gemma 3n",
-      "size": "E2B/E4B (effective)",
-      "score": 97,
+      "size": "E2B/E4B",
+      "score": 96,
       "released": "2025.05",
       "country": "米国",
       "flag": "us",
       "org": "Google DeepMind",
-      "reason": "モバイル最適化、Qualcomm/MediaTek/Samsung協業",
+      "reason": "モバイルファースト設計、Qualcomm/MediaTek最適化",
       "badges": [
-        "Gemma ToU",
-        "Mobile-first",
+        "Gemma License",
+        "Mobile",
         "Multimodal"
       ],
       "url": "https://developers.googleblog.com/en/introducing-gemma-3n/"
     },
     {
       "name": "Gemma 4 E4B",
-      "size": "4B",
-      "score": 96,
+      "size": "4B (6GB〜12.5GB)",
+      "score": 95,
       "released": "2026.04",
       "country": "米国",
       "flag": "us",
       "org": "Google DeepMind",
-      "reason": "6GB RAM、128Kコンテキスト時12.5GB、Apache 2.0",
+      "reason": "128Kコンテキストで6GB〜、ゲーミングGPU動作",
       "badges": [
         "Apache 2.0",
         "Edge",
-        "128K"
+        "128K Context"
       ],
-      "url": "https://deepmind.google/models/gemma/"
-    },
-    {
-      "name": "Gemma 3 1B",
-      "size": "1B",
-      "score": 95,
-      "released": "2025.03",
-      "country": "米国",
-      "flag": "us",
-      "org": "Google DeepMind",
-      "reason": "超軽量、スマホ・ラズパイ動作、140言語",
-      "badges": [
-        "Gemma ToU",
-        "Ultra-light",
-        "Multilingual"
-      ],
-      "url": "https://huggingface.co/google/gemma-3-1b-it"
+      "url": "https://dev.to/klukyanov/the-local-llm-weight-classes-september-2026-what-actually-fits-on-your-machine-128d"
     },
     {
       "name": "Gemma 3 270M",
@@ -454,142 +438,172 @@
       "country": "米国",
       "flag": "us",
       "org": "Google DeepMind",
-      "reason": "超コンパクト、指示追従能力、組み込み向け",
+      "reason": "超軽量270M、タスク特化ファインチューン向け",
       "badges": [
-        "Gemma ToU",
-        "Hyper-efficient",
-        "IoT"
+        "Gemma License",
+        "Ultra-Light",
+        "Efficient"
       ],
       "url": "https://developers.googleblog.com/en/introducing-gemma-3-270m/"
     },
     {
-      "name": "Gemma 3 4B",
-      "size": "4B",
+      "name": "Gemma 3 1B",
+      "size": "1B",
       "score": 93,
       "released": "2025.03",
       "country": "米国",
       "flag": "us",
       "org": "Google DeepMind",
-      "reason": "Gemma-2-27B超え性能、シングルGPU動作",
+      "reason": "スマホ・ラズパイ動作、マルチモーダル対応",
       "badges": [
-        "Gemma ToU",
-        "Efficient",
-        "Vision"
+        "Gemma License",
+        "Edge",
+        "Multimodal"
       ],
-      "url": "https://huggingface.co/google/gemma-3-4b-it"
+      "url": "https://huggingface.co/blog/gemma3"
+    },
+    {
+      "name": "Gemma 3 4B",
+      "size": "4B",
+      "score": 92,
+      "released": "2025.03",
+      "country": "米国",
+      "flag": "us",
+      "org": "Google DeepMind",
+      "reason": "Gemma-2-27B超えの性能、128K対応",
+      "badges": [
+        "Gemma License",
+        "Compact",
+        "Multimodal"
+      ],
+      "url": "https://huggingface.co/blog/gemma3"
     },
     {
       "name": "Llama 4 Scout",
       "size": "109B MoE (17B active)",
-      "score": 92,
+      "score": 90,
       "released": "2025.04",
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "10Mコンテキスト、17B activeでシングルGPU可",
+      "reason": "10Mコンテキスト、単一高性能GPU動作",
       "badges": [
-        "Llama Community",
+        "Llama License",
         "MoE",
-        "Long context"
+        "10M Context"
       ],
-      "url": "https://llama.meta.com/"
+      "url": "https://explainx.ai/blog/meta-llama-4-open-source-models-guide-2026"
     },
     {
       "name": "Muse Glimmer",
-      "size": "30B (dense)",
-      "score": 91,
+      "size": "30B Dense",
+      "score": 88,
       "released": "2026.08",
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "20GB未満4bit、Mac/消費者GPU動作設計",
+      "reason": "4bit量子化で20GB以下、Mac/消費者GPU対応",
       "badges": [
         "Apache 2.0",
-        "Local-first",
-        "128K"
+        "Local",
+        "128K Context"
       ],
-      "url": "https://huggingface.co/meta-llama"
+      "url": "https://codersera.com/blog/llama-4-complete-guide-2026/"
     },
     {
-      "name": "Qwen3.8-Flash-Next",
-      "size": "125B MoE (6B active)",
-      "score": 90,
-      "released": "2026.08",
+      "name": "Qwen3.8-27B",
+      "size": "27B Dense",
+      "score": 86,
+      "released": "2026.09",
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba",
-      "reason": "6B active、効率的推論、Qwen4プレビュー",
+      "reason": "単一ゲーミングGPUで動作可能",
       "badges": [
         "Apache 2.0",
-        "MoE",
-        "Efficient"
+        "Dense",
+        "Distilled"
       ],
-      "url": "https://huggingface.co/Qwen"
+      "url": "https://qwen.ai/research/"
     }
   ],
   "featured": {
     "tag": "model",
-    "date": "2026.09.20",
-    "title": "Alibaba Qwen-Image-2.1公開：7Bパラメータで画像生成・編集を統合、透過画像にも対応",
-    "summary": "Alibabaが9月20日にQwen-Image-2.1をオープンソース公開。わずか7Bパラメータの視覚生成コンポーネントで、テキストから画像生成と画像編集を単一モデルに統合。透過画像のネイティブサポート、最大10枚の参照画像入力に対応。HuggingFace、ModelScope、GitHubで公開され、ComfyUI、Diffusers、vLLM-Omni、SGLangで初日からサポート。",
-    "url": "https://qwen.ai/research/"
+    "date": "2026.09.22",
+    "title": "Alibaba、Qwen 4が「間もなく」リリースと発表 — 5〜10兆パラメータへの拡大計画も明らかに",
+    "summary": "9月22日のApsara Conferenceで、Qwenプロジェクトリーダーの劉大毅恒氏がQwen 4が新世代アーキテクチャで訓練中であり「間もなく」リリース予定と発表。さらにQwen 4.5およびQwen 5では5〜10兆パラメータへの拡大を計画していることも明らかにした。具体的な日程やスペックは未公開だが、2〜3週間ごとにリリースを続けるAlibabaからの最も強いタイミングシグナルとなっている。",
+    "url": "https://www.yottalabs.ai/post/qwen-4-release-date-what-is-known-how-to-prepare-2026"
   },
   "articles": [
     {
       "tag": "model",
-      "date": "2026.09.10",
-      "title": "DeepSeek-V4.1-Flash登場：MIT licenseで90.6 Terminal-Bench達成",
-      "summary": "DeepSeekが552B MoE（8-16B active）モデルをMITライセンスで公開。Terminal-Bench 2.1で90.6、DeepSWE v1.1で74.2を達成し、1Mコンテキストに対応。",
-      "url": "https://www.morphllm.com/best-open-source-llm"
+      "date": "2026.09.20",
+      "title": "Qwen-Image-2.1オープンソース公開 — 7Bで画像生成・編集を統合",
+      "summary": "AlibabaのQwenチームがQwen-Image-2.1をオープンソース公開。7Bパラメータで画像生成と編集を統合し、透過画像のネイティブサポート、最大10枚の参照画像入力に対応。HuggingFace、ModelScope、GitHubで公開済み。",
+      "url": "https://qwen.ai/research/"
     },
     {
       "tag": "model",
-      "date": "2026.08.28",
-      "title": "GLM-5.3リリース：Zhipu AIがオープン重みコーディングモデルの頂点に",
-      "summary": "Zhipu AIが753B MoEベースのGLM-5.3を公開。GLM-5.3-Flash（320B/18B active）はMITライセンスで、DeepSWEとTerminal-Benchでトップクラスの性能。",
-      "url": "https://www.thundercompute.com/blog/best-open-source-llms"
+      "date": "2026.09.10",
+      "title": "DeepSeek V4.1 Flashリリース — 高速推論向け最新モデル",
+      "summary": "DeepSeekがV4.1 Flashをリリース。高速推論に最適化された最新のMoEモデルで、MIT Licenseで提供。LLM Gatewayに即日追加された。",
+      "url": "https://llmgateway.io/timeline"
+    },
+    {
+      "tag": "trend",
+      "date": "2026.09.15",
+      "title": "2026年9月のローカルLLM重量級ガイド — 8GBラップトップから40GPUラックまで",
+      "summary": "DEV Communityの解説記事。Kimi K3（2.8T）からQwen3.8-27B（単一GPU）まで、オープンウェイトモデルをハードウェア要件別に分類。「フロンティアとの差は4インデックスポイント」が2026年の実態。",
+      "url": "https://dev.to/klukyanov/the-local-llm-weight-classes-september-2026-what-actually-fits-on-your-machine-128d"
     },
     {
       "tag": "model",
       "date": "2026.08.26",
-      "title": "Qwen3.8-Flash-Next公開：Qwen4アーキテクチャの先行プレビュー",
-      "summary": "Alibabaが125B MoE（6B active）のQwen3.8-Flash-Nextを公開。262Kトークンネイティブ、1Mトークン拡張可能。Qwen4の方向性を示すマルチモーダルモデル。",
+      "title": "Qwen3.8-Flash-Next公開 — Qwen 4アーキテクチャの早期プレビュー",
+      "summary": "AlibabaがQwen3.8-Flash-Nextを公開。125Bパラメータ（6B active）のMoEモデルで、Qwen 4で予定されているアーキテクチャの早期プレビュー版。262Kトークンをネイティブサポート。",
       "url": "https://www.scriptbyai.com/qwen-timeline/"
     },
     {
       "tag": "model",
-      "date": "2026.08.12",
-      "title": "Qwen3.8-Max重み公開：2.4T MoEモデルがHuggingFaceに登場",
-      "summary": "Alibabaの2.4兆パラメータMoEモデルQwen3.8-Maxの重みが公開。95B activeパラメータでKimi K3に次ぐ規模。同時にQwen3.8-27BもApache 2.0で公開。",
-      "url": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
-    },
-    {
-      "tag": "model",
       "date": "2026.08.10",
-      "title": "Meta Muse Glimmer公開：30B denseモデルがApache 2.0でローカル動作",
-      "summary": "Metaが30B denseマルチモーダルモデルをApache 2.0で公開。128Kコンテキスト、4bit時20GB未満で消費者GPU/Macで動作可能。Llama以降初の完全オープンリリース。",
+      "title": "Meta、Muse Glimmer 30Bをオープン公開 — Apache 2.0でローカル動作",
+      "summary": "MetaがMuse Glimmer 30BをApache 2.0で公開。128Kコンテキスト、マルチモーダル対応で、4bit量子化時20GB以下で消費者GPUやMacで動作可能。Llama系列のローカル向け新モデル。",
       "url": "https://codersera.com/blog/llama-4-complete-guide-2026/"
     },
     {
       "tag": "model",
-      "date": "2026.07.27",
-      "title": "Kimi K3登場：2.8T MoEで最大規模オープンウェイトモデルに",
-      "summary": "Moonshot AIが2.8兆パラメータ（104B active）のKimi K3を公開。Terminal-Bench 88.3、FrontierSWE 81.2%を達成し、1Mコンテキスト対応。",
+      "date": "2026.08.12",
+      "title": "Qwen3.8-Max 2.4Tがテキストウェイト公開 — 史上2番目の規模",
+      "summary": "Alibabaが2.4兆パラメータのQwen3.8-Maxのテキストウェイトを公開。Kimi K3に次ぐ史上2番目の規模で、95B active。カスタムライセンスでの提供。",
+      "url": "https://www.yottalabs.ai/post/qwen-3-8-max-release-date-specs-how-to-access-2026"
+    },
+    {
+      "tag": "model",
+      "date": "2026.07.16",
+      "title": "Kimi K3リリース — 2.8兆パラメータで最大オープンウェイトモデルに",
+      "summary": "Moonshot AIがKimi K3をリリース。2.8兆パラメータ、896エキスパート中16個をアクティブ化（約104B）、1Mトークンコンテキスト。オープンウェイト最大規模を達成。",
       "url": "https://www.thundercompute.com/blog/best-open-source-llms"
     },
     {
-      "tag": "research",
-      "date": "2026.09.20",
-      "title": "Qwen3.8-LiveTranslate発表：同時通訳の精度と遅延を大幅改善",
-      "summary": "AlibabaがInterleaveアーキテクチャを採用したリアルタイム同時通訳モデルを発表。平均遅延（LAAL）を2.8秒から2.3秒に短縮し、忠実性と流暢性を向上。",
-      "url": "https://qwen.ai/research/"
+      "tag": "model",
+      "date": "2026.06.01",
+      "title": "GLM-5.2がAI Index v4.1で#1 — SWE-bench Pro 62.1%達成",
+      "summary": "Zhipu AIのGLM-5.2がArtificial Analysis Intelligence Index v4.1でオープンウェイト首位に。744BパラメータMoEで、SWE-bench Proでは62.1%を達成しGPT-5.5の58.6%を上回った。",
+      "url": "https://www.shakudo.io/blog/top-9-large-language-models"
     },
     {
-      "tag": "hw",
+      "tag": "model",
+      "date": "2026.06.01",
+      "title": "Meta Llama 4.5リリース — エージェント安定性とハルシネーション低減",
+      "summary": "MetaがLlama 4.5をリリース。Llama 4 Scout/Maverickの中間アップデートで、エージェントツール使用の安定性向上と長文脈でのハルシネーション低減を実現。",
+      "url": "https://presenc.ai/research/llama-4-5-release-brief"
+    },
+    {
+      "tag": "model",
       "date": "2026.04.02",
-      "title": "Gemma 4がApache 2.0で公開：Googleがオープンウェイト戦略を強化",
-      "summary": "Google DeepMindがGemma 4をApache 2.0ライセンスで公開。Geminiベースの技術を活用し、エッジデバイス向けに最適化。従来のGemma ToUから大幅にオープン化。",
-      "url": "https://deepmind.google/models/gemma/"
+      "title": "Gemma 4がApache 2.0で公開 — Googleオープンウェイト戦略を強化",
+      "summary": "Google DeepMindがGemma 4をApache 2.0ライセンスでリリース。Gemma 3以前のGemma Terms of Useから完全オープンライセンスへ移行し、商用利用の自由度が大幅に向上。",
+      "url": "https://en.wikipedia.org/wiki/Gemma_(language_model)"
     }
   ]
 }
