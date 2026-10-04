@@ -5,13 +5,18 @@ update_news.py
 news.json を更新するスクリプト。GitHub Actions から実行されます。
 
 重要: Web検索ツールを使い、実際に見つかったニュースのみを掲載します。
-URLのない記事（=検索で確認できなかった記事）は自動的に除外されます。
+不正なデータが1件でもある場合は更新を中止し、既存の news.json を保持します。
 """
 
 import os
 import json
 import datetime
-import anthropic
+import copy
+import math
+import re
+import tempfile
+from pathlib import Path
+from urllib.parse import urlsplit
 
 # ── 設定 ──────────────────────────────────────────────
 MODEL = "claude-opus-4-5"
@@ -157,10 +162,141 @@ def extract_json(text: str) -> dict:
     return json.loads(text[start:end + 1])
 
 
+RANKING_KEYS = (
+    "ranking_general", "ranking_coding", "ranking_japanese", "ranking_edge",
+)
+ARTICLE_TAGS = {"trend", "model", "tool", "hw", "research"}
+COUNTRY_FLAGS = {"", "cn", "us", "fr", "jp"}
+
+
+def _required(obj: dict, key: str, path: str):
+    if key not in obj:
+        raise ValueError(f"{path}.{key}: 必須項目がありません")
+    return obj[key]
+
+
+def _string(value, path: str, *, allow_empty: bool = False) -> str:
+    if not isinstance(value, str) or (not allow_empty and not value.strip()):
+        raise ValueError(f"{path}: 文字列が必要です（空文字不可）")
+    return value
+
+
+def _object(value, path: str) -> dict:
+    if not isinstance(value, dict):
+        raise ValueError(f"{path}: オブジェクトが必要です")
+    return value
+
+
+def _array(value, path: str, *, nonempty: bool = True) -> list:
+    if not isinstance(value, list) or (nonempty and not value):
+        requirement = "空でない配列" if nonempty else "配列"
+        raise ValueError(f"{path}: {requirement}が必要です")
+    return value
+
+
+def _date(value, path: str) -> datetime.date:
+    _string(value, path)
+    if not re.fullmatch(r"[0-9]{4}\.[0-9]{2}\.[0-9]{2}", value):
+        raise ValueError(f"{path}: 日付は YYYY.MM.DD 形式で指定してください")
+    try:
+        return datetime.date.fromisoformat(value.replace(".", "-"))
+    except ValueError as exc:
+        raise ValueError(f"{path}: 実在する日付が必要です") from exc
+
+
+def _url(value, path: str, *, allow_empty: bool = False) -> None:
+    _string(value, path, allow_empty=allow_empty)
+    if allow_empty and value == "":
+        return
+    # urlsplit strips some control characters; reject them before parsing.
+    if any(char.isspace() or ord(char) < 32 or ord(char) == 127 for char in value) or "\\" in value:
+        raise ValueError(f"{path}: URLに空白・制御文字・バックスラッシュは使えません")
+    try:
+        parsed = urlsplit(value)
+        valid = (
+            parsed.scheme.lower() in {"http", "https"}
+            and bool(parsed.netloc)
+            and bool(parsed.hostname)
+            and parsed.username is None
+            and parsed.password is None
+        )
+        # Accessing port also rejects malformed/out-of-range port values.
+        parsed.port
+    except ValueError as exc:
+        raise ValueError(f"{path}: 不正なURLです") from exc
+    if not valid:
+        raise ValueError(f"{path}: 絶対URL（http/https）が必要です")
+
+
+def _article(value, path: str, updated: datetime.date) -> None:
+    article = _object(value, path)
+    for key in ("tag", "date", "title", "summary", "url"):
+        _string(_required(article, key, path), f"{path}.{key}")
+    if article["tag"] not in ARTICLE_TAGS:
+        raise ValueError(f"{path}.tag: 不正な記事カテゴリです")
+    if _date(article["date"], f"{path}.date") > updated:
+        raise ValueError(f"{path}.date: 更新日より未来の記事は掲載できません")
+    _url(article["url"], f"{path}.url")
+
+
+def validate_news(data: dict) -> dict:
+    """Validate the entire payload and return a newest-first copy.
+
+    No entries are dropped or modified in place. A single invalid section aborts
+    the update, so callers can safely retain the last successful news.json.
+    """
+    data = _object(data, "news")
+    updated = _date(_required(data, "updated", "news"), "news.updated")
+    if updated > datetime.datetime.now(JST).date():
+        raise ValueError("news.updated: 日本時間の現在日より未来の更新日は指定できません")
+    ticker = _array(_required(data, "ticker", "news"), "news.ticker")
+    for index, headline in enumerate(ticker):
+        _string(headline, f"news.ticker[{index}]")
+
+    for key in RANKING_KEYS:
+        ranking = _array(_required(data, key, "news"), f"news.{key}", nonempty=False)
+        for index, value in enumerate(ranking):
+            path = f"news.{key}[{index}]"
+            model = _object(value, path)
+            for field in ("name", "size", "released", "country", "org", "reason"):
+                _string(_required(model, field, path), f"{path}.{field}")
+            flag = _string(_required(model, "flag", path), f"{path}.flag", allow_empty=True)
+            if flag not in COUNTRY_FLAGS:
+                raise ValueError(f"{path}.flag: 不正な国コードです")
+            score = _required(model, "score", path)
+            if (isinstance(score, bool) or not isinstance(score, (int, float))
+                    or not 0 <= score <= 100 or not math.isfinite(score)):
+                raise ValueError(f"{path}.score: 0〜100の有限数が必要です")
+            released = model["released"]
+            if not re.fullmatch(r"[0-9]{4}\.[0-9]{2}", released):
+                raise ValueError(f"{path}.released: YYYY.MM 形式が必要です")
+            released_date = _date(released + ".01", f"{path}.released")
+            if (released_date.year, released_date.month) > (updated.year, updated.month):
+                raise ValueError(f"{path}.released: 更新月より未来のモデルは掲載できません")
+            badges = _array(_required(model, "badges", path), f"{path}.badges", nonempty=False)
+            for badge_index, badge in enumerate(badges):
+                _string(badge, f"{path}.badges[{badge_index}]")
+            _url(_required(model, "url", path), f"{path}.url", allow_empty=True)
+
+    _article(_required(data, "featured", "news"), "news.featured", updated)
+    articles = _array(_required(data, "articles", "news"), "news.articles")
+    for index, article in enumerate(articles):
+        _article(article, f"news.articles[{index}]", updated)
+
+    validated = copy.deepcopy(data)
+    # The fixed-width date format above is chronologically sortable. Sorting is
+    # stable so same-day articles keep their source order, including duplicates.
+    validated["articles"].sort(key=lambda article: article["date"], reverse=True)
+    return validated
+
+
 def fetch_news() -> dict:
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         raise EnvironmentError("ANTHROPIC_API_KEY が設定されていません")
+
+    # Import only for real fetches; validation/tests run without the API SDK.
+    import anthropic
 
     client = anthropic.Anthropic(api_key=api_key)
 
@@ -183,31 +319,37 @@ def fetch_news() -> dict:
         block.text for block in message.content if block.type == "text"
     )
 
-    data = extract_json(full_text)
-    data["updated"] = TODAY  # 日付を確実に上書き
-
-    # URLのない記事を除外（捏造防止の最終フィルター）
-    before = len(data.get("articles", []))
-    data["articles"] = [
-        a for a in data.get("articles", [])
-        if isinstance(a.get("url"), str) and a["url"].startswith("http")
-    ]
-    dropped = before - len(data["articles"])
-    if dropped:
-        print(f"⚠️ URLなしの記事 {dropped} 件を除外しました")
-
-    if not data["articles"]:
-        raise ValueError("URL付きの記事が0件でした。news.json は更新しません")
-
-    return data
+    data = validate_news(extract_json(full_text))
+    data["updated"] = TODAY  # 日本時間の実行日を設定し、その日付でも再検証
+    return validate_news(data)
 
 
 def save_news(data: dict) -> None:
-    with open(NEWS_JSON, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-    print(f"✅ {NEWS_JSON} を更新しました（記事 {len(data['articles'])} 件、全てURL付き）")
+    """Validate and serialize before atomically replacing the published file."""
+    validated = validate_news(data)
+    serialized = json.dumps(validated, ensure_ascii=False, indent=2, allow_nan=False) + "\n"
+    destination = Path(NEWS_JSON)
+    temporary_path = None
+    try:
+        # A sibling temporary file guarantees os.replace stays on one filesystem.
+        with tempfile.NamedTemporaryFile(
+            mode="w", encoding="utf-8", dir=destination.parent,
+            prefix=f".{destination.name}.", suffix=".tmp", delete=False,
+        ) as temporary:
+            temporary_path = Path(temporary.name)
+            temporary.write(serialized)
+            temporary.flush()
+            os.fsync(temporary.fileno())
+        if destination.exists():
+            os.chmod(temporary_path, destination.stat().st_mode & 0o777)
+        os.replace(temporary_path, destination)
+    finally:
+        if temporary_path is not None and temporary_path.exists():
+            temporary_path.unlink()
+    print(f"✅ {NEWS_JSON} を更新しました（記事 {len(validated['articles'])} 件、全て検証済み）")
 
 
 if __name__ == "__main__":
     news_data = fetch_news()
     save_news(news_data)
+
