@@ -4,8 +4,9 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
 const root=path.resolve(__dirname,'..'), html=fs.readFileSync(path.join(root,'index.html'),'utf8'), ui=fs.readFileSync(path.join(root,'news-ui.js'),'utf8');
 const fixture=JSON.parse(fs.readFileSync(path.join(root,'news.json'),'utf8'));
 const tick=()=>new Promise(r=>setTimeout(r,0));
-function setup(){
+function setup(withoutInitialFlags=false){
  const dom=new JSDOM(html,{url:'https://example.test/',runScripts:'outside-only'}),w=dom.window;
+ if(withoutInitialFlags)w.document.querySelectorAll('.rflag').forEach(n=>n.remove());
  const requests=[];w.fetch=(url,options)=>new Promise((resolve,reject)=>requests.push({resolve,reject,options}));
  for(const script of w.document.querySelectorAll('script:not([src])'))w.eval(script.textContent);
  w.eval(ui);return {dom,w,d:w.document,requests};
@@ -34,5 +35,35 @@ async function fulfill(x,data=fixture){x.requests.shift().resolve({ok:true,json:
  const invalid=[...['javascript:alert(1)','data:text/html,hi','httpsx://example.com','//example.com','https://user:pass@example.com','https://example.com/\nonclick=x','https://'].map(url=>d=>{d.featured.url=url;}),d=>{d.articles[0].date='2026.02.30';},d=>{d.ranking_edge[0].badges={};},d=>{d.ranking_general[0].score='90';},d=>{d.ticker=[{}];},d=>{delete d.ranking_japanese;},d=>{d.updated='2999.01.01';},d=>{d.articles[0].tag='__proto__';},d=>{d.ranking_edge[0].released='2026.13';}];
  for(const change of invalid){data=structuredClone(fixture);change(data);x=setup();await fulfill(x,data);assert.match(x.d.querySelector('#newsStatus').textContent,/失敗/);assert.equal(x.d.querySelector('#rankGrid').textContent,fallback);x.dom.window.close();}
  x=setup();choose(x,'japanese');x.requests.shift().reject(new Error('network'));await tick();assert.equal(x.d.querySelector('#rankGrid').textContent,fallback);assert.match(x.d.querySelector('.rtab.ac').textContent,/日本語/);assert.match(x.d.querySelector('#newsStatus').textContent,/失敗/);x.d.querySelector('#newsStatus + button').click();await fulfill(x);assert.ok(x.d.querySelector('#rankGrid').textContent.includes(fixture.ranking_japanese[0].name));x.dom.window.close();
- console.log('PASS DOM: safe text, 15 invalid payloads/URLs, stable sorting/all articles, category before load, initial/refresh failure, fallback/retry, duplicate clicks, filter retention, repeated tabs and all 16 archive records/unique years.');
+ // All supported flags must render in every category without any initial SVGs.
+ const codes=['cn','us','fr','jp'];
+ const flagData=structuredClone(fixture);
+ for(const key of ['general','coding','japanese','edge']){
+  const template=flagData['ranking_'+key][0];
+  flagData['ranking_'+key]=codes.map((flag,i)=>({...structuredClone(template),flag,name:'Flag '+flag,country:['中国','米国','仏国','日本'][i]}));
+ }
+ x=setup(true);assert.equal(x.d.querySelectorAll('#rankGrid .rflag').length,0);await fulfill(x,flagData);
+ for(const key of ['general','coding','japanese','edge','general']){
+  choose(x,key);const svgs=Array.from(x.d.querySelectorAll('#rankGrid .rflag svg'));
+  assert.equal(svgs.length,4);
+  assert.ok(svgs.every(n=>n.namespaceURI==='http://www.w3.org/2000/svg' && n.getAttribute('viewBox')==='0 0 30 20'));
+  assert.equal(svgs[0].querySelector('polygon').getAttribute('fill'),'#FFDE00');
+  assert.equal(svgs[1].querySelectorAll('rect').length,9);
+  assert.equal(svgs[2].querySelectorAll('rect').length,3);
+  assert.equal(svgs[3].querySelector('circle').getAttribute('fill'),'#BC002D');
+ }
+ x.dom.window.close();
+ // Current data flags render independently too; no country SVG is borrowed from fallback.
+ x=setup(true);await fulfill(x);
+ for(const key of ['general','coding','japanese','edge']){
+  choose(x,key);assert.equal(x.d.querySelectorAll('#rankGrid .rflag svg').length,fixture['ranking_'+key].filter(m=>codes.includes(m.flag)).length);
+ }
+ x.dom.window.close();
+ // Empty code is the supported no-flag fallback; unknown/hostile codes reject safely.
+ data=structuredClone(fixture);data.ranking_general[0].flag='';x=setup(true);await fulfill(x,data);assert.equal(x.d.querySelector('#rankGrid .rc').querySelector('.rflag'),null);x.dom.window.close();
+ for(const flag of ['zz','__proto__','<svg onload="window.pwned=1">']){
+  data=structuredClone(fixture);data.ranking_general[0].flag=flag;x=setup(true);await fulfill(x,data);
+  assert.match(x.d.querySelector('#newsStatus').textContent,/失敗/);assert.equal(x.d.querySelectorAll('#rankGrid .rflag').length,0);assert.equal(x.w.pwned,undefined);x.dom.window.close();
+ }
+ console.log('PASS DOM: independent cn/us/fr/jp SVGs in all categories and safe unknown-code fallback; safe text, 15 invalid payloads/URLs, stable sorting/all articles, category before load, initial/refresh failure, fallback/retry, duplicate clicks, filter retention, repeated tabs and all 16 archive records/unique years.');
 })().catch(e=>{console.error(e);process.exitCode=1;});
