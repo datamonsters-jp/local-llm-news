@@ -403,7 +403,9 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
 
 <script>
 // FILTER
+var selectedNewsTag="all";
 function filt(btn,tag){
+  selectedNewsTag=tag;
   document.querySelectorAll('.fb').forEach(b=>b.classList.remove('ac','ap'));
   btn.classList.add(tag==='all'?'ap':'ac');
   document.querySelectorAll('#ng .nc').forEach(c=>{
@@ -413,22 +415,161 @@ function filt(btn,tag){
 
 // ARCHIVE DATA
 var AD = [
-  {t:'hw',   d:'2026.05.15',y:'2026',m:'05',url:'https://codersera.com/blog/local-ai-runtimes-may-2026-update/',         ti:'RTX 5090 vs Mac Studio M4 Max — ローカル推論ベンチで実力差が明らかに',su:'NVIDIA RTX 5090とApple M4 Maxのローカル推論比較。Llama 3.1 70B FP8でのスループット比較でそれぞれの強みが明確に。'},
-  {t:'tool', d:'2026.05.10',y:'2026',m:'05',url:'https://lmstudio.ai/changelog',                                          ti:'量子化技術の成熟：Q4_K_MでVRAMを約70%削減、実用品質を維持',su:'量子化技術（Q4_K_M）がローカルLLMの敷居を引き下げた。12Bクラスが4〜6GBのVRAMで実用品質で動作するように。'},
-  {t:'model',d:'2026.05.05',y:'2026',m:'05',url:'https://techie007.substack.com/p/qwen-35-the-complete-guide-benchmarks',  ti:'DeepSeekもローカルで動く — 中国・米国のLLMをオフライン環境で実行する方法',su:'DeepSeekをはじめとする中国発LLMがローカル環境で動作可能に。企業のセキュリティ要件を満たしながら先端AIを活用できる。'},
-  {t:'model',d:'2026.04.28',y:'2026',m:'04',url:'https://aurigait.com/blog/gemma-4-features-benchmarks-guide/',           ti:'Gemma 4シリーズ全ラインナップ公開 — E2B〜31Bまで用途別に選べる構成',su:'GoogleがマルチモーダルのGemma 4を全サイズ公開。E2B・E4B・26B・31BがApache 2.0で利用可能に。'},
-  {t:'trend',d:'2026.04.22',y:'2026',m:'04',url:'https://www.xda-developers.com/google-gemma-4-finally-made-me-care-about-running-local-llms/',ti:'ローカルLLM関連アプリが高機能化 — AI Edge GalleryやLM Studioが急成長',su:'ローカルLLMを手軽に起動・管理できるアプリが充実。AI Edge Galleryは5分でローカルLLMを体験できる環境を提供。'},
-  {t:'research',d:'2026.04.18',y:'2026',m:'04',url:'https://www.compute-market.com/blog/qwen-3-local-hardware-guide-2026',ti:'日本語LLM比較 2026年春版 — Qwen3.5が国産モデルを抑えて1位に',su:'日本語タスク専門の比較検証結果が公開。Qwen3.5-14BがELYZAやcyberagent系モデルを上回る結果を記録した。'},
-  {t:'hw',   d:'2026.04.12',y:'2026',m:'04',url:'https://thenewstack.io/google-gemma-local-ai/',                          ti:'Mac Studio M4 Ultra 128GB — 70Bモデルをフル精度で快適動作させる夢環境',su:'Apple M4 Ultraの128GBユニファイドメモリでLlama 70Bをフル精度で動作させる検証が話題に。毎秒25トークン以上を達成。'},
-  {t:'tool', d:'2026.04.08',y:'2026',m:'04',url:'https://lmstudio.ai/changelog/lmstudio-v0.4.9',                          ti:'vLLM v0.21.0 リリース — DeepSeek V4 Blackwell対応・スペキュラティブデコーディング強化',su:'本番環境向け推論エンジンvLLMが大型アップデート。DeepSeek V4のBlackwell安定動作とMLA新バックエンドでスループット大幅向上。'},
-  {t:'model',d:'2026.03.28',y:'2026',m:'03',url:'https://github.com/QwenLM/Qwen3.6',                                      ti:'Qwen3.5シリーズ発表 — 0.8Bから397Bまで全サイズが一斉公開',su:'AlibabaがQwen3.5の全ラインナップを公開。最小0.8Bからスマートフォン向け〜サーバー向けまで一気にカバー。Apache 2.0ライセンス。'},
-  {t:'research',d:'2026.03.16',y:'2026',m:'03',url:'https://computertech.co/qwen-3-5-small-review-2026/',                ti:'Qwen3.5 Small レビュー — 9Bで120Bクラスの性能、GPT-OSS-120Bを超えるスコア',su:'Qwen3.5-9BがAgentic系ベンチマークでGPT-OSS-120Bを超える衝撃結果。262Kトークンコンテキストと関数呼び出し性能が特に優秀。'},
-  {t:'tool', d:'2026.03.10',y:'2026',m:'03',url:'https://lmstudio.ai/changelog/lmstudio-v0.4.6',                          ti:'LM Studio 0.4.6 — LM Link（リモートアクセス）をプレビュー公開',su:'LM Studio 0.4.6がリモートインスタンス接続機能LM Linkをプレビュー提供開始。Tailscaleとの連携でエンドツーエンド暗号化を実現。'},
-  {t:'model',d:'2025.12.20',y:'2025',m:'12',url:'https://en.wikipedia.org/wiki/Qwen',                                     ti:'Llama 3.3 70B リリース — 405Bに迫る性能を70Bで実現、業界に衝撃',su:'MetaがLlama 3.3の70Bを公開。ベンチマークではLlama 3.1 405Bに近い性能を示し、コスパ最強モデルの称号を獲得。'},
-  {t:'hw',   d:'2025.12.12',y:'2025',m:'12',url:'https://www.compute-market.com/blog/qwen-3-local-hardware-guide-2026',   ti:'GeForce RTX 5090 スペック判明 — VRAM 32GB、ローカルLLM用途で革命的',su:'NVIDIAの次世代フラッグシップGPUの詳細が公式発表。32GBのVRAMと大幅向上したNVLink帯域幅でローカルLLMに最適な環境が実現。'},
-  {t:'trend',d:'2025.12.05',y:'2025',m:'12',url:'https://www.xda-developers.com/found-open-source-local-llm-that-competes-with-cloud-ai-gemma-4/',ti:'2025年のローカルLLMを振り返る — 「個人でも本物のAI」が当たり前になった年',su:'2025年はローカルLLMが実用段階に入った記念すべき年。7B〜13Bクラスが商用品質に達し、プライバシー重視のユーザー層に急速に普及。'},
-  {t:'model',d:'2025.11.25',y:'2025',m:'11',url:'https://en.wikipedia.org/wiki/Gemma_(language_model)',                   ti:'Mistral Large 2 発表 — 欧州AI規制に完全準拠したエンタープライズ向け大型モデル',su:'Mistral AIがフランス発の大型モデルを更新。EU AI法への完全準拠と商用ライセンスの明確化で欧州企業の採用が加速する見通し。'},
-  {t:'research',d:'2025.11.18',y:'2025',m:'11',url:'https://www.compute-market.com/blog/qwen-3-local-hardware-guide-2026',ti:'ローカルLLM電力消費計測 — GPU別の1トークンあたりコストを徹底比較',su:'各GPUでのローカルLLM動作時の電力消費を詳細に計測した研究が公開。RTX 4060〜4090まで1トークン生成コストを可視化。'}
+  {
+    "t": "hw",
+    "d": "2026.05.15",
+    "y": "2026",
+    "m": "05",
+    "url": "",
+    "ti": "RTX 5090 vs Mac Studio M4 Max — ローカル推論ベンチで実力差が明らかに",
+    "su": "NVIDIA RTX 5090とApple M4 Maxのローカル推論比較。Llama 3.1 70B FP8でのスループット比較でそれぞれの強みが明確に。",
+    "verification": "出典未確認：日付・記述は未検証です"
+  },
+  {
+    "t": "tool",
+    "d": "2026.05.10",
+    "y": "2026",
+    "m": "05",
+    "url": "",
+    "ti": "量子化技術の成熟：Q4_K_MでVRAMを約70%削減、実用品質を維持",
+    "su": "量子化技術（Q4_K_M）がローカルLLMの敷居を引き下げた。12Bクラスが4〜6GBのVRAMで実用品質で動作するように。",
+    "verification": "出典未確認：日付・記述は未検証です"
+  },
+  {
+    "t": "model",
+    "d": "2026.05.05",
+    "y": "2026",
+    "m": "05",
+    "url": "",
+    "ti": "DeepSeekもローカルで動く — 中国・米国のLLMをオフライン環境で実行する方法",
+    "su": "DeepSeekをはじめとする中国発LLMがローカル環境で動作可能に。企業のセキュリティ要件を満たしながら先端AIを活用できる。",
+    "verification": "出典未確認：日付・記述は未検証です"
+  },
+  {
+    "t": "model",
+    "d": "2026.04.02",
+    "y": "2026",
+    "m": "04",
+    "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/",
+    "ti": "Gemma 4シリーズ全ラインナップ公開 — E2B〜31Bまで用途別に選べる構成",
+    "su": "GoogleがマルチモーダルのGemma 4を全サイズ公開。E2B・E4B・26B・31BがApache 2.0で利用可能に。"
+  },
+  {
+    "t": "trend",
+    "d": "2026.04.22",
+    "y": "2026",
+    "m": "04",
+    "url": "",
+    "ti": "ローカルLLM関連アプリが高機能化 — AI Edge GalleryやLM Studioが急成長",
+    "su": "ローカルLLMを手軽に起動・管理できるアプリが充実。AI Edge Galleryは5分でローカルLLMを体験できる環境を提供。",
+    "verification": "出典未確認：日付・記述は未検証です"
+  },
+  {
+    "t": "research",
+    "d": "2026.04.18",
+    "y": "2026",
+    "m": "04",
+    "url": "",
+    "ti": "日本語LLM比較 2026年春版 — Qwen3.5が国産モデルを抑えて1位に",
+    "su": "日本語タスク専門の比較検証結果が公開。Qwen3.5-14BがELYZAやcyberagent系モデルを上回る結果を記録した。",
+    "verification": "出典未確認：日付・記述は未検証です"
+  },
+  {
+    "t": "hw",
+    "d": "2026.04.12",
+    "y": "2026",
+    "m": "04",
+    "url": "",
+    "ti": "Mac Studio M4 Ultra 128GB — 70Bモデルをフル精度で快適動作させる夢環境",
+    "su": "Apple M4 Ultraの128GBユニファイドメモリでLlama 70Bをフル精度で動作させる検証が話題に。毎秒25トークン以上を達成。",
+    "verification": "出典未確認：日付・記述は未検証です"
+  },
+  {
+    "t": "tool",
+    "d": "2026.05.15",
+    "y": "2026",
+    "m": "05",
+    "url": "https://github.com/vllm-project/vllm/releases/tag/v0.21.0",
+    "ti": "vLLM v0.21.0 リリース — Blackwell向けMLAバックエンドと投機的デコーディングを強化",
+    "su": "vLLM v0.21.0が公開。DeepSeek-R1・Kimi-K25向けTOKENSPEED_MLAバックエンドと、推論予算を考慮する投機的デコーディングを追加。"
+  },
+  {
+    "t": "model",
+    "d": "2026.03.28",
+    "y": "2026",
+    "m": "03",
+    "url": "https://qwen.ai/blog?id=qwen3.5",
+    "ti": "Qwen3.5シリーズ発表 — 0.8Bから397Bまで全サイズが一斉公開",
+    "su": "AlibabaがQwen3.5の全ラインナップを公開。最小0.8Bからスマートフォン向け〜サーバー向けまで一気にカバー。Apache 2.0ライセンス。",
+    "verification": "日付・記述の一部は未確認"
+  },
+  {
+    "t": "research",
+    "d": "2026.03.16",
+    "y": "2026",
+    "m": "03",
+    "url": "",
+    "ti": "Qwen3.5 Small レビュー — 9Bで120Bクラスの性能、GPT-OSS-120Bを超えるスコア",
+    "su": "Qwen3.5-9BがAgentic系ベンチマークでGPT-OSS-120Bを超える衝撃結果。262Kトークンコンテキストと関数呼び出し性能が特に優秀。",
+    "verification": "出典未確認：日付・記述は未検証です"
+  },
+  {
+    "t": "tool",
+    "d": "2026.02.27",
+    "y": "2026",
+    "m": "02",
+    "url": "https://lmstudio.ai/changelog/lmstudio/lmstudio-v0.4.6",
+    "ti": "LM Studio 0.4.6 — LM Link（リモートアクセス）をプレビュー公開",
+    "su": "LM Studio 0.4.6がリモートインスタンス接続機能LM Linkをプレビュー提供開始。Tailscaleとの連携でエンドツーエンド暗号化を実現。"
+  },
+  {
+    "t": "model",
+    "d": "2024.12.06",
+    "y": "2024",
+    "m": "12",
+    "url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+    "ti": "Llama 3.3 70B リリース — 405Bに迫る性能を70Bで実現、業界に衝撃",
+    "su": "MetaがLlama 3.3の70Bを公開。ベンチマークではLlama 3.1 405Bに近い性能を示し、コスパ最強モデルの称号を獲得。"
+  },
+  {
+    "t": "hw",
+    "d": "2025.12.12",
+    "y": "2025",
+    "m": "12",
+    "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/",
+    "ti": "GeForce RTX 5090 スペック判明 — VRAM 32GB、ローカルLLM用途で革命的",
+    "su": "NVIDIA GeForce RTX 5090は32GB GDDR7メモリを搭載。公式仕様ではNVLink非対応。",
+    "verification": "日付・記述の一部は未確認"
+  },
+  {
+    "t": "trend",
+    "d": "2025.12.05",
+    "y": "2025",
+    "m": "12",
+    "url": "",
+    "ti": "2025年のローカルLLMを振り返る — 「個人でも本物のAI」が当たり前になった年",
+    "su": "2025年はローカルLLMが実用段階に入った記念すべき年。7B〜13Bクラスが商用品質に達し、プライバシー重視のユーザー層に急速に普及。",
+    "verification": "出典未確認：日付・記述は未検証です"
+  },
+  {
+    "t": "model",
+    "d": "2024.07.24",
+    "y": "2024",
+    "m": "07",
+    "url": "https://mistral.ai/news/mistral-large-2407/",
+    "ti": "Mistral Large 2 発表 — 123B・128Kコンテキストの多言語モデル",
+    "su": "Mistral AIがMistral Large 2を公開。123Bパラメータと128Kコンテキストに対応し、自己ホストでの商用利用にはMistral Commercial Licenseが必要。"
+  },
+  {
+    "t": "research",
+    "d": "2025.11.18",
+    "y": "2025",
+    "m": "11",
+    "url": "",
+    "ti": "ローカルLLM電力消費計測 — GPU別の1トークンあたりコストを徹底比較",
+    "su": "各GPUでのローカルLLM動作時の電力消費を詳細に計測した研究が公開。RTX 4060〜4090まで1トークン生成コストを可視化。",
+    "verification": "出典未確認：日付・記述は未検証です"
+  }
 ];
 
 var CY='2026', CM=null;
@@ -446,27 +587,50 @@ function selMonth(btn,m){
   if(CM) btn.classList.add('ac');
   renderArchive();
 }
+function archiveNode(tag, cls, text){
+  var n=document.createElement(tag); n.className=cls;
+  if(text!==undefined)n.textContent=text;
+  return n;
+}
+function renderYears(){
+  var container=document.querySelector('.arch-years');
+  container.replaceChildren();
+  Array.from(new Set(AD.map(a=>a.y))).sort().reverse().forEach(y=>{
+    var b=archiveNode('button','ayb'+(CY===y?' ac':''),y);
+    b.addEventListener('click',()=>selYear(b,y));container.append(b);
+  });
+}
 function renderMonths(){
   var counts={};
   AD.filter(a=>a.y===CY).forEach(a=>{counts[a.m]=(counts[a.m]||0)+1;});
-  var ms=Object.keys(counts).sort();
-  document.getElementById('am').innerHTML=ms.map(m=>
-    '<button class="amb'+(CM===m?' ac':'')+'" onclick="selMonth(this,\''+m+'\')">'+MJ[parseInt(m)]+'<span class="mcnt">('+counts[m]+')</span></button>'
-  ).join('');
+  var container=document.getElementById('am');container.replaceChildren();
+  Object.keys(counts).sort().forEach(m=>{
+    var b=archiveNode('button','amb'+(CM===m?' ac':''),MJ[parseInt(m)]);
+    b.append(archiveNode('span','mcnt','('+counts[m]+')'));
+    b.addEventListener('click',()=>selMonth(b,m));container.append(b);
+  });
 }
 function renderArchive(){
-  var items=AD.filter(a=>a.y===CY);
-  if(CM) items=items.filter(a=>a.m===CM);
+  var items=AD.filter(a=>a.y===CY && (!CM || a.m===CM)).sort((a,b)=>b.d.localeCompare(a.d));
+  var container=document.getElementById('ag');container.replaceChildren();
   var tmap={model:'tmodel',tool:'ttool',hw:'thw',research:'tresearch',trend:'ttrend'};
-  document.getElementById('ag').innerHTML=items.length?items.map(a=>
-    '<div class="acard">'
-    +'<div class="acmeta"><span class="tag '+tmap[a.t]+'">'+a.t.toUpperCase()+'</span><span class="ndate">'+a.d+'</span></div>'
-    +'<h4>'+a.ti+'</h4><p>'+a.su+'</p>'
-    +'<a href="'+a.url+'" target="_blank" class="alink">READ MORE →</a>'
-    +'</div>'
-  ).join(''):'<div class="empty">// NO ARTICLES FOUND //</div>';
+  items.forEach(a=>{
+    var card=archiveNode('div','acard'),meta=archiveNode('div','acmeta');
+    meta.append(archiveNode('span','tag '+tmap[a.t],a.t.toUpperCase()),archiveNode('span','ndate',a.d));
+    card.append(meta,archiveNode('h4','',a.ti),archiveNode('p','',a.su));
+    if(a.verification)card.append(archiveNode('p','',a.verification));
+    try{
+      var url=new URL(a.url);
+      if(['http:','https:'].includes(url.protocol) && !url.username && !url.password){
+        var link=archiveNode('a','alink',a.verification?'公式資料（記事内容の確認待ち） →':'READ MORE →');
+        link.href=url.href;link.target='_blank';link.rel='noopener noreferrer';card.append(link);
+      }
+    }catch(_){}
+    container.append(card);
+  });
+  if(!items.length)container.append(archiveNode('div','empty','// NO ARTICLES FOUND //'));
 }
-renderMonths(); renderArchive();
+renderYears();renderMonths();renderArchive();
 
 // AUDIO
 var AC=null,playing=false,masterG,picoT;
@@ -512,99 +676,7 @@ function togAudio(){
   }
 }
 
-/* ===== HYBRID LOADER =====
-   埋め込みデータをデフォルト表示しつつ、news.json の取得に
-   成功したら最新データに差し替える。失敗時は何もしない
-   （ローカルファイルで開いた場合もそのまま動く） */
-(function(){
-  var TM={model:'tmodel',tool:'ttool',hw:'thw',research:'tresearch',trend:'ttrend'};
-  var COLS=['cyan','purple','green','yellow','orange','pink'];
-  var MED=['🥇','🥈','🥉'];
-  var FLAGS={
-    cn:'<svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5,2 6.18,5.09 9.51,5.09 6.84,7.05 7.82,10.18 5,8.5 2.18,10.18 3.16,7.05 0.49,5.09 3.82,5.09" fill="#FFDE00"/></svg>',
-    us:'<svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#fff"/><rect width="30" height="1.54" y="0" fill="#B22234"/><rect width="30" height="1.54" y="3.08" fill="#B22234"/><rect width="30" height="1.54" y="6.15" fill="#B22234"/><rect width="30" height="1.54" y="9.23" fill="#B22234"/><rect width="30" height="1.54" y="12.31" fill="#B22234"/><rect width="30" height="1.54" y="15.38" fill="#B22234"/><rect width="30" height="1.54" y="18.46" fill="#B22234"/><rect width="12" height="10.77" fill="#3C3B6E"/></svg>',
-    fr:'<svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#ED2939"/><rect width="20" height="20" fill="#fff"/><rect width="10" height="20" fill="#002395"/></svg>',
-    jp:'<svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#fff"/><circle cx="15" cy="10" r="6" fill="#BC002D"/></svg>'
-  };
-  function tagOf(t){return TM[t]||'ttrend';}
-  function rankCard(m,i){
-    var rank=i+1, cls=rank<=3?'r'+rank:'ro', medal=rank<=3?MED[i]:'#'+rank;
-    var flag=FLAGS[m.flag]?'<div class="rflag">'+FLAGS[m.flag]+'</div>':'';
-    var org=(m.country||m.org)?'<div class="rorg">'+flag+'<span class="rcountry">'+(m.country||'')+(m.country&&m.org?' · ':'')+(m.org||'')+'</span></div>':'';
-    var rel=m.released?'<div class="rdate">📅 <b>'+m.released+' リリース</b></div>':'';
-    var badges=(m.badges||[]).map(function(b){return '<span class="rbadge">'+b+'</span>';}).join('');
-    var nm=(m.url&&m.url.indexOf('http')===0)
-      ? '<a href="'+m.url+'" target="_blank" rel="noopener">'+m.name+'</a>'
-      : m.name;
-    return '<div class="rc '+cls+'"><div class="rh"><div class="rnum">'+medal+'</div>'
-      +'<div class="rnw"><div class="rname">'+nm+'</div>'+org+rel+'</div>'
-      +'<div class="rsize">'+m.size+'</div></div>'
-      +'<div class="rbar-bg"><div class="rbar" style="width:'+(m.score||50)+'%"></div></div>'
-      +'<div class="rmeta"><span class="rscore">SCORE '+(m.score||'—')+'</span>'
-      +'<span class="rreason">'+(m.reason||'')+'</span></div>'
-      +(badges?'<div class="rbadges">'+badges+'</div>':'')+'</div>';
-  }
-  // ランキングデータを保持してタブ切替で再描画
-  window.__rankData={general:[],coding:[],japanese:[],edge:[]};
-  window.rankTab=function(btn,key){
-    document.querySelectorAll('.rtab').forEach(function(b){b.classList.remove('ac');});
-    btn.classList.add('ac');
-    var list=window.__rankData[key]||[];
-    document.getElementById('rankGrid').innerHTML=list.length
-      ? list.map(rankCard).join('')
-      : '<div class="empty">// データがありません //</div>';
-  };
-  function newsCard(a,i){
-    var link=a.url?'<a href="'+a.url+'" target="_blank" rel="noopener" class="clink">READ MORE →</a>':'';
-    return '<div class="nc '+COLS[i%COLS.length]+'" data-t="'+a.tag+'">'
-      +'<div class="cmeta"><span class="tag '+tagOf(a.tag)+'">'+a.tag.toUpperCase()+'</span>'
-      +'<span class="ndate">'+a.date+'</span></div>'
-      +'<h3>'+a.title+'</h3><p>'+a.summary+'</p>'+link+'</div>';
-  }
-  fetch('news.json?v='+Date.now())
-    .then(function(r){if(!r.ok)throw new Error();return r.json();})
-    .then(function(d){
-      if(d.updated){
-        document.getElementById('hdrDate').textContent='// '+d.updated+' UPDATE //';
-        document.getElementById('ftxt').textContent='© 2026 — 最終更新: '+d.updated+' // ローカルLLMの最前線をお届け';
-      }
-      if(d.ticker&&d.ticker.length){
-        var t=d.ticker.map(function(x){return '<span class="ti">'+x+'</span><span class="ts"> ★ </span>';}).join('');
-        document.getElementById('tickerTrack').innerHTML=t+t;
-      }
-      // ランキング: 新形式(ranking_general/coding/japanese/edge) と 旧形式(ranking) の両対応
-      var gen = d.ranking_general || d.ranking || [];
-      var cod = d.ranking_coding || [];
-      var jpn = d.ranking_japanese || [];
-      var edg = d.ranking_edge || [];
-      window.__rankData.general = gen;
-      window.__rankData.coding = cod;
-      window.__rankData.japanese = jpn;
-      window.__rankData.edge = edg;
-      if(gen.length){
-        document.getElementById('rankGrid').innerHTML=gen.map(rankCard).join('');
-      }
-      // データが無いタブは個別に隠す
-      var tabBtns=document.querySelectorAll('.rtab');
-      var has={general:gen.length,coding:cod.length,japanese:jpn.length,edge:edg.length};
-      var keys=['general','coding','japanese','edge'];
-      tabBtns.forEach(function(b,idx){
-        if(!has[keys[idx]]) b.style.display='none';
-      });
-      if(d.featured){
-        var f=d.featured;
-        document.getElementById('heroBox').innerHTML=
-          '<div class="hmeta"><span class="tag '+tagOf(f.tag)+'">'+f.tag.toUpperCase()+'</span>'
-          +'<span class="ndate">'+f.date+'</span></div>'
-          +'<h3>'+f.title+'</h3><p>'+f.summary+'</p>'
-          +(f.url?'<a href="'+f.url+'" target="_blank" rel="noopener" class="rdmore">READ MORE →</a>':'');
-      }
-      if(d.articles&&d.articles.length){
-        document.getElementById('ng').innerHTML=d.articles.map(newsCard).join('');
-      }
-    })
-    .catch(function(){/* news.json が読めない環境では埋め込みデータをそのまま表示 */});
-})();
 </script>
+<script src="news-ui.js"></script>
 </body>
 </html>
