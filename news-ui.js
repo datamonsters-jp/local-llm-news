@@ -60,7 +60,7 @@
     const head = node('div','rh'), names = node('div','rnw'), name = node('div','rname');
     name.append(link(m.url,'',m.name)); names.append(name);
     const org = node('div','rorg');
-    // Clone only trusted inline SVG flags from the original static cards.
+    // Flags are built only from fixed local SVG data, never generated markup.
     if (flags[m.flag]) { const flag = node('div','rflag'); flag.append(flags[m.flag].cloneNode(true)); org.append(flag); }
     org.append(node('span','rcountry',m.country+' · '+m.org)); names.append(org);
     const released = node('div','rdate','📅 '); released.append(node('b','',m.released+' リリース')); names.append(released);
@@ -70,11 +70,38 @@
     const badges = node('div','rbadges'); m.badges.forEach(b=>badges.append(node('span','rbadge',b)));
     card.append(head,bg,meta,badges); return card;
   }
-  const flags = {};
-  fallback.forEach(card => {
-    const country = card.querySelector('.rcountry'), svg = card.querySelector('.rflag svg');
-    if (country && svg) { const key = {'中国':'cn','米国':'us','仏国':'fr','日本':'jp'}[country.textContent.split(' · ')[0]]; if (key) flags[key] = svg; }
-  });
+  function flagSVG(shapes) {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 30 20');
+    svg.setAttribute('aria-hidden', 'true');
+    shapes.forEach(([tag, attributes]) => {
+      const shape = document.createElementNS('http://www.w3.org/2000/svg', tag);
+      Object.entries(attributes).forEach(([name, value]) => shape.setAttribute(name, value));
+      svg.append(shape);
+    });
+    return svg;
+  }
+  // Independent of which countries happen to appear in the saved ranking.
+  const flags = {
+    cn: flagSVG([
+      ['rect', {width:30, height:20, fill:'#DE2910'}],
+      ['polygon', {points:'5,2 6.18,5.09 9.51,5.09 6.84,7.05 7.82,10.18 5,8.5 2.18,10.18 3.16,7.05 0.49,5.09 3.82,5.09', fill:'#FFDE00'}]
+    ]),
+    us: flagSVG([
+      ['rect', {width:30, height:20, fill:'#fff'}],
+      ...[0,3.08,6.15,9.23,12.31,15.38,18.46].map(y => ['rect', {width:30, height:1.54, y, fill:'#B22234'}]),
+      ['rect', {width:12, height:10.77, fill:'#3C3B6E'}]
+    ]),
+    fr: flagSVG([
+      ['rect', {width:30, height:20, fill:'#ED2939'}],
+      ['rect', {width:20, height:20, fill:'#fff'}],
+      ['rect', {width:10, height:20, fill:'#002395'}]
+    ]),
+    jp: flagSVG([
+      ['rect', {width:30, height:20, fill:'#fff'}],
+      ['circle', {cx:15, cy:10, r:6, fill:'#BC002D'}]
+    ])
+  };
   function notice() {
     let message = state.pending ? '最新データを読み込み中。現在の保存データを表示しています。' :
       state.failed ? '最新データの取得に失敗しました。現在の保存データを表示しています。' : 'データ更新日: '+state.data.updated+'（現在の情報と異なる場合があります）';
