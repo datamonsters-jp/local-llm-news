@@ -215,6 +215,51 @@ class ValidateNewsTests(unittest.TestCase):
             data["ranking_general"][0]["released"] = value
             update_news.validate_news(data)
 
+    def test_prompt_requires_release_month_format_in_every_ranking(self):
+        for key in update_news.RANKING_KEYS:
+            section = update_news.SYSTEM_PROMPT.split(f'"{key}": [', 1)[1].split("]", 1)[0]
+            self.assertIn('"released": "YYYY.MM', section)
+            self.assertIn("月は必ず2桁", section)
+        self.assertIn("月を推測・補完しない", update_news.SYSTEM_PROMPT)
+
+    def test_release_format_error_identifies_fifth_item_without_normalizing(self):
+        for key in update_news.RANKING_KEYS:
+            for value in ("2026", "2026-02", "2026/02", "2026.2", "2026.02.01",
+                          " 2026.02", "2026年2月"):
+                with self.subTest(key=key, value=value):
+                    data = valid_news()
+                    data[key] = [copy.deepcopy(data[key][0]) for _ in range(5)]
+                    data[key][4]["released"] = value
+                    original = copy.deepcopy(data)
+                    with self.assertRaises(ValueError) as caught:
+                        update_news.validate_news(data)
+                    self.assertIn(f"news.{key}[4].released", str(caught.exception))
+                    self.assertIn("YYYY.MM", str(caught.exception))
+                    self.assertIn(json.dumps(value, ensure_ascii=True), str(caught.exception))
+                    self.assertEqual(data, original)
+
+    def test_release_diagnostic_redacts_non_dates_and_is_bounded_single_line(self):
+        values = (
+            "unused-secret-token", "2026.02 unused-secret-token",
+            "2026.02\n::error::injected", "2026.02\x1b[31m",
+            "x" * 10000, "2" * 10000, " " * 10000 + "2026.02",
+        )
+        for value in values:
+            with self.subTest(length=len(value)):
+                data = valid_news()
+                data["ranking_general"][0]["released"] = value
+                with self.assertRaises(ValueError) as caught:
+                    update_news.validate_news(data)
+                error = str(caught.exception)
+                self.assertIn("redacted", error)
+                self.assertIn(f"length={len(value)}", error)
+                self.assertNotIn(value, error)
+                self.assertNotIn("unused-secret-token", error)
+                self.assertNotIn("::error::", error)
+                self.assertNotIn("\n", error)
+                self.assertNotIn("\x1b", error)
+                self.assertLess(len(error), 180)
+
     def test_flags_and_badges_are_validated(self):
         for key in update_news.RANKING_KEYS:
             for value in (None, [], True, "gb", "JP", " "):
@@ -290,6 +335,23 @@ class SaveNewsTests(unittest.TestCase):
             with self.subTest(section=section), self.assertRaises(ValueError):
                 update_news.save_news(data)
             self.assert_previous_file_unchanged()
+
+    def test_invalid_fifth_release_preserves_file_without_writing_temporary(self):
+        for key in update_news.RANKING_KEYS:
+            data = valid_news()
+            data[key] = [copy.deepcopy(data[key][0]) for _ in range(5)]
+            data[key][4]["released"] = "2026"
+            original = copy.deepcopy(data)
+            with self.subTest(key=key), patch.object(
+                update_news.tempfile, "NamedTemporaryFile"
+            ) as temporary, patch.object(update_news.os, "replace") as replace:
+                with self.assertRaises(ValueError) as caught:
+                    update_news.save_news(data)
+                self.assertIn(f"news.{key}[4].released", str(caught.exception))
+                temporary.assert_not_called()
+                replace.assert_not_called()
+                self.assert_previous_file_unchanged()
+                self.assertEqual(data, original)
 
     def test_direct_save_rejects_future_updated_and_preserves_existing_file(self):
         data = valid_news()
@@ -374,6 +436,20 @@ class FetchNewsTests(unittest.TestCase):
         data["articles"].append({**data["articles"][0], "url": "httpjunk"})
         with self.assertRaisesRegex(ValueError, "url"):
             self.fetch_mocked(data)
+
+    def test_fetch_rejects_fifth_release_with_diagnostic_and_no_payload_dump(self):
+        data = valid_news()
+        data["ranking_general"] = [copy.deepcopy(data["ranking_general"][0]) for _ in range(5)]
+        data["ranking_general"][4]["released"] = "2026-02"
+        data["ticker"] = ["private-response-sentinel"]
+        original = copy.deepcopy(data)
+        with self.assertRaises(ValueError) as caught:
+            self.fetch_mocked(data)
+        error = str(caught.exception)
+        self.assertIn("news.ranking_general[4].released", error)
+        self.assertIn('received="2026-02"', error)
+        self.assertNotIn("private-response-sentinel", error)
+        self.assertEqual(data, original)
 
     def test_fetch_rejects_bad_updated_before_normalization(self):
         data = valid_news()

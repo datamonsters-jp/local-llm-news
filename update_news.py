@@ -51,7 +51,7 @@ SYSTEM_PROMPT = """
       "name": "モデル名（例: Qwen3.5-72B）",
       "size": "パラメータ数（例: 72B、109B MoE）",
       "score": 97,
-      "released": "リリース年月（例: 2026.02。検索で確認した実際のリリース時期）",
+      "released": "YYYY.MM（例: 2026.02。検索で確認した実際のリリース年月、月は必ず2桁）",
       "country": "国名（例: 中国、米国、仏国）",
       "flag": "国コード: cn/us/fr のいずれか（その他の国は \\"\\" にする）",
       "org": "開発組織（例: Alibaba、Meta、OpenAI）",
@@ -65,7 +65,7 @@ SYSTEM_PROMPT = """
       "name": "モデル名",
       "size": "パラメータ数",
       "score": 96,
-      "released": "リリース年月",
+      "released": "YYYY.MM（例: 2026.02。検索で確認した実際のリリース年月、月は必ず2桁）",
       "country": "国名",
       "flag": "cn/us/fr または \\"\\"",
       "org": "開発組織",
@@ -79,7 +79,7 @@ SYSTEM_PROMPT = """
       "name": "モデル名（例: Qwen3 Swallow 32B、Llama 3.3 Swallow 70B など）",
       "size": "パラメータ数",
       "score": 95,
-      "released": "リリース年月",
+      "released": "YYYY.MM（例: 2026.02。検索で確認した実際のリリース年月、月は必ず2桁）",
       "country": "国名（日本のモデルは \\"日本\\"）",
       "flag": "国コード。日本は \\"jp\\"、その他は cn/us/fr または \\"\\"",
       "org": "開発組織（例: 東京科学大・産総研、ELYZA、SB Intuitions など）",
@@ -93,7 +93,7 @@ SYSTEM_PROMPT = """
       "name": "モデル名（例: Gemma 3n、Qwen3 0.6B、Llama 3.2 1B など）",
       "size": "パラメータ数（例: 0.6B、1B、2B など小型中心）",
       "score": 94,
-      "released": "リリース年月",
+      "released": "YYYY.MM（例: 2026.02。検索で確認した実際のリリース年月、月は必ず2桁）",
       "country": "国名",
       "flag": "国コード: cn/us/fr/jp または \\"\\"",
       "org": "開発組織",
@@ -132,6 +132,9 @@ ELYZA、SB Intuitions（Sarashina）、PLaMo（Preferred Networks）、cyberagen
 GENIAC/国のGenAIプロジェクト関連の国産モデルなどを積極的に調べて含めること。
 ただし海外モデルでも日本語性能が高ければ含めてよい（Qwen系など）。
 すべて検索で実在を確認し、released（リリース年月）も実際の時期を入れること。
+すべてのランキングで released は厳密に YYYY.MM（例: 2026.02）の文字列にすること。
+年だけ、ハイフン区切り、1桁の月、日付や説明の付記は不可。実在する月（01〜12）で更新月以前に限る。
+検索でリリース年月を確認できないモデルは含めず、月を推測・補完しないこと。
 articles は見つかった実在ニュースの数だけ（最大10件、最低4件を目標）。
 tag は model/tool/hw/research/trend の5種類から選ぶこと。
 """
@@ -239,6 +242,18 @@ def _article(value, path: str, updated: datetime.date) -> None:
     _url(article["url"], f"{path}.url")
 
 
+def _released_diagnostic(value: str) -> str:
+    """Show only short date-shaped values; never echo arbitrary model output."""
+    # Keep diagnostics single-line and bounded. Unexpected text could contain
+    # credentials or log-control syntax, so disclose its length, not its text.
+    if len(value) <= 32 and re.fullmatch(
+        r" *[0-9]{4}(?:(?:[./-][0-9]{1,2}){0,2}|年[0-9]{1,2}月(?:[0-9]{1,2}日)?) *",
+        value,
+    ):
+        return json.dumps(value, ensure_ascii=True)
+    return f"<redacted non-date value; length={len(value)}>"
+
+
 def validate_news(data: dict) -> dict:
     """Validate the entire payload and return a newest-first copy.
 
@@ -269,7 +284,10 @@ def validate_news(data: dict) -> dict:
                 raise ValueError(f"{path}.score: 0〜100の有限数が必要です")
             released = model["released"]
             if not re.fullmatch(r"[0-9]{4}\.[0-9]{2}", released):
-                raise ValueError(f"{path}.released: YYYY.MM 形式が必要です")
+                raise ValueError(
+                    f"{path}.released: YYYY.MM 形式が必要です"
+                    f" (received={_released_diagnostic(released)})"
+                )
             released_date = _date(released + ".01", f"{path}.released")
             if (released_date.year, released_date.month) > (updated.year, updated.month):
                 raise ValueError(f"{path}.released: 更新月より未来のモデルは掲載できません")
