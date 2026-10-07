@@ -51,6 +51,22 @@ const root = path.resolve(__dirname,'..'), fixture = JSON.parse(fs.readFileSync(
  for(const name of ['通常用途','日本語用途','コーディング用途','エッジAI用途','通常用途'])await page.getByRole('button',{name,exact:false}).click();
  assert.ok((await page.locator('#rankGrid').innerText()).includes(fixture.ranking_general[0].name));
  await page.getByRole('button',{name:'2024',exact:true}).click();assert.equal(await page.locator('#ag .acard').count(),2);assert.equal(await page.locator('#ag a').count(),2);
- console.log('PASS: safe text/URLs, complete schema, sorting, pre-load tab/failure/fallback/retry, repeated transitions and corrected archive years ('+requests+' requests)');
+ await page.waitForFunction(()=>document.querySelector('.hw-catalog-status').textContent.includes('確認済み'));
+ await page.getByRole('button',{name:'通常用途',exact:false}).click();
+ assert.equal(await page.locator('#rankGrid .hardware-guide').count(),8);
+ assert.match(await page.locator('#rankGrid').innerText(),/DGX Spark/);
+ assert.match(await page.locator('#rankGrid').innerText(),/重み公開待ち/);
+ for(const width of [1280,390,320]) {
+   await page.setViewportSize({width,height:900});
+   for(const key of ['日本語用途','エッジAI用途','通常用途']) {
+     await page.getByRole('button',{name:key,exact:false}).click();
+     const summary=page.locator('#rankGrid .hw-details summary').first();
+     await summary.click();assert.equal(await summary.evaluate(e=>e.parentElement.open),true);
+     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth), 'horizontal overflow at '+width);
+     await summary.click();assert.equal(await summary.evaluate(e=>e.parentElement.open),false);
+   }
+ }
+ console.log('PASS: safe text/URLs, complete schema, sorting, pre-load tab/failure/fallback/retry, repeated transitions, corrected archive years, hardware details and 320/390/1280px overflow ('+requests+' requests)');
  } finally {await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
+

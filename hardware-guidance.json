@@ -1,0 +1,186 @@
+{
+  "version": 1,
+  "models": [
+    {
+      "id": "gemma-3-4b-qat-int4",
+      "aliases": ["Gemma 3 4B"],
+      "status": "estimated",
+      "checked_at": "2026-10-07",
+      "quantization": "QAT int4（4bit）",
+      "weight_gb": 2.6,
+      "total_parameters_b": 4,
+      "active_parameters_b": null,
+      "memory": "統合メモリ16GBクラス・容量からの目安",
+      "examples": ["Mac mini・統合メモリ16GB（容量からの推定）"],
+      "runtime": "Ollama / llama.cpp / Apple Silicon向けMLX（対応QAT版）",
+      "conditions": [
+        "2.6GBはGoogle公表のint4重みのみ。配布ファイルのサイズや総使用メモリとは異なります。",
+        "Macの構成例は公表容量からの編集上の目安です。実機動作・速度は未測定です。",
+        "OS・実行エンジン・KVキャッシュ用の余裕が必要です。長文・画像入力・同時実行で必要容量が増えます。"
+      ],
+      "sources": [
+        {"label": "Google：Gemma 3 QATの重み容量と対応エンジン", "url": "https://developers.googleblog.com/en/gemma-3-quantized-aware-trained-state-of-the-art-ai-to-consumer-gpus/"},
+        {"label": "Apple：Mac miniの統合メモリ構成", "url": "https://www.apple.com/mac-mini/specs/"}
+      ]
+    },
+    {
+      "id": "gemma-3-27b-qat-int4",
+      "aliases": ["Gemma 3 27B"],
+      "status": "estimated",
+      "checked_at": "2026-10-07",
+      "quantization": "QAT int4（4bit）",
+      "weight_gb": 14.1,
+      "total_parameters_b": 27,
+      "active_parameters_b": null,
+      "memory": "Macは統合メモリ48GBの容量目安 / RTX 3090はVRAM24GBの公式記載例",
+      "examples": [
+        "Mac Studio・統合メモリ48GB（容量からの推定）",
+        "NVIDIA GeForce RTX 3090・VRAM24GB（Google記載）"
+      ],
+      "runtime": "Ollama / llama.cpp / Apple Silicon向けMLX（対応QAT版）",
+      "conditions": [
+        "14.1GBはGoogle公表のint4重みのみ。KVキャッシュ・実行エンジン等の追加メモリが必要です。",
+        "RTX 3090の実行例はGoogleの記載です。Mac Studioの構成例は容量からの推定で、公式の実機検証ではありません。",
+        "本サイトで実機動作・速度は未測定です。長文・画像入力・同時実行の余裕を確認してください。"
+      ],
+      "sources": [
+        {"label": "Google：27Bの重み容量とRTX 3090での実行例", "url": "https://developers.googleblog.com/en/gemma-3-quantized-aware-trained-state-of-the-art-ai-to-consumer-gpus/"},
+        {"label": "Apple：Mac Studioの統合メモリ構成", "url": "https://www.apple.com/mac-studio/specs/"}
+      ]
+    },
+    {
+      "id": "gemma-3-1b-qat-int4",
+      "aliases": ["Gemma 3 1B"],
+      "status": "estimated",
+      "checked_at": "2026-10-07",
+      "quantization": "QAT int4（4bit）",
+      "weight_gb": 0.5,
+      "total_parameters_b": 1,
+      "active_parameters_b": null,
+      "memory": "統合メモリ16GBの構成例・必要最小容量ではありません",
+      "examples": ["Mac mini・統合メモリ16GB（容量からの推定）"],
+      "runtime": "Ollama / llama.cpp / Apple Silicon向けMLX（対応QAT版）",
+      "conditions": [
+        "0.5GBはGoogle公表のint4重みのみ。実行時はOS・実行エンジン・KVキャッシュの容量が別途必要です。",
+        "構成例は容量からの推定です。実機動作・速度は未測定で、最小メモリ要件を示すものではありません。"
+      ],
+      "sources": [
+        {"label": "Google：Gemma 3 QATの重み容量と対応エンジン", "url": "https://developers.googleblog.com/en/gemma-3-quantized-aware-trained-state-of-the-art-ai-to-consumer-gpus/"},
+        {"label": "Apple：Mac miniの統合メモリ構成", "url": "https://www.apple.com/mac-mini/specs/"}
+      ]
+    },
+    {
+      "id": "llama-4-scout-17b-16e-instruct-nvfp4",
+      "aliases": ["Llama 4 Scout"],
+      "status": "vendor_documented",
+      "checked_at": "2026-10-07",
+      "quantization": "NVIDIA NVFP4",
+      "weight_gb": null,
+      "total_parameters_b": 109,
+      "active_parameters_b": 17,
+      "memory": "統合メモリ128GB・NVIDIAの対応表に掲載",
+      "examples": ["NVIDIA DGX Spark 1台・統合メモリ128GB（NVIDIA対応表）"],
+      "runtime": "TensorRT-LLM（DGX Spark公式プレイブックの対応環境）",
+      "conditions": [
+        "NVIDIAのSpark対応表にあるNVFP4版が対象です。BF16版や他の4bit形式へそのまま適用できません。",
+        "109Bは総パラメータ、17Bはトークンごとの稼働分です。17Bだけで全重みの容量を見積もらないでください。",
+        "公式対応表の確認であり、本サイトで実機動作・速度は未測定です。最大コンテキストでの動作や同時実行を保証しません。",
+        "利用前に配布元のアクセス条件・ライセンスを確認してください。"
+      ],
+      "sources": [
+        {"label": "NVIDIA：DGX Spark / TensorRT-LLM対応表", "url": "https://github.com/NVIDIA/dgx-spark-playbooks/blob/main/nvidia/trt-llm/README.md"},
+        {"label": "NVIDIA：DGX Sparkの統合メモリ仕様", "url": "https://docs.nvidia.com/dgx/dgx-spark/hardware.html"},
+        {"label": "Meta：Scoutの総パラメータと稼働パラメータ", "url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct"},
+        {"label": "NVIDIA：Scout NVFP4配布モデル", "url": "https://huggingface.co/nvidia/Llama-4-Scout-17B-16E-Instruct-NVFP4"}
+      ]
+    },
+    {
+      "id": "kimi-k2-instruct",
+      "aliases": ["Kimi K2"],
+      "status": "server_class",
+      "checked_at": "2026-10-07",
+      "quantization": "公式チェックポイントはblock-FP8",
+      "weight_gb": null,
+      "total_parameters_b": 1000,
+      "active_parameters_b": 32,
+      "memory": "サーバー級の構成を個別検討・具体的な必要容量は未検証",
+      "examples": [],
+      "runtime": "vLLM / SGLang / KTransformers / TensorRT-LLM（配布元の導入資料を参照）",
+      "conditions": [
+        "総1Tパラメータの規模からサーバー級に分類した編集上の目安です。32B activeは全重みの容量ではありません。",
+        "公開重みを自前で動かせますが、Mac mini・Mac Studio・DGX Spark 1台向けの推奨構成としては未検証です。",
+        "選ぶチェックポイント・量子化・CPUオフロード・コンテキストで要件が変わります。実機動作・速度は未測定です。"
+      ],
+      "sources": [
+        {"label": "Moonshot AI：Kimi K2の規模・block-FP8・導入方法", "url": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"}
+      ]
+    },
+    {
+      "id": "kimi-k2-7-code",
+      "aliases": ["Kimi K2.7 Code"],
+      "status": "server_class",
+      "checked_at": "2026-10-07",
+      "quantization": "Native INT4（配布元記載）",
+      "weight_gb": null,
+      "total_parameters_b": 1000,
+      "active_parameters_b": 32,
+      "memory": "サーバー級の構成を個別検討・Ollama掲載版はクラウド実行",
+      "examples": [],
+      "runtime": "自前の公開重み：vLLM / SGLang / KTransformers。Ollamaの当該配布：cloudのみ",
+      "conditions": [
+        "公式モデルカードは総1T・32B activeと記載しています。72Bモデルとして扱わないでください。",
+        "公式Hugging Faceには重みが公開されています。一方、確認時点のOllamaタグはcloudのみで、端末内の推論ではありません。",
+        "Native INT4でも総1T分の重みを考慮する必要があります。サーバー級は編集上の分類で、具体的な必要容量・実機動作・速度は未検証です。"
+      ],
+      "sources": [
+        {"label": "Moonshot AI：Kimi K2.7 Codeの規模・INT4・導入方法", "url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code"},
+        {"label": "Moonshot AI：公開重みのファイル一覧", "url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code/tree/main"},
+        {"label": "Ollama：Kimi K2.7 Codeのcloudタグ", "url": "https://ollama.com/library/kimi-k2.7-code"}
+      ]
+    },
+    {
+      "id": "mistral-large-4",
+      "aliases": ["Mistral Large 4"],
+      "status": "unreleased",
+      "checked_at": "2026-10-07",
+      "quantization": "ローカル配布の量子化形式は未確認",
+      "weight_gb": null,
+      "total_parameters_b": null,
+      "active_parameters_b": null,
+      "memory": "重み公開前・ローカル用の必要メモリは未検証",
+      "examples": [],
+      "runtime": "確認時点ではAPIのパブリックプレビュー。ローカル用ランタイムは未確認",
+      "conditions": [
+        "2026年10月6日の公式発表では重み公開を同月末に予定しています。確認日現在、ローカル実行の推奨構成は掲載しません。",
+        "公式ブログの1T・49B activeと公式Docsの1.05T・52B activeに差があるため、パラメータ数は確定扱いにしていません。",
+        "公開予定は変更される可能性があります。重み・量子化・対応環境を公開後に再確認する必要があります。実機動作・速度は未測定です。"
+      ],
+      "sources": [
+        {"label": "Mistral：Large 4の発表・重み公開予定", "url": "https://mistral.ai/news/mistral-large-4/"},
+        {"label": "Mistral Docs：Large 4モデル仕様", "url": "https://docs.mistral.ai/models/mistral-large"},
+        {"label": "Mistral Docs：プレビュー開始・重み公開前の案内", "url": "https://docs.mistral.ai/resources/changelogs"}
+      ]
+    },
+    {
+      "id": "laguna-xs-2-1-q4-k-m",
+      "aliases": ["Laguna XS 2.1"],
+      "status": "platform_warning",
+      "checked_at": "2026-10-07",
+      "quantization": "Q4_K_M（Ollamaの配布サイズ20GB）",
+      "weight_gb": null,
+      "total_parameters_b": 33,
+      "active_parameters_b": 3,
+      "memory": "配布元はMacのメモリ36GBで実行可能と記載・macOS問題の注意あり",
+      "examples": [],
+      "runtime": "Ollama / llama.cpp等。macOS・Metalのチャット実行には既知の問題",
+      "conditions": [
+        "Ollama掲載ページはmacOSでの問題を調査中と明記しています。ollama runや/api/chatが空の応答を返す場合があり、Mac向けの確認済み推奨例にはしません。",
+        "20GBはQ4_K_Mの配布ファイルサイズです。重みのみのVRAM実測値や実行時の総必要メモリを示す数値ではありません。",
+        "36GBのMacという記載は配布元の主張です。本サイトで実機動作・速度は未測定です。総33Bと稼働3Bを区別し、長文用の余裕も確認してください。"
+      ],
+      "sources": [
+        {"label": "Ollama：Laguna XS 2.1の配布サイズ・Mac容量記載・macOS注意", "url": "https://ollama.com/library/laguna-xs-2.1"}
+      ]
+    }
+  ]
+}

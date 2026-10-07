@@ -2,7 +2,7 @@
   "name": "local-llm-news-checks",
   "private": true,
   "scripts": {
-    "test": "node --check news-ui.js && node tests/dom.cjs && python3 -m unittest discover -s tests -p 'test_*.py'"
+    "test": "node --check news-ui.js && node --check hardware-guidance.js && node tests/dom.cjs && node tests/hardware.cjs && python3 -m unittest discover -s tests -p 'test_*.py'"
   },
   "devDependencies": {
     "jsdom": "26.1.0"

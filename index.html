@@ -160,6 +160,26 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
 .abtn svg{width:18px;height:18px;fill:var(--neon-cyan);transition:fill .18s}
 .abtn.playing svg{fill:var(--neon-pink)}
 @keyframes apulse{0%,100%{box-shadow:0 0 20px rgba(255,45,120,.35)}50%{box-shadow:0 0 36px rgba(255,45,120,.55)}}
+
+/* Hardware guidance is maintained separately from generated ranking prose. */
+.hardware-guide{margin-top:14px;padding:13px 14px;background:rgba(0,245,255,.035);border:1px solid rgba(0,245,255,.16);border-radius:9px;min-width:0;overflow-wrap:anywhere}
+.hw-heading{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px;margin-bottom:8px}
+.hw-title{font-size:.73rem;font-weight:700;color:var(--text)}
+.hw-status{font-size:.64rem;color:var(--neon-cyan);padding:3px 7px;border:1px solid rgba(0,245,255,.25);border-radius:20px}
+.hw-memory{font-size:.79rem;line-height:1.55;color:var(--text);margin:0 0 6px}
+.hw-example{font-size:.74rem;line-height:1.6;margin:3px 0;color:var(--text)}
+.hw-note,.hw-catalog-status{font-size:.71rem;line-height:1.6;color:var(--text-muted);margin:5px 0 12px}
+.hw-details{font-size:.71rem;line-height:1.65;color:var(--text-muted);margin-top:9px}
+.hw-details summary{cursor:pointer;color:var(--neon-cyan);padding:5px 0}
+.hw-details summary:focus-visible,.hw-retry:focus-visible{outline:2px solid var(--neon-cyan);outline-offset:3px}
+.hw-details p{margin:7px 0}.hw-details ul{padding-left:18px;margin:8px 0}.hw-details li{margin:5px 0}
+.hw-sources a{color:var(--neon-cyan);text-underline-offset:3px}.hw-date{font-size:.66rem}
+.hardware-guide[data-status="unreleased"],.hardware-guide[data-status="platform_warning"]{border-color:rgba(255,190,60,.4)}
+.hardware-guide[data-status="unreleased"] .hw-status,.hardware-guide[data-status="platform_warning"] .hw-status{color:#ffd27c;border-color:rgba(255,190,60,.4)}
+.hw-retry{font:inherit;font-size:.72rem;background:transparent;border:1px solid var(--text-muted);border-radius:6px;padding:6px 10px;color:var(--text);margin-bottom:12px;cursor:pointer}
+.hw-retry[hidden]{display:none}.hw-shared-note{line-height:1.7;font-size:.73rem}
+@media(max-width:480px){.hardware-guide{padding:11px}.hw-heading{align-items:flex-start}.hw-memory{font-size:.77rem}}
+
 </style>
 </head>
 <body>
@@ -207,6 +227,7 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
     <button class="rtab" onclick="rankTab(this,'edge')"><span class="ico">📟</span>エッジAI用途</button>
   </div>
   <div class="rank-legend">スコアの基準：<span>ベンチマーク性能</span> × 話題量 × <span>実用性（VRAM効率・ライセンス）</span> を100点満点で評価。毎朝Claude AIが自動更新。</div>
+  <div class="rank-legend hw-shared-note">PC構成は購入・速度の保証ではなく、量子化版を選ぶための目安です。<span>VRAM</span>と<span>統合メモリ</span>は別の条件です。OS・会話の長さ・画像・同時利用にもメモリが必要です。<details><summary>メモリの読み方</summary>モデル重みの容量だけでは実行できません。会話を保持するKVキャッシュや作業領域が加わります。MacとDGX Sparkの統合メモリはOSと共有します。GPUのVRAMとPCのRAMは単純に合算できません。MoEはアクティブ数ではなく総パラメータ数を確認してください。ロードできることと快適な速度で使えることは別です。</details></div>
   <div class="rank-grid" id="rankGrid">
 
     <div class="rc r1">
@@ -220,8 +241,9 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
         <div class="rsize">72B</div>
       </div>
       <div class="rbar-bg"><div class="rbar" style="width:97%"></div></div>
-      <div class="rmeta"><span class="rscore">SCORE 97</span><span class="rreason">コーディング・推論でトップクラス。Q4量子化でVRAM24GB動作。SWE-bench 72.4%</span></div>
+      <div class="rmeta"><span class="rscore">SCORE 97</span><span class="rreason">保存時のランキングです。現在のモデル仕様・動作条件は未確認です。</span></div>
       <div class="rbadges"><span class="rbadge">Apache 2.0</span><span class="rbadge">コーディング最強</span><span class="rbadge">日本語強</span></div>
+      <p class="hardware-guide hw-note">PC・メモリの目安: 確認中（保存データの動作条件は未確認です）</p>
     </div>
 
   </div>
@@ -240,8 +262,9 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
         <div class="rsize">109B MoE</div>
       </div>
       <div class="rbar-bg"><div class="rbar" style="width:94%"></div></div>
-      <div class="rmeta"><span class="rscore">SCORE 94</span><span class="rreason">MoEで実質17Bアクティブ。RTX 5090 1枚で動作。10Mトークンの超長コンテキスト</span></div>
+      <div class="rmeta"><span class="rscore">SCORE 94</span><span class="rreason">保存時のランキングです。現在のモデル仕様・動作条件は未確認です。</span></div>
       <div class="rbadges"><span class="rbadge">MoE</span><span class="rbadge">マルチモーダル</span><span class="rbadge">10Mコンテキスト</span></div>
+      <p class="hardware-guide hw-note">PC・メモリの目安: 確認中（保存データの動作条件は未確認です）</p>
     </div>
 
     <div class="rc r3">
@@ -254,8 +277,9 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
         <div class="rsize">128B MoE</div>
       </div>
       <div class="rbar-bg"><div class="rbar" style="width:91%"></div></div>
-      <div class="rmeta"><span class="rscore">SCORE 91</span><span class="rreason">一部ベンチでGPT-5.2超え。エージェント群（Agent Swarm）構成で自律タスク実行</span></div>
+      <div class="rmeta"><span class="rscore">SCORE 91</span><span class="rreason">保存時のランキングです。現在のモデル仕様・動作条件は未確認です。</span></div>
       <div class="rbadges"><span class="rbadge">MoE</span><span class="rbadge">推論特化</span><span class="rbadge">エージェント</span></div>
+      <p class="hardware-guide hw-note">PC・メモリの目安: 確認中（保存データの動作条件は未確認です）</p>
     </div>
 
     <div class="rc ro">
@@ -268,8 +292,9 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
         <div class="rsize">120B MoE</div>
       </div>
       <div class="rbar-bg"><div class="rbar" style="width:88%"></div></div>
-      <div class="rmeta"><span class="rscore">SCORE 88</span><span class="rreason">OpenAI初のオープンウェイト推論モデル。80GB GPU 1枚で動作。o4-miniに匹敵</span></div>
+      <div class="rmeta"><span class="rscore">SCORE 88</span><span class="rreason">保存時のランキングです。現在のモデル仕様・動作条件は未確認です。</span></div>
       <div class="rbadges"><span class="rbadge">Apache 2.0</span><span class="rbadge">推論特化</span><span class="rbadge">CoT公開</span></div>
+      <p class="hardware-guide hw-note">PC・メモリの目安: 確認中（保存データの動作条件は未確認です）</p>
     </div>
 
     <div class="rc ro">
@@ -282,8 +307,9 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
         <div class="rsize">31B</div>
       </div>
       <div class="rbar-bg"><div class="rbar" style="width:85%"></div></div>
-      <div class="rmeta"><span class="rscore">SCORE 85</span><span class="rreason">Arena AI 3位。RTX 4090 1枚で動作。MMLU Pro 85.2%・140言語対応</span></div>
+      <div class="rmeta"><span class="rscore">SCORE 85</span><span class="rreason">保存時のランキングです。現在のモデル仕様・動作条件は未確認です。</span></div>
       <div class="rbadges"><span class="rbadge">Apache 2.0</span><span class="rbadge">マルチモーダル</span><span class="rbadge">多言語</span></div>
+      <p class="hardware-guide hw-note">PC・メモリの目安: 確認中（保存データの動作条件は未確認です）</p>
     </div>
 
     <div class="rc ro">
@@ -296,8 +322,9 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
         <div class="rsize">685B MoE</div>
       </div>
       <div class="rbar-bg"><div class="rbar" style="width:83%"></div></div>
-      <div class="rmeta"><span class="rscore">SCORE 83</span><span class="rreason">数学オリンピック金メダル級の推論力。GPT-5に匹敵。48GB+ VRAM必要</span></div>
+      <div class="rmeta"><span class="rscore">SCORE 83</span><span class="rreason">保存時のランキングです。現在のモデル仕様・動作条件は未確認です。</span></div>
       <div class="rbadges"><span class="rbadge">MoE</span><span class="rbadge">数学最強</span><span class="rbadge">サーバー向け</span></div>
+      <p class="hardware-guide hw-note">PC・メモリの目安: 確認中（保存データの動作条件は未確認です）</p>
     </div>
 
     <div class="rc ro">
@@ -310,8 +337,9 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
         <div class="rsize">14B</div>
       </div>
       <div class="rbar-bg"><div class="rbar" style="width:78%"></div></div>
-      <div class="rmeta"><span class="rscore">SCORE 78</span><span class="rreason">VRAM12GBで動く中型の優等生。日本語品質が特に優秀</span></div>
+      <div class="rmeta"><span class="rscore">SCORE 78</span><span class="rreason">保存時のランキングです。現在のモデル仕様・動作条件は未確認です。</span></div>
       <div class="rbadges"><span class="rbadge">日本語強</span><span class="rbadge">省VRAM</span><span class="rbadge">汎用</span></div>
+      <p class="hardware-guide hw-note">PC・メモリの目安: 確認中（保存データの動作条件は未確認です）</p>
     </div>
 
     <div class="rc ro">
@@ -324,8 +352,9 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
         <div class="rsize">12B</div>
       </div>
       <div class="rbar-bg"><div class="rbar" style="width:74%"></div></div>
-      <div class="rmeta"><span class="rscore">SCORE 74</span><span class="rreason">ネイティブ音声入力対応。16GB RAMで動作。スマホ・ノートPCで実用的</span></div>
+      <div class="rmeta"><span class="rscore">SCORE 74</span><span class="rreason">保存時のランキングです。現在のモデル仕様・動作条件は未確認です。</span></div>
       <div class="rbadges"><span class="rbadge">音声対応</span><span class="rbadge">エッジ向け</span><span class="rbadge">省メモリ</span></div>
+      <p class="hardware-guide hw-note">PC・メモリの目安: 確認中（保存データの動作条件は未確認です）</p>
     </div>
 
   </div>
@@ -368,7 +397,7 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
   <div class="nc cyan" data-t="trend"><div class="cmeta"><span class="tag ttrend">TREND</span><span class="ndate">2026.05.30</span></div><h3>Qwen3.5 完全ガイド — ベンチマーク・ローカル設定・主要モデルとの比較</h3><p>Qwen3.5-397B-A17Bは2026年2月16日リリース。Apache 2.0ライセンスで256Kコンテキスト・201言語対応。AIME 2026で91.3点を記録。</p><a href="https://techie007.substack.com/p/qwen-35-the-complete-guide-benchmarks" target="_blank" class="clink">READ MORE →</a></div>
   <div class="nc purple" data-t="trend"><div class="cmeta"><span class="tag ttrend">TREND</span><span class="ndate">2026.05.28</span></div><h3>「ローカルLLMがクラウドAIと戦える」— Gemma 4で考えが変わった開発者たちの声</h3><p>Gemma 4登場でローカルLLMに対する評価が大きく変化。Apache 2.0ライセンスで商用利用が自由になったことが特に企業エンジニアに刺さっている。</p><a href="https://www.xda-developers.com/found-open-source-local-llm-that-competes-with-cloud-ai-gemma-4/" target="_blank" class="clink">READ MORE →</a></div>
   <div class="nc green" data-t="model"><div class="cmeta"><span class="tag tmodel">MODEL</span><span class="ndate">2026.05.26</span></div><h3>Qwen3.5とは何か — エッジデバイス特化の効率重視設計を解説</h3><p>Qwen3.5はQwen3の改良版で、スマートフォン・タブレット・旧式ノートPC向けに設計。0.8B〜9Bの小型シリーズはモバイルで実用的な速度を達成。</p><a href="https://www.mindstudio.ai/blog/what-is-qwen-3-5-alibaba-open-weight-model" target="_blank" class="clink">READ MORE →</a></div>
-  <div class="nc yellow" data-t="hw"><div class="cmeta"><span class="tag thw">HARDWARE</span><span class="ndate">2026.05.24</span></div><h3>2026年版 ローカルLLMハードウェアガイド — 予算別GPU・Macの選び方</h3><p>0.8B〜72Bまで全Qwenモデルを動かすためのVRAM早見表。QwQ-32Bは中古RTX 3090（24GB）が最コスパ。M4 Max 128GBは70Bフル精度動作が可能。</p><a href="https://www.compute-market.com/blog/qwen-3-local-hardware-guide-2026" target="_blank" class="clink">READ MORE →</a></div>
+  <div class="nc yellow" data-t="hw"><div class="cmeta"><span class="tag thw">HARDWARE</span><span class="ndate">2026.05.24</span></div><h3>2026年版 ローカルLLMハードウェアガイド — 予算別GPU・Macの選び方</h3><p>保存時のハードウェア記事です。記載されたPC構成・動作条件は未検証です。購入前にモデルの量子化形式・メモリ要件を一次資料で確認してください。</p><a href="https://www.compute-market.com/blog/qwen-3-local-hardware-guide-2026" target="_blank" class="clink">READ MORE →</a></div>
   <div class="nc orange" data-t="research"><div class="cmeta"><span class="tag tresearch">RESEARCH</span><span class="ndate">2026.05.22</span></div><h3>Gemma 4がローカルLLMへの関心を再燃させた理由 — 開発者が語る</h3><p>「クラウドは毎トークン課金が続く。ローカルは一度セットアップすれば永久に無料」。Apache 2.0化されたGemma 4がコミュニティの空気を変えた。</p><a href="https://thenewstack.io/google-gemma-local-ai/" target="_blank" class="clink">READ MORE →</a></div>
   <div class="nc pink" data-t="tool"><div class="cmeta"><span class="tag ttool">TOOL</span><span class="ndate">2026.05.20</span></div><h3>LM Studio 0.4 ヘッドレスデプロイ入門 — GUIなしでローカルLLM APIを運用する</h3><p>lms CLIでモデル管理・推論パラメータ設定・OpenAI互換APIサーバーをコマンドラインだけで完結させる方法。CI/CDやエッジサーバーへの展開に対応。</p><a href="https://www.sitepoint.com/lm-studio-04-headless-deployment-local-llm-apis-without-the-gui/" target="_blank" class="clink">READ MORE →</a></div>
   <div class="nc cyan" data-t="model"><div class="cmeta"><span class="tag tmodel">MODEL</span><span class="ndate">2026.05.18</span></div><h3>Gemma 4 完全解説 — スペック・ベンチマーク・サイズ別使い分けガイド 2026</h3><p>Gemma 4はE2B/E4B/26B/31Bの4サイズ。31BはMMBU Pro 85.2%・AIME 2026 89.2%・Arena AI 3位。ollama run gemma4 一発で動く。</p><a href="https://aurigait.com/blog/gemma-4-features-benchmarks-guide/" target="_blank" class="clink">READ MORE →</a></div>
@@ -677,6 +706,8 @@ function togAudio(){
 }
 
 </script>
+<script src="hardware-guidance.js"></script>
 <script src="news-ui.js"></script>
 </body>
 </html>
+

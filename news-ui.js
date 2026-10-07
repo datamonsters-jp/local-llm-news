@@ -7,12 +7,17 @@
   const grid = document.getElementById('rankGrid');
   const fallback = Array.from(grid.children, n => n.cloneNode(true));
   const tabs = Array.from(document.querySelectorAll('.rtab'));
-  const state = {selected:'general', data:null, pending:false, failed:false};
+  const state = {selected:'general', data:null, pending:false, failed:false, hardware:null};
   const status = document.createElement('p');
   status.id = 'newsStatus'; status.className = 'rank-legend'; status.setAttribute('role', 'status');
   const retry = document.createElement('button');
   retry.type = 'button'; retry.className = 'fb'; retry.textContent = '再読み込み';
   grid.before(status, retry);
+  const hardwareStatus = document.createElement('p');
+  hardwareStatus.className = 'hw-catalog-status'; hardwareStatus.setAttribute('role','status');
+  const hardwareRetry = document.createElement('button');
+  hardwareRetry.type='button'; hardwareRetry.className='hw-retry'; hardwareRetry.textContent='目安を再読み込み'; hardwareRetry.hidden=true;
+  grid.before(hardwareStatus, hardwareRetry);
   function node(tag, cls, value) {
     const e = document.createElement(tag);
     if (cls) e.className = cls;
@@ -55,6 +60,11 @@
       !article(d.featured,d.updated) || !Array.isArray(d.articles) || !d.articles.length || !d.articles.every(a => article(a,d.updated))) throw new Error('Invalid news schema');
     return d;
   }
+  // Generated prose is not a source of hardware guidance. Hide the whole
+  // hardware-related reason/badge; never guess a replacement specification.
+  // This display policy does not reject an otherwise valid daily update.
+  const generatedHardwareClaim = /(?:[0-9０-９]+(?:[.,][0-9０-９]+)?\s*(?:[KMGT]i?B|ＧＢ|ギガバイト|t\s*\/\s*s\b))|(?:RAM|VRAM|GPU|CPU|NPU|Mac|DGX|RTX|PC|メモリ|高速|快適|サクサク|スマホ|ラズパイ|ノートパソコン|毎秒|tokens?\s*(?:\/|per)\s*s|トークン\s*\/\s*秒)/i;
+  const safeReason = value => generatedHardwareClaim.test(value) ? 'ローカル実行の条件は、下のPC・メモリの目安をご確認ください。' : value;
   function rankCard(m, i) {
     const card = node('div','rc '+(i<3?'r'+(i+1):'ro'));
     const head = node('div','rh'), names = node('div','rnw'), name = node('div','rname');
@@ -66,9 +76,12 @@
     const released = node('div','rdate','📅 '); released.append(node('b','',m.released+' リリース')); names.append(released);
     head.append(node('div','rnum',['🥇','🥈','🥉'][i] || '#'+(i+1)),names,node('div','rsize',m.size));
     const bg = node('div','rbar-bg'), bar = node('div','rbar'); bar.style.width = m.score+'%'; bg.append(bar);
-    const meta = node('div','rmeta'); meta.append(node('span','rscore','SCORE '+m.score),node('span','rreason',m.reason));
-    const badges = node('div','rbadges'); m.badges.forEach(b=>badges.append(node('span','rbadge',b)));
-    card.append(head,bg,meta,badges); return card;
+    const meta = node('div','rmeta'); meta.append(node('span','rscore','SCORE '+m.score),node('span','rreason',safeReason(m.reason)));
+    const badges = node('div','rbadges'); m.badges.filter(b=>!generatedHardwareClaim.test(b)).forEach(b=>badges.append(node('span','rbadge',b)));
+    card.append(head,bg,meta,badges);
+    if(window.HardwareGuidance) card.append(window.HardwareGuidance.createBlock(document,m.name,state.hardware));
+    else card.append(node('p','hardware-guide','PC・メモリの目安: 確認中（動作条件は未確認です）'));
+    return card;
   }
   function flagSVG(shapes) {
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -146,6 +159,25 @@
     } catch (_) { state.failed=true; }
     finally { clearTimeout(timer);state.pending=false;renderRanking(); }
   }
+  let hardwarePending=false;
+  async function loadHardware() {
+    if(hardwarePending || !window.HardwareGuidance)return;
+    hardwarePending=true;hardwareRetry.disabled=true;hardwareRetry.hidden=true;
+    hardwareStatus.textContent='PC・メモリの資料を読み込み中…';
+    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),10000);
+    try {
+      const response=await fetch('hardware-guidance.json',{signal:controller.signal});
+      if(!response.ok)throw new Error('Hardware request failed');
+      state.hardware=window.HardwareGuidance.validateCatalog(await response.json());
+      hardwareStatus.textContent='PCの目安は確認済みの資料から別途管理しています。未登録モデルは「確認中」と表示します。';
+    } catch(_) {
+      hardwareStatus.textContent='PCの目安を取得できませんでした。ニュースは引き続き表示できます。';hardwareRetry.hidden=false;
+    } finally {clearTimeout(timer);hardwarePending=false;hardwareRetry.disabled=false;renderRanking();}
+  }
+  hardwareRetry.addEventListener('click',loadHardware);
+  if(window.HardwareGuidance)loadHardware();
+  else hardwareStatus.textContent='PCの目安は現在利用できません。ニュースは引き続き表示できます。';
   retry.addEventListener('click',load);
   load();
 })();
+
