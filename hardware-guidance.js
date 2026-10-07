@@ -1,7 +1,7 @@
 /* Reviewed hardware facts only. Generated news never supplies this catalog. */
 (function (root) {
   'use strict';
-  const labels = {estimated:'容量からの目安',vendor_documented:'メーカー対応情報',unreleased:'重み公開待ち',server_class:'サーバー級',platform_warning:'対応状況に注意'};
+  const labels = {estimated:'推定',vendor_documented:'メーカー対応情報',unreleased:'重み公開待ち',server_class:'サーバー級',platform_warning:'対応状況に注意',identity_unverified:'モデル名を確認'};
   const normalize = value => value.trim().toLowerCase().replace(/\s+/g,' ');
   const text = value => typeof value === 'string' && value.trim().length > 0;
   const list = (value, nonempty=true) => Array.isArray(value) && (!nonempty || value.length > 0) && value.every(text);

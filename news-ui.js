@@ -65,7 +65,14 @@
   // This display policy does not reject an otherwise valid daily update.
   const generatedHardwareClaim = /(?:[0-9０-９]+(?:[.,][0-9０-９]+)?\s*(?:[KMGT]i?B|ＧＢ|ギガバイト|t\s*\/\s*s\b))|(?:RAM|VRAM|GPU|CPU|NPU|Mac|DGX|RTX|PC|メモリ|高速|快適|サクサク|スマホ|ラズパイ|ノートパソコン|毎秒|tokens?\s*(?:\/|per)\s*s|トークン\s*\/\s*秒)/i;
   const safeReason = value => generatedHardwareClaim.test(value) ? 'ローカル実行の条件は、下のPC・メモリの目安をご確認ください。' : value;
+  // Fail closed for known unresolved names even when the optional catalog
+  // fails or arrives after news. Sources live in the catalog; tests keep this
+  // small safety list aligned with its identity_unverified entries.
+  const unresolvedNames = new Set(['code llama 4 70b','code llama 4 34b','qwen3-72b']);
   function rankCard(m, i) {
+    const identityUnknown = unresolvedNames.has(m.name.trim().toLowerCase().replace(/\s+/g,' ')) ||
+      m.size === '名称確認中' ||
+      (window.HardwareGuidance && window.HardwareGuidance.lookup(state.hardware,m.name)?.status === 'identity_unverified');
     const card = node('div','rc '+(i<3?'r'+(i+1):'ro'));
     const head = node('div','rh'), names = node('div','rnw'), name = node('div','rname');
     name.append(link(m.url,'',m.name)); names.append(name);
@@ -73,12 +80,12 @@
     // Flags are built only from fixed local SVG data, never generated markup.
     if (flags[m.flag]) { const flag = node('div','rflag'); flag.append(flags[m.flag].cloneNode(true)); org.append(flag); }
     org.append(node('span','rcountry',m.country+' · '+m.org)); names.append(org);
-    const released = node('div','rdate','📅 '); released.append(node('b','',m.released+' リリース')); names.append(released);
-    head.append(node('div','rnum',['🥇','🥈','🥉'][i] || '#'+(i+1)),names,node('div','rsize',m.size));
+    const released = node('div','rdate','📅 '); released.append(node('b','',identityUnknown?'リリース時期: 確認中':m.released+' リリース')); names.append(released);
+    head.append(node('div','rnum',['🥇','🥈','🥉'][i] || '#'+(i+1)),names,node('div','rsize',identityUnknown?'名称確認中':m.size));
     const bg = node('div','rbar-bg'), bar = node('div','rbar'); bar.style.width = m.score+'%'; bg.append(bar);
-    const meta = node('div','rmeta'); meta.append(node('span','rscore','SCORE '+m.score),node('span','rreason',safeReason(m.reason)));
-    const badges = node('div','rbadges'); m.badges.filter(b=>!generatedHardwareClaim.test(b)).forEach(b=>badges.append(node('span','rbadge',b)));
-    card.append(head,bg,meta,badges);
+    const meta = node('div','rmeta'); meta.append(node('span','rscore',identityUnknown?'掲載名の確認待ち':'SCORE '+m.score),node('span','rreason',identityUnknown?'掲載名と一致する公式モデルを確認中です。':safeReason(m.reason)));
+    const badges = node('div','rbadges'); (identityUnknown?['モデル名を確認']:m.badges).filter(b=>!generatedHardwareClaim.test(b)).forEach(b=>badges.append(node('span','rbadge',b)));
+    card.append(head); if(!identityUnknown)card.append(bg); card.append(meta,badges);
     if(window.HardwareGuidance) card.append(window.HardwareGuidance.createBlock(document,m.name,state.hardware));
     else card.append(node('p','hardware-guide','PC・メモリの目安: 確認中（動作条件は未確認です）'));
     return card;

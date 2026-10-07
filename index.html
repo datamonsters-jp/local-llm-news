@@ -164,10 +164,10 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
 /* Hardware guidance is maintained separately from generated ranking prose. */
 .hardware-guide{margin-top:14px;padding:13px 14px;background:rgba(0,245,255,.035);border:1px solid rgba(0,245,255,.16);border-radius:9px;min-width:0;overflow-wrap:anywhere}
 .hw-heading{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px;margin-bottom:8px}
-.hw-title{font-size:.73rem;font-weight:700;color:var(--text)}
+.hw-title{font-size:.73rem;font-weight:700;color:var(--text-main)}
 .hw-status{font-size:.64rem;color:var(--neon-cyan);padding:3px 7px;border:1px solid rgba(0,245,255,.25);border-radius:20px}
-.hw-memory{font-size:.79rem;line-height:1.55;color:var(--text);margin:0 0 6px}
-.hw-example{font-size:.74rem;line-height:1.6;margin:3px 0;color:var(--text)}
+.hw-memory{font-size:.79rem;line-height:1.55;color:var(--text-main);margin:0 0 6px}
+.hw-example{font-size:.74rem;line-height:1.6;margin:3px 0;color:var(--text-main)}
 .hw-note,.hw-catalog-status{font-size:.71rem;line-height:1.6;color:var(--text-muted);margin:5px 0 12px}
 .hw-details{font-size:.71rem;line-height:1.65;color:var(--text-muted);margin-top:9px}
 .hw-details summary{cursor:pointer;color:var(--neon-cyan);padding:5px 0}
@@ -176,7 +176,7 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
 .hw-sources a{color:var(--neon-cyan);text-underline-offset:3px}.hw-date{font-size:.66rem}
 .hardware-guide[data-status="unreleased"],.hardware-guide[data-status="platform_warning"]{border-color:rgba(255,190,60,.4)}
 .hardware-guide[data-status="unreleased"] .hw-status,.hardware-guide[data-status="platform_warning"] .hw-status{color:#ffd27c;border-color:rgba(255,190,60,.4)}
-.hw-retry{font:inherit;font-size:.72rem;background:transparent;border:1px solid var(--text-muted);border-radius:6px;padding:6px 10px;color:var(--text);margin-bottom:12px;cursor:pointer}
+.hw-retry{font:inherit;font-size:.72rem;background:transparent;border:1px solid var(--text-muted);border-radius:6px;padding:6px 10px;color:var(--text-main);margin-bottom:12px;cursor:pointer}
 .hw-retry[hidden]{display:none}.hw-shared-note{line-height:1.7;font-size:.73rem}
 @media(max-width:480px){.hardware-guide{padding:11px}.hw-heading{align-items:flex-start}.hw-memory{font-size:.77rem}}
 
@@ -227,7 +227,7 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
     <button class="rtab" onclick="rankTab(this,'edge')"><span class="ico">📟</span>エッジAI用途</button>
   </div>
   <div class="rank-legend">スコアの基準：<span>ベンチマーク性能</span> × 話題量 × <span>実用性（VRAM効率・ライセンス）</span> を100点満点で評価。毎朝Claude AIが自動更新。</div>
-  <div class="rank-legend hw-shared-note">PC構成は購入・速度の保証ではなく、量子化版を選ぶための目安です。<span>VRAM</span>と<span>統合メモリ</span>は別の条件です。OS・会話の長さ・画像・同時利用にもメモリが必要です。<details><summary>メモリの読み方</summary>モデル重みの容量だけでは実行できません。会話を保持するKVキャッシュや作業領域が加わります。MacとDGX Sparkの統合メモリはOSと共有します。GPUのVRAMとPCのRAMは単純に合算できません。MoEはアクティブ数ではなく総パラメータ数を確認してください。ロードできることと快適な速度で使えることは別です。</details></div>
+  <div class="rank-legend hw-shared-note">「推定」はモデル規模・配布容量から見た大まかな容量帯です。原則、短いテキスト会話（約4K）・同時利用1件を想定します。必要最小量や速度の保証ではありません。<span>VRAM</span>と<span>統合メモリ</span>は別の条件です。OS・会話の長さ・画像・同時利用にもメモリが必要です。<details><summary>メモリの読み方</summary>モデル重みの容量だけでは実行できません。会話を保持するKVキャッシュや作業領域が加わります。MacとDGX Sparkの統合メモリはOSと共有します。GPUのVRAMとPCのRAMは単純に合算できません。MoEはアクティブ数ではなく総パラメータ数を確認してください。ロードできることと快適な速度で使えることは別です。</details></div>
   <div class="rank-grid" id="rankGrid">
 
     <div class="rc r1">

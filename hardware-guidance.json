@@ -3,15 +3,19 @@
   "models": [
     {
       "id": "gemma-3-4b-qat-int4",
-      "aliases": ["Gemma 3 4B"],
+      "aliases": [
+        "Gemma 3 4B"
+      ],
       "status": "estimated",
       "checked_at": "2026-10-07",
       "quantization": "QAT int4（4bit）",
       "weight_gb": 2.6,
       "total_parameters_b": 4,
       "active_parameters_b": null,
-      "memory": "統合メモリ16GBクラス・容量からの目安",
-      "examples": ["Mac mini・統合メモリ16GB（容量からの推定）"],
+      "memory": "推定：統合メモリ16GBクラス・容量からの目安",
+      "examples": [
+        "Mac mini・統合メモリ16GB（容量からの推定）"
+      ],
       "runtime": "Ollama / llama.cpp / Apple Silicon向けMLX（対応QAT版）",
       "conditions": [
         "2.6GBはGoogle公表のint4重みのみ。配布ファイルのサイズや総使用メモリとは異なります。",
@@ -19,20 +23,28 @@
         "OS・実行エンジン・KVキャッシュ用の余裕が必要です。長文・画像入力・同時実行で必要容量が増えます。"
       ],
       "sources": [
-        {"label": "Google：Gemma 3 QATの重み容量と対応エンジン", "url": "https://developers.googleblog.com/en/gemma-3-quantized-aware-trained-state-of-the-art-ai-to-consumer-gpus/"},
-        {"label": "Apple：Mac miniの統合メモリ構成", "url": "https://www.apple.com/mac-mini/specs/"}
+        {
+          "label": "Google：Gemma 3 QATの重み容量と対応エンジン",
+          "url": "https://developers.googleblog.com/en/gemma-3-quantized-aware-trained-state-of-the-art-ai-to-consumer-gpus/"
+        },
+        {
+          "label": "Apple：Mac miniの統合メモリ構成",
+          "url": "https://www.apple.com/mac-mini/specs/"
+        }
       ]
     },
     {
       "id": "gemma-3-27b-qat-int4",
-      "aliases": ["Gemma 3 27B"],
+      "aliases": [
+        "Gemma 3 27B"
+      ],
       "status": "estimated",
       "checked_at": "2026-10-07",
       "quantization": "QAT int4（4bit）",
       "weight_gb": 14.1,
       "total_parameters_b": 27,
       "active_parameters_b": null,
-      "memory": "Macは統合メモリ48GBの容量目安 / RTX 3090はVRAM24GBの公式記載例",
+      "memory": "推定：Macは統合メモリ48GBの容量目安 / RTX 3090はVRAM24GBの公式記載例",
       "examples": [
         "Mac Studio・統合メモリ48GB（容量からの推定）",
         "NVIDIA GeForce RTX 3090・VRAM24GB（Google記載）"
@@ -44,34 +56,52 @@
         "本サイトで実機動作・速度は未測定です。長文・画像入力・同時実行の余裕を確認してください。"
       ],
       "sources": [
-        {"label": "Google：27Bの重み容量とRTX 3090での実行例", "url": "https://developers.googleblog.com/en/gemma-3-quantized-aware-trained-state-of-the-art-ai-to-consumer-gpus/"},
-        {"label": "Apple：Mac Studioの統合メモリ構成", "url": "https://www.apple.com/mac-studio/specs/"}
+        {
+          "label": "Google：27Bの重み容量とRTX 3090での実行例",
+          "url": "https://developers.googleblog.com/en/gemma-3-quantized-aware-trained-state-of-the-art-ai-to-consumer-gpus/"
+        },
+        {
+          "label": "Apple：Mac Studioの統合メモリ構成",
+          "url": "https://www.apple.com/mac-studio/specs/"
+        }
       ]
     },
     {
       "id": "gemma-3-1b-qat-int4",
-      "aliases": ["Gemma 3 1B"],
+      "aliases": [
+        "Gemma 3 1B"
+      ],
       "status": "estimated",
       "checked_at": "2026-10-07",
       "quantization": "QAT int4（4bit）",
       "weight_gb": 0.5,
       "total_parameters_b": 1,
       "active_parameters_b": null,
-      "memory": "統合メモリ16GBの構成例・必要最小容量ではありません",
-      "examples": ["Mac mini・統合メモリ16GB（容量からの推定）"],
+      "memory": "推定：統合メモリ16GBの構成例・必要最小容量ではありません",
+      "examples": [
+        "Mac mini・統合メモリ16GB（容量からの推定）"
+      ],
       "runtime": "Ollama / llama.cpp / Apple Silicon向けMLX（対応QAT版）",
       "conditions": [
         "0.5GBはGoogle公表のint4重みのみ。実行時はOS・実行エンジン・KVキャッシュの容量が別途必要です。",
         "構成例は容量からの推定です。実機動作・速度は未測定で、最小メモリ要件を示すものではありません。"
       ],
       "sources": [
-        {"label": "Google：Gemma 3 QATの重み容量と対応エンジン", "url": "https://developers.googleblog.com/en/gemma-3-quantized-aware-trained-state-of-the-art-ai-to-consumer-gpus/"},
-        {"label": "Apple：Mac miniの統合メモリ構成", "url": "https://www.apple.com/mac-mini/specs/"}
+        {
+          "label": "Google：Gemma 3 QATの重み容量と対応エンジン",
+          "url": "https://developers.googleblog.com/en/gemma-3-quantized-aware-trained-state-of-the-art-ai-to-consumer-gpus/"
+        },
+        {
+          "label": "Apple：Mac miniの統合メモリ構成",
+          "url": "https://www.apple.com/mac-mini/specs/"
+        }
       ]
     },
     {
       "id": "llama-4-scout-17b-16e-instruct-nvfp4",
-      "aliases": ["Llama 4 Scout"],
+      "aliases": [
+        "Llama 4 Scout"
+      ],
       "status": "vendor_documented",
       "checked_at": "2026-10-07",
       "quantization": "NVIDIA NVFP4",
@@ -79,7 +109,9 @@
       "total_parameters_b": 109,
       "active_parameters_b": 17,
       "memory": "統合メモリ128GB・NVIDIAの対応表に掲載",
-      "examples": ["NVIDIA DGX Spark 1台・統合メモリ128GB（NVIDIA対応表）"],
+      "examples": [
+        "NVIDIA DGX Spark 1台・統合メモリ128GB（NVIDIA対応表）"
+      ],
       "runtime": "TensorRT-LLM（DGX Spark公式プレイブックの対応環境）",
       "conditions": [
         "NVIDIAのSpark対応表にあるNVFP4版が対象です。BF16版や他の4bit形式へそのまま適用できません。",
@@ -88,15 +120,29 @@
         "利用前に配布元のアクセス条件・ライセンスを確認してください。"
       ],
       "sources": [
-        {"label": "NVIDIA：DGX Spark / TensorRT-LLM対応表", "url": "https://github.com/NVIDIA/dgx-spark-playbooks/blob/main/nvidia/trt-llm/README.md"},
-        {"label": "NVIDIA：DGX Sparkの統合メモリ仕様", "url": "https://docs.nvidia.com/dgx/dgx-spark/hardware.html"},
-        {"label": "Meta：Scoutの総パラメータと稼働パラメータ", "url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct"},
-        {"label": "NVIDIA：Scout NVFP4配布モデル", "url": "https://huggingface.co/nvidia/Llama-4-Scout-17B-16E-Instruct-NVFP4"}
+        {
+          "label": "NVIDIA：DGX Spark / TensorRT-LLM対応表",
+          "url": "https://github.com/NVIDIA/dgx-spark-playbooks/blob/main/nvidia/trt-llm/README.md"
+        },
+        {
+          "label": "NVIDIA：DGX Sparkの統合メモリ仕様",
+          "url": "https://docs.nvidia.com/dgx/dgx-spark/hardware.html"
+        },
+        {
+          "label": "Meta：Scoutの総パラメータと稼働パラメータ",
+          "url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct"
+        },
+        {
+          "label": "NVIDIA：Scout NVFP4配布モデル",
+          "url": "https://huggingface.co/nvidia/Llama-4-Scout-17B-16E-Instruct-NVFP4"
+        }
       ]
     },
     {
       "id": "kimi-k2-instruct",
-      "aliases": ["Kimi K2"],
+      "aliases": [
+        "Kimi K2"
+      ],
       "status": "server_class",
       "checked_at": "2026-10-07",
       "quantization": "公式チェックポイントはblock-FP8",
@@ -112,12 +158,17 @@
         "選ぶチェックポイント・量子化・CPUオフロード・コンテキストで要件が変わります。実機動作・速度は未測定です。"
       ],
       "sources": [
-        {"label": "Moonshot AI：Kimi K2の規模・block-FP8・導入方法", "url": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"}
+        {
+          "label": "Moonshot AI：Kimi K2の規模・block-FP8・導入方法",
+          "url": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
+        }
       ]
     },
     {
       "id": "kimi-k2-7-code",
-      "aliases": ["Kimi K2.7 Code"],
+      "aliases": [
+        "Kimi K2.7 Code"
+      ],
       "status": "server_class",
       "checked_at": "2026-10-07",
       "quantization": "Native INT4（配布元記載）",
@@ -133,14 +184,25 @@
         "Native INT4でも総1T分の重みを考慮する必要があります。サーバー級は編集上の分類で、具体的な必要容量・実機動作・速度は未検証です。"
       ],
       "sources": [
-        {"label": "Moonshot AI：Kimi K2.7 Codeの規模・INT4・導入方法", "url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code"},
-        {"label": "Moonshot AI：公開重みのファイル一覧", "url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code/tree/main"},
-        {"label": "Ollama：Kimi K2.7 Codeのcloudタグ", "url": "https://ollama.com/library/kimi-k2.7-code"}
+        {
+          "label": "Moonshot AI：Kimi K2.7 Codeの規模・INT4・導入方法",
+          "url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code"
+        },
+        {
+          "label": "Moonshot AI：公開重みのファイル一覧",
+          "url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code/tree/main"
+        },
+        {
+          "label": "Ollama：Kimi K2.7 Codeのcloudタグ",
+          "url": "https://ollama.com/library/kimi-k2.7-code"
+        }
       ]
     },
     {
       "id": "mistral-large-4",
-      "aliases": ["Mistral Large 4"],
+      "aliases": [
+        "Mistral Large 4"
+      ],
       "status": "unreleased",
       "checked_at": "2026-10-07",
       "quantization": "ローカル配布の量子化形式は未確認",
@@ -156,14 +218,25 @@
         "公開予定は変更される可能性があります。重み・量子化・対応環境を公開後に再確認する必要があります。実機動作・速度は未測定です。"
       ],
       "sources": [
-        {"label": "Mistral：Large 4の発表・重み公開予定", "url": "https://mistral.ai/news/mistral-large-4/"},
-        {"label": "Mistral Docs：Large 4モデル仕様", "url": "https://docs.mistral.ai/models/mistral-large"},
-        {"label": "Mistral Docs：プレビュー開始・重み公開前の案内", "url": "https://docs.mistral.ai/resources/changelogs"}
+        {
+          "label": "Mistral：Large 4の発表・重み公開予定",
+          "url": "https://mistral.ai/news/mistral-large-4/"
+        },
+        {
+          "label": "Mistral Docs：Large 4モデル仕様",
+          "url": "https://docs.mistral.ai/models/mistral-large"
+        },
+        {
+          "label": "Mistral Docs：プレビュー開始・重み公開前の案内",
+          "url": "https://docs.mistral.ai/resources/changelogs"
+        }
       ]
     },
     {
       "id": "laguna-xs-2-1-q4-k-m",
-      "aliases": ["Laguna XS 2.1"],
+      "aliases": [
+        "Laguna XS 2.1"
+      ],
       "status": "platform_warning",
       "checked_at": "2026-10-07",
       "quantization": "Q4_K_M（Ollamaの配布サイズ20GB）",
@@ -179,7 +252,660 @@
         "36GBのMacという記載は配布元の主張です。本サイトで実機動作・速度は未測定です。総33Bと稼働3Bを区別し、長文用の余裕も確認してください。"
       ],
       "sources": [
-        {"label": "Ollama：Laguna XS 2.1の配布サイズ・Mac容量記載・macOS注意", "url": "https://ollama.com/library/laguna-xs-2.1"}
+        {
+          "label": "Ollama：Laguna XS 2.1の配布サイズ・Mac容量記載・macOS注意",
+          "url": "https://ollama.com/library/laguna-xs-2.1"
+        }
+      ]
+    },
+    {
+      "id": "phi-4-mini-instruct-q4-k-m",
+      "aliases": [
+        "Phi-4 Mini",
+        "Phi-4-mini-instruct",
+        "microsoft/Phi-4-mini-instruct"
+      ],
+      "status": "estimated",
+      "checked_at": "2026-10-07",
+      "quantization": "GGUF Q4_K_M（約4bit）",
+      "weight_gb": null,
+      "total_parameters_b": 3.8,
+      "active_parameters_b": null,
+      "memory": "推定：RAM8〜16GBクラス（CPU実行の容量推定）／Mac統合メモリ16GB構成例（推定）",
+      "examples": [
+        "Mac mini（M4）・統合メモリ16GB（推定。必要最小容量ではありません）"
+      ],
+      "runtime": "Ollama：phi4-mini:3.8b-q4_K_M（Apple SiliconではMetal対応）",
+      "conditions": [
+        "Microsoftの公開重みはMIT。対象は3.8BのdenseモデルPhi-4-mini-instructで、Phi-4 Mini Reasoning / Flash Reasoningとは区別します。",
+        "Ollama掲載のQ4_K_M配布サイズは約2.5GBです。これは配布物の容量であり、重みのみの容量や実行時の総使用メモリではありません。",
+        "約4bit・テキストのみ・1モデル・同時1会話・合計約4Kトークンの短いコンテキストを想定した容量からの推定です。OS・実行エンジン・KVキャッシュの余裕を含め、最小要件や実機検証済み構成を示すものではありません。",
+        "本サイトで実機動作・速度は未測定です。コンテキストは約4Kに設定してください。長文・画像入力・同時実行や他アプリ併用では必要容量が増えます。",
+        "一般PCのRAMと独立GPUのVRAMは別です。RAMだけでGPU常駐や速度を保証できません。Macの例はCPU/GPUが共有する統合メモリです。"
+      ],
+      "sources": [
+        {
+          "label": "Microsoft：Phi-4-mini-instruct公式モデルカード",
+          "url": "https://huggingface.co/microsoft/Phi-4-mini-instruct"
+        },
+        {
+          "label": "Ollama：対象Q4_K_Mタグ・配布サイズ・実行方法",
+          "url": "https://ollama.com/library/phi4-mini:3.8b-q4_K_M"
+        },
+        {
+          "label": "Apple：Mac mini（2024）のM4 / M4 Proと統合メモリ構成",
+          "url": "https://support.apple.com/en-gb/121555"
+        },
+        {
+          "label": "Ollama：Apple GPUのMetal対応とハードウェア条件",
+          "url": "https://docs.ollama.com/gpu"
+        },
+        {
+          "label": "Ollama：コンテキスト長とメモリの関係",
+          "url": "https://docs.ollama.com/context-length"
+        }
+      ]
+    },
+    {
+      "id": "qwen3-1-7b-q4-k-m",
+      "aliases": [
+        "Qwen3-1.7B",
+        "Qwen/Qwen3-1.7B"
+      ],
+      "status": "estimated",
+      "checked_at": "2026-10-07",
+      "quantization": "GGUF Q4_K_M（約4bit）",
+      "weight_gb": null,
+      "total_parameters_b": 1.7,
+      "active_parameters_b": null,
+      "memory": "推定：RAM8〜16GBクラス（CPU実行の容量推定）／Mac統合メモリ16GB構成例（推定）",
+      "examples": [
+        "Mac mini（M4）・統合メモリ16GB（推定。必要最小容量ではありません）"
+      ],
+      "runtime": "Ollama：qwen3:1.7b-q4_K_M（Apple SiliconではMetal対応）",
+      "conditions": [
+        "Qwenの公開重みはApache 2.0。対象はpost-trained版Qwen3-1.7Bで、Base版やASR版とは区別します。",
+        "Ollama掲載のQ4_K_M配布サイズは約1.4GBです。これは配布物の容量であり、重みのみの容量や実行時の総使用メモリではありません。",
+        "約4bit・テキストのみ・1モデル・同時1会話・合計約4Kトークンの短いコンテキストを想定した容量からの推定です。OS・実行エンジン・KVキャッシュの余裕を含め、最小要件や実機検証済み構成を示すものではありません。",
+        "本サイトで実機動作・速度は未測定です。コンテキストは約4Kに設定してください。長文・画像入力・同時実行や他アプリ併用では必要容量が増えます。",
+        "一般PCのRAMと独立GPUのVRAMは別です。RAMだけでGPU常駐や速度を保証できません。Macの例はCPU/GPUが共有する統合メモリです。"
+      ],
+      "sources": [
+        {
+          "label": "Qwen：Qwen3-1.7B公式モデルカード",
+          "url": "https://huggingface.co/Qwen/Qwen3-1.7B"
+        },
+        {
+          "label": "Ollama：対象Q4_K_Mタグ・配布サイズ・実行方法",
+          "url": "https://ollama.com/library/qwen3:1.7b-q4_K_M"
+        },
+        {
+          "label": "Apple：Mac mini（2024）のM4 / M4 Proと統合メモリ構成",
+          "url": "https://support.apple.com/en-gb/121555"
+        },
+        {
+          "label": "Ollama：Apple GPUのMetal対応とハードウェア条件",
+          "url": "https://docs.ollama.com/gpu"
+        },
+        {
+          "label": "Ollama：コンテキスト長とメモリの関係",
+          "url": "https://docs.ollama.com/context-length"
+        }
+      ]
+    },
+    {
+      "id": "qwen3-0-6b-q4-k-m",
+      "aliases": [
+        "Qwen3-0.6B",
+        "Qwen/Qwen3-0.6B"
+      ],
+      "status": "estimated",
+      "checked_at": "2026-10-07",
+      "quantization": "GGUF Q4_K_M（約4bit）",
+      "weight_gb": null,
+      "total_parameters_b": 0.6,
+      "active_parameters_b": null,
+      "memory": "推定：RAM8〜16GBクラス（CPU実行の容量推定）／Mac統合メモリ16GB構成例（推定）",
+      "examples": [
+        "Mac mini（M4）・統合メモリ16GB（推定。必要最小容量ではありません）"
+      ],
+      "runtime": "Ollama：qwen3:0.6b-q4_K_M（Apple SiliconではMetal対応）",
+      "conditions": [
+        "Qwenの公開重みはApache 2.0。対象はpost-trained版Qwen3-0.6Bで、Base版やASR版とは区別します。",
+        "Ollama掲載のQ4_K_M配布サイズは約523MBです。これは配布物の容量であり、重みのみの容量や実行時の総使用メモリではありません。",
+        "約4bit・テキストのみ・1モデル・同時1会話・合計約4Kトークンの短いコンテキストを想定した容量からの推定です。OS・実行エンジン・KVキャッシュの余裕を含め、最小要件や実機検証済み構成を示すものではありません。",
+        "本サイトで実機動作・速度は未測定です。コンテキストは約4Kに設定してください。長文・画像入力・同時実行や他アプリ併用では必要容量が増えます。",
+        "一般PCのRAMと独立GPUのVRAMは別です。RAMだけでGPU常駐や速度を保証できません。Macの例はCPU/GPUが共有する統合メモリです。"
+      ],
+      "sources": [
+        {
+          "label": "Qwen：Qwen3-0.6B公式モデルカード",
+          "url": "https://huggingface.co/Qwen/Qwen3-0.6B"
+        },
+        {
+          "label": "Ollama：対象Q4_K_Mタグ・配布サイズ・実行方法",
+          "url": "https://ollama.com/library/qwen3:0.6b-q4_K_M"
+        },
+        {
+          "label": "Apple：Mac mini（2024）のM4 / M4 Proと統合メモリ構成",
+          "url": "https://support.apple.com/en-gb/121555"
+        },
+        {
+          "label": "Ollama：Apple GPUのMetal対応とハードウェア条件",
+          "url": "https://docs.ollama.com/gpu"
+        },
+        {
+          "label": "Ollama：コンテキスト長とメモリの関係",
+          "url": "https://docs.ollama.com/context-length"
+        }
+      ]
+    },
+    {
+      "id": "llama-3-2-3b-instruct-q4-k-m",
+      "aliases": [
+        "Llama 3.2 3B",
+        "Llama-3.2-3B-Instruct",
+        "meta-llama/Llama-3.2-3B-Instruct"
+      ],
+      "status": "estimated",
+      "checked_at": "2026-10-07",
+      "quantization": "GGUF Q4_K_M（約4bit）",
+      "weight_gb": null,
+      "total_parameters_b": 3.21,
+      "active_parameters_b": null,
+      "memory": "推定：RAM8〜16GBクラス（CPU実行の容量推定）／Mac統合メモリ16GB構成例（推定）",
+      "examples": [
+        "Mac mini（M4）・統合メモリ16GB（推定。必要最小容量ではありません）"
+      ],
+      "runtime": "Ollama：llama3.2:3b-instruct-q4_K_M（Apple SiliconではMetal対応）",
+      "conditions": [
+        "Metaの公称3Bモデルは3.21Bパラメータ。公開重みはLlama 3.2 Community Licenseに従い、公式Hugging Faceではアクセス条件への同意が必要です。OllamaのInstruct量子化版を想定します。",
+        "Ollama掲載のQ4_K_M配布サイズは約2.0GBです。これは配布物の容量であり、重みのみの容量や実行時の総使用メモリではありません。",
+        "約4bit・テキストのみ・1モデル・同時1会話・合計約4Kトークンの短いコンテキストを想定した容量からの推定です。OS・実行エンジン・KVキャッシュの余裕を含め、最小要件や実機検証済み構成を示すものではありません。",
+        "本サイトで実機動作・速度は未測定です。コンテキストは約4Kに設定してください。長文・画像入力・同時実行や他アプリ併用では必要容量が増えます。",
+        "一般PCのRAMと独立GPUのVRAMは別です。RAMだけでGPU常駐や速度を保証できません。Macの例はCPU/GPUが共有する統合メモリです。"
+      ],
+      "sources": [
+        {
+          "label": "Meta：Llama-3.2-3B-Instruct公式モデルカード",
+          "url": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct"
+        },
+        {
+          "label": "Ollama：対象Q4_K_Mタグ・配布サイズ・実行方法",
+          "url": "https://ollama.com/library/llama3.2:3b-instruct-q4_K_M"
+        },
+        {
+          "label": "Apple：Mac mini（2024）のM4 / M4 Proと統合メモリ構成",
+          "url": "https://support.apple.com/en-gb/121555"
+        },
+        {
+          "label": "Ollama：Apple GPUのMetal対応とハードウェア条件",
+          "url": "https://docs.ollama.com/gpu"
+        },
+        {
+          "label": "Ollama：コンテキスト長とメモリの関係",
+          "url": "https://docs.ollama.com/context-length"
+        }
+      ]
+    },
+    {
+      "id": "llama-3-2-1b-instruct-q4-k-m",
+      "aliases": [
+        "Llama 3.2 1B",
+        "Llama-3.2-1B-Instruct",
+        "meta-llama/Llama-3.2-1B-Instruct"
+      ],
+      "status": "estimated",
+      "checked_at": "2026-10-07",
+      "quantization": "GGUF Q4_K_M（約4bit）",
+      "weight_gb": null,
+      "total_parameters_b": 1.23,
+      "active_parameters_b": null,
+      "memory": "推定：RAM8〜16GBクラス（CPU実行の容量推定）／Mac統合メモリ16GB構成例（推定）",
+      "examples": [
+        "Mac mini（M4）・統合メモリ16GB（推定。必要最小容量ではありません）"
+      ],
+      "runtime": "Ollama：llama3.2:1b-instruct-q4_K_M（Apple SiliconではMetal対応）",
+      "conditions": [
+        "Metaの公称1Bモデルは1.23Bパラメータ。公開重みはLlama 3.2 Community Licenseに従い、公式Hugging Faceではアクセス条件への同意が必要です。OllamaのInstruct量子化版を想定します。",
+        "Ollama掲載のQ4_K_M配布サイズは約808MBです。これは配布物の容量であり、重みのみの容量や実行時の総使用メモリではありません。",
+        "約4bit・テキストのみ・1モデル・同時1会話・合計約4Kトークンの短いコンテキストを想定した容量からの推定です。OS・実行エンジン・KVキャッシュの余裕を含め、最小要件や実機検証済み構成を示すものではありません。",
+        "本サイトで実機動作・速度は未測定です。コンテキストは約4Kに設定してください。長文・画像入力・同時実行や他アプリ併用では必要容量が増えます。",
+        "一般PCのRAMと独立GPUのVRAMは別です。RAMだけでGPU常駐や速度を保証できません。Macの例はCPU/GPUが共有する統合メモリです。"
+      ],
+      "sources": [
+        {
+          "label": "Meta：Llama-3.2-1B-Instruct公式モデルカード",
+          "url": "https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct"
+        },
+        {
+          "label": "Ollama：対象Q4_K_Mタグ・配布サイズ・実行方法",
+          "url": "https://ollama.com/library/llama3.2:1b-instruct-q4_K_M"
+        },
+        {
+          "label": "Apple：Mac mini（2024）のM4 / M4 Proと統合メモリ構成",
+          "url": "https://support.apple.com/en-gb/121555"
+        },
+        {
+          "label": "Ollama：Apple GPUのMetal対応とハードウェア条件",
+          "url": "https://docs.ollama.com/gpu"
+        },
+        {
+          "label": "Ollama：コンテキスト長とメモリの関係",
+          "url": "https://docs.ollama.com/context-length"
+        }
+      ]
+    },
+    {
+      "id": "mistral-small-3-2-24b-instruct-2506-q4-k-m",
+      "aliases": [
+        "Mistral Small 3.2",
+        "Mistral Small 3.2 24B",
+        "Mistral-Small-3.2-24B-Instruct-2506",
+        "mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+      ],
+      "status": "estimated",
+      "checked_at": "2026-10-07",
+      "quantization": "GGUF Q4_K_M（約4bit）",
+      "weight_gb": null,
+      "total_parameters_b": 24,
+      "active_parameters_b": null,
+      "memory": "推定：統合メモリ32〜48GBクラス（推定）",
+      "examples": [
+        "Mac mini（M4）・統合メモリ32GB（推定）",
+        "Mac mini（M4 Pro）・統合メモリ48GB（余裕を持たせた推定）"
+      ],
+      "runtime": "Ollama：mistral-small3.2:24b-instruct-2506-q4_K_M（Apple SiliconではMetal対応）",
+      "conditions": [
+        "Mistral AIの公開重みはApache 2.0。対象は24BのMistral-Small-3.2-24B-Instruct-2506で、Small 3 / 3.1とは区別します。画像入力にも対応しますが、この目安はテキストのみです。",
+        "Ollama掲載のQ4_K_M配布サイズは約15GBです。これは配布物の容量であり、重みのみの容量や実行時の総使用メモリではありません。",
+        "約4bit・テキストのみ・1モデル・同時1会話・合計約4Kトークンの短いコンテキストを想定した容量からの推定です。OS・実行エンジン・KVキャッシュの余裕を含め、最小要件や実機検証済み構成を示すものではありません。",
+        "本サイトで実機動作・速度は未測定です。コンテキストは約4Kに設定してください。長文・画像入力・同時実行や他アプリ併用では必要容量が増えます。",
+        "一般PCのRAMと独立GPUのVRAMは別です。RAMだけでGPU常駐や速度を保証できません。Macの例はCPU/GPUが共有する統合メモリです。"
+      ],
+      "sources": [
+        {
+          "label": "Mistral AI：Small 3.2 24B Instruct 2506公式モデルカード",
+          "url": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+        },
+        {
+          "label": "Ollama：対象Q4_K_Mタグ・配布サイズ・実行方法",
+          "url": "https://ollama.com/library/mistral-small3.2:24b-instruct-2506-q4_K_M"
+        },
+        {
+          "label": "Apple：Mac mini（2024）のM4 / M4 Proと統合メモリ構成",
+          "url": "https://support.apple.com/en-gb/121555"
+        },
+        {
+          "label": "Ollama：Apple GPUのMetal対応とハードウェア条件",
+          "url": "https://docs.ollama.com/gpu"
+        },
+        {
+          "label": "Ollama：コンテキスト長とメモリの関係",
+          "url": "https://docs.ollama.com/context-length"
+        }
+      ]
+    },
+    {
+      "id": "qwen3-6-27b-q4-k-m",
+      "aliases": [
+        "Qwen3.6-27B",
+        "Qwen/Qwen3.6-27B"
+      ],
+      "status": "estimated",
+      "checked_at": "2026-10-07",
+      "quantization": "GGUF Q4_K_M（約4bit）",
+      "weight_gb": null,
+      "total_parameters_b": 27,
+      "active_parameters_b": null,
+      "memory": "推定：統合メモリ32〜48GBクラス（推定）",
+      "examples": [
+        "Mac mini（M4）・統合メモリ32GB（推定）",
+        "Mac mini（M4 Pro）・統合メモリ48GB（余裕を持たせた推定）"
+      ],
+      "runtime": "Ollama：qwen3.6:27b-q4_K_M（Apple SiliconではMetal対応）",
+      "conditions": [
+        "Qwenの公開重みはApache 2.0。27Bは公式モデルカードの言語モデル部分の公称パラメータ数で、モデルには別途vision encoderがあります。denseモデルであり、この目安はテキストのみです。",
+        "Ollama掲載のQ4_K_M配布サイズは約17GBです。これは配布物の容量であり、重みのみの容量や実行時の総使用メモリではありません。",
+        "約4bit・テキストのみ・1モデル・同時1会話・合計約4Kトークンの短いコンテキストを想定した容量からの推定です。OS・実行エンジン・KVキャッシュの余裕を含め、最小要件や実機検証済み構成を示すものではありません。",
+        "本サイトで実機動作・速度は未測定です。コンテキストは約4Kに設定してください。長文・画像入力・同時実行や他アプリ併用では必要容量が増えます。",
+        "一般PCのRAMと独立GPUのVRAMは別です。RAMだけでGPU常駐や速度を保証できません。Macの例はCPU/GPUが共有する統合メモリです。"
+      ],
+      "sources": [
+        {
+          "label": "Qwen：Qwen3.6-27B公式モデルカード",
+          "url": "https://huggingface.co/Qwen/Qwen3.6-27B"
+        },
+        {
+          "label": "Ollama：対象Q4_K_Mタグ・配布サイズ・実行方法",
+          "url": "https://ollama.com/library/qwen3.6:27b-q4_K_M"
+        },
+        {
+          "label": "Apple：Mac mini（2024）のM4 / M4 Proと統合メモリ構成",
+          "url": "https://support.apple.com/en-gb/121555"
+        },
+        {
+          "label": "Ollama：Apple GPUのMetal対応とハードウェア条件",
+          "url": "https://docs.ollama.com/gpu"
+        },
+        {
+          "label": "Ollama：コンテキスト長とメモリの関係",
+          "url": "https://docs.ollama.com/context-length"
+        }
+      ]
+    },
+    {
+      "id": "qwen3-6-35b-a3b-q4-k-m",
+      "aliases": [
+        "Qwen3.6-35B-A3B",
+        "Qwen/Qwen3.6-35B-A3B"
+      ],
+      "status": "estimated",
+      "checked_at": "2026-10-07",
+      "quantization": "GGUF Q4_K_M（約4bit）",
+      "weight_gb": null,
+      "total_parameters_b": 35,
+      "active_parameters_b": 3,
+      "memory": "推定：統合メモリ48GBクラス（保守的な推定）",
+      "examples": [
+        "Mac mini（M4 Pro）・統合メモリ48GB（推定）"
+      ],
+      "runtime": "Ollama：qwen3.6:35b-a3b-q4_K_M（Apple SiliconではMetal対応）",
+      "conditions": [
+        "Qwenの公開重みはApache 2.0。公式の言語モデル部分は総35B・3B activeのMoEで、別途vision encoderがあります。3B activeを全重みの容量や必要RAMとして扱えません。",
+        "Ollama掲載のQ4_K_M配布サイズは約24GBです。これは配布物の容量であり、重みのみの容量や実行時の総使用メモリではありません。",
+        "約4bit・テキストのみ・1モデル・同時1会話・合計約4Kトークンの短いコンテキストを想定した容量からの推定です。OS・実行エンジン・KVキャッシュの余裕を含め、最小要件や実機検証済み構成を示すものではありません。",
+        "本サイトで実機動作・速度は未測定です。コンテキストは約4Kに設定してください。長文・画像入力・同時実行や他アプリ併用では必要容量が増えます。",
+        "一般PCのRAMと独立GPUのVRAMは別です。RAMだけでGPU常駐や速度を保証できません。Macの例はCPU/GPUが共有する統合メモリです。",
+        "この約24GBの配布版では32GB搭載機の余裕が小さくなるため、構成例は48GBにしています。32GBでの成立条件・GPU常駐・速度は未検証です。"
+      ],
+      "sources": [
+        {
+          "label": "Qwen：Qwen3.6-35B-A3B公式モデルカード",
+          "url": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B"
+        },
+        {
+          "label": "Ollama：対象Q4_K_Mタグ・配布サイズ・実行方法",
+          "url": "https://ollama.com/library/qwen3.6:35b-a3b-q4_K_M"
+        },
+        {
+          "label": "Apple：Mac mini（2024）のM4 / M4 Proと統合メモリ構成",
+          "url": "https://support.apple.com/en-gb/121555"
+        },
+        {
+          "label": "Ollama：Apple GPUのMetal対応とハードウェア条件",
+          "url": "https://docs.ollama.com/gpu"
+        },
+        {
+          "label": "Ollama：コンテキスト長とメモリの関係",
+          "url": "https://docs.ollama.com/context-length"
+        }
+      ]
+    },
+    {
+      "id": "qwen3-8-max-open",
+      "aliases": [
+        "Qwen3.8-Max"
+      ],
+      "status": "server_class",
+      "checked_at": "2026-10-07",
+      "quantization": "公開モデルQwen3.8-2.4T-A95BのNVFP4版",
+      "weight_gb": null,
+      "total_parameters_b": 2400,
+      "active_parameters_b": 95,
+      "memory": "推定：VRAM合計TB級の複数GPUサーバー",
+      "examples": [
+        "構成例：NVIDIA Blackwell系の複数GPUサーバー（個別設計）"
+      ],
+      "runtime": "NVIDIA NVFP4版：Linux / vLLM・SGLang / Blackwell",
+      "conditions": [
+        "公開重みQwen3.8-2.4T-A95Bを対象にしています。Qwen3.8-Max API版にはビジョン等の追加機能があり、同一の配布物ではありません。",
+        "総2.4Tを全て4bitにした理論値だけでも約1.2TBです。実際のNVFP4は一部が高精度のままで、スケール情報・KVキャッシュ等も必要なため、1.2TBを実行要件として使えません。",
+        "NVIDIAはBlackwell上のvLLM・SGLangを案内しています。Mac miniやDGX Spark1台の容量クラスを大きく超えます。",
+        "サーバー構成は速度・分散通信・GPUごとの割り当てを別途設計してください。当サイトによる実機動作・速度の測定はありません。"
+      ],
+      "sources": [
+        {
+          "label": "Qwen：公開モデルとAPI版の関係・総2.4T/95B active",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "label": "NVIDIA：NVFP4版とBlackwell・推論エンジンの対応",
+          "url": "https://huggingface.co/nvidia/Qwen3.8-2.4T-A95B-NVFP4"
+        }
+      ]
+    },
+    {
+      "id": "llama-4-maverick-q4",
+      "aliases": [
+        "Llama 4 Maverick"
+      ],
+      "status": "estimated",
+      "checked_at": "2026-10-07",
+      "quantization": "Ollama llama4:maverick / Q4_K_M",
+      "weight_gb": null,
+      "total_parameters_b": 400,
+      "active_parameters_b": 17,
+      "memory": "推定：統合メモリ512GBクラス（Q4_K_M）",
+      "examples": [
+        "Mac Studio Ultra・統合メモリ512GB（容量からの推定）"
+      ],
+      "runtime": "Ollama llama4:maverick（Q4_K_M。Macでの速度は未測定）",
+      "conditions": [
+        "OllamaのQ4_K_M配布は約245GB。これを基にOS・GPU利用可能領域・実行時の余裕を見込んだ512GB構成例で、必要最小量ではありません。",
+        "総約400Bの全重みが対象です。17B activeから必要メモリを計算しません。",
+        "Mac Studioの容量例は公式の実機動作保証ではありません。Metaのライセンス条件と配布・ランタイムの対応を確認してください。",
+        "テキストのみ・同時利用1件・コンテキスト約4Kを想定した編集上の容量推定です。実機動作・速度・必要最小容量の保証ではありません。",
+        "ダウンロード容量は実行時の使用メモリではありません。OS・KVキャッシュ・作業領域が必要で、画像・長文・並列処理では増えます。"
+      ],
+      "sources": [
+        {
+          "label": "Meta：Llama 4の総/アクティブパラメータ",
+          "url": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct"
+        },
+        {
+          "label": "Ollama：Maverick Q4_K_M・245GB配布",
+          "url": "https://ollama.com/library/llama4:maverick"
+        },
+        {
+          "label": "Apple：Mac Studioの統合メモリ構成",
+          "url": "https://www.apple.com/mac-studio/specs/"
+        }
+      ]
+    },
+    {
+      "id": "qwen3-8-27b-q4",
+      "aliases": [
+        "Qwen3.8-27B"
+      ],
+      "status": "estimated",
+      "checked_at": "2026-10-07",
+      "quantization": "Ollama qwen3.8:27b / llama.cpp側Q4_K_M",
+      "weight_gb": null,
+      "total_parameters_b": 27,
+      "active_parameters_b": null,
+      "memory": "推定：統合メモリ32〜48GBクラス（4bit）",
+      "examples": [
+        "Mac mini・統合メモリ32GB / Mac Studio・48GB（容量からの推定）"
+      ],
+      "runtime": "Ollama qwen3.8:27b（Q4_K_M。MLX版は形式が異なります）",
+      "conditions": [
+        "OllamaのQ4_K_M配布は画像用部品を含め約18GB。27Bは公式カードの言語モデル部分で、追加部品と実行領域も見込みます。",
+        "32GBは短い単一会話向けの容量目安です。画像や長文、他のアプリを同時に使う場合は48GB等の余裕ある構成を検討してください。",
+        "テキストのみ・同時利用1件・コンテキスト約4Kを想定した編集上の容量推定です。実機動作・速度・必要最小容量の保証ではありません。",
+        "ダウンロード容量は実行時の使用メモリではありません。OS・KVキャッシュ・作業領域が必要で、画像・長文・並列処理では増えます。"
+      ],
+      "sources": [
+        {
+          "label": "Qwen：Qwen3.8-27Bモデルカード",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
+        },
+        {
+          "label": "Ollama：27BのQ4_K_M版・配布容量",
+          "url": "https://ollama.com/library/qwen3.8:27b"
+        },
+        {
+          "label": "Apple：Mac miniの統合メモリ構成",
+          "url": "https://www.apple.com/mac-mini/specs/"
+        },
+        {
+          "label": "Apple：Mac Studioの統合メモリ構成",
+          "url": "https://www.apple.com/mac-studio/specs/"
+        }
+      ]
+    },
+    {
+      "id": "muse-glimmer-30b-q4",
+      "aliases": [
+        "Muse Glimmer"
+      ],
+      "status": "estimated",
+      "checked_at": "2026-10-07",
+      "quantization": "Ollama muse-glimmer:30b / Q4_K_M",
+      "weight_gb": null,
+      "total_parameters_b": 29.6,
+      "active_parameters_b": null,
+      "memory": "推定：統合メモリ32〜48GBクラス（4bit）",
+      "examples": [
+        "Mac mini・統合メモリ32GB / Mac Studio・48GB（容量からの推定）"
+      ],
+      "runtime": "Ollama muse-glimmer:30b（Q4_K_M）。Apple Silicon用MLX版も別途配布",
+      "conditions": [
+        "Metaの総パラメータ公表値は約29.6B。Ollama Q4_K_M配布は画像用部品を含め約18GBです。",
+        "32GBは短いテキスト会話の容量目安です。常時エージェントや画像・長文利用では48GB等の余裕を見てください。",
+        "テキストのみ・同時利用1件・コンテキスト約4Kを想定した編集上の容量推定です。実機動作・速度・必要最小容量の保証ではありません。",
+        "ダウンロード容量は実行時の使用メモリではありません。OS・KVキャッシュ・作業領域が必要で、画像・長文・並列処理では増えます。"
+      ],
+      "sources": [
+        {
+          "label": "Meta：Muse Glimmerのモデルカード",
+          "url": "https://huggingface.co/meta-models/Muse-Glimmer-30B"
+        },
+        {
+          "label": "Ollama：Muse Glimmer Q4_K_Mの配布",
+          "url": "https://ollama.com/library/muse-glimmer:30b"
+        },
+        {
+          "label": "Apple：Mac miniの統合メモリ構成",
+          "url": "https://www.apple.com/mac-mini/specs/"
+        },
+        {
+          "label": "Apple：Mac Studioの統合メモリ構成",
+          "url": "https://www.apple.com/mac-studio/specs/"
+        }
+      ]
+    },
+    {
+      "id": "qwen3-8-flash-next-mlx",
+      "aliases": [
+        "Qwen3.8-Flash-Next"
+      ],
+      "status": "estimated",
+      "checked_at": "2026-10-07",
+      "quantization": "Ollama qwen3.8-flash-next:125b-mlx（量子化済みMLX配布）",
+      "weight_gb": null,
+      "total_parameters_b": 180,
+      "active_parameters_b": 6,
+      "memory": "推定：統合メモリ192〜256GBクラス（指定MLX版）",
+      "examples": [
+        "Mac Studio Ultra・統合メモリ256GB（容量からの推定）"
+      ],
+      "runtime": "Ollama qwen3.8-flash-next:125b-mlx（Apple Silicon / MLX）",
+      "conditions": [
+        "Ollamaの指定MLX配布は約105GB。この配布サイズを基に追加領域を見込んだ容量帯です。ビット数を一律4bitとは仮定していません。",
+        "公式仕様は125B本体に51Bのn-gram埋め込みと4BのMTPを加えた構成です。約180Bはその合計の概数で、6B activeや125B本体だけから全メモリを計算しません。",
+        "192〜256GBは容量からの推定です。埋め込みのオフロード、MTPの利用、ランタイム設定で変わります。DGX Spark向けの対応保証ではありません。",
+        "テキストのみ・同時利用1件・コンテキスト約4Kを想定した編集上の容量推定です。実機動作・速度・必要最小容量の保証ではありません。",
+        "ダウンロード容量は実行時の使用メモリではありません。OS・KVキャッシュ・作業領域が必要で、画像・長文・並列処理では増えます。"
+      ],
+      "sources": [
+        {
+          "label": "Qwen：125B本体・51B埋め込み・4B MTPの内訳",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next"
+        },
+        {
+          "label": "Ollama：Apple Silicon向けMLX配布・105GB",
+          "url": "https://ollama.com/library/qwen3.8-flash-next:125b-mlx"
+        },
+        {
+          "label": "Apple：Mac Studioの統合メモリ構成",
+          "url": "https://www.apple.com/mac-studio/specs/"
+        }
+      ]
+    },
+    {
+      "id": "identity-code-llama-4-70b",
+      "aliases": [
+        "Code Llama 4 70B"
+      ],
+      "status": "identity_unverified",
+      "checked_at": "2026-10-07",
+      "quantization": "モデル名の照合後に選択",
+      "weight_gb": null,
+      "total_parameters_b": null,
+      "active_parameters_b": null,
+      "memory": "モデル名を確認中・別モデルの必要量を流用しません",
+      "examples": [],
+      "runtime": "掲載名と一致する公式配布を未特定",
+      "conditions": [
+        "公式のCode Llamaには34B/70Bが存在しますが、掲載名の「Code Llama 4」と一致する配布を確認できていません。",
+        "これは実行不可の判定ではありません。正しいモデルIDを確認してから、量子化版に合わせて目安を付けます。"
+      ],
+      "sources": [
+        {
+          "label": "Meta：公式Code Llamaのモデル一覧",
+          "url": "https://github.com/meta-llama/codellama"
+        }
+      ]
+    },
+    {
+      "id": "identity-code-llama-4-34b",
+      "aliases": [
+        "Code Llama 4 34B"
+      ],
+      "status": "identity_unverified",
+      "checked_at": "2026-10-07",
+      "quantization": "モデル名の照合後に選択",
+      "weight_gb": null,
+      "total_parameters_b": null,
+      "active_parameters_b": null,
+      "memory": "モデル名を確認中・別モデルの必要量を流用しません",
+      "examples": [],
+      "runtime": "掲載名と一致する公式配布を未特定",
+      "conditions": [
+        "公式のCode Llamaには34B/70Bが存在しますが、掲載名の「Code Llama 4」と一致する配布を確認できていません。",
+        "これは実行不可の判定ではありません。正しいモデルIDを確認してから、量子化版に合わせて目安を付けます。"
+      ],
+      "sources": [
+        {
+          "label": "Meta：公式Code Llamaのモデル一覧",
+          "url": "https://github.com/meta-llama/codellama"
+        }
+      ]
+    },
+    {
+      "id": "identity-qwen3-72b",
+      "aliases": [
+        "Qwen3-72B"
+      ],
+      "status": "identity_unverified",
+      "checked_at": "2026-10-07",
+      "quantization": "モデル名の照合後に選択",
+      "weight_gb": null,
+      "total_parameters_b": null,
+      "active_parameters_b": null,
+      "memory": "モデル名を確認中・別モデルの必要量を流用しません",
+      "examples": [],
+      "runtime": "掲載名と一致する公式配布を未特定",
+      "conditions": [
+        "公式Qwen3の公開一覧では72Bを確認できていません。Qwen2.5-72B等と同じモデルとは扱いません。",
+        "これは実行不可の判定ではありません。正しいモデルIDを確認してから、量子化版に合わせて目安を付けます。"
+      ],
+      "sources": [
+        {
+          "label": "Qwen：公式Qwen3のモデル一覧",
+          "url": "https://github.com/QwenLM/Qwen3"
+        }
       ]
     }
   ]

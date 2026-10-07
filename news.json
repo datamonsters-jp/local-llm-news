@@ -122,13 +122,13 @@
     },
     {
       "name": "Qwen3.8-Flash-Next",
-      "size": "125B MoE (6B active)",
+      "size": "約180B総規模 (6B active)",
       "score": 90,
       "released": "2026.08",
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba Cloud",
-      "reason": "Qwen4プレビュー版、高効率MoE、FP8対応",
+      "reason": "本体125Bに埋め込み51B・MTP4Bを含む実験的MoE",
       "badges": [
         "Apache 2.0",
         "MoE",
@@ -156,17 +156,15 @@
     },
     {
       "name": "Code Llama 4 70B",
-      "size": "70B",
+      "size": "名称確認中",
       "score": 95,
       "released": "2026.07",
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "HumanEval GPT-4o超え、32言語対応、FIM強化",
+      "reason": "掲載名と一致する公式配布を確認中",
       "badges": [
-        "Llama License",
-        "Dense",
-        "32 Languages"
+        "モデル名を確認"
       ],
       "url": "https://llama.meta.com/"
     },
@@ -252,17 +250,15 @@
     },
     {
       "name": "Code Llama 4 34B",
-      "size": "34B",
+      "size": "名称確認中",
       "score": 89,
       "released": "2026.07",
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "中規模で高性能、IDE統合向けFIM対応",
+      "reason": "掲載名と一致する公式配布を確認中",
       "badges": [
-        "Llama License",
-        "Dense",
-        "FIM"
+        "モデル名を確認"
       ],
       "url": "https://llama.meta.com/"
     }
@@ -382,17 +378,15 @@
     },
     {
       "name": "Qwen3-72B",
-      "size": "72B",
+      "size": "名称確認中",
       "score": 86,
       "released": "2025.04",
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba Cloud",
-      "reason": "日本語ベンチマーク高評価、大規模で高品質",
+      "reason": "掲載名と一致する公式配布を確認中",
       "badges": [
-        "Qwen License",
-        "Dense",
-        "High Quality"
+        "モデル名を確認"
       ],
       "url": "https://huggingface.co/Qwen"
     }
