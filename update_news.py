@@ -35,6 +35,8 @@ SYSTEM_PROMPT = """
 3. 日付は記事の実際の公開日を使うこと。存在しない発表や架空の製品（例: 存在しないチップやモデル）を書かない。
 4. 海外（英語圏など）のニュースソースを積極的に使い、内容は日本語で要約すること。多様な視点を歓迎する。
 5. ランキングも検索で得た最新情報（ベンチマーク、リリース状況）に基づいて作ること。
+6. PCの構成例・必要RAM/VRAM・推論速度は別の確認済みカタログで管理する。rankingのreason/badgesに数値付きメモリ量、tokens/s、Mac mini/Studio、DGX Spark、RTX等の機種名や「高速」「快適」といった動作保証を書かない。hardware等の項目を追加しない。
+7. MoEの総パラメータとアクティブ数を混同しない。Ollamaのcloud版をローカル配布と扱わない。重みが未公開なら公開待ちと明記する。
 
 調査した上で、以下のJSON形式のみで返してください（最後にJSONだけを出力、コードブロック不要）:
 {
@@ -97,7 +99,7 @@ SYSTEM_PROMPT = """
       "country": "国名",
       "flag": "国コード: cn/us/fr/jp または \\"\\"",
       "org": "開発組織",
-      "reason": "エッジ動作の観点での評価（40文字以内。RAM要件・トークン/秒・対応デバイス等）",
+      "reason": "エッジ動作の観点での評価（40文字以内。モデルの用途・構造等。メモリ量・速度・PC構成は書かない）",
       "badges": ["ライセンス", "省メモリ", "特徴"],
       "url": "公式ページURL（実在のみ。不明なら \\"\\"）"
     }
@@ -126,7 +128,7 @@ ranking_japanese は日本語用途（日本語タスク性能・日本語MT-Ben
 ranking_edge はエッジAI用途（Raspberry Pi・スマホ・組み込み機器など低リソース環境で動く超軽量モデル）のトップ8を作ること。
 ranking_edge では、Gemma 3n、Qwen3 0.6B/1.7B、Llama 3.2 1B/3B、Phi-4-mini、SmolLM、TinyLlama、
 MobileLLM、BitNet系（1bit LLM）など、おおむね4B以下でメモリ数GB以内・CPU/NPUで動くモデルを中心に選ぶこと。
-reasonにはRAM要件やトークン/秒、対応デバイス（ラズパイ・スマホ等）を含めると良い。
+reasonはモデルの用途・構造・特徴だけを書く。メモリ量・速度・PC構成の提案は書かない。
 ranking_japanese では、東京科学大・産総研のSwallowシリーズ（GPT-OSS Swallow、Qwen3 Swallow、Llama 3.x Swallowなど）、
 ELYZA、SB Intuitions（Sarashina）、PLaMo（Preferred Networks）、cyberagent（calm）、Tanuki、rinna、
 GENIAC/国のGenAIプロジェクト関連の国産モデルなどを積極的に調べて含めること。
@@ -370,4 +372,5 @@ def save_news(data: dict) -> None:
 if __name__ == "__main__":
     news_data = fetch_news()
     save_news(news_data)
+
 

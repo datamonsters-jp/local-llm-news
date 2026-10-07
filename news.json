@@ -26,19 +26,19 @@
     },
     {
       "name": "Mistral Large 4",
-      "size": "1T MoE (49B active)",
+      "size": "公開仕様を確認中",
       "score": 96,
       "released": "2026.10",
       "country": "仏国",
       "flag": "fr",
       "org": "Mistral AI",
-      "reason": "欧州最大オープンウェイト、多言語・エージェント特化",
+      "reason": "APIプレビュー。オープンウェイトは2026年10月末に公開予定",
       "badges": [
-        "Apache 2.0予定",
+        "重み公開待ち",
         "MoE",
         "Multimodal"
       ],
-      "url": "https://mistral.ai/"
+      "url": "https://mistral.ai/news/mistral-large-4/"
     },
     {
       "name": "Kimi K2",
@@ -80,7 +80,7 @@
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba Cloud",
-      "reason": "Apache 2.0、ビジョン対応、単一GPUで動作可能",
+      "reason": "ビジョン対応の27Bモデル。動作条件は量子化・ランタイムごとに確認",
       "badges": [
         "Apache 2.0",
         "Dense",
@@ -122,13 +122,13 @@
     },
     {
       "name": "Qwen3.8-Flash-Next",
-      "size": "125B MoE (6B active)",
+      "size": "約180B総規模 (6B active)",
       "score": 90,
       "released": "2026.08",
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba Cloud",
-      "reason": "Qwen4プレビュー版、高効率MoE、FP8対応",
+      "reason": "本体125Bに埋め込み51B・MTP4Bを含む実験的MoE",
       "badges": [
         "Apache 2.0",
         "MoE",
@@ -156,17 +156,15 @@
     },
     {
       "name": "Code Llama 4 70B",
-      "size": "70B",
+      "size": "名称確認中",
       "score": 95,
       "released": "2026.07",
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "HumanEval GPT-4o超え、32言語対応、FIM強化",
+      "reason": "掲載名と一致する公式配布を確認中",
       "badges": [
-        "Llama License",
-        "Dense",
-        "32 Languages"
+        "モデル名を確認"
       ],
       "url": "https://llama.meta.com/"
     },
@@ -194,29 +192,29 @@
       "country": "米国",
       "flag": "us",
       "org": "Poolside",
-      "reason": "エージェント型コーディング特化、Ollama対応済",
+      "reason": "エージェント型コーディング向け。OllamaのmacOS対応に注意",
       "badges": [
-        "Proprietary",
+        "OpenMDW-1.1",
         "MoE",
-        "Agentic"
+        "macOS注意"
       ],
       "url": "https://ollama.com/library/laguna-xs-2.1"
     },
     {
       "name": "Kimi K2.7 Code",
-      "size": "72B",
+      "size": "1T MoE (32B active)",
       "score": 92,
       "released": "2026.08",
       "country": "中国",
       "flag": "cn",
       "org": "Moonshot AI",
-      "reason": "K2.6ベースのコーディング特化版、Ollama対応",
+      "reason": "コーディング向けの大規模MoE。Ollama掲載版はクラウド実行",
       "badges": [
         "MIT派生",
-        "Dense",
-        "Coding"
+        "MoE",
+        "サーバー級"
       ],
-      "url": "https://ollama.com/library/kimi-k2.7-code"
+      "url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code"
     },
     {
       "name": "Llama 4 Maverick",
@@ -242,7 +240,7 @@
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba Cloud",
-      "reason": "Apache 2.0、CPU/帯域制限環境で高速動作",
+      "reason": "35B総パラメータ・3Bアクティブ。総メモリ量は3Bモデル相当ではありません",
       "badges": [
         "Apache 2.0",
         "MoE",
@@ -252,17 +250,15 @@
     },
     {
       "name": "Code Llama 4 34B",
-      "size": "34B",
+      "size": "名称確認中",
       "score": 89,
       "released": "2026.07",
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "中規模で高性能、IDE統合向けFIM対応",
+      "reason": "掲載名と一致する公式配布を確認中",
       "badges": [
-        "Llama License",
-        "Dense",
-        "FIM"
+        "モデル名を確認"
       ],
       "url": "https://llama.meta.com/"
     }
@@ -276,7 +272,7 @@
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba Cloud",
-      "reason": "日本語含む100言語以上対応、Apache 2.0で商用可",
+      "reason": "ビジョン対応の27Bモデル。動作条件は量子化・ランタイムごとに確認",
       "badges": [
         "Apache 2.0",
         "Dense",
@@ -356,7 +352,7 @@
       "country": "米国",
       "flag": "us",
       "org": "Google",
-      "reason": "ビジョン対応、日本語タスク改善、単一GPU動作",
+      "reason": "ビジョン対応、日本語タスク改善。量子化版の条件は資料で確認",
       "badges": [
         "Gemma License",
         "Dense",
@@ -382,17 +378,15 @@
     },
     {
       "name": "Qwen3-72B",
-      "size": "72B",
+      "size": "名称確認中",
       "score": 86,
       "released": "2025.04",
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba Cloud",
-      "reason": "日本語ベンチマーク高評価、大規模で高品質",
+      "reason": "掲載名と一致する公式配布を確認中",
       "badges": [
-        "Qwen License",
-        "Dense",
-        "High Quality"
+        "モデル名を確認"
       ],
       "url": "https://huggingface.co/Qwen"
     }
@@ -406,7 +400,7 @@
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba Cloud",
-      "reason": "3B active、CPU/帯域制限環境で高速、Apache 2.0",
+      "reason": "35B総パラメータ・3Bアクティブ。総メモリ量は3Bモデル相当ではありません",
       "badges": [
         "Apache 2.0",
         "MoE",
@@ -438,7 +432,7 @@
       "country": "米国",
       "flag": "us",
       "org": "Google",
-      "reason": "ビジョン対応、4GB RAM動作、Ollama対応",
+      "reason": "ビジョン対応の小型モデル。必要メモリは量子化とコンテキスト長に依存",
       "badges": [
         "Gemma License",
         "Dense",
@@ -454,7 +448,7 @@
       "country": "米国",
       "flag": "us",
       "org": "Google",
-      "reason": "超軽量、スマホ・ラズパイで高速動作",
+      "reason": "小型テキストモデル。速度・対応機器は実行環境ごとに確認",
       "badges": [
         "Gemma License",
         "Dense",
@@ -470,7 +464,7 @@
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba Cloud",
-      "reason": "2GB RAM動作、多言語対応、Apache 2.0",
+      "reason": "小型の多言語モデル。動作条件は量子化・ランタイムごとに確認",
       "badges": [
         "Apache 2.0",
         "Dense",
@@ -486,7 +480,7 @@
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba Cloud",
-      "reason": "1GB RAM以下動作、IoT/組み込み向け超軽量",
+      "reason": "超小型モデル。RAMの最小要件や速度は未確認",
       "badges": [
         "Apache 2.0",
         "Dense",
@@ -502,7 +496,7 @@
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "エッジ最適化、4GB RAM動作、Ollama対応",
+      "reason": "エッジ用途向けの小型モデル。RAMの最小要件や速度は未確認",
       "badges": [
         "Llama License",
         "Dense",
@@ -518,7 +512,7 @@
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "超軽量、スマホ・ラズパイ・NPU対応",
+      "reason": "超小型モデル。スマホ・NPUなどの対応は実行環境ごとに確認",
       "badges": [
         "Llama License",
         "Dense",
