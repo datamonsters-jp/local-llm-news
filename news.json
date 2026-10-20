@@ -1,138 +1,138 @@
 {
-  "updated": "2026.10.19",
+  "updated": "2026.10.20",
   "ticker": [
-    "⚡ Meta、Muse Spark Openの重みを公開—816B MoE、42Bアクティブ",
-    "🟢 Reflection Beam 501B MoE、Apache 2.0でHugging Faceに公開",
-    "🔥 DeepSeek V4.1 Flash、高効率コーディング向けオープンウェイト登場",
-    "💾 Ollama v0.40.5が安定版に—Nemotron 3.5 Super対応",
-    "🖥️ vLLM v0.31.0リリース、CUDA 12.9デフォルト化"
+    "⚡ Meta、Muse Spark Open 816B MoEをオープン公開",
+    "🟢 Reflection AI、Beam 501Bを Apache 2.0 で公開",
+    "🔥 DeepSeek V4.1 Flash 10月17日リリース",
+    "💾 Ollama v0.40.5 安定版、Decision Model対応",
+    "🖥️ Mistral Large 4 オープンウェイト10月末予定"
   ],
   "ranking_general": [
     {
       "name": "Kimi K3",
-      "size": "MoE（総パラメータ未公開）",
+      "size": "不明（大規模MoE）",
       "score": 98,
       "released": "2026.07",
       "country": "中国",
       "flag": "cn",
       "org": "Moonshot AI",
-      "reason": "フロンティア推論・長文脈・エージェントで最強クラス",
+      "reason": "フロンティア推論・長コンテキスト・エージェント用途で最強クラス",
       "badges": [
-        "MIT系",
-        "MoE",
-        "長文脈"
+        "Open Weight",
+        "長文脈",
+        "推論特化"
       ],
       "url": "https://en.wikipedia.org/wiki/Kimi_(chatbot)"
     },
     {
-      "name": "Qwen3.8 2.4T-A95B",
-      "size": "2.4T MoE（95Bアクティブ）",
+      "name": "Qwen3.8-2.4T-A95B",
+      "size": "2.4T MoE (95B active)",
       "score": 97,
       "released": "2026.08",
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba",
-      "reason": "オープンウェイトMax級初公開、マルチモーダル対応",
+      "reason": "2.4兆パラメータの超大規模オープンMoE、マルチモーダル対応",
       "badges": [
-        "Qwen3.8 License",
-        "MoE",
-        "マルチモーダル"
+        "Open Weight",
+        "マルチモーダル",
+        "MoE"
       ],
-      "url": "https://en.wikipedia.org/wiki/Qwen"
+      "url": "https://docs.qwencloud.com/changelog/models"
     },
     {
       "name": "Muse Spark Open",
-      "size": "816B MoE（42Bアクティブ）",
+      "size": "816B MoE (42B active)",
       "score": 96,
       "released": "2026.10",
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "100万トークン文脈、テキスト/画像/音声/動画入力",
+      "reason": "米国最強オープンウェイト、エージェント向けコーディング特化",
       "badges": [
-        "Muse Model License",
-        "MoE",
-        "マルチモーダル"
+        "Open Weight",
+        "マルチモーダル",
+        "1Mコンテキスト"
       ],
-      "url": "https://techrepublic.com/article/news-meta-muse-spark-open-apple-mac-studio"
+      "url": "https://huggingface.co/meta-llama"
     },
     {
-      "name": "Reflection Beam",
-      "size": "501B MoE（23Bアクティブ）",
+      "name": "Beam 501B-A23B",
+      "size": "501B MoE (23B active)",
       "score": 95,
       "released": "2026.10",
       "country": "米国",
       "flag": "us",
       "org": "Reflection AI",
-      "reason": "Apache 2.0、23.8T学習・大規模RL最適化",
+      "reason": "Apache 2.0、1Mトークン文脈、コーディング・エージェント特化",
       "badges": [
         "Apache 2.0",
-        "MoE",
-        "テキスト"
+        "1Mコンテキスト",
+        "MoE"
       ],
-      "url": "https://unite.ai/reflection-releases-beams-open-weights-under-apache-2-0-license"
+      "url": "https://www.llm-releases.com/"
     },
     {
       "name": "DeepSeek-V4.1-Flash",
-      "size": "MoE（詳細未公開）",
+      "size": "大規模MoE",
       "score": 94,
       "released": "2026.10",
       "country": "中国",
       "flag": "cn",
       "org": "DeepSeek",
-      "reason": "コーディング・エージェント推論に最適化、高効率",
+      "reason": "効率的なコーディング・エージェント推論に最適化",
       "badges": [
-        "オープンウェイト",
-        "MoE",
+        "Open Weight",
+        "高効率",
         "コーディング"
       ],
       "url": "https://acecloud.ai/blog/best-open-source-llms/"
     },
     {
       "name": "GLM-5.2",
-      "size": "非公開",
+      "size": "大規模",
       "score": 93,
-      "released": "2026.06",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Zhipu AI",
-      "reason": "長期推論タスクに強い、200Kコンテキスト",
-      "badges": [
-        "オープンウェイト",
-        "長文脈",
-        "推論"
-      ],
-      "url": ""
-    },
-    {
-      "name": "Qwen3.8-27B",
-      "size": "27B",
-      "score": 92,
       "released": "2026.08",
       "country": "中国",
       "flag": "cn",
-      "org": "Alibaba",
-      "reason": "Apache 2.0、ビジョン言語対応、262K文脈",
+      "org": "Z.AI (Zhipu)",
+      "reason": "長期推論タスクで高い競争力、200Kコンテキスト",
       "badges": [
-        "Apache 2.0",
-        "Dense",
-        "マルチモーダル"
+        "Open Weight",
+        "長文脈",
+        "推論"
       ],
-      "url": "https://codersera.com/blog/qwen-3-5-complete-guide-2026/"
+      "url": "https://benchlm.ai/best/open-source"
+    },
+    {
+      "name": "Qwen3.5-397B-A17B",
+      "size": "397B MoE (17B active)",
+      "score": 92,
+      "released": "2026.02",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Alibaba",
+      "reason": "エージェントAI時代向け、デスクトップ・モバイル操作対応",
+      "badges": [
+        "Open Weight",
+        "エージェント",
+        "MoE"
+      ],
+      "url": "https://en.wikipedia.org/wiki/Qwen"
     },
     {
       "name": "Llama 4 Maverick",
-      "size": "400B MoE（17Bアクティブ）",
+      "size": "400B MoE (17B active)",
       "score": 91,
       "released": "2025.04",
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "128エキスパート、100万トークン文脈、マルチモーダル",
+      "reason": "1Mトークン文脈、マルチモーダル、幅広いエコシステム",
       "badges": [
         "Llama License",
-        "MoE",
-        "マルチモーダル"
+        "マルチモーダル",
+        "MoE"
       ],
       "url": "https://en.wikipedia.org/wiki/Llama_(language_model)"
     }
@@ -140,207 +140,337 @@
   "ranking_coding": [
     {
       "name": "DeepSeek-V4.1-Flash",
-      "size": "MoE（詳細未公開）",
+      "size": "大規模MoE",
       "score": 97,
       "released": "2026.10",
       "country": "中国",
       "flag": "cn",
       "org": "DeepSeek",
-      "reason": "コーディング・エージェント推論最適化、2026年後半最重要",
+      "reason": "コーディング・エージェント推論で2026年後半最重要リリース",
       "badges": [
-        "オープンウェイト",
-        "MoE",
+        "Open Weight",
+        "高効率",
         "エージェント"
       ],
       "url": "https://acecloud.ai/blog/best-open-source-llms/"
     },
     {
-      "name": "Qwen3.6-27B",
-      "size": "27B",
+      "name": "Qwen 4 Coder 32B-A3B",
+      "size": "32B MoE (3B active)",
+      "score": 96,
+      "released": "2026.06",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Alibaba",
+      "reason": "SWE-Verified 82%超え、オープン初の80%超モデル",
+      "badges": [
+        "Open Weight",
+        "SWE-bench",
+        "軽量MoE"
+      ],
+      "url": "https://mysummit.school/blog/en/qwen-alibaba-review-2026/"
+    },
+    {
+      "name": "Beam 501B-A23B",
+      "size": "501B MoE (23B active)",
       "score": 95,
-      "released": "2026.04",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "コーディング・エージェントワークロード特化",
-      "badges": [
-        "Apache 2.0",
-        "Dense",
-        "エージェント"
-      ],
-      "url": "https://codersera.com/blog/qwen-3-5-complete-guide-2026/"
-    },
-    {
-      "name": "Kimi K3",
-      "size": "MoE",
-      "score": 94,
-      "released": "2026.07",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Moonshot AI",
-      "reason": "エージェントワークロード・推論でトップクラス",
-      "badges": [
-        "MIT系",
-        "MoE",
-        "推論"
-      ],
-      "url": "https://en.wikipedia.org/wiki/Kimi_(chatbot)"
-    },
-    {
-      "name": "Kimi-Dev",
-      "size": "72B",
-      "score": 93,
-      "released": "2025.06",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Moonshot AI",
-      "reason": "SWE-benchでオープンソース最高性能達成",
-      "badges": [
-        "オープンウェイト",
-        "Qwen2.5ベース",
-        "コーディング"
-      ],
-      "url": "https://en.wikipedia.org/wiki/Kimi_(chatbot)"
-    },
-    {
-      "name": "Qwen3.8 2.4T-A95B",
-      "size": "2.4T MoE（95Bアクティブ）",
-      "score": 92,
-      "released": "2026.08",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "大規模推論能力でコード生成にも適用可",
-      "badges": [
-        "Qwen3.8 License",
-        "MoE",
-        "推論"
-      ],
-      "url": "https://en.wikipedia.org/wiki/Qwen"
-    },
-    {
-      "name": "Reflection Beam",
-      "size": "501B MoE（23Bアクティブ）",
-      "score": 91,
       "released": "2026.10",
       "country": "米国",
       "flag": "us",
       "org": "Reflection AI",
-      "reason": "Apache 2.0、大規模RL学習済み汎用モデル",
+      "reason": "コーディング・エージェント向けフロンティアモデル",
       "badges": [
         "Apache 2.0",
-        "MoE",
-        "汎用"
+        "1Mコンテキスト",
+        "コーディング"
       ],
-      "url": "https://unite.ai/reflection-releases-beams-open-weights-under-apache-2-0-license"
+      "url": "https://www.llm-releases.com/"
     },
     {
-      "name": "Llama 4 Scout",
-      "size": "109B MoE（17Bアクティブ）",
-      "score": 90,
-      "released": "2025.04",
+      "name": "Muse Spark Open",
+      "size": "816B MoE (42B active)",
+      "score": 94,
+      "released": "2026.10",
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "1000万トークン文脈、エージェントワークフロー向け",
+      "reason": "エージェント向けコーディングに特化したマルチモーダルMoE",
       "badges": [
-        "Llama License",
-        "MoE",
-        "長文脈"
+        "Open Weight",
+        "エージェント",
+        "マルチモーダル"
       ],
-      "url": "https://en.wikipedia.org/wiki/Llama_(language_model)"
+      "url": "https://huggingface.co/meta-llama"
     },
     {
-      "name": "Muse Glimmer",
-      "size": "30B",
-      "score": 89,
-      "released": "2026.08",
-      "country": "米国",
-      "flag": "us",
-      "org": "Meta",
-      "reason": "Apache 2.0、ローカル実行向け軽量マルチモーダル",
+      "name": "Mellum2.1 Thinking 12B-A2.5B",
+      "size": "12B MoE (2.5B active)",
+      "score": 93,
+      "released": "2026.10",
+      "country": "チェコ",
+      "flag": "",
+      "org": "JetBrains",
+      "reason": "コーディングエージェント・サブエージェント向け高速モデル",
       "badges": [
-        "Apache 2.0",
-        "Dense",
-        "マルチモーダル"
+        "Open Weight",
+        "軽量",
+        "IDE連携"
       ],
-      "url": "https://codersera.com/blog/llama-4-complete-guide-2026/"
-    }
-  ],
-  "ranking_japanese": [
-    {
-      "name": "Qwen3.8-27B",
-      "size": "27B",
-      "score": 95,
-      "released": "2026.08",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "日本語タスクでも高性能、Apache 2.0、ローカル実行可",
-      "badges": [
-        "Apache 2.0",
-        "Dense",
-        "マルチモーダル"
-      ],
-      "url": "https://codersera.com/blog/qwen-3-5-complete-guide-2026/"
+      "url": "https://www.llm-releases.com/"
     },
     {
       "name": "Qwen3.6-27B",
       "size": "27B",
-      "score": 94,
+      "score": 92,
       "released": "2026.04",
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba",
-      "reason": "Qwen系日本語継承、Apache 2.0でカスタマイズ容易",
+      "reason": "小規模セルフホスト向けコーディング・エージェント特化",
       "badges": [
         "Apache 2.0",
-        "Dense",
+        "コンパクト",
         "コーディング"
       ],
-      "url": "https://codersera.com/blog/qwen-3-5-complete-guide-2026/"
+      "url": "https://acecloud.ai/blog/best-open-source-llms/"
     },
     {
-      "name": "Qwen3.5-397B-A17B",
-      "size": "397B MoE（17Bアクティブ）",
-      "score": 93,
-      "released": "2026.02",
+      "name": "Qwen3-Coder",
+      "size": "480B",
+      "score": 91,
+      "released": "2025.07",
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba",
-      "reason": "エージェントAI時代向け、日本語多言語対応",
+      "reason": "エージェント向け大規模コーディングモデル",
       "badges": [
-        "オープンウェイト",
-        "MoE",
+        "Open Weight",
+        "大規模",
         "エージェント"
       ],
       "url": "https://www.taskade.com/blog/alibaba-qwen-history"
     },
     {
       "name": "Llama 4 Maverick",
-      "size": "400B MoE（17Bアクティブ）",
-      "score": 91,
-      "released": "2025.04",
-      "country": "米国",
-      "flag": "us",
-      "org": "Meta",
-      "reason": "多言語対応、日本語ファインチューン派生多数",
-      "badges": [
-        "Llama License",
-        "MoE",
-        "マルチモーダル"
-      ],
-      "url": "https://en.wikipedia.org/wiki/Llama_(language_model)"
-    },
-    {
-      "name": "Llama 4 Scout",
-      "size": "109B MoE（17Bアクティブ）",
+      "size": "400B MoE (17B active)",
       "score": 90,
       "released": "2025.04",
       "country": "米国",
       "flag": "us",
       "org": "Meta",
-      "reason": "長文脈処理でドキュメント翻訳・要約に有用",
+      "reason": "LiveCodeBench 43.4、広いエコシステムサポート",
+      "badges": [
+        "Llama License",
+        "マルチモーダル",
+        "MoE"
+      ],
+      "url": "https://en.wikipedia.org/wiki/Llama_(language_model)"
+    }
+  ],
+  "ranking_japanese": [
+    {
+      "name": "Qwen3.8-27B",
+      "size": "27B",
+      "score": 96,
+      "released": "2026.08",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Alibaba",
+      "reason": "Qwen3.8蒸留版、日本語含む多言語で高性能、Apache 2.0",
+      "badges": [
+        "Apache 2.0",
+        "蒸留",
+        "多言語"
+      ],
+      "url": "https://en.wikipedia.org/wiki/Qwen"
+    },
+    {
+      "name": "Qwen3.6-27B",
+      "size": "27B",
+      "score": 95,
+      "released": "2026.04",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Alibaba",
+      "reason": "日本語性能高いオープンモデル、Apache 2.0ライセンス",
+      "badges": [
+        "Apache 2.0",
+        "多言語",
+        "コーディング"
+      ],
+      "url": "https://acecloud.ai/blog/best-open-source-llms/"
+    },
+    {
+      "name": "Qwen3.5-397B-A17B",
+      "size": "397B MoE (17B active)",
+      "score": 94,
+      "released": "2026.02",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Alibaba",
+      "reason": "大規模MoEで日本語含む多言語理解が優秀",
+      "badges": [
+        "Open Weight",
+        "MoE",
+        "エージェント"
+      ],
+      "url": "https://en.wikipedia.org/wiki/Qwen"
+    },
+    {
+      "name": "Llama 4 Maverick",
+      "size": "400B MoE (17B active)",
+      "score": 93,
+      "released": "2025.04",
+      "country": "米国",
+      "flag": "us",
+      "org": "Meta",
+      "reason": "多言語対応マルチモーダル、日本語ファインチューン基盤に最適",
+      "badges": [
+        "Llama License",
+        "マルチモーダル",
+        "MoE"
+      ],
+      "url": "https://en.wikipedia.org/wiki/Llama_(language_model)"
+    },
+    {
+      "name": "Llama 4 Scout",
+      "size": "109B MoE (17B active)",
+      "score": 92,
+      "released": "2025.04",
+      "country": "米国",
+      "flag": "us",
+      "org": "Meta",
+      "reason": "10Mトークン文脈、日本語長文処理に有用",
+      "badges": [
+        "Llama License",
+        "10Mコンテキスト",
+        "MoE"
+      ],
+      "url": "https://en.wikipedia.org/wiki/Llama_(language_model)"
+    },
+    {
+      "name": "Gemma 4",
+      "size": "中規模",
+      "score": 91,
+      "released": "2026.05",
+      "country": "米国",
+      "flag": "us",
+      "org": "Google",
+      "reason": "ローカル・エッジ向け、日本語含む多言語対応",
+      "badges": [
+        "Open Weight",
+        "エッジ",
+        "多言語"
+      ],
+      "url": "https://acecloud.ai/blog/best-open-source-llms/"
+    },
+    {
+      "name": "Muse Glimmer",
+      "size": "30B",
+      "score": 90,
+      "released": "2026.08",
+      "country": "米国",
+      "flag": "us",
+      "org": "Meta",
+      "reason": "Apache 2.0、128Kコンテキスト、ローカル動作向け軽量モデル",
+      "badges": [
+        "Apache 2.0",
+        "軽量",
+        "マルチモーダル"
+      ],
+      "url": "https://codersera.com/blog/llama-4-complete-guide-2026/"
+    },
+    {
+      "name": "GLM-5.2",
+      "size": "大規模",
+      "score": 89,
+      "released": "2026.08",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Z.AI (Zhipu)",
+      "reason": "中国語・日本語含む東アジア言語で強い推論能力",
+      "badges": [
+        "Open Weight",
+        "長文脈",
+        "推論"
+      ],
+      "url": "https://benchlm.ai/best/open-source"
+    }
+  ],
+  "ranking_edge": [
+    {
+      "name": "Gemma 4",
+      "size": "2B / 4B",
+      "score": 96,
+      "released": "2026.05",
+      "country": "米国",
+      "flag": "us",
+      "org": "Google",
+      "reason": "ローカル・エッジAI向け設計、軽量で高品質",
+      "badges": [
+        "Open Weight",
+        "エッジ",
+        "省メモリ"
+      ],
+      "url": "https://acecloud.ai/blog/best-open-source-llms/"
+    },
+    {
+      "name": "Qwen3.6-27B",
+      "size": "27B",
+      "score": 95,
+      "released": "2026.04",
+      "country": "中国",
+      "flag": "cn",
+      "org": "Alibaba",
+      "reason": "セルフホスト向け実用サイズ、4bit量子化でエッジ可能",
+      "badges": [
+        "Apache 2.0",
+        "コンパクト",
+        "量子化対応"
+      ],
+      "url": "https://acecloud.ai/blog/best-open-source-llms/"
+    },
+    {
+      "name": "Muse Glimmer",
+      "size": "30B",
+      "score": 94,
+      "released": "2026.08",
+      "country": "米国",
+      "flag": "us",
+      "org": "Meta",
+      "reason": "Apache 2.0、4bit量子化でローカル動作設計",
+      "badges": [
+        "Apache 2.0",
+        "軽量",
+        "マルチモーダル"
+      ],
+      "url": "https://codersera.com/blog/llama-4-complete-guide-2026/"
+    },
+    {
+      "name": "Lumma-Fev-27B",
+      "size": "27B",
+      "score": 93,
+      "released": "2026.10",
+      "country": "不明",
+      "flag": "",
+      "org": "FrontiersMind",
+      "reason": "デシジョンモデル、1パスでスコアリング可能",
+      "badges": [
+        "Open Weight",
+        "Decision Model",
+        "多言語"
+      ],
+      "url": "https://dev.to/felipe0liveira/open-weights-go-frontier-class-a-501b-base-model-a-816b-meta-moe-and-gemini-4-argon-land-in-one-4b3b"
+    },
+    {
+      "name": "Llama 4 Scout",
+      "size": "109B MoE (17B active)",
+      "score": 92,
+      "released": "2025.04",
+      "country": "米国",
+      "flag": "us",
+      "org": "Meta",
+      "reason": "17Bアクティブで効率的、10Mトークン長文脈",
       "badges": [
         "Llama License",
         "MoE",
@@ -349,247 +479,131 @@
       "url": "https://en.wikipedia.org/wiki/Llama_(language_model)"
     },
     {
-      "name": "Kimi K2",
-      "size": "1T MoE（32Bアクティブ）",
-      "score": 89,
-      "released": "2025.07",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Moonshot AI",
-      "reason": "修正MITライセンス、多言語・日本語対応",
-      "badges": [
-        "MIT系",
-        "MoE",
-        "オープンソース"
-      ],
-      "url": "https://en.wikipedia.org/wiki/Kimi_(chatbot)"
-    },
-    {
-      "name": "Muse Glimmer",
-      "size": "30B",
-      "score": 88,
-      "released": "2026.08",
-      "country": "米国",
-      "flag": "us",
-      "org": "Meta",
-      "reason": "Apache 2.0、128K文脈、日本語FTベースに最適",
-      "badges": [
-        "Apache 2.0",
-        "Dense",
-        "マルチモーダル"
-      ],
-      "url": "https://codersera.com/blog/llama-4-complete-guide-2026/"
-    },
-    {
-      "name": "Gemma 4",
-      "size": "非公開",
-      "score": 87,
-      "released": "2026.03",
-      "country": "米国",
-      "flag": "us",
-      "org": "Google",
-      "reason": "ローカル・エッジ向け、日本語タスクでも利用可",
-      "badges": [
-        "Gemma License",
-        "エッジ対応",
-        "多言語"
-      ],
-      "url": "https://en.wikipedia.org/wiki/Gemma_(language_model)"
-    }
-  ],
-  "ranking_edge": [
-    {
-      "name": "Qwen3.6-35B-A3B",
-      "size": "35B MoE（3Bアクティブ）",
-      "score": 96,
-      "released": "2026.04",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "262K文脈、Apache 2.0、CPU/帯域制限環境で高速",
-      "badges": [
-        "Apache 2.0",
-        "MoE",
-        "マルチモーダル"
-      ],
-      "url": "https://codersera.com/blog/qwen-3-5-complete-guide-2026/"
-    },
-    {
-      "name": "Gemma 4",
-      "size": "小型（詳細未公開）",
-      "score": 94,
-      "released": "2026.03",
-      "country": "米国",
-      "flag": "us",
-      "org": "Google",
-      "reason": "ローカル・エッジAI向け設計、軽量版あり",
-      "badges": [
-        "Gemma License",
-        "エッジ",
-        "多言語"
-      ],
-      "url": "https://en.wikipedia.org/wiki/Gemma_(language_model)"
-    },
-    {
-      "name": "Llama 4 Scout",
-      "size": "109B MoE（17Bアクティブ）",
-      "score": 92,
-      "released": "2025.04",
-      "country": "米国",
-      "flag": "us",
-      "org": "Meta",
-      "reason": "MoE構造で推論コスト削減、量子化でH100単体動作",
-      "badges": [
-        "Llama License",
-        "MoE",
-        "量子化対応"
-      ],
-      "url": "https://en.wikipedia.org/wiki/Llama_(language_model)"
-    },
-    {
-      "name": "Muse Glimmer",
-      "size": "30B",
+      "name": "Mellum2.1 Thinking 12B-A2.5B",
+      "size": "12B MoE (2.5B active)",
       "score": 91,
-      "released": "2026.08",
-      "country": "米国",
-      "flag": "us",
-      "org": "Meta",
-      "reason": "Apache 2.0、約20GB以下でローカル動作設計",
+      "released": "2026.10",
+      "country": "チェコ",
+      "flag": "",
+      "org": "JetBrains",
+      "reason": "コーディング特化、軽量MoEでエッジ推論向け",
       "badges": [
-        "Apache 2.0",
-        "Dense",
-        "ローカル向け"
-      ],
-      "url": "https://codersera.com/blog/llama-4-complete-guide-2026/"
-    },
-    {
-      "name": "Qwen3.8-27B",
-      "size": "27B",
-      "score": 90,
-      "released": "2026.08",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "Q4_K_Mで約17GB、単一GPU動作可",
-      "badges": [
-        "Apache 2.0",
-        "Dense",
-        "量子化対応"
-      ],
-      "url": "https://codersera.com/blog/qwen-3-5-complete-guide-2026/"
-    },
-    {
-      "name": "Qwen3.6-27B",
-      "size": "27B",
-      "score": 89,
-      "released": "2026.04",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "コーディング特化、Apache 2.0でFT自由",
-      "badges": [
-        "Apache 2.0",
-        "Dense",
-        "コーディング"
-      ],
-      "url": "https://codersera.com/blog/qwen-3-5-complete-guide-2026/"
-    },
-    {
-      "name": "Kimi K2",
-      "size": "1T MoE（32Bアクティブ）",
-      "score": 88,
-      "released": "2025.07",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Moonshot AI",
-      "reason": "MoE構造で実効パラメータ抑制、量子化利用可",
-      "badges": [
-        "MIT系",
+        "Open Weight",
         "MoE",
         "コーディング"
       ],
-      "url": "https://en.wikipedia.org/wiki/Kimi_(chatbot)"
+      "url": "https://www.llm-releases.com/"
     },
     {
-      "name": "Gemma 2 9B",
-      "size": "9B",
-      "score": 86,
-      "released": "2024.06",
-      "country": "米国",
-      "flag": "us",
-      "org": "Google",
-      "reason": "軽量設計、ローカルPCでの推論実績多数",
+      "name": "Kolibri-1",
+      "size": "不明",
+      "score": 90,
+      "released": "2026.10",
+      "country": "独国",
+      "flag": "",
+      "org": "Aleph Alpha",
+      "reason": "欧州主権AI、Apache 2.0、FP8/BF16で効率推論",
       "badges": [
-        "Gemma License",
-        "Dense",
-        "軽量"
+        "Apache 2.0",
+        "欧州主権",
+        "FP8対応"
       ],
-      "url": "https://en.wikipedia.org/wiki/Gemma_(language_model)"
+      "url": "https://www.llm-releases.com/"
+    },
+    {
+      "name": "Timestral 209M",
+      "size": "209M",
+      "score": 89,
+      "released": "2026.10",
+      "country": "仏国",
+      "flag": "fr",
+      "org": "Mistral",
+      "reason": "時系列予測特化、センサー監視・異常検知向け超軽量",
+      "badges": [
+        "Open Weight",
+        "時系列",
+        "超軽量"
+      ],
+      "url": "https://dev.to/felipe0liveira/open-weights-go-frontier-class-a-501b-base-model-a-816b-meta-moe-and-gemini-4-argon-land-in-one-4b3b"
     }
   ],
   "featured": {
     "tag": "model",
-    "date": "2026.10.16",
-    "title": "Reflection AI、501B MoEモデル「Beam」をApache 2.0で公開",
-    "summary": "Reflection AIは10月16日、同社初のオープンウェイトモデル「Beam」をHugging Faceに公開した。501Bパラメータ・23Bアクティブのスパース MoE アーキテクチャで、23.8兆トークンで事前学習され、1億以上のロールアウトを経たRL最適化済み。BF16/FP8/NVFP4形式と投機的デコーディング用ドラフターも同梱。Basetenが即日サポートを発表。",
-    "url": "https://unite.ai/reflection-releases-beams-open-weights-under-apache-2-0-license"
+    "date": "2026.10.15",
+    "title": "Meta、Muse Spark Open 816B MoEをオープンウェイトで公開 — 米国最強クラスの公開モデル",
+    "summary": "Meta Superintelligence Labsが10月15日、約816B総パラメータ（42Bアクティブ）のマルチモーダルMoE「Muse Spark Open」をオープンウェイトで公開。最大1Mトークンのコンテキストウィンドウを持ち、エージェント向けコーディングに特化。米国発のオープンウェイトモデルとしては最高性能を謳っており、DeepSeekやQwenなど中国勢に対抗する動きとして注目される。",
+    "url": "https://dev.to/felipe0liveira/open-weights-go-frontier-class-a-501b-base-model-a-816b-meta-moe-and-gemini-4-argon-land-in-one-4b3b"
   },
   "articles": [
     {
       "tag": "model",
       "date": "2026.10.17",
-      "title": "DeepSeek V4.1 Flash公開—コーディング・エージェント推論向け高効率モデル",
-      "summary": "DeepSeekがV4.1 Flashをリリース。2026年後半のコーディング・エージェントワークロード向けオープンウェイトとして注目される高効率MoEモデル。",
-      "url": "https://acecloud.ai/blog/best-open-source-llms/"
-    },
-    {
-      "tag": "model",
-      "date": "2026.10.17",
-      "title": "2026年10月オープンウェイトLLMランキング—MiMo-V2.6-Proが首位",
-      "summary": "benchlm.aiの最新ランキングでXiaomiのMiMo-V2.6-Proが73.6点でトップ。Qwen3.8 Max、Step 5 Previewが続く。102モデルを追跡。",
+      "title": "DeepSeek V4.1 Flashリリース — コーディング・エージェント推論に最適化",
+      "summary": "DeepSeekが10月17日、効率的なコーディングとエージェントワークロード向けに最適化されたV4.1 Flashをリリース。2026年後半の重要なオープンウェイトリリースとして注目。",
       "url": "https://benchlm.ai/best/open-source"
     },
     {
-      "tag": "trend",
-      "date": "2026.10.17",
-      "title": "Meta Muse Spark Openのライセンス解説—オープンウェイトとオープンソースの違い",
-      "summary": "Muse Spark OpenはMeta独自のMuse Model License下で公開。年間2000万ドル超の収益企業は別途契約が必要。オープンソースではない点に注意。",
-      "url": "https://ibl.ai/blog/meta-muse-spark-open-weight-licence-self-host-reality"
+      "tag": "model",
+      "date": "2026.10.16",
+      "title": "Reflection AI、Beam 501B MoEをApache 2.0で公開 — 1Mトークン対応",
+      "summary": "米Reflection AIが501Bパラメータ（23Bアクティブ）のオープンMoE「Beam」を発表。Apache 2.0ライセンス、1Mトークン文脈でコーディング・エージェント向け。",
+      "url": "https://www.llm-releases.com/"
     },
     {
       "tag": "tool",
       "date": "2026.10.16",
-      "title": "Ollama v0.40.6プレリリース—q2_0 GGUF対応、クラウドCLEF統合",
-      "summary": "Ollama v0.40.6 RCがq2_0テンソル/ファイル形式サポートとOllamaクラウドでのCLEF（決定モデル）統合を追加。Windows Vulkanビルドパス短縮も。",
+      "title": "Ollama v0.40.6 RC公開 — q2_0 GGUF対応とクラウドCLEF統合",
+      "summary": "Ollamaのプレリリース版v0.40.6がq2_0 GGUFテンソル対応とOllamaクラウドでのCLEF起動機能を追加。",
       "url": "https://releasebot.io/updates/ollama"
     },
     {
       "tag": "model",
       "date": "2026.10.15",
-      "title": "Meta、Muse Spark Openを公開—816B MoE、1Mトークン文脈のマルチモーダル",
-      "summary": "Metaが816Bパラメータ（42Bアクティブ）のMuse Spark Openを発表。テキスト・画像・音声・動画入力に対応し、Muse Model Licenseで公開。約1.5TBのBF16チェックポイント。",
-      "url": "https://techrepublic.com/article/news-meta-muse-spark-open-apple-mac-studio"
-    },
-    {
-      "tag": "model",
-      "date": "2026.10.15",
-      "title": "IFM、Jais 3をリリース—UAE発のアラビア語特化大規模言語モデル",
-      "summary": "UAEのInception for Machines（IFM）がJais 3を公開。アラビア語・多言語対応の大規模モデルとしてリリース。",
-      "url": "https://benchlm.ai/best/open-source"
+      "title": "Mistral、時系列予測モデル「Timestral」ファミリーを発表",
+      "summary": "Mistralが初の時系列基盤モデルファミリー「Timestral」を発表。5M〜209Mの4サイズで、センサー監視・異常検知・キャパシティプランニング向け。",
+      "url": "https://dev.to/felipe0liveira/open-weights-go-frontier-class-a-501b-base-model-a-816b-meta-moe-and-gemini-4-argon-land-in-one-4b3b"
     },
     {
       "tag": "tool",
       "date": "2026.10.14",
-      "title": "Ollama v0.40.5安定版リリース—Nemotron 3.5 Super、クラウド決定モデル対応",
-      "summary": "Ollamaがv0.40.5を安定版としてリリース。NVIDIAのNemotron 3.5 Super/Bolt対応、decision-model CLI、MLX/llama.cppエンジン更新を含む。",
+      "title": "Ollama v0.40.5安定版リリース — Nemotron 3.5対応、Decision Model機能追加",
+      "summary": "Ollamaの最新安定版v0.40.5がリリース。NVIDIA Nemotron 3.5 Super対応、Decision Model CLI機能、MLXエンジン更新などを含む。",
       "url": "https://www.promptquorum.com/local-llms/top-open-source-models-ollama"
     },
     {
-      "tag": "tool",
-      "date": "2026.10.04",
-      "title": "vLLM v0.31.0リリース—CUDA 12.9デフォルト、max-num-active-seqs追加",
-      "summary": "vLLMがv0.31.0を公開。CUDA 12.9がデフォルトに変更、vllm serveがCLI標準化、アクティブシーケンス上限設定で遅延制御が容易に。",
-      "url": "https://www.glukhov.org/llm-hosting/vllm/vllm-quickstart/"
+      "tag": "research",
+      "date": "2026.10.09",
+      "title": "Qwen-Image-2.1-Turbo公開 — 8ステップ高速画像生成",
+      "summary": "Alibabaが8デノイジングステップで動作するオープンウェイト画像生成モデル「Qwen-Image-2.1-Turbo」を公開。編集機能も搭載。",
+      "url": "https://www.scriptbyai.com/qwen-timeline/"
+    },
+    {
+      "tag": "model",
+      "date": "2026.10.08",
+      "title": "JetBrains、Mellum2.1 Thinking 12B-A2.5Bをオープン公開",
+      "summary": "JetBrainsがコーディングエージェント・サブエージェント向けの高速オープンウェイトモデル「Mellum2.1 Thinking」をリリース。12B総パラメータ、2.5Bアクティブ。",
+      "url": "https://www.llm-releases.com/"
+    },
+    {
+      "tag": "trend",
+      "date": "2026.10.07",
+      "title": "2026年10月オープンソースAIツール動向 — vLLM・Ollama・ComfyUI更新まとめ",
+      "summary": "vLLMのメモリ管理改善、Ollamaのスキーマ検証強化、ComfyUIのマイクロサービス化など、10月のオープンソースAIツール更新を総括。",
+      "url": "https://af.net/realtime/october-2026-open-source-ai-tooling-briefing-highlights-key-updates/"
+    },
+    {
+      "tag": "model",
+      "date": "2026.10.06",
+      "title": "Mistral Large 4プレビュー開始 — 1.05T MoE、オープンウェイト10月末予定",
+      "summary": "Mistralのフラッグシップ「Mistral Large 4」がStudio APIでパブリックプレビュー開始。1.05T総パラメータ、52Bアクティブ。オープンウェイトは10月末予定。",
+      "url": "https://www.llm-releases.com/"
+    },
+    {
+      "tag": "model",
+      "date": "2026.10.03",
+      "title": "Aleph Alpha、欧州主権AI「Kolibri-1」をApache 2.0で公開",
+      "summary": "ドイツのAleph Alphaが主権AIモデル「Kolibri-1」をApache 2.0ライセンスでHugging Faceに公開。FP8/BF16版を提供。",
+      "url": "https://www.llm-releases.com/"
     }
   ]
 }
