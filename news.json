@@ -1,11 +1,10 @@
 {
-  "updated": "2026.11.14",
+  "updated": "2026.11.18",
   "ticker": [
-    "⚡ Ollama 0.40.17リリース: MLX並列生成対応",
-    "🟢 Kimi K3.1 Pro重み公開（11/2、HuggingFace）",
-    "🔥 Longcat 2.5・Ripple 65B・Inkling Small登場",
-    "💾 MiMo V2.6 9B: Ollamaで利用可能に",
-    "🖥️ LFM3-1.7B: 1GB以下で256Kコンテキスト対応"
+    "🟢 vLLM v0.34.0、新モデル10種対応で公開",
+    "🔥 HFとOpenRouter提携、同一APIで実行可能に",
+    "💾 脱獄PS4でQwen3.5-9Bをオフライン実行",
+    "🖥️ Baidu、ERNIE 5.5重み公開を今月予定"
   ],
   "ranking_general": [
     {
@@ -529,12 +528,47 @@
   ],
   "featured": {
     "tag": "model",
-    "date": "2026.11.02",
-    "title": "Moonshot AI、Kimi K3.1 Proの重みを公開 — 2.8T MoEがオープンウェイトに",
-    "summary": "Moonshot AIは2026年11月2日、Kimi K3.1 ProのモデルウェイトをHugging Faceで公開しました。総パラメータ2.8T、アクティブ104BのMoEモデルで、1Mトークンのコンテキスト長とマルチモーダル対応を備えています。10月23日のAPI公開に続くオープンウェイト化により、ローカルでのフロンティア級モデル運用が可能になりました。",
-    "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
+    "date": "2026.11.16",
+    "title": "SenseTime、層を再利用する9BマルチモーダルLLM「SenseNova-Loop-9B」を公開",
+    "summary": "SenseTime（商湯科技）が11月17日（中国時間）、マルチモーダル言語モデル「SenseNova-Loop-9B」をオープンソースとして公開した。パラメータを増やすのではなく、同じ層を2回通す（使い回す）ことで処理を深くするという変わったアプローチのLLMで、9BながらQwen3.8-27B級の性能とされる。",
+    "url": "https://www.msn.com/ja-jp/technology/artificial-intelligence/9bでqwen3-8-27b級の性能-層を2回通す-sensenova-loop-9b/ar-AA2hEYyo?ocid=BingNewsVerp"
   },
   "articles": [
+    {
+      "tag": "tool",
+      "date": "2026.11.17",
+      "title": "vLLM v0.34.0リリース: 新モデル10種と拡張KVキャッシュ標準化",
+      "summary": "vLLM v0.34.0が公開。Mistral Large 4など新モデル10種に対応し、拡張KVキャッシュがデフォルト化。実メモリからキャッシュを確保しスループット向上。Model Runner V1は削除。",
+      "url": "https://github.com/vllm-project/vllm/releases/tag/v0.34.0"
+    },
+    {
+      "tag": "tool",
+      "date": "2026.11.16",
+      "title": "Hugging FaceとOpenRouterが提携、オープンウェイトモデルの実行を容易に",
+      "summary": "Hugging FaceとOpenRouterが提携し、Inference ProvidersのルーターをOpenRouter製に切り替えた。HubのオープンウェイトモデルをHFトークンで同一API経由で呼び出せる。",
+      "url": "https://huggingface.co/blog/openrouter"
+    },
+    {
+      "tag": "hw",
+      "date": "2026.11.16",
+      "title": "脱獄PS4でQwen3.5-9Bをオフライン実行する「Garlic LLM」",
+      "summary": "Leonardo Alegría氏のオープンソースプロジェクト「Garlic LLM」は、GoldHEN導入の脱獄PS4のGPUでAlibabaのQwen3.5-9Bをオフライン実行する。",
+      "url": "https://tech.yahoo.com/gaming/articles/jailbroken-ps4-runs-9-billion-130000055.html"
+    },
+    {
+      "tag": "trend",
+      "date": "2026.11.14",
+      "title": "Baidu、ERNIE 5.5重み公開を今月予定しApache 2.0表明",
+      "summary": "BaiduのERNIE 5.5はオープンウェイト公開が予定されるが、ライセンスは不透明。製品ページはPreviewモデルにApache 2.0を表明する一方、公開告知ではライセンス名がなく11月25日の期限を設定。BaseモデルはEU・英国での利用を禁止。",
+      "url": "https://www.msn.com/en-us/money/general/baidu-pledges-apache-license-for-ernie-5-5-ai-weights-due-this-month-base-model-bars-eu-uk/ar-AA2hqo1m"
+    },
+    {
+      "tag": "tool",
+      "date": "2026.11.13",
+      "title": "llama.cpp v1.0.0リリース: セマンティックバージョニングでAPI安定性を明確化",
+      "summary": "ggml-orgがllama.cppとggmlのライブラリv1.0.0を公開。今後はAPI・ABIの非互換変更をメジャーバージョンアップで示す。CI基盤強化やNVIDIA・AMD等のハードウェア支援によるランナー拡充も発表。",
+      "url": "https://huggingface.co/blog/ggml-org/llama-cpp-v1"
+    },
     {
       "tag": "model",
       "date": "2026.11.12",
@@ -565,31 +599,10 @@
     },
     {
       "tag": "model",
-      "date": "2026.11.01",
-      "title": "LiquidAI、LFM3-1.7B-Baseを公開 — 1GB以下で256Kコンテキスト",
-      "summary": "LiquidAIの超軽量モデルLFM3-1.7B-Baseは4bit量子化で1GB未満、256Kコンテキストに対応。トリハイブリッドアーキテクチャでオフラインAI向けに設計。",
-      "url": "https://mindstudio.ai/blog/new-open-weight-models-roundup"
-    },
-    {
-      "tag": "model",
-      "date": "2026.08.03",
-      "title": "Alibaba、Qwen3.8-Maxをクラウドでリリース — 2.4兆パラメータ",
-      "summary": "Alibabaは7月にプレビューした2.4兆パラメータモデルQwen3.8-Maxのクラウド版を8月3日にリリース。重み公開も予告されています。",
-      "url": "https://qwen.ai/"
-    },
-    {
-      "tag": "hw",
-      "date": "2026.06.04",
-      "title": "NVIDIA、Nemotron Ultraを公開 — 550Bパラメータの推論特化モデル",
-      "summary": "NVIDIAは複雑な推論タスク向けに設計されたNemotron Ultra（550B）をリリース。NVIDIA Open Model Licenseで提供。",
-      "url": "https://huggingface.co/nvidia"
-    },
-    {
-      "tag": "model",
-      "date": "2026.06.03",
-      "title": "Google、Gemma 4 12BをApache 2.0で公開",
-      "summary": "Gemma 4 12Bは統合マルチモーダルアーキテクチャを採用し、画像・音声をエンコーダなしで処理。Apache 2.0ライセンスで利用可能。",
-      "url": "https://ai.google.dev/gemma"
+      "date": "2026.11.02",
+      "title": "Moonshot AI、Kimi K3.1 Proの重みを公開 — 2.8T MoEがオープンウェイトに",
+      "summary": "Moonshot AIは2026年11月2日、Kimi K3.1 ProのモデルウェイトをHugging Faceで公開しました。総パラメータ2.8T、アクティブ104BのMoEモデルで、1Mトークンのコンテキスト長とマルチモーダル対応を備えています。10月23日のAPI公開に続くオープンウェイト化により、ローカルでのフロンティア級モデル運用が可能になりました。",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
     }
   ]
 }
