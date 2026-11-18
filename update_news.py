@@ -83,7 +83,6 @@ FEEDS = [
     "https://github.com/ollama/ollama/releases.atom",
     "https://github.com/vllm-project/vllm/releases.atom",
     "https://lmstudio.ai/rss.xml",
-    "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=week",
 ]
 # ──────────────────────────────────────────────────────
 
@@ -299,7 +298,7 @@ def is_recent(date_str: str | None) -> bool:
 def norm_url(url: str) -> str:
     """重複判定用にURLを正規化（追跡パラメータ・末尾スラッシュ・www を落とす）。"""
     p = urllib.parse.urlsplit(url.strip())
-    q = [(k, v) for k, v in urllib.parse.parse_qsl(p.query) if not k.lower().startswith(("utm_", "fbclid", "gclid"))]
+    q = [(k, v) for k, v in urllib.parse.parse_qsl(p.query) if not k.lower().startswith(("utm_", "fbclid", "gclid", "ocid"))]
     host = re.sub(r"^www\.", "", p.netloc.lower())
     return urllib.parse.urlunsplit(("https", host, p.path.rstrip("/"), urllib.parse.urlencode(q), ""))
 
@@ -627,7 +626,7 @@ def step_select(llm: LLM, current: dict, cands: list[dict]) -> tuple[list[dict],
 候補から、サイトに新しく載せる価値のあるニュースを最大{MAX_NEW_ITEMS}本選んでください。
 - 対象: オープンウェイトモデルの公開、Ollama / llama.cpp / vLLM / LM Studio などローカル推論ツールの更新、
   ローカル推論向けハードウェアの実製品ニュース、ベンチマーク・検証・研究、ローカルLLMの業界動向
-- 除外: API・クラウド限定のモデルだけの話題、広告・セール記事、まとめサイトの再掲、内容の薄い質問投稿
+- 除外: API・クラウド限定のモデルだけの話題、クラウドの推論API・推論プロバイダの提携や料金の話題（手元で動かす話ではないもの）、広告・セール記事、まとめサイトの再掲、内容の薄い質問投稿
 - 細かなパッチリリース（バグ修正だけ等）は選ばない。大きな機能追加のあるリリースは可
 - 掲載済みと同じ話題、候補同士で重複する話題は1本にまとめる（一次情報や詳しそうな方を選ぶ）
 - 該当がなければ空配列でよい
@@ -671,6 +670,9 @@ def step_summarize(llm: LLM, c: dict, featured: bool = False) -> dict | None:
                 probs.append(f"{k} がありません")
         if isinstance(d.get("title"), str) and len(d["title"]) > t_lim:
             probs.append(f"title を{t_lim}文字以内に（今{len(d['title'])}文字）")
+        s_lim = 200 if featured else 120
+        if isinstance(d.get("summary"), str) and len(d["summary"]) > s_lim:
+            probs.append(f"summary を{s_lim}文字以内に（今{len(d['summary'])}文字）。文の途中で切らず短く書き直す")
         return probs
 
     user = f"""# 記事
@@ -723,7 +725,9 @@ def step_ticker(llm: LLM, data: dict) -> list[str]:
 # 出力形式
 {{"ticker": ["⚡ ...", "🟢 ...", "🔥 ...", "💾 ...", "🖥️ ..."]}}"""
     d = llm.json(SYSTEM, user, check=check, max_tokens=800)
-    ticker = [clip(x, LIMITS["ticker"]) for x in (d.get("ticker") or []) if isinstance(x, str) and x.strip()]
+    # 途中で「…」と切れた見出しは見栄えが悪いので、長すぎるものは使わない
+    ticker = [x.strip() for x in (d.get("ticker") or [])
+              if isinstance(x, str) and x.strip() and len(x.strip()) <= LIMITS["ticker"]]
     if len(ticker) < 3:
         raise ValueError("ティッカーが足りません")
     return ticker[:5]
