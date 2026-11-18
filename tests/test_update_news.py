@@ -215,13 +215,6 @@ class ValidateNewsTests(unittest.TestCase):
             data["ranking_general"][0]["released"] = value
             update_news.validate_news(data)
 
-    def test_prompt_requires_release_month_format_in_every_ranking(self):
-        for key in update_news.RANKING_KEYS:
-            section = update_news.SYSTEM_PROMPT.split(f'"{key}": [', 1)[1].split("]", 1)[0]
-            self.assertIn('"released": "YYYY.MM', section)
-            self.assertIn("月は必ず2桁", section)
-        self.assertIn("月を推測・補完しない", update_news.SYSTEM_PROMPT)
-
     def test_release_format_error_identifies_fifth_item_without_normalizing(self):
         for key in update_news.RANKING_KEYS:
             for value in ("2026", "2026-02", "2026/02", "2026.2", "2026.02.01",
@@ -412,68 +405,135 @@ class SaveNewsTests(unittest.TestCase):
         self.assertEqual(json.loads(self.destination.read_text()), valid_news())
 
 
-class FetchNewsTests(unittest.TestCase):
-    def fetch_mocked(self, payload):
-        # A dummy module avoids importing or invoking the Anthropic SDK entirely.
-        message = SimpleNamespace(content=[
-            SimpleNamespace(type="tool_result"),
-            SimpleNamespace(type="text", text=json.dumps(payload, ensure_ascii=False)),
-        ])
-        client = SimpleNamespace(messages=SimpleNamespace(create=Mock(return_value=message)))
-        module = SimpleNamespace(Anthropic=Mock(return_value=client))
-        with patch.dict(sys.modules, {"anthropic": module}), patch.dict(
-            os.environ, {"ANTHROPIC_API_KEY": "unused-offline-test-key"}
-        ), patch.object(update_news, "TODAY", "2026.10.04"):
-            return update_news.fetch_news()
+class FakeLLM:
+    """OpenAI互換APIの代わり。プロンプトの種類ごとに決まった応答を返す。"""
 
-    def test_fetch_sorts_without_discarding_valid_articles(self):
-        data = valid_news()
-        data["articles"].append({**data["articles"][0], "date": "2026.10.04"})
-        self.assertEqual(self.fetch_mocked(data), update_news.validate_news(data))
+    def __init__(self, select, summaries=None, ticker=None):
+        self.select, self.summaries, self.ticker = select, summaries or {}, ticker
+        self.calls = []
 
-    def test_fetch_rejects_entire_payload_when_one_article_has_invalid_url(self):
-        data = valid_news()
-        data["articles"].append({**data["articles"][0], "url": "httpjunk"})
-        with self.assertRaisesRegex(ValueError, "url"):
-            self.fetch_mocked(data)
+    def json(self, system, user, check=None, max_tokens=0):
+        self.calls.append(user)
+        if "# 今日の候補記事" in user:
+            out = self.select
+        elif "ティッカー" in user:
+            out = self.ticker or {"ticker": ["⚡ a", "🟢 b", "🔥 c", "💾 d", "🖥️ e"]}
+        else:
+            title = user.split("タイトル: ", 1)[1].split("\n", 1)[0]
+            out = self.summaries.get(title, {"title": "要約: " + title, "summary": "本文に基づく要約です。"})
+        if check:
+            assert check(out) == [], check(out)
+        return out
 
-    def test_fetch_rejects_fifth_release_with_diagnostic_and_no_payload_dump(self):
-        data = valid_news()
-        data["ranking_general"] = [copy.deepcopy(data["ranking_general"][0]) for _ in range(5)]
-        data["ranking_general"][4]["released"] = "2026-02"
-        data["ticker"] = ["private-response-sentinel"]
-        original = copy.deepcopy(data)
-        with self.assertRaises(ValueError) as caught:
-            self.fetch_mocked(data)
-        error = str(caught.exception)
-        self.assertIn("news.ranking_general[4].released", error)
-        self.assertIn('received="2026-02"', error)
-        self.assertNotIn("private-response-sentinel", error)
-        self.assertEqual(data, original)
 
-    def test_fetch_rejects_bad_updated_before_normalization(self):
-        data = valid_news()
-        data["updated"] = "not a date"
-        with self.assertRaisesRegex(ValueError, "updated"):
-            self.fetch_mocked(data)
+def candidate(i, date="2026.10.04", **kw):
+    row = {"title": f"Model {i} released", "url": f"https://example.org/post-{i}", "source": "example.org",
+           "date": date, "snippet": "x" * 100, "excerpt": "本文 " * 40}
+    row.update(kw)
+    return row
 
-    def test_fetch_rejects_future_updated_before_normalization(self):
-        data = valid_news()
-        tomorrow = datetime.datetime.now(update_news.JST).date() + datetime.timedelta(days=1)
-        data["updated"] = tomorrow.strftime("%Y.%m.%d")
-        with self.assertRaisesRegex(ValueError, "updated"):
-            self.fetch_mocked(data)
 
-    def test_fetch_normalizes_valid_updated_to_run_date(self):
-        data = valid_news()
-        data["updated"] = "2026.10.03"
-        result = self.fetch_mocked(data)
-        self.assertEqual(result["updated"], "2026.10.04")
+class PipelineTests(unittest.TestCase):
+    def setUp(self):
+        self.patch = patch.object(update_news, "TODAY", "2026.10.04")
+        self.patch.start()
+        self.addCleanup(self.patch.stop)
 
-    def test_missing_api_key_fails_without_importing_sdk(self):
-        with patch.dict(os.environ, {}, clear=True), patch.dict(sys.modules, {"anthropic": None}):
-            with self.assertRaisesRegex(EnvironmentError, "ANTHROPIC_API_KEY"):
-                update_news.fetch_news()
+    def build(self, llm, rows, current=None):
+        if current is None:
+            current = valid_news()
+            current["featured"]["url"] = "https://example.com/featured"
+        cands = update_news.dedupe_candidates(rows, current)
+        return update_news.build_update(current, llm, cands, fetch=dict)
+
+    def test_adds_selected_articles_with_urls_and_dates_from_candidates(self):
+        llm = FakeLLM({"selected": [{"id": "c0", "tag": "tool"}, {"id": "c1", "tag": "model"}], "featured": None})
+        data, added = self.build(llm, [candidate(1), candidate(2, date="2026.10.03")])
+        self.assertEqual(added, 2)
+        urls = [a["url"] for a in data["articles"]]
+        self.assertIn("https://example.org/post-1", urls)
+        self.assertIn("https://example.org/post-2", urls)
+        self.assertEqual(data["updated"], "2026.10.04")
+        self.assertEqual(data["ticker"][0], "⚡ a")
+        # ランキングは引き継ぐ
+        for key in update_news.RANKING_KEYS:
+            self.assertEqual(data[key], valid_news()[key])
+
+    def test_featured_replaces_old_featured_which_moves_to_articles(self):
+        current = valid_news()
+        current["featured"]["url"] = "https://example.com/old-featured"
+        llm = FakeLLM({"selected": [{"id": "c0", "tag": "model"}], "featured": "c0"})
+        data, added = self.build(llm, [candidate(1)], current)
+        self.assertEqual(added, 1)
+        self.assertEqual(data["featured"]["url"], "https://example.org/post-1")
+        self.assertIn("https://example.com/old-featured", [a["url"] for a in data["articles"]])
+
+    def test_unknown_ids_and_bad_tags_are_ignored(self):
+        cands = update_news.dedupe_candidates([candidate(1), candidate(2)], valid_news())
+        llm = SimpleNamespace(json=lambda s, u, check=None, max_tokens=0: {
+            "selected": [{"id": "c9", "tag": "model"}, {"id": "c1", "tag": "bogus"}, {"id": "c0", "tag": "hw"}],
+            "featured": "c9"})
+        picked, featured = update_news.step_select(llm, valid_news(), cands)
+        self.assertEqual([(p["id"], p["tag"]) for p in picked], [("c0", "hw")])
+        self.assertIsNone(featured)
+
+    def test_already_published_and_old_candidates_are_dropped(self):
+        rows = [candidate(1, url="https://www.example.com/news/?utm_source=x"),  # 掲載済み（正規化で一致）
+                candidate(2, date="2026.09.01"),                                  # 古すぎる
+                candidate(3, url="ftp://example.org/x"),                          # http(s)以外
+                candidate(4)]
+        cands = update_news.dedupe_candidates(rows, valid_news())
+        self.assertEqual([c["url"] for c in cands], ["https://example.org/post-4"])
+
+    def test_candidate_without_date_is_skipped(self):
+        llm = FakeLLM({"selected": [{"id": "c0", "tag": "model"}], "featured": None})
+        data, added = self.build(llm, [candidate(1, date=None)])
+        self.assertEqual(added, 0)
+        self.assertEqual(data["articles"], valid_news()["articles"])
+
+    def test_llm_skip_and_long_text_is_clipped(self):
+        long = {"title": "長" * 80, "summary": "要" * 300}
+        llm = FakeLLM({"selected": [{"id": "c0", "tag": "model"}, {"id": "c1", "tag": "tool"}], "featured": None},
+                      summaries={"Model 1 released": {"skip": True}, "Model 2 released": long})
+        # check() は長すぎるタイトルを指摘するので、ここでは check を通さず確認する
+        llm.json = lambda s, u, check=None, max_tokens=0: (
+            llm.select if "# 今日の候補記事" in u else
+            {"ticker": ["⚡ a", "🟢 b", "🔥 c"]} if "ティッカー" in u else
+            llm.summaries[u.split("タイトル: ", 1)[1].split("\n", 1)[0]])
+        data, added = self.build(llm, [candidate(1), candidate(2)])
+        self.assertEqual(added, 1)
+        item = [a for a in data["articles"] if a["url"].endswith("post-2")][0]
+        self.assertLessEqual(len(item["title"]), update_news.LIMITS["title"])
+        self.assertLessEqual(len(item["summary"]), update_news.LIMITS["summary"])
+
+    def test_articles_are_capped_and_sorted(self):
+        current = valid_news()
+        current["articles"] = [dict(current["articles"][0], url=f"https://example.com/{i}", date="2026.09.30")
+                               for i in range(update_news.ARTICLES_KEEP)]
+        llm = FakeLLM({"selected": [{"id": "c0", "tag": "model"}], "featured": None})
+        data, _ = self.build(llm, [candidate(1)], current)
+        self.assertEqual(len(data["articles"]), update_news.ARTICLES_KEEP)
+        self.assertEqual(data["articles"][0]["url"], "https://example.org/post-1")
+
+    def test_parse_feed_reads_rss_and_atom(self):
+        rss = b"""<rss><channel><item><title>Hello</title><link>https://a.example/1</link>
+        <pubDate>Fri, 03 Oct 2026 10:00:00 +0000</pubDate><description>&lt;p&gt;Body&lt;/p&gt;</description></item></channel></rss>"""
+        atom = b"""<feed xmlns="http://www.w3.org/2005/Atom"><entry><title>v0.41.0</title>
+        <link rel="alternate" href="https://github.com/ollama/ollama/releases/tag/v0.41.0"/>
+        <updated>2026-10-03T01:00:00Z</updated><content>New features</content></entry></feed>"""
+        r = update_news.parse_feed(rss, "https://a.example/feed")[0]
+        self.assertEqual((r["title"], r["url"], r["date"], r["snippet"]), ("Hello", "https://a.example/1", "2026.10.03", "Body"))
+        g = update_news.parse_feed(atom, "https://github.com/ollama/ollama/releases.atom")[0]
+        self.assertEqual(g["title"], "ollama v0.41.0")
+        self.assertEqual(g["date"], "2026.10.03")
+
+    def test_missing_llm_settings_fail_clearly(self):
+        with patch.dict(os.environ, {}, clear=True):
+            with self.assertRaisesRegex(EnvironmentError, "LLM_BASE_URL"):
+                update_news.LLM()
+
+    def test_extract_json_handles_code_fences(self):
+        self.assertEqual(update_news.extract_json('```json\n{"a": 1}\n```'), {"a": 1})
 
 
 if __name__ == "__main__":

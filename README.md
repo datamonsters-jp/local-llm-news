@@ -8,60 +8,47 @@
 .
 ├── index.html                      # サイト本体（news.json を読み込んで表示）
 ├── news.json                       # ニュースデータ（毎日自動更新）
-├── update_news.py                  # Claude API でニュースを生成するスクリプト
+├── update_news.py                  # ローカルLLMでニュースを更新するスクリプト
+├── scripts/run_local.sh            # 毎朝cronで実行（pull → 更新 → push）
+├── scripts/.env.example            # LLMサーバーなどの設定例
 └── .github/workflows/
-    └── update-news.yml             # 毎朝7時(JST)に自動実行
+    └── update-news.yml             # 手動実行用
 ```
 
-## セットアップ手順
+## 自動更新のしくみ（ローカルLLM）
 
-### 1. リポジトリを作成
+毎朝 **7:00 JST**、自宅の常駐機（Mac mini）が `scripts/run_local.sh` を実行し、
+DGX Spark で動くローカルLLM（OpenAI互換API）がニュースを選定・要約して `news.json` を更新します。
 
-```bash
-git init
-git add .
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/<あなたのユーザー名>/local-llm-news.git
-git push -u origin main
+1. DuckDuckGo News と RSS/Atom（Hugging Face Blog、Ollama・vLLM のリリース、r/LocalLLaMA など）で直近の候補を集め、掲載済みと重複を除く
+2. LLMが候補一覧から載せる記事を最大6本と注目記事を選ぶ（候補IDで返すのでURLは創作できない）
+3. 記事ページの本文を取得し、LLMが1本ずつ日本語で要約（URLと日付はプログラムが埋める）
+4. LLMがティッカーを作り直す
+5. 全体を検証して `news.json` を原子的に保存（1件でも不正なら保存しない）
+
+ランキング（`ranking_*`）は自動では書き換えず、そのまま引き継ぎます。
+
+## セットアップ（Mac mini などで）
+
+```sh
+git clone git@github.com:datamonsters-jp/local-llm-news.git && cd local-llm-news
+python3 -m venv .venv && .venv/bin/pip install ddgs
+cp scripts/.env.example scripts/.env   # LLM_BASE_URL / LLM_MODEL / LLM_API_KEY を書く
+.venv/bin/python update_news.py --dry-run   # 書き込まずに試す
+scripts/run_local.sh                        # 本番（更新してpush）
 ```
 
-### 2. GitHub Pages を有効化
+毎朝7時に回すには cron に登録します（マシンのタイムゾーンがJSTの場合）:
 
-1. リポジトリの **Settings** → **Pages**
-2. Source: **Deploy from a branch**
-3. Branch: **main** / **/ (root)**
-4. **Save**
+```
+0 7 * * * /path/to/local-llm-news/scripts/run_local.sh >> /tmp/local-llm-news.log 2>&1
+```
 
-しばらくすると `https://<ユーザー名>.github.io/local-llm-news/` で公開されます。
-
-### 3. Anthropic API キーを取得
-
-1. [console.anthropic.com](https://console.anthropic.com) にアクセス
-2. **API Keys** → **Create Key**
-3. キーをコピー（`sk-ant-...` から始まる文字列）
-
-### 4. GitHub Secrets に登録
-
-1. リポジトリの **Settings** → **Secrets and variables** → **Actions**
-2. **New repository secret**
-   - Name: `ANTHROPIC_API_KEY`
-   - Secret: コピーしたAPIキー
-3. **Add secret**
-
-### 5. 動作確認（手動実行）
-
-1. **Actions** タブ → **Daily News Update**
-2. **Run workflow** → **Run workflow**
-3. 緑のチェックが付けばOK！`news.json` が更新されます
-
-## 自動更新スケジュール
-
-毎朝 **7:00 JST** に GitHub Actions が自動実行され、Claude API が最新のローカルLLMニュースを生成して `news.json` を更新します。
+push には、このリポジトリだけに書き込める **Deploy key**（Settings → Deploy keys、Allow write access）を使うのがおすすめです。
 
 ## コスト目安
 
-Claude API の利用料金は1回の更新あたり **約1〜3円**（月30〜90円程度）です。
+ローカルLLMなのでAPI料金はかかりません（電気代のみ）。
 
 ## ライセンス
 
@@ -77,7 +64,7 @@ npm ci
 npm test
 ```
 
-DOMテストはjsdomで生成テキストの安全な描画、URL・スキーマ検証、日付順、取得前のタブ選択、取得失敗、再試行、既存データ維持を検証します。PythonテストはAPIをモックし、データ検証と原子的保存を検証します。実際のAPIは呼びません。
+DOMテストはjsdomで生成テキストの安全な描画、URL・スキーマ検証、日付順、取得前のタブ選択、取得失敗、再試行、既存データ維持を検証します。PythonテストはLLMをモックし、選定・要約・データ検証と原子的保存を検証します。実際のLLMやネットワークは使いません。
 
 任意のブラウザ回帰テストはPlaywrightとChromiumがある環境で `node tests/browser.cjs` を実行できます。システムChromiumを使う場合は `CHROMIUM_PATH` を指定してください。このテストは外部通信を遮断し、ローカルのfixtureで応答します。
 
