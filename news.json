@@ -1,10 +1,11 @@
 {
-  "updated": "2026.11.18",
+  "updated": "2026.11.19",
   "ticker": [
-    "🟢 vLLM v0.34.0、新モデル10種対応で公開",
-    "🔥 HFとOpenRouter提携、同一APIで実行可能に",
-    "💾 脱獄PS4でQwen3.5-9Bをオフライン実行",
-    "🖥️ Baidu、ERNIE 5.5重み公開を今月予定"
+    "⚡ Cloudflare、Clairic 27B/9Bを公開",
+    "🟢 RadixArk、DaisyRose-27Bを公開",
+    "🔥 32GB RAMで180B MoEを動かす手法",
+    "💾 HF、0.5B音声認識Rumble-2-Flash公開",
+    "🖥️ 脱獄PS4でQwen3.5-9Bを動かす"
   ],
   "ranking_general": [
     {
@@ -528,12 +529,40 @@
   ],
   "featured": {
     "tag": "model",
-    "date": "2026.11.16",
-    "title": "SenseTime、層を再利用する9BマルチモーダルLLM「SenseNova-Loop-9B」を公開",
-    "summary": "SenseTime（商湯科技）が11月17日（中国時間）、マルチモーダル言語モデル「SenseNova-Loop-9B」をオープンソースとして公開した。パラメータを増やすのではなく、同じ層を2回通す（使い回す）ことで処理を深くするという変わったアプローチのLLMで、9BながらQwen3.8-27B級の性能とされる。",
-    "url": "https://www.msn.com/ja-jp/technology/artificial-intelligence/9bでqwen3-8-27b級の性能-層を2回通す-sensenova-loop-9b/ar-AA2hEYyo?ocid=BingNewsVerp"
+    "date": "2026.11.19",
+    "title": "Cloudflare、オープンウェイトの抽出モデル「Clairic」27B/9Bを公開",
+    "summary": "Cloudflareは2026年11月18日、270億パラメータの「Clairic」と新規90億パラメータの「Clairic-flash」をオープンウェイトで公開した。テキスト・画像・PDFから型付き値や予測を抽出するモデルで、Apache-2.0ライセンスによりローカルのPyTorchとTransformersで推論可能。並列スロット自己回帰生成で抽出精度が向上したと報告されているが、精度数値は自己申告だ。",
+    "url": "https://www.unite.ai/cloudflare-releases-open-weight-clairic-models-for-data-extraction/"
   },
   "articles": [
+    {
+      "tag": "model",
+      "date": "2026.11.19",
+      "title": "RadixArk、DaisyRose-27BをApache 2.0で公開",
+      "summary": "RadixArkが初のモデルDaisyRose-27Bを公開。Qwen3.8-27BをMilesで強化学習し、1,200タスクを144基のH200で18日間訓練。Terminal-Bench 4.1のpass@1を5.6%から12.0%に改善。",
+      "url": "https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-frontier-of-post-trainin"
+    },
+    {
+      "tag": "research",
+      "date": "2026.11.18",
+      "title": "TransformersでMoE推論の限界に挑戦: 180Bモデルを32GB RAMで動かす",
+      "summary": "Hugging Faceの記事がMoEのエキスパートをSSDから直接ストリーミングする手法を紹介。Strataに近い性能を達成し、180B級モデルをRTX 4090や32GB Macで動かす実践例をllama.cpp等と比較して解説。",
+      "url": "https://huggingface.co/blog/moe-expert-streaming"
+    },
+    {
+      "tag": "model",
+      "date": "2026.11.18",
+      "title": "Hugging Face、0.5B音声認識モデル「Rumble-2-Flash」公開",
+      "summary": "Hugging Faceが40以上の言語対応の0.5Bパラメータ音声認識モデルRumble-2-FlashをApache 2.0で公開。TransformersとvLLMで動作し、大型モデルに匹敵する精度と高速処理を実現した。",
+      "url": "https://huggingface.co/blog/rumble-2-flash"
+    },
+    {
+      "tag": "trend",
+      "date": "2026.11.17",
+      "title": "なぜLLMは無料で公開されるのか—オープンモデル企業の8つの狙いを解説",
+      "summary": "noteで、Llama、Gemma、gpt-oss、Qwen、DeepSeekなど無料のLLMがなぜ無償提供されるのかを考察した記事が公開。コストは別の場所で回収できる、標準規格の地位確立、世界中の開発者による改良という3大理由を整理し…",
+      "url": "https://note.com/right_ixia336/n/need6b112e6c8?hl=en"
+    },
     {
       "tag": "tool",
       "date": "2026.11.17",
@@ -556,53 +585,25 @@
       "url": "https://tech.yahoo.com/gaming/articles/jailbroken-ps4-runs-9-billion-130000055.html"
     },
     {
+      "tag": "model",
+      "date": "2026.11.16",
+      "title": "SenseTime、層を再利用する9BマルチモーダルLLM「SenseNova-Loop-9B」を公開",
+      "summary": "SenseTime（商湯科技）が11月17日（中国時間）、マルチモーダル言語モデル「SenseNova-Loop-9B」をオープンソースとして公開した。パラメータを増やすのではなく、同じ層を2回通す（使い回す）ことで処理を深くするという変わったアプローチのLLMで、9BながらQwen3.8-27B級の性能とされる。",
+      "url": "https://www.msn.com/ja-jp/technology/artificial-intelligence/9bでqwen3-8-27b級の性能-層を2回通す-sensenova-loop-9b/ar-AA2hEYyo?ocid=BingNewsVerp"
+    },
+    {
+      "tag": "trend",
+      "date": "2026.11.15",
+      "title": "中国AI企業、最先端オープンウェイトモデルのサイバーセキュリティ能力を制限開始",
+      "summary": "中国の主要AIモデル企業が、最も先進的なオープンウェイトモデルのサイバーセキュリティ能力を抑制し始めた。ただしAIの進歩と企業間競争が続く中、この対策が長期的に持続可能かどうかには疑問の声がある。",
+      "url": "https://www.msn.com/en-xl/news/other/can-chinese-ai-companies-curb-cyber-risks-from-open-weight-models-without-losing-their-edge/ar-AA2hsp4G"
+    },
+    {
       "tag": "trend",
       "date": "2026.11.14",
       "title": "Baidu、ERNIE 5.5重み公開を今月予定しApache 2.0表明",
       "summary": "BaiduのERNIE 5.5はオープンウェイト公開が予定されるが、ライセンスは不透明。製品ページはPreviewモデルにApache 2.0を表明する一方、公開告知ではライセンス名がなく11月25日の期限を設定。BaseモデルはEU・英国での利用を禁止。",
       "url": "https://www.msn.com/en-us/money/general/baidu-pledges-apache-license-for-ernie-5-5-ai-weights-due-this-month-base-model-bars-eu-uk/ar-AA2hqo1m"
-    },
-    {
-      "tag": "tool",
-      "date": "2026.11.13",
-      "title": "llama.cpp v1.0.0リリース: セマンティックバージョニングでAPI安定性を明確化",
-      "summary": "ggml-orgがllama.cppとggmlのライブラリv1.0.0を公開。今後はAPI・ABIの非互換変更をメジャーバージョンアップで示す。CI基盤強化やNVIDIA・AMD等のハードウェア支援によるランナー拡充も発表。",
-      "url": "https://huggingface.co/blog/ggml-org/llama-cpp-v1"
-    },
-    {
-      "tag": "model",
-      "date": "2026.11.12",
-      "title": "今週の新モデル: Longcat 2.5、Ripple 65B、Inkling Small",
-      "summary": "MindStudioがまとめた今週のオープンウェイト新着。Longcat 2.5、エージェント型コーディング向けRipple 65B、Thinking MachinesのInkling Smallが登場。",
-      "url": "https://mindstudio.ai/blog/new-open-weight-models-roundup"
-    },
-    {
-      "tag": "tool",
-      "date": "2026.11.10",
-      "title": "Ollama 0.40.17リリース: MLX並列生成対応、Vulkan mmap有効化",
-      "summary": "Ollama 0.40.17がリリースされ、MLXバックエンドでの並列生成サポート、Vulkan統合GPUでのmmap有効化、llama.cppおよびMLX依存関係の更新が含まれています。",
-      "url": "https://github.com/ollama/ollama/releases"
-    },
-    {
-      "tag": "tool",
-      "date": "2026.11.03",
-      "title": "Ollama 0.40.15にXiaomi MiMo V2.6 9Bが追加",
-      "summary": "Ollama 0.40.15でXiaomiのMiMo V2.6 9Bが利用可能に。Qwen3.5 9Bベースでコード・エージェントワークフロー向けに微調整されたモデル。",
-      "url": "https://ollama.com/library/mimo-v2.6"
-    },
-    {
-      "tag": "model",
-      "date": "2026.11.02",
-      "title": "Nous Research、Arete-27Bを公開 — Qwen3.8-27Bのファインチューン版",
-      "summary": "Nous Researchがプロパガンダ傾向のある回答を22%から1%未満に削減したQwen3.8-27Bのファインチューン版Arete-27Bを公開。",
-      "url": "https://mindstudio.ai/blog/new-open-weight-models-roundup"
-    },
-    {
-      "tag": "model",
-      "date": "2026.11.02",
-      "title": "Moonshot AI、Kimi K3.1 Proの重みを公開 — 2.8T MoEがオープンウェイトに",
-      "summary": "Moonshot AIは2026年11月2日、Kimi K3.1 ProのモデルウェイトをHugging Faceで公開しました。総パラメータ2.8T、アクティブ104BのMoEモデルで、1Mトークンのコンテキスト長とマルチモーダル対応を備えています。10月23日のAPI公開に続くオープンウェイト化により、ローカルでのフロンティア級モデル運用が可能になりました。",
-      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
     }
   ]
 }
