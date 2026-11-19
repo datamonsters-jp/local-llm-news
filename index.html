@@ -226,7 +226,7 @@ footer{position:relative;z-index:10;text-align:center;padding:28px 20px 36px;bor
     <button class="rtab" onclick="rankTab(this,'japanese')"><span class="ico">🇯🇵</span>日本語用途</button>
     <button class="rtab" onclick="rankTab(this,'edge')"><span class="ico">📟</span>エッジAI用途</button>
   </div>
-  <div class="rank-legend">スコアの基準：<span>ベンチマーク性能</span> × 話題量 × <span>実用性（VRAM効率・ライセンス）</span> を100点満点で評価。毎朝Claude AIが自動更新。</div>
+  <div class="rank-legend">スコアの基準：日本語用途・エッジAI用途は<span>Swallow LLM Leaderboard</span>（東京科学大・産総研、CC-BY 4.0）の日本語タスク平均×100。通常用途・コーディング用途は<span>ベンチマーク性能</span> × 話題量 × <span>実用性</span>の総合評価（手動更新）。ニュースは毎朝ローカルLLMが自動更新。</div>
   <div class="rank-legend hw-shared-note">「推定」はモデル規模・配布容量から見た大まかな容量帯です。原則、短いテキスト会話（約4K）・同時利用1件を想定します。必要最小量や速度の保証ではありません。<span>VRAM</span>と<span>統合メモリ</span>は別の条件です。OS・会話の長さ・画像・同時利用にもメモリが必要です。<details><summary>メモリの読み方</summary>モデル重みの容量だけでは実行できません。会話を保持するKVキャッシュや作業領域が加わります。MacとDGX Sparkの統合メモリはOSと共有します。GPUのVRAMとPCのRAMは単純に合算できません。MoEはアクティブ数ではなく総パラメータ数を確認してください。ロードできることと快適な速度で使えることは別です。</details></div>
   <div class="rank-grid" id="rankGrid">
 
