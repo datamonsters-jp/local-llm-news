@@ -1,11 +1,11 @@
 {
-  "updated": "2026.11.19",
+  "updated": "2026.11.20",
   "ticker": [
-    "⚡ Cloudflare、Clairic 27B/9Bを公開",
-    "🟢 RadixArk、DaisyRose-27Bを公開",
-    "🔥 32GB RAMで180B MoEを動かす手法",
-    "💾 HF、0.5B音声認識Rumble-2-Flash公開",
-    "🖥️ 脱獄PS4でQwen3.5-9Bを動かす"
+    "⚡ MSI EdgeMesa N AI+レビュー公開",
+    "🟢 Spring AI 2.1.0-RC1リリース",
+    "🔥 RadixArk DaisyRose-27B公開",
+    "💾 SSDストリーミングで180B MoE推論",
+    "🖥️ Cloudflare Clairic 27B/9B公開"
   ],
   "ranking_general": [
     {
@@ -533,19 +533,54 @@
     }
   ],
   "featured": {
-    "tag": "model",
-    "date": "2026.11.19",
-    "title": "Cloudflare、オープンウェイトの抽出モデル「Clairic」27B/9Bを公開",
-    "summary": "Cloudflareは2026年11月18日、270億パラメータの「Clairic」と新規90億パラメータの「Clairic-flash」をオープンウェイトで公開した。テキスト・画像・PDFから型付き値や予測を抽出するモデルで、Apache-2.0ライセンスによりローカルのPyTorchとTransformersで推論可能。並列スロット自己回帰生成で抽出精度が向上したと報告されているが、精度数値は自己申告だ。",
-    "url": "https://www.unite.ai/cloudflare-releases-open-weight-clairic-models-for-data-extraction/"
+    "tag": "hw",
+    "date": "2026.11.17",
+    "title": "RTX Spark N1X搭載小型デスクトップ「MSI EdgeMesa N AI+」レビュー公開",
+    "summary": "Moneycontrolが、NVIDIAのRTX Spark N1Xを搭載したMSI製小型デスクトップ「EdgeMesa N AI+」のレビューを公開。1.18リットル筐体に20コアGrace CPUとBlackwell RTX GPU、最大128GBのユニファイドメモリを統合し、NVIDIA AppでGPU割り当てを4GB〜96GBに変更可能。",
+    "url": "https://www.moneycontrol.com/technology/nvidia-rtx-spark-review-msi-edgemesa-n-ai-petite-in-presence-prodigious-in-ai-article-14085209.html"
   },
   "articles": [
+    {
+      "tag": "research",
+      "date": "2026.11.20",
+      "title": "オープンウェイトAIは生医学研究の再現性を高めるも計算環境の完全な保存が必要と論文が指摘",
+      "summary": "Annals of Biomedical Engineeringの書簡によると、生医学のLLM研究の多くは完全な再現が困難。オープンウェイトモデルは保存と再実行が可能だが、重み公開だけでは不十分で、バージョンや計算環境、推論パラメータ…",
+      "url": "https://bioengineer.org/open-weight-ai-improves-biomedical-reproducibility-but-requires-complete-computational-archiving/"
+    },
+    {
+      "tag": "trend",
+      "date": "2026.11.19",
+      "title": "オープンウェイトAIのガバナンス課題と対策をSecurityWeekが解説",
+      "summary": "SecurityWeekがオープンウェイトAIのセキュリティ課題を解説。悪意あるコード実行や改変済みモデルの再アップロード、自動更新されない点を指摘し、ハッシュ記録やテスト、隔離運用などの対策を提案した。",
+      "url": "https://www.securityweek.com/the-governance-gap-in-open-weight-ai-and-what-to-do-about-it/"
+    },
+    {
+      "tag": "research",
+      "date": "2026.11.19",
+      "title": "Hugging Faceブログ: ファインチューニング時間の実測分析、FLOP計算との乖離を解説",
+      "summary": "Dharma-AIがHugging Faceブログで、共有GPUクラスタ上の272件のSFT実行を分析。FLOPベース推定はR²=0.31と低精度で、CatBoost回帰はR²=0.98、平均絶対誤差1.71時間を達成。論文全文は近日arXiv公開予定。",
+      "url": "https://huggingface.co/blog/Dharma-AI/predicting-fine-tuning-time"
+    },
     {
       "tag": "model",
       "date": "2026.11.19",
       "title": "RadixArk、DaisyRose-27BをApache 2.0で公開",
       "summary": "RadixArkが初のモデルDaisyRose-27Bを公開。Qwen3.8-27BをMilesで強化学習し、1,200タスクを144基のH200で18日間訓練。Terminal-Bench 4.1のpass@1を5.6%から12.0%に改善。",
       "url": "https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-frontier-of-post-trainin"
+    },
+    {
+      "tag": "model",
+      "date": "2026.11.19",
+      "title": "Cloudflare、オープンウェイトの抽出モデル「Clairic」27B/9Bを公開",
+      "summary": "Cloudflareは2026年11月18日、270億パラメータの「Clairic」と新規90億パラメータの「Clairic-flash」をオープンウェイトで公開した。テキスト・画像・PDFから型付き値や予測を抽出するモデルで、Apache-2.0ライセンスによりローカルのPyTorchとTransformersで推論可能。並列スロット自己回帰生成で抽出精度が向上したと報告されているが、精度数値は自己申告だ。",
+      "url": "https://www.unite.ai/cloudflare-releases-open-weight-clairic-models-for-data-extraction/"
+    },
+    {
+      "tag": "tool",
+      "date": "2026.11.18",
+      "title": "Spring AI 2.1.0-RC1リリース: セッションメモリとツール確認機能を追加",
+      "summary": "Spring AIチームがSpring AI 2.1.0-RC1とパッチリリース2.0.2を公開しました。両方ともMaven Centralから入手可能で、2.1.0-RC1ではセッションメモリとツール確認の機能が追加されています。",
+      "url": "https://letsdatascience.com/news/spring-ai-210-rc1-adds-session-memory-and-tool-confirmation-253f5890"
     },
     {
       "tag": "research",
@@ -574,41 +609,6 @@
       "title": "vLLM v0.34.0リリース: 新モデル10種と拡張KVキャッシュ標準化",
       "summary": "vLLM v0.34.0が公開。Mistral Large 4など新モデル10種に対応し、拡張KVキャッシュがデフォルト化。実メモリからキャッシュを確保しスループット向上。Model Runner V1は削除。",
       "url": "https://github.com/vllm-project/vllm/releases/tag/v0.34.0"
-    },
-    {
-      "tag": "tool",
-      "date": "2026.11.16",
-      "title": "Hugging FaceとOpenRouterが提携、オープンウェイトモデルの実行を容易に",
-      "summary": "Hugging FaceとOpenRouterが提携し、Inference ProvidersのルーターをOpenRouter製に切り替えた。HubのオープンウェイトモデルをHFトークンで同一API経由で呼び出せる。",
-      "url": "https://huggingface.co/blog/openrouter"
-    },
-    {
-      "tag": "hw",
-      "date": "2026.11.16",
-      "title": "脱獄PS4でQwen3.5-9Bをオフライン実行する「Garlic LLM」",
-      "summary": "Leonardo Alegría氏のオープンソースプロジェクト「Garlic LLM」は、GoldHEN導入の脱獄PS4のGPUでAlibabaのQwen3.5-9Bをオフライン実行する。",
-      "url": "https://tech.yahoo.com/gaming/articles/jailbroken-ps4-runs-9-billion-130000055.html"
-    },
-    {
-      "tag": "model",
-      "date": "2026.11.16",
-      "title": "SenseTime、層を再利用する9BマルチモーダルLLM「SenseNova-Loop-9B」を公開",
-      "summary": "SenseTime（商湯科技）が11月17日（中国時間）、マルチモーダル言語モデル「SenseNova-Loop-9B」をオープンソースとして公開した。パラメータを増やすのではなく、同じ層を2回通す（使い回す）ことで処理を深くするという変わったアプローチのLLMで、9BながらQwen3.8-27B級の性能とされる。",
-      "url": "https://www.msn.com/ja-jp/technology/artificial-intelligence/9bでqwen3-8-27b級の性能-層を2回通す-sensenova-loop-9b/ar-AA2hEYyo?ocid=BingNewsVerp"
-    },
-    {
-      "tag": "trend",
-      "date": "2026.11.15",
-      "title": "中国AI企業、最先端オープンウェイトモデルのサイバーセキュリティ能力を制限開始",
-      "summary": "中国の主要AIモデル企業が、最も先進的なオープンウェイトモデルのサイバーセキュリティ能力を抑制し始めた。ただしAIの進歩と企業間競争が続く中、この対策が長期的に持続可能かどうかには疑問の声がある。",
-      "url": "https://www.msn.com/en-xl/news/other/can-chinese-ai-companies-curb-cyber-risks-from-open-weight-models-without-losing-their-edge/ar-AA2hsp4G"
-    },
-    {
-      "tag": "trend",
-      "date": "2026.11.14",
-      "title": "Baidu、ERNIE 5.5重み公開を今月予定しApache 2.0表明",
-      "summary": "BaiduのERNIE 5.5はオープンウェイト公開が予定されるが、ライセンスは不透明。製品ページはPreviewモデルにApache 2.0を表明する一方、公開告知ではライセンス名がなく11月25日の期限を設定。BaseモデルはEU・英国での利用を禁止。",
-      "url": "https://www.msn.com/en-us/money/general/baidu-pledges-apache-license-for-ernie-5-5-ai-weights-due-this-month-base-model-bars-eu-uk/ar-AA2hqo1m"
     }
   ]
 }
