@@ -269,132 +269,137 @@
   ],
   "ranking_japanese": [
     {
-      "name": "Qwen3.5-27B",
-      "size": "27B",
-      "score": 95,
+      "name": "Gemma 4 31B IT",
+      "size": "31B",
+      "score": 68,
+      "released": "2026.04",
+      "country": "米国",
+      "flag": "us",
+      "org": "Google",
+      "reason": "Swallow日本語平均0.675。公開モデルで最高",
+      "badges": [
+        "Apache 2.0",
+        "推論型",
+        "Swallow評価"
+      ],
+      "url": "https://huggingface.co/google/gemma-4-31B-it"
+    },
+    {
+      "name": "Qwen3.5-122B-A10B",
+      "size": "122B MoE (10B active)",
+      "score": 64,
       "released": "2026.02",
       "country": "中国",
       "flag": "cn",
       "org": "Alibaba",
-      "reason": "201言語対応、日本語タスクでも高性能",
+      "reason": "Swallow日本語平均0.640",
       "badges": [
         "Apache 2.0",
-        "多言語",
-        "ローカル動作可"
+        "推論型",
+        "MoE",
+        "Swallow評価"
       ],
-      "url": "https://huggingface.co/Qwen/Qwen3.5-27B"
+      "url": "https://huggingface.co/Qwen/Qwen3.5-122B-A10B"
     },
     {
-      "name": "Qwen3.5-9B",
-      "size": "9B",
-      "score": 94,
+      "name": "Nemotron 3 Super 120B-A12B",
+      "size": "120B MoE (12B active)",
+      "score": 61,
       "released": "2026.03",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "軽量ながら日本語対応良好、ローカル向け",
-      "badges": [
-        "Apache 2.0",
-        "軽量",
-        "マルチモーダル"
-      ],
-      "url": "https://huggingface.co/Qwen/Qwen3.5-9B"
-    },
-    {
-      "name": "Llama 4 Maverick",
-      "size": "400B MoE (17B active)",
-      "score": 93,
-      "released": "2026.04",
-      "country": "米国",
-      "flag": "us",
-      "org": "Meta",
-      "reason": "200以上の言語対応、日本語含む多言語性能",
-      "badges": [
-        "Llama 4 License",
-        "多言語",
-        "MoE"
-      ],
-      "url": "https://huggingface.co/meta-llama"
-    },
-    {
-      "name": "Gemma 4 12B",
-      "size": "12B",
-      "score": 92,
-      "released": "2026.06",
-      "country": "米国",
-      "flag": "us",
-      "org": "Google",
-      "reason": "Apache 2.0、日本語含むマルチモーダル対応",
-      "badges": [
-        "Apache 2.0",
-        "マルチモーダル",
-        "効率的"
-      ],
-      "url": "https://ai.google.dev/gemma"
-    },
-    {
-      "name": "Qwen3.5-4B",
-      "size": "4B",
-      "score": 91,
-      "released": "2026.03",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Alibaba",
-      "reason": "超軽量で日本語対応、エッジ向け",
-      "badges": [
-        "Apache 2.0",
-        "軽量",
-        "多言語"
-      ],
-      "url": "https://huggingface.co/Qwen/Qwen3.5-4B"
-    },
-    {
-      "name": "Kimi K3.1 Pro",
-      "size": "2.8T MoE (104B active)",
-      "score": 90,
-      "released": "2026.11",
-      "country": "中国",
-      "flag": "cn",
-      "org": "Moonshot AI",
-      "reason": "中国語・日本語含むアジア言語に強み",
-      "badges": [
-        "Kimi K3.1 License",
-        "長文脈",
-        "マルチモーダル"
-      ],
-      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
-    },
-    {
-      "name": "Apertus",
-      "size": "非公開",
-      "score": 89,
-      "released": "2025.09",
-      "country": "スイス",
-      "flag": "",
-      "org": "ETH Zurich",
-      "reason": "多言語対応オープンソース、日本語含む",
-      "badges": [
-        "Apache 2.0",
-        "多言語",
-        "透明性重視"
-      ],
-      "url": "https://huggingface.co/ethz"
-    },
-    {
-      "name": "Nemotron Nano Omni",
-      "size": "30B",
-      "score": 88,
-      "released": "2026.04",
       "country": "米国",
       "flag": "us",
       "org": "NVIDIA",
-      "reason": "マルチモーダルエージェント、多言語対応",
+      "reason": "Swallow日本語平均0.611",
       "badges": [
         "NVIDIA Open License",
-        "マルチモーダル",
-        "エージェント"
+        "推論型",
+        "MoE",
+        "Swallow評価"
       ],
-      "url": "https://huggingface.co/nvidia"
+      "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16"
+    },
+    {
+      "name": "GPT-OSS Swallow 120B",
+      "size": "120B MoE (5.1B active)",
+      "score": 60,
+      "released": "2026.02",
+      "country": "日本",
+      "flag": "jp",
+      "org": "東京科学大・産総研",
+      "reason": "Swallow日本語平均0.600。国産では最高",
+      "badges": [
+        "Apache 2.0",
+        "推論型",
+        "日本語強化",
+        "Swallow評価"
+      ],
+      "url": "https://huggingface.co/tokyotech-llm/GPT-OSS-Swallow-120B-RL-v0.1"
+    },
+    {
+      "name": "gpt-oss-120b",
+      "size": "120B MoE (5.1B active)",
+      "score": 57,
+      "released": "2025.08",
+      "country": "米国",
+      "flag": "us",
+      "org": "OpenAI",
+      "reason": "Swallow日本語平均0.566",
+      "badges": [
+        "Apache 2.0",
+        "推論型",
+        "MoE",
+        "Swallow評価"
+      ],
+      "url": "https://huggingface.co/openai/gpt-oss-120b"
+    },
+    {
+      "name": "ABEJA-QwQ32b-Reasoning-Japanese",
+      "size": "32B",
+      "score": 53,
+      "released": "2025.04",
+      "country": "日本",
+      "flag": "jp",
+      "org": "ABEJA",
+      "reason": "Swallow日本語平均0.526",
+      "badges": [
+        "推論型",
+        "日本語強化",
+        "Swallow評価"
+      ],
+      "url": "https://huggingface.co/abeja/ABEJA-QwQ32b-Reasoning-Japanese-v1.0"
+    },
+    {
+      "name": "Llama 4 Scout Instruct",
+      "size": "109B MoE (17B active)",
+      "score": 48,
+      "released": "2025.04",
+      "country": "米国",
+      "flag": "us",
+      "org": "Meta",
+      "reason": "Swallow日本語平均0.482",
+      "badges": [
+        "Llama 4 License",
+        "MoE",
+        "Swallow評価"
+      ],
+      "url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct"
+    },
+    {
+      "name": "LLM-jp-4 32B-A3B Thinking",
+      "size": "32B MoE (3B active)",
+      "score": 47,
+      "released": "2026.04",
+      "country": "日本",
+      "flag": "jp",
+      "org": "国立情報学研究所（LLM-jp）",
+      "reason": "Swallow日本語平均0.471。フルスクラッチ国産",
+      "badges": [
+        "Apache 2.0",
+        "推論型",
+        "フルスクラッチ",
+        "Swallow評価"
+      ],
+      "url": "https://huggingface.co/llm-jp/llm-jp-4-32b-a3b-thinking"
     }
   ],
   "ranking_edge": [
@@ -463,20 +468,20 @@
       "url": "https://huggingface.co/Qwen/Qwen3.5-4B"
     },
     {
-      "name": "Inkling Small",
-      "size": "594B MoE (小規模active)",
+      "name": "Sarashina2.2-1B-Instruct",
+      "size": "1B",
       "score": 92,
-      "released": "2026.11",
-      "country": "米国",
-      "flag": "us",
-      "org": "Thinking Machines",
-      "reason": "ビジョン・自律性に強いMoE、エッジ推論対応",
+      "released": "2025.03",
+      "country": "日本",
+      "flag": "jp",
+      "org": "SB Intuitions",
+      "reason": "1Bクラスの日本語特化小型モデル",
       "badges": [
-        "オープンウェイト",
-        "MoE",
-        "ビジョン"
+        "MIT",
+        "超軽量",
+        "日本語特化"
       ],
-      "url": "https://mindstudio.ai/blog/new-open-weight-models-roundup"
+      "url": "https://huggingface.co/sbintuitions/sarashina2.2-1b-instruct-v0.1"
     },
     {
       "name": "Gemma 4 2B",

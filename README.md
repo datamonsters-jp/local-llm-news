@@ -28,6 +28,12 @@ DGX Spark で動くローカルLLM（OpenAI互換API）がニュースを選定�
 
 ランキング（`ranking_*`）は自動では書き換えず、そのまま引き継ぎます。
 
+### 日本語用途ランキングの決め方
+
+- 重みが公開されているモデルを、[Swallow LLM Leaderboard](https://swallow-llm.github.io/leaderboard/index-post.ja.html)（東京科学大・産総研、CC-BY 4.0）の事後学習モデル・日本語タスク平均で並べています。SCOREはその平均×100です。
+- 同じ開発元のモデルは最高スコアの1つだけを載せます。
+- リーダーボード未評価のモデル（LLM-jp-4.1、ELYZA-Thinking-1.0 llm-jp-4版、PLaMo 3系など）は、評価が出たら入れ替えます。
+
 ## セットアップ（Mac mini などで）
 
 ```sh
