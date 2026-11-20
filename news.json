@@ -1,11 +1,10 @@
 {
-  "updated": "2026.11.20",
+  "updated": "2026.11.21",
   "ticker": [
-    "⚡ MSI EdgeMesa N AI+レビュー公開",
-    "🟢 Spring AI 2.1.0-RC1リリース",
-    "🔥 RadixArk DaisyRose-27B公開",
-    "💾 SSDストリーミングで180B MoE推論",
-    "🖥️ Cloudflare Clairic 27B/9B公開"
+    "⚡ Inkling 2 Mini公開、26.4億パラメータ",
+    "🟢 mesh-llm: GPUをP2P接続する分散推論ツール",
+    "🔥 llama.cppへ移行で自宅サーバーLLM高速化",
+    "💾 Patriot、AI向けDDR5メモリとSSD発表"
   ],
   "ranking_general": [
     {
@@ -533,19 +532,54 @@
     }
   ],
   "featured": {
-    "tag": "hw",
-    "date": "2026.11.17",
-    "title": "RTX Spark N1X搭載小型デスクトップ「MSI EdgeMesa N AI+」レビュー公開",
-    "summary": "Moneycontrolが、NVIDIAのRTX Spark N1Xを搭載したMSI製小型デスクトップ「EdgeMesa N AI+」のレビューを公開。1.18リットル筐体に20コアGrace CPUとBlackwell RTX GPU、最大128GBのユニファイドメモリを統合し、NVIDIA AppでGPU割り当てを4GB〜96GBに変更可能。",
-    "url": "https://www.moneycontrol.com/technology/nvidia-rtx-spark-review-msi-edgemesa-n-ai-petite-in-presence-prodigious-in-ai-article-14085209.html"
+    "tag": "model",
+    "date": "2026.11.21",
+    "title": "Thinking Machines Lab、ローカル向けオープンウェイトモデル「Inkling 2 Mini」公開",
+    "summary": "Thinking Machines Labが2026年11月20日、コンシューマーラップトップ向けオープンウェイトモデル「Inkling 2 Mini」を公開した。総パラメータ26.4億、メモリ使用量約20GBで、中間層の繰り返し通過により推論能力を高める。",
+    "url": "https://www.unite.ai/thinking-machines-lab-releases-inkling-2-mini-for-local-devices/"
   },
   "articles": [
+    {
+      "tag": "tool",
+      "date": "2026.11.20",
+      "title": "mesh-llm: 余ったGPUをP2Pでつなぐ分散推論ツールがGitHubで公開",
+      "summary": "mesh-llmはmacOSとLinux間でGPUをプールし、オープンウェイトモデルをOpenAI互換APIで提供するP2P推論ツール。Rust、iroh、llama.cpp製でApache-2.0公開。",
+      "url": "https://github.com/Mesh-LLM"
+    },
+    {
+      "tag": "tool",
+      "date": "2026.11.20",
+      "title": "自宅サーバーをOllamaからllama.cppへ移行、ローカルLLMが高速化",
+      "summary": "XDA Developersが、自宅サーバーのローカルLLMをOllamaからllama.cppへ切り替え、ハードウェア変更なしで高速化したと報告。llama-serverを直接使えばスレッド数やコンテキスト長などを細かく制御でき…",
+      "url": "https://www.xda-developers.com/switched-home-server-ollama-llama-cpp-local-llm-got-faster/"
+    },
+    {
+      "tag": "hw",
+      "date": "2026.11.20",
+      "title": "Patriot、ローカルAI向けDDR5メモリとSSD「AI Matrix」発表",
+      "summary": "Patriot MemoryがローカルAI向けDDR5メモリとM.2 NVMe SSD「AI Matrix」を発表。7B～70BクラスのLLMに合わせ「Entry」「Mid」「PRO」の3グレードを展開し、Llamaなどでの検証データを毎月更新する。",
+      "url": "https://www.gdm.or.jp/pressrelease/2026/1120/661340"
+    },
+    {
+      "tag": "tool",
+      "date": "2026.11.20",
+      "title": "Hugging Face、ハーネス別RLチューニングのLoRAアダプタ手法を公開",
+      "summary": "Hugging Faceが、Qwen3.8-27Bにエージェントハーネス別のRL学習LoRAアダプタを追加する手法を紹介。Terminal-Bench 2.1で39%から55%に向上し、トークン使用量も約半分に。アダプタやGGUFをHubで公開。",
+      "url": "https://huggingface.co/blog/harness-adapters-at-scale"
+    },
     {
       "tag": "research",
       "date": "2026.11.20",
       "title": "オープンウェイトAIは生医学研究の再現性を高めるも計算環境の完全な保存が必要と論文が指摘",
       "summary": "Annals of Biomedical Engineeringの書簡によると、生医学のLLM研究の多くは完全な再現が困難。オープンウェイトモデルは保存と再実行が可能だが、重み公開だけでは不十分で、バージョンや計算環境、推論パラメータ…",
       "url": "https://bioengineer.org/open-weight-ai-improves-biomedical-reproducibility-but-requires-complete-computational-archiving/"
+    },
+    {
+      "tag": "trend",
+      "date": "2026.11.19",
+      "title": "Microsoft「Licensed Weights」発表: MAIモデル重みの顧客カスタマイズ解禁",
+      "summary": "MicrosoftがIgniteで、MAIのフロンティアモデルの重みを顧客が自社データでカスタマイズしAzure上で安全に実行できる「Licensed Weights」を発表。データと適応は顧客側に残る。",
+      "url": "https://tech.yahoo.com/ai/copilot/articles/microsoft-licensed-weights-lets-businesses-125653730.html"
     },
     {
       "tag": "trend",
@@ -574,41 +608,6 @@
       "title": "Cloudflare、オープンウェイトの抽出モデル「Clairic」27B/9Bを公開",
       "summary": "Cloudflareは2026年11月18日、270億パラメータの「Clairic」と新規90億パラメータの「Clairic-flash」をオープンウェイトで公開した。テキスト・画像・PDFから型付き値や予測を抽出するモデルで、Apache-2.0ライセンスによりローカルのPyTorchとTransformersで推論可能。並列スロット自己回帰生成で抽出精度が向上したと報告されているが、精度数値は自己申告だ。",
       "url": "https://www.unite.ai/cloudflare-releases-open-weight-clairic-models-for-data-extraction/"
-    },
-    {
-      "tag": "tool",
-      "date": "2026.11.18",
-      "title": "Spring AI 2.1.0-RC1リリース: セッションメモリとツール確認機能を追加",
-      "summary": "Spring AIチームがSpring AI 2.1.0-RC1とパッチリリース2.0.2を公開しました。両方ともMaven Centralから入手可能で、2.1.0-RC1ではセッションメモリとツール確認の機能が追加されています。",
-      "url": "https://letsdatascience.com/news/spring-ai-210-rc1-adds-session-memory-and-tool-confirmation-253f5890"
-    },
-    {
-      "tag": "research",
-      "date": "2026.11.18",
-      "title": "TransformersでMoE推論の限界に挑戦: 180Bモデルを32GB RAMで動かす",
-      "summary": "Hugging Faceの記事がMoEのエキスパートをSSDから直接ストリーミングする手法を紹介。Strataに近い性能を達成し、180B級モデルをRTX 4090や32GB Macで動かす実践例をllama.cpp等と比較して解説。",
-      "url": "https://huggingface.co/blog/moe-expert-streaming"
-    },
-    {
-      "tag": "model",
-      "date": "2026.11.18",
-      "title": "Hugging Face、0.5B音声認識モデル「Rumble-2-Flash」公開",
-      "summary": "Hugging Faceが40以上の言語対応の0.5Bパラメータ音声認識モデルRumble-2-FlashをApache 2.0で公開。TransformersとvLLMで動作し、大型モデルに匹敵する精度と高速処理を実現した。",
-      "url": "https://huggingface.co/blog/rumble-2-flash"
-    },
-    {
-      "tag": "trend",
-      "date": "2026.11.17",
-      "title": "なぜLLMは無料で公開されるのか—オープンモデル企業の8つの狙いを解説",
-      "summary": "noteで、Llama、Gemma、gpt-oss、Qwen、DeepSeekなど無料のLLMがなぜ無償提供されるのかを考察した記事が公開。コストは別の場所で回収できる、標準規格の地位確立、世界中の開発者による改良という3大理由を整理し…",
-      "url": "https://note.com/right_ixia336/n/need6b112e6c8?hl=en"
-    },
-    {
-      "tag": "tool",
-      "date": "2026.11.17",
-      "title": "vLLM v0.34.0リリース: 新モデル10種と拡張KVキャッシュ標準化",
-      "summary": "vLLM v0.34.0が公開。Mistral Large 4など新モデル10種に対応し、拡張KVキャッシュがデフォルト化。実メモリからキャッシュを確保しスループット向上。Model Runner V1は削除。",
-      "url": "https://github.com/vllm-project/vllm/releases/tag/v0.34.0"
     }
   ]
 }
