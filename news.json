@@ -1,10 +1,11 @@
 {
-  "updated": "2026.11.21",
+  "updated": "2026.11.22",
   "ticker": [
-    "⚡ Inkling 2 Mini公開、26.4億パラメータ",
-    "🟢 mesh-llm: GPUをP2P接続する分散推論ツール",
-    "🔥 llama.cppへ移行で自宅サーバーLLM高速化",
-    "💾 Patriot、AI向けDDR5メモリとSSD発表"
+    "⚡ Tencent、Hy4のオープンウェイト公開",
+    "🟢 Inkling 2 Mini、ローカル向けに公開",
+    "🔥 mesh-llm、GPUをP2P接続する推論ツール",
+    "💾 Patriot、AI向けDDR5メモリとSSD発表",
+    "🖥️ vLLM v0.34.0リリース、新モデル10種に対応"
   ],
   "ranking_general": [
     {
@@ -534,11 +535,25 @@
   "featured": {
     "tag": "model",
     "date": "2026.11.21",
-    "title": "Thinking Machines Lab、ローカル向けオープンウェイトモデル「Inkling 2 Mini」公開",
-    "summary": "Thinking Machines Labが2026年11月20日、コンシューマーラップトップ向けオープンウェイトモデル「Inkling 2 Mini」を公開した。総パラメータ26.4億、メモリ使用量約20GBで、中間層の繰り返し通過により推論能力を高める。",
-    "url": "https://www.unite.ai/thinking-machines-lab-releases-inkling-2-mini-for-local-devices/"
+    "title": "Tencent、フラッグシップモデル「Hy4」のオープンウェイトを公開",
+    "summary": "Tencentは2026年11月20日、言語バックボーン7700億パラメータのフラッグシップモデル「Hy4」のオープンウェイトを公開した。テキスト・画像・動画を扱うネイティブマルチモーダルで、MoE設計によりトークンごとに言語490億パラメータを活性化。配布物は指示チューニング済みモデル、FP8版、事前学習ベースモデルで、システムカードや安全性評価資料も公開された。商用はカスタムライセンスが適用される。",
+    "url": "https://www.remio.ai/post/tencent-releases-hy4-flagship-open-weights"
   },
   "articles": [
+    {
+      "tag": "model",
+      "date": "2026.11.21",
+      "title": "Thinking Machines Lab、ローカル向けオープンウェイトモデル「Inkling 2 Mini」公開",
+      "summary": "Thinking Machines Labが2026年11月20日、コンシューマーラップトップ向けオープンウェイトモデル「Inkling 2 Mini」を公開した。総パラメータ26.4億、メモリ使用量約20GBで、中間層の繰り返し通過により推論能力を高める。",
+      "url": "https://www.unite.ai/thinking-machines-lab-releases-inkling-2-mini-for-local-devices/"
+    },
+    {
+      "tag": "model",
+      "date": "2026.11.20",
+      "title": "Thinking Machines Labがループ型MoE「Inkling 2 Mini」を公開",
+      "summary": "Thinking Machines Labがローカル向けマルチモーダルMoEモデル「Inkling 2 Mini」を公開。総約26B・アクティブ3Bで、中間12層を3回ループし1Mトークンコンテキストに対応。",
+      "url": "https://huggingface.co/blog/inkling2mini"
+    },
     {
       "tag": "tool",
       "date": "2026.11.20",
@@ -575,6 +590,13 @@
       "url": "https://bioengineer.org/open-weight-ai-improves-biomedical-reproducibility-but-requires-complete-computational-archiving/"
     },
     {
+      "tag": "tool",
+      "date": "2026.11.19",
+      "title": "vLLM v0.34.0リリース: 新モデル10種とKVキャッシュ拡張のデフォルト化",
+      "summary": "vLLM v0.34.0が公開。Mistral Large 4など新モデル10種に対応し、拡張KVキャッシュがデフォルト有効化。Model Runner V2が唯一のGPUランナーになり、BlackwellやMI355Xでの高速化も。",
+      "url": "https://github.com/vllm-project/vllm/releases/tag/v0.34.0"
+    },
+    {
       "tag": "trend",
       "date": "2026.11.19",
       "title": "Microsoft「Licensed Weights」発表: MAIモデル重みの顧客カスタマイズ解禁",
@@ -587,27 +609,6 @@
       "title": "オープンウェイトAIのガバナンス課題と対策をSecurityWeekが解説",
       "summary": "SecurityWeekがオープンウェイトAIのセキュリティ課題を解説。悪意あるコード実行や改変済みモデルの再アップロード、自動更新されない点を指摘し、ハッシュ記録やテスト、隔離運用などの対策を提案した。",
       "url": "https://www.securityweek.com/the-governance-gap-in-open-weight-ai-and-what-to-do-about-it/"
-    },
-    {
-      "tag": "research",
-      "date": "2026.11.19",
-      "title": "Hugging Faceブログ: ファインチューニング時間の実測分析、FLOP計算との乖離を解説",
-      "summary": "Dharma-AIがHugging Faceブログで、共有GPUクラスタ上の272件のSFT実行を分析。FLOPベース推定はR²=0.31と低精度で、CatBoost回帰はR²=0.98、平均絶対誤差1.71時間を達成。論文全文は近日arXiv公開予定。",
-      "url": "https://huggingface.co/blog/Dharma-AI/predicting-fine-tuning-time"
-    },
-    {
-      "tag": "model",
-      "date": "2026.11.19",
-      "title": "RadixArk、DaisyRose-27BをApache 2.0で公開",
-      "summary": "RadixArkが初のモデルDaisyRose-27Bを公開。Qwen3.8-27BをMilesで強化学習し、1,200タスクを144基のH200で18日間訓練。Terminal-Bench 4.1のpass@1を5.6%から12.0%に改善。",
-      "url": "https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-frontier-of-post-trainin"
-    },
-    {
-      "tag": "model",
-      "date": "2026.11.19",
-      "title": "Cloudflare、オープンウェイトの抽出モデル「Clairic」27B/9Bを公開",
-      "summary": "Cloudflareは2026年11月18日、270億パラメータの「Clairic」と新規90億パラメータの「Clairic-flash」をオープンウェイトで公開した。テキスト・画像・PDFから型付き値や予測を抽出するモデルで、Apache-2.0ライセンスによりローカルのPyTorchとTransformersで推論可能。並列スロット自己回帰生成で抽出精度が向上したと報告されているが、精度数値は自己申告だ。",
-      "url": "https://www.unite.ai/cloudflare-releases-open-weight-clairic-models-for-data-extraction/"
     }
   ]
 }
