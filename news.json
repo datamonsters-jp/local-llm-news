@@ -1,11 +1,10 @@
 {
-  "updated": "2026.11.22",
+  "updated": "2026.11.23",
   "ticker": [
-    "⚡ Tencent、Hy4のオープンウェイト公開",
-    "🟢 Inkling 2 Mini、ローカル向けに公開",
-    "🔥 mesh-llm、GPUをP2P接続する推論ツール",
-    "💾 Patriot、AI向けDDR5メモリとSSD発表",
-    "🖥️ vLLM v0.34.0リリース、新モデル10種に対応"
+    "⚡ Sarvam AI、105B MoE重みを公開",
+    "🔥 Kimi K3.1 Pro重み公開、商用は条件付き",
+    "💾 Inkling 2 Mini公開、26.4億で約20GB",
+    "🖥️ Tencent、Hy4の7700億重みを公開"
   ],
   "ranking_general": [
     {
@@ -534,18 +533,46 @@
   ],
   "featured": {
     "tag": "model",
-    "date": "2026.11.21",
-    "title": "Tencent、フラッグシップモデル「Hy4」のオープンウェイトを公開",
-    "summary": "Tencentは2026年11月20日、言語バックボーン7700億パラメータのフラッグシップモデル「Hy4」のオープンウェイトを公開した。テキスト・画像・動画を扱うネイティブマルチモーダルで、MoE設計によりトークンごとに言語490億パラメータを活性化。配布物は指示チューニング済みモデル、FP8版、事前学習ベースモデルで、システムカードや安全性評価資料も公開された。商用はカスタムライセンスが適用される。",
-    "url": "https://www.remio.ai/post/tencent-releases-hy4-flagship-open-weights"
+    "date": "2026.11.23",
+    "title": "Sarvam AI、オープンウェイト105Bチェックポイント「Sarvam-105B-1711」公開",
+    "summary": "Sarvam AIが2026年11月22日、エンタープライズ向けエージェント用途のオープンウェイトチェックポイント「Sarvam-105B-1711」を公開した。1050億パラメータのMoEベースでアクティブは103億。BF16重みに加え、GPU1枚に収まる65GBの4bit NVFP4版を含み、オンプレミス運用が可能。",
+    "url": "https://www.unite.ai/sarvam-ai-releases-open-weight-105b-checkpoint-for-enterprise-agents/"
   },
   "articles": [
+    {
+      "tag": "model",
+      "date": "2026.11.22",
+      "title": "Runwayがロボット用オープンウェイトモデルPraxis-1をApache 2.0で公開",
+      "summary": "Runwayが動画学習の知識でロボットの物理タスク習得を目指す270億パラメータのPraxis-1を公開。RoboLab-120で46.2%の成功率を報告し、重みや推論ソフト、ファインチューニングツールをGitHubとHugging Faceで提供する。",
+      "url": "https://roboticsandautomationnews.com/2026/11/22/runway-releases-praxis-1-open-weight-world-action-model-for-robotics/107430/"
+    },
+    {
+      "tag": "model",
+      "date": "2026.11.21",
+      "title": "Kimi K3.1 Proの重み公開、ライセンス解説記事登場",
+      "summary": "MoonshotのKimi K3.1 Proの重みが11月4日にHugging Faceで公開された。ライセンス解説記事によれば、重み公開は「自由利用」を意味せず、大規模商用利用には別途合意やクレジット表記などの条件が課されるという。",
+      "url": "https://note.com/claude678/n/n4dc734c545af?hl=en"
+    },
     {
       "tag": "model",
       "date": "2026.11.21",
       "title": "Thinking Machines Lab、ローカル向けオープンウェイトモデル「Inkling 2 Mini」公開",
       "summary": "Thinking Machines Labが2026年11月20日、コンシューマーラップトップ向けオープンウェイトモデル「Inkling 2 Mini」を公開した。総パラメータ26.4億、メモリ使用量約20GBで、中間層の繰り返し通過により推論能力を高める。",
       "url": "https://www.unite.ai/thinking-machines-lab-releases-inkling-2-mini-for-local-devices/"
+    },
+    {
+      "tag": "model",
+      "date": "2026.11.21",
+      "title": "Tencent、フラッグシップモデル「Hy4」のオープンウェイトを公開",
+      "summary": "Tencentは2026年11月20日、言語バックボーン7700億パラメータのフラッグシップモデル「Hy4」のオープンウェイトを公開した。テキスト・画像・動画を扱うネイティブマルチモーダルで、MoE設計によりトークンごとに言語490億パラメータを活性化。配布物は指示チューニング済みモデル、FP8版、事前学習ベースモデルで、システムカードや安全性評価資料も公開された。商用はカスタムライセンスが適用される。",
+      "url": "https://www.remio.ai/post/tencent-releases-hy4-flagship-open-weights"
+    },
+    {
+      "tag": "model",
+      "date": "2026.11.20",
+      "title": "NVIDIA、自動運転向け2B推論VLA「Alpamayo 2 Edge」を公開",
+      "summary": "NVIDIAが自動運転向けのコンパクトな推論型ビジョン・ランゲージ・アクション（VLA）モデル「Alpamayo 2 Edge」を公開。DRIVE Thor向けのモデルで、車載環境での推論能力を備えた小型モデルとしてリリースされた。",
+      "url": "https://www.marktechpost.com/2026/11/22/nvidia-alpamayo-2-edge-2b-reasoning-vla-drive-thor/"
     },
     {
       "tag": "model",
@@ -581,34 +608,6 @@
       "title": "Hugging Face、ハーネス別RLチューニングのLoRAアダプタ手法を公開",
       "summary": "Hugging Faceが、Qwen3.8-27Bにエージェントハーネス別のRL学習LoRAアダプタを追加する手法を紹介。Terminal-Bench 2.1で39%から55%に向上し、トークン使用量も約半分に。アダプタやGGUFをHubで公開。",
       "url": "https://huggingface.co/blog/harness-adapters-at-scale"
-    },
-    {
-      "tag": "research",
-      "date": "2026.11.20",
-      "title": "オープンウェイトAIは生医学研究の再現性を高めるも計算環境の完全な保存が必要と論文が指摘",
-      "summary": "Annals of Biomedical Engineeringの書簡によると、生医学のLLM研究の多くは完全な再現が困難。オープンウェイトモデルは保存と再実行が可能だが、重み公開だけでは不十分で、バージョンや計算環境、推論パラメータ…",
-      "url": "https://bioengineer.org/open-weight-ai-improves-biomedical-reproducibility-but-requires-complete-computational-archiving/"
-    },
-    {
-      "tag": "tool",
-      "date": "2026.11.19",
-      "title": "vLLM v0.34.0リリース: 新モデル10種とKVキャッシュ拡張のデフォルト化",
-      "summary": "vLLM v0.34.0が公開。Mistral Large 4など新モデル10種に対応し、拡張KVキャッシュがデフォルト有効化。Model Runner V2が唯一のGPUランナーになり、BlackwellやMI355Xでの高速化も。",
-      "url": "https://github.com/vllm-project/vllm/releases/tag/v0.34.0"
-    },
-    {
-      "tag": "trend",
-      "date": "2026.11.19",
-      "title": "Microsoft「Licensed Weights」発表: MAIモデル重みの顧客カスタマイズ解禁",
-      "summary": "MicrosoftがIgniteで、MAIのフロンティアモデルの重みを顧客が自社データでカスタマイズしAzure上で安全に実行できる「Licensed Weights」を発表。データと適応は顧客側に残る。",
-      "url": "https://tech.yahoo.com/ai/copilot/articles/microsoft-licensed-weights-lets-businesses-125653730.html"
-    },
-    {
-      "tag": "trend",
-      "date": "2026.11.19",
-      "title": "オープンウェイトAIのガバナンス課題と対策をSecurityWeekが解説",
-      "summary": "SecurityWeekがオープンウェイトAIのセキュリティ課題を解説。悪意あるコード実行や改変済みモデルの再アップロード、自動更新されない点を指摘し、ハッシュ記録やテスト、隔離運用などの対策を提案した。",
-      "url": "https://www.securityweek.com/the-governance-gap-in-open-weight-ai-and-what-to-do-about-it/"
     }
   ]
 }
