@@ -1,10 +1,10 @@
 {
-  "updated": "2026.11.23",
+  "updated": "2026.11.24",
   "ticker": [
-    "⚡ Sarvam AI、105B MoE重みを公開",
-    "🔥 Kimi K3.1 Pro重み公開、商用は条件付き",
-    "💾 Inkling 2 Mini公開、26.4億で約20GB",
-    "🖥️ Tencent、Hy4の7700億重みを公開"
+    "🟢 Sarvam AI、105BのMoEチェックポイント公開",
+    "🔥 Runway、ロボット用Praxis-1を公開",
+    "💾 Baseten、決定モデルbison-1を公開",
+    "🖥️ Tencent、7700億Hy4の重み公開"
   ],
   "ranking_general": [
     {
@@ -533,18 +533,46 @@
   ],
   "featured": {
     "tag": "model",
-    "date": "2026.11.23",
-    "title": "Sarvam AI、オープンウェイト105Bチェックポイント「Sarvam-105B-1711」公開",
-    "summary": "Sarvam AIが2026年11月22日、エンタープライズ向けエージェント用途のオープンウェイトチェックポイント「Sarvam-105B-1711」を公開した。1050億パラメータのMoEベースでアクティブは103億。BF16重みに加え、GPU1枚に収まる65GBの4bit NVFP4版を含み、オンプレミス運用が可能。",
-    "url": "https://www.unite.ai/sarvam-ai-releases-open-weight-105b-checkpoint-for-enterprise-agents/"
+    "date": "2026.11.24",
+    "title": "AWS、オープンウェイトのStrands Decider v2公開 双方向で文脈を読むエージェント判断モデル",
+    "summary": "AWSがオープンウェイトの判断モデル「Strands Decider v2」を公開しました。エージェントの状況全体を双方向に読み取って判断するモデルで、重みが公開されているためローカル環境での利用が可能です。エージェントの意思決定を担うモデルとして注目されます。",
+    "url": "https://venturebeat.com/data/awss-strands-decider-v2-targets-the-agent-decisions-that-hinge-on-a-single-detail"
   },
   "articles": [
+    {
+      "tag": "trend",
+      "date": "2026.11.24",
+      "title": "ChatGPT Plusの日常用途の半分をローカルLLMで代替した体験談",
+      "summary": "XDA Developersの筆者が月20ドルのChatGPT Plusの日常タスクの一部をローカルLLMに移行。RTX 3070 8GBでLM Studioを使い、数学はQwythos 9B、コードはQwen 3.5…",
+      "url": "https://www.xda-developers.com/half-of-what-i-used-chatgpt-plus-for-now-runs-on-free-local-model/"
+    },
+    {
+      "tag": "model",
+      "date": "2026.11.23",
+      "title": "Sarvam AI、オープンウェイト105Bチェックポイント「Sarvam-105B-1711」公開",
+      "summary": "Sarvam AIが2026年11月22日、エンタープライズ向けエージェント用途のオープンウェイトチェックポイント「Sarvam-105B-1711」を公開した。1050億パラメータのMoEベースでアクティブは103億。BF16重みに加え、GPU1枚に収まる65GBの4bit NVFP4版を含み、オンプレミス運用が可能。",
+      "url": "https://www.unite.ai/sarvam-ai-releases-open-weight-105b-checkpoint-for-enterprise-agents/"
+    },
+    {
+      "tag": "research",
+      "date": "2026.11.22",
+      "title": "ローカルLLMの長時間ターンを監視が誤検知、タイムアウト延長せず修正",
+      "summary": "ローカルLLMの夜間コード修正で、1ターンに21,320トークン・864秒かかった応答が「15分無応答」と誤検知され停止。モデルサーバーのストリーミングを生存確認に加え、タイムアウトを延長せず修正した。",
+      "url": "https://note.com/nobukofu_dev/n/n80bc231385c9?hl=en"
+    },
     {
       "tag": "model",
       "date": "2026.11.22",
       "title": "Runwayがロボット用オープンウェイトモデルPraxis-1をApache 2.0で公開",
       "summary": "Runwayが動画学習の知識でロボットの物理タスク習得を目指す270億パラメータのPraxis-1を公開。RoboLab-120で46.2%の成功率を報告し、重みや推論ソフト、ファインチューニングツールをGitHubとHugging Faceで提供する。",
       "url": "https://roboticsandautomationnews.com/2026/11/22/runway-releases-praxis-1-open-weight-world-action-model-for-robotics/107430/"
+    },
+    {
+      "tag": "model",
+      "date": "2026.11.21",
+      "title": "Baseten、Gemma 4ベースの決定モデルbison-1とgroundhog-1を公開",
+      "summary": "Basetenが2026年11月20日、Gemma 4から後学習したオープンウェイトの決定モデルbison-1とgroundhog-1を公開。テキストと画像に対応し13万1072トークンをサポート。重みはHugging Faceでも入手可能。",
+      "url": "https://www.unite.ai/baseten-extends-decision-models-to-128k-context-and-image-input/"
     },
     {
       "tag": "model",
@@ -568,46 +596,18 @@
       "url": "https://www.remio.ai/post/tencent-releases-hy4-flagship-open-weights"
     },
     {
+      "tag": "research",
+      "date": "2026.11.20",
+      "title": "中古V100×3枚でQwen 3.6 35Bを約100トークン/秒、総額1,042ドルの自作構成",
+      "summary": "ホラボ愛好家が廃棄予定のNvidia Tesla V100 3枚でQwen 3.6 35Bを約100トークン/秒で動かす構成を1,042ドルで構築。llama.cppで9構成・130以上のテストを実施しました。",
+      "url": "https://tech.yahoo.com/computing/articles/three-e-waste-nvidia-v100s-110000340.html"
+    },
+    {
       "tag": "model",
       "date": "2026.11.20",
       "title": "NVIDIA、自動運転向け2B推論VLA「Alpamayo 2 Edge」を公開",
       "summary": "NVIDIAが自動運転向けのコンパクトな推論型ビジョン・ランゲージ・アクション（VLA）モデル「Alpamayo 2 Edge」を公開。DRIVE Thor向けのモデルで、車載環境での推論能力を備えた小型モデルとしてリリースされた。",
       "url": "https://www.marktechpost.com/2026/11/22/nvidia-alpamayo-2-edge-2b-reasoning-vla-drive-thor/"
-    },
-    {
-      "tag": "model",
-      "date": "2026.11.20",
-      "title": "Thinking Machines Labがループ型MoE「Inkling 2 Mini」を公開",
-      "summary": "Thinking Machines Labがローカル向けマルチモーダルMoEモデル「Inkling 2 Mini」を公開。総約26B・アクティブ3Bで、中間12層を3回ループし1Mトークンコンテキストに対応。",
-      "url": "https://huggingface.co/blog/inkling2mini"
-    },
-    {
-      "tag": "tool",
-      "date": "2026.11.20",
-      "title": "mesh-llm: 余ったGPUをP2Pでつなぐ分散推論ツールがGitHubで公開",
-      "summary": "mesh-llmはmacOSとLinux間でGPUをプールし、オープンウェイトモデルをOpenAI互換APIで提供するP2P推論ツール。Rust、iroh、llama.cpp製でApache-2.0公開。",
-      "url": "https://github.com/Mesh-LLM"
-    },
-    {
-      "tag": "tool",
-      "date": "2026.11.20",
-      "title": "自宅サーバーをOllamaからllama.cppへ移行、ローカルLLMが高速化",
-      "summary": "XDA Developersが、自宅サーバーのローカルLLMをOllamaからllama.cppへ切り替え、ハードウェア変更なしで高速化したと報告。llama-serverを直接使えばスレッド数やコンテキスト長などを細かく制御でき…",
-      "url": "https://www.xda-developers.com/switched-home-server-ollama-llama-cpp-local-llm-got-faster/"
-    },
-    {
-      "tag": "hw",
-      "date": "2026.11.20",
-      "title": "Patriot、ローカルAI向けDDR5メモリとSSD「AI Matrix」発表",
-      "summary": "Patriot MemoryがローカルAI向けDDR5メモリとM.2 NVMe SSD「AI Matrix」を発表。7B～70BクラスのLLMに合わせ「Entry」「Mid」「PRO」の3グレードを展開し、Llamaなどでの検証データを毎月更新する。",
-      "url": "https://www.gdm.or.jp/pressrelease/2026/1120/661340"
-    },
-    {
-      "tag": "tool",
-      "date": "2026.11.20",
-      "title": "Hugging Face、ハーネス別RLチューニングのLoRAアダプタ手法を公開",
-      "summary": "Hugging Faceが、Qwen3.8-27Bにエージェントハーネス別のRL学習LoRAアダプタを追加する手法を紹介。Terminal-Bench 2.1で39%から55%に向上し、トークン使用量も約半分に。アダプタやGGUFをHubで公開。",
-      "url": "https://huggingface.co/blog/harness-adapters-at-scale"
     }
   ]
 }
