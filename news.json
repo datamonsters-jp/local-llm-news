@@ -1,10 +1,9 @@
 {
-  "updated": "2026.11.24",
+  "updated": "2026.11.25",
   "ticker": [
-    "🟢 Sarvam AI、105BのMoEチェックポイント公開",
-    "🔥 Runway、ロボット用Praxis-1を公開",
-    "💾 Baseten、決定モデルbison-1を公開",
-    "🖥️ Tencent、7700億Hy4の重み公開"
+    "🔥 Tether、BitNet向けエッジLoRA基盤発表",
+    "💾 AWS、Strands Decider v2を公開",
+    "🖥️ Sarvam AI、105Bチェックポイント公開"
   ],
   "ranking_general": [
     {
@@ -533,18 +532,60 @@
   ],
   "featured": {
     "tag": "model",
-    "date": "2026.11.24",
-    "title": "AWS、オープンウェイトのStrands Decider v2公開 双方向で文脈を読むエージェント判断モデル",
-    "summary": "AWSがオープンウェイトの判断モデル「Strands Decider v2」を公開しました。エージェントの状況全体を双方向に読み取って判断するモデルで、重みが公開されているためローカル環境での利用が可能です。エージェントの意思決定を担うモデルとして注目されます。",
-    "url": "https://venturebeat.com/data/awss-strands-decider-v2-targets-the-agent-decisions-that-hinge-on-a-single-detail"
+    "date": "2026.11.18",
+    "title": "百度、ERNIE 5.5 Flash PreviewをApache 2.0で正式公開：総2800億パラメータ・MoE",
+    "summary": "百度が文心（ERNIE）5.5 Flash Previewをオープンソース化した。MoEアーキテクチャ採用で総パラメータは2800億、トークンごとのアクティブ数は140億。コンテキストは最大100万トークンで、公式はプログラミングや3Dモデリング、知識作業向けと位置づける。重みはHugging FaceとModelScopeに公開済みで、vLLMやSGLangに対応しローカルデプロイが可能。",
+    "url": "https://www.ithome.com/1/031/501.htm"
   },
   "articles": [
+    {
+      "tag": "tool",
+      "date": "2026.11.24",
+      "title": "Ollama v0.40.18-rc0: Metalのdecode等を高速化",
+      "summary": "Ollama v0.40.18-rc0が公開。Inkling専用のMetalカーネルを追加し、decode・prefill・draftラウンドを高速化。カーネルには標準グラフへのフォールバックがあり、GPU世代とサイズクラスでゲートされる。",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.18-rc0"
+    },
+    {
+      "tag": "tool",
+      "date": "2026.11.24",
+      "title": "vLLM v0.34.1rc0: Qwen4ExpのSM100 skinny GEMM対応",
+      "summary": "vLLMのv0.34.1rc0で、Qwen4Exp向けにSM100環境でのTP=2およびTP=8のskinny GEMMプランが追加された。パフォーマンス改善を目的とした変更で、GitHubコミット#69529として取り込まれた。",
+      "url": "https://github.com/vllm-project/vllm/releases/tag/v0.34.1rc0"
+    },
+    {
+      "tag": "trend",
+      "date": "2026.11.24",
+      "title": "Tether、BitNet LLM向けエッジLoRAファインチューニング基盤を発表",
+      "summary": "TetherがMicrosoftの三値量子化LLM「Bitnet」向けエッジファーストLoRAファインチューニングフレームワークを発表。スマホや一般PCでのファインチューニングを可能にし、P2Pネットワークと併せAI利用の民主化を目指す。",
+      "url": "https://www.computerworld.com/article/4177577/democratizing-ai-adoption-with-tethers-bitnet-llm-fine-tuning-framework.html"
+    },
     {
       "tag": "trend",
       "date": "2026.11.24",
       "title": "ChatGPT Plusの日常用途の半分をローカルLLMで代替した体験談",
       "summary": "XDA Developersの筆者が月20ドルのChatGPT Plusの日常タスクの一部をローカルLLMに移行。RTX 3070 8GBでLM Studioを使い、数学はQwythos 9B、コードはQwen 3.5…",
       "url": "https://www.xda-developers.com/half-of-what-i-used-chatgpt-plus-for-now-runs-on-free-local-model/"
+    },
+    {
+      "tag": "model",
+      "date": "2026.11.24",
+      "title": "AWS、オープンウェイトのStrands Decider v2公開 双方向で文脈を読むエージェント判断モデル",
+      "summary": "AWSがオープンウェイトの判断モデル「Strands Decider v2」を公開しました。エージェントの状況全体を双方向に読み取って判断するモデルで、重みが公開されているためローカル環境での利用が可能です。エージェントの意思決定を担うモデルとして注目されます。",
+      "url": "https://venturebeat.com/data/awss-strands-decider-v2-targets-the-agent-decisions-that-hinge-on-a-single-detail"
+    },
+    {
+      "tag": "research",
+      "date": "2026.11.23",
+      "title": "Inkling 2 Mini公開: 26.4BのLoop Transformer…",
+      "summary": "Thinking Machines Labが11月20日、Apache 2.0のオープンウェイトモデル「Inkling 2 Mini」を公開。24層のうち中間12層を3回通る構造で、総26.4B・アクティブ3.4B、コンテキスト最大100万トークン。",
+      "url": "https://note.com/sorairo_ai/n/na26307fc2675?hl=en"
+    },
+    {
+      "tag": "model",
+      "date": "2026.11.23",
+      "title": "Huawei OpenPangu 2.1-Pro公開: エージェントとコーディング強化、重みは未公開",
+      "summary": "HuaweiのOpenPangu 2.1-ProがHuawei Cloud MaaSで公開され、エージェント、ArkTSコーディング、推論の強化が図られました。ただしオープンウェイトと評価結果はまだ提供されていません。",
+      "url": "https://www.intelligentliving.co/huawei-openpangu-2-1-pro-agents-coding/"
     },
     {
       "tag": "model",
@@ -566,48 +607,6 @@
       "title": "Runwayがロボット用オープンウェイトモデルPraxis-1をApache 2.0で公開",
       "summary": "Runwayが動画学習の知識でロボットの物理タスク習得を目指す270億パラメータのPraxis-1を公開。RoboLab-120で46.2%の成功率を報告し、重みや推論ソフト、ファインチューニングツールをGitHubとHugging Faceで提供する。",
       "url": "https://roboticsandautomationnews.com/2026/11/22/runway-releases-praxis-1-open-weight-world-action-model-for-robotics/107430/"
-    },
-    {
-      "tag": "model",
-      "date": "2026.11.21",
-      "title": "Baseten、Gemma 4ベースの決定モデルbison-1とgroundhog-1を公開",
-      "summary": "Basetenが2026年11月20日、Gemma 4から後学習したオープンウェイトの決定モデルbison-1とgroundhog-1を公開。テキストと画像に対応し13万1072トークンをサポート。重みはHugging Faceでも入手可能。",
-      "url": "https://www.unite.ai/baseten-extends-decision-models-to-128k-context-and-image-input/"
-    },
-    {
-      "tag": "model",
-      "date": "2026.11.21",
-      "title": "Kimi K3.1 Proの重み公開、ライセンス解説記事登場",
-      "summary": "MoonshotのKimi K3.1 Proの重みが11月4日にHugging Faceで公開された。ライセンス解説記事によれば、重み公開は「自由利用」を意味せず、大規模商用利用には別途合意やクレジット表記などの条件が課されるという。",
-      "url": "https://note.com/claude678/n/n4dc734c545af?hl=en"
-    },
-    {
-      "tag": "model",
-      "date": "2026.11.21",
-      "title": "Thinking Machines Lab、ローカル向けオープンウェイトモデル「Inkling 2 Mini」公開",
-      "summary": "Thinking Machines Labが2026年11月20日、コンシューマーラップトップ向けオープンウェイトモデル「Inkling 2 Mini」を公開した。総パラメータ26.4億、メモリ使用量約20GBで、中間層の繰り返し通過により推論能力を高める。",
-      "url": "https://www.unite.ai/thinking-machines-lab-releases-inkling-2-mini-for-local-devices/"
-    },
-    {
-      "tag": "model",
-      "date": "2026.11.21",
-      "title": "Tencent、フラッグシップモデル「Hy4」のオープンウェイトを公開",
-      "summary": "Tencentは2026年11月20日、言語バックボーン7700億パラメータのフラッグシップモデル「Hy4」のオープンウェイトを公開した。テキスト・画像・動画を扱うネイティブマルチモーダルで、MoE設計によりトークンごとに言語490億パラメータを活性化。配布物は指示チューニング済みモデル、FP8版、事前学習ベースモデルで、システムカードや安全性評価資料も公開された。商用はカスタムライセンスが適用される。",
-      "url": "https://www.remio.ai/post/tencent-releases-hy4-flagship-open-weights"
-    },
-    {
-      "tag": "research",
-      "date": "2026.11.20",
-      "title": "中古V100×3枚でQwen 3.6 35Bを約100トークン/秒、総額1,042ドルの自作構成",
-      "summary": "ホラボ愛好家が廃棄予定のNvidia Tesla V100 3枚でQwen 3.6 35Bを約100トークン/秒で動かす構成を1,042ドルで構築。llama.cppで9構成・130以上のテストを実施しました。",
-      "url": "https://tech.yahoo.com/computing/articles/three-e-waste-nvidia-v100s-110000340.html"
-    },
-    {
-      "tag": "model",
-      "date": "2026.11.20",
-      "title": "NVIDIA、自動運転向け2B推論VLA「Alpamayo 2 Edge」を公開",
-      "summary": "NVIDIAが自動運転向けのコンパクトな推論型ビジョン・ランゲージ・アクション（VLA）モデル「Alpamayo 2 Edge」を公開。DRIVE Thor向けのモデルで、車載環境での推論能力を備えた小型モデルとしてリリースされた。",
-      "url": "https://www.marktechpost.com/2026/11/22/nvidia-alpamayo-2-edge-2b-reasoning-vla-drive-thor/"
     }
   ]
 }
