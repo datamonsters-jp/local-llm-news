@@ -1,9 +1,10 @@
 {
-  "updated": "2026.11.25",
+  "updated": "2026.11.26",
   "ticker": [
-    "🔥 Tether、BitNet向けエッジLoRA基盤発表",
-    "💾 AWS、Strands Decider v2を公開",
-    "🖥️ Sarvam AI、105Bチェックポイント公開"
+    "🟢 アント、医療AI「LingSante」をMITで公開",
+    "🔥 中国産GPUが推論で商用化、3社が黒字達成",
+    "⚡ Inkling 2 Miniデコード速度+40%に最適化",
+    "🖥️ AWS、Strands Decider v2を公開"
   ],
   "ranking_general": [
     {
@@ -532,12 +533,33 @@
   ],
   "featured": {
     "tag": "model",
-    "date": "2026.11.18",
-    "title": "百度、ERNIE 5.5 Flash PreviewをApache 2.0で正式公開：総2800億パラメータ・MoE",
-    "summary": "百度が文心（ERNIE）5.5 Flash Previewをオープンソース化した。MoEアーキテクチャ採用で総パラメータは2800億、トークンごとのアクティブ数は140億。コンテキストは最大100万トークンで、公式はプログラミングや3Dモデリング、知識作業向けと位置づける。重みはHugging FaceとModelScopeに公開済みで、vLLMやSGLangに対応しローカルデプロイが可能。",
-    "url": "https://www.ithome.com/1/031/501.htm"
+    "date": "2026.11.23",
+    "title": "アントグループ、医療AI「LingSante」のオープンウェイト公開を開始",
+    "summary": "アントグループが2026年11月23日、Ant Ling基盤モデルの医療AI「LingSante」の公開を発表。まずLingSante-3.1-air-VL（マルチモーダル・健康評価向け）とLingSante-3.1-flash（推論・医療ワークフロー向け）をMITライセンスで公開し、残りは段階的に公開予定。いずれもMoEアーキテクチャで、公開のサービング設定はマルチGPUサーバー構成。",
+    "url": "https://www.unite.ai/ant-group-begins-open-weight-release-of-lingsante-medical-ai-models/"
   },
   "articles": [
+    {
+      "tag": "trend",
+      "date": "2026.11.25",
+      "title": "中国産GPUが推論業務で本格商用化: 摩爾線程など3社が黒字達成",
+      "summary": "2026年第三四半期、摩爾線程が単季売上15.52億元、沐曦股份が15億元、寒武紀が単季純利益14.04億元を計上。京東雲は10万卡規模の国産GPUクラスタで推論業務を全面稼働、コストは海外算力より3割以上安いという。",
+      "url": "https://news.china.com/socialgd/10000169/20261125/49907620.html"
+    },
+    {
+      "tag": "research",
+      "date": "2026.11.25",
+      "title": "Inkling 2 MiniをRTX PRO 6000 1枚で最適化、デコード速度+40%",
+      "summary": "Hugging Faceがコーディングエージェントに推論最適化を任せ、RTX PRO 6000 96GB 1枚でInkling 2 Miniの推論を最適化。46回のベンチマークでデコード速度が136→190.6 tok/s（+40%）…",
+      "url": "https://huggingface.co/blog/inkling-2-mini-inference-hillclimb"
+    },
+    {
+      "tag": "tool",
+      "date": "2026.11.24",
+      "title": "Ollama 0.40.18リリース: InklingのMetal融合とllama.cpp更新",
+      "summary": "Ollama v0.40.18が公開。MLXでInklingの残差混合をMetal上で融合し、inkling2のMetal推論を高速化。llama.cppをb12651に更新し、jetpack5サポートを削除した。",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.18"
+    },
     {
       "tag": "tool",
       "date": "2026.11.24",
@@ -576,37 +598,16 @@
     {
       "tag": "research",
       "date": "2026.11.23",
-      "title": "Inkling 2 Mini公開: 26.4BのLoop Transformer…",
-      "summary": "Thinking Machines Labが11月20日、Apache 2.0のオープンウェイトモデル「Inkling 2 Mini」を公開。24層のうち中間12層を3回通る構造で、総26.4B・アクティブ3.4B、コンテキスト最大100万トークン。",
-      "url": "https://note.com/sorairo_ai/n/na26307fc2675?hl=en"
-    },
-    {
-      "tag": "model",
-      "date": "2026.11.23",
-      "title": "Huawei OpenPangu 2.1-Pro公開: エージェントとコーディング強化、重みは未公開",
-      "summary": "HuaweiのOpenPangu 2.1-ProがHuawei Cloud MaaSで公開され、エージェント、ArkTSコーディング、推論の強化が図られました。ただしオープンウェイトと評価結果はまだ提供されていません。",
-      "url": "https://www.intelligentliving.co/huawei-openpangu-2-1-pro-agents-coding/"
-    },
-    {
-      "tag": "model",
-      "date": "2026.11.23",
-      "title": "Sarvam AI、オープンウェイト105Bチェックポイント「Sarvam-105B-1711」公開",
-      "summary": "Sarvam AIが2026年11月22日、エンタープライズ向けエージェント用途のオープンウェイトチェックポイント「Sarvam-105B-1711」を公開した。1050億パラメータのMoEベースでアクティブは103億。BF16重みに加え、GPU1枚に収まる65GBの4bit NVFP4版を含み、オンプレミス運用が可能。",
-      "url": "https://www.unite.ai/sarvam-ai-releases-open-weight-105b-checkpoint-for-enterprise-agents/"
+      "title": "Qwen 3.8-27bをStrix Halo搭載Z13で動かした検証: 32GB統合メモリで動作",
+      "summary": "MakeUseOfがRyzen AI Max 390搭載のROG Flow Z13でQwen 3.8-27bを検証。VRAM使用量は約18〜21GBで、BIOSでVRAMを24GBに設定し…",
+      "url": "https://www.makeuseof.com/i-gave-qwen-38-the-weakest-gpu-i-own-and-it-wasnt-what-i-expected/"
     },
     {
       "tag": "research",
-      "date": "2026.11.22",
-      "title": "ローカルLLMの長時間ターンを監視が誤検知、タイムアウト延長せず修正",
-      "summary": "ローカルLLMの夜間コード修正で、1ターンに21,320トークン・864秒かかった応答が「15分無応答」と誤検知され停止。モデルサーバーのストリーミングを生存確認に加え、タイムアウトを延長せず修正した。",
-      "url": "https://note.com/nobukofu_dev/n/n80bc231385c9?hl=en"
-    },
-    {
-      "tag": "model",
-      "date": "2026.11.22",
-      "title": "Runwayがロボット用オープンウェイトモデルPraxis-1をApache 2.0で公開",
-      "summary": "Runwayが動画学習の知識でロボットの物理タスク習得を目指す270億パラメータのPraxis-1を公開。RoboLab-120で46.2%の成功率を報告し、重みや推論ソフト、ファインチューニングツールをGitHubとHugging Faceで提供する。",
-      "url": "https://roboticsandautomationnews.com/2026/11/22/runway-releases-praxis-1-open-weight-world-action-model-for-robotics/107430/"
+      "date": "2026.11.23",
+      "title": "Inkling 2 Mini公開: 26.4BのLoop Transformer…",
+      "summary": "Thinking Machines Labが11月20日、Apache 2.0のオープンウェイトモデル「Inkling 2 Mini」を公開。24層のうち中間12層を3回通る構造で、総26.4B・アクティブ3.4B、コンテキスト最大100万トークン。",
+      "url": "https://note.com/sorairo_ai/n/na26307fc2675?hl=en"
     }
   ]
 }
