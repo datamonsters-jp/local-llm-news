@@ -1,10 +1,11 @@
 {
-  "updated": "2026.11.26",
+  "updated": "2026.11.27",
   "ticker": [
-    "🟢 アント、医療AI「LingSante」をMITで公開",
-    "🔥 中国産GPUが推論で商用化、3社が黒字達成",
-    "⚡ Inkling 2 Miniデコード速度+40%に最適化",
-    "🖥️ AWS、Strands Decider v2を公開"
+    "⚡ Ollama v0.40.19公開、履歴処理を高速化",
+    "🟢 ERNIE 5.5 Flash Preview重みを公開",
+    "🔥 企業がオープンウェイトAI採用を加速",
+    "💾 Qwen3.8を三値量子化し約6GBに圧縮",
+    "🖥️ llama.cppのAMDベンチ公開"
   ],
   "ranking_general": [
     {
@@ -533,12 +534,40 @@
   ],
   "featured": {
     "tag": "model",
-    "date": "2026.11.23",
-    "title": "アントグループ、医療AI「LingSante」のオープンウェイト公開を開始",
-    "summary": "アントグループが2026年11月23日、Ant Ling基盤モデルの医療AI「LingSante」の公開を発表。まずLingSante-3.1-air-VL（マルチモーダル・健康評価向け）とLingSante-3.1-flash（推論・医療ワークフロー向け）をMITライセンスで公開し、残りは段階的に公開予定。いずれもMoEアーキテクチャで、公開のサービング設定はマルチGPUサーバー構成。",
-    "url": "https://www.unite.ai/ant-group-begins-open-weight-release-of-lingsante-medical-ai-models/"
+    "date": "2026.11.26",
+    "title": "Baidu、ERNIE 5.5 Flash Previewの重みをApache 2.0で公開",
+    "summary": "Baiduが高速推論モデルERNIE 5.5 Flash Previewの重みを公開しました。Apache 2.0ライセンスで商用利用・改変が可能です。MoE採用で総2800億パラメータのうち140億のみ使用し、重みの多くを4ビット精度に圧縮。コンテキストは100万トークン超で、Terminal-Bench 4.0で46.5%を記録したと発表しました。",
+    "url": "https://tech.yahoo.com/ai/gemini/articles/chinas-google-just-released-fast-223809479.html"
   },
   "articles": [
+    {
+      "tag": "tool",
+      "date": "2026.11.27",
+      "title": "Ollama v0.40.19リリース: 推論履歴処理の高速化とMLX改善",
+      "summary": "Ollama v0.40.19が公開。inkling2で短い履歴の高速化、ドラフト提案、会話スナップショットに対応。mlxrunnerでEngram履歴バッファをコンパクト化し、llama-serverを更新した。",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.19-rc0"
+    },
+    {
+      "tag": "trend",
+      "date": "2026.11.26",
+      "title": "Fortune: 企業が「十分に良い」オープンウェイトAIを採用、地政学も影響",
+      "summary": "Fortuneによると、オープンウェイトとクローズドの性能差が縮む中、企業がコスト削減と制御性を求めてオープンウェイトモデルを採用。Vercelでは8月にトークンの56%がオープンウェイトへ。地政学も論点に。",
+      "url": "https://finance.yahoo.com/technology/ai/articles/why-businesses-embracing-good-enough-080000407.html"
+    },
+    {
+      "tag": "model",
+      "date": "2026.11.26",
+      "title": "Qwen3.8-27Bを三値量子化した「Ternary Bonsai 2.5 27B」公開",
+      "summary": "PrismMLが11月24日、Qwen3.8-27Bを三値量子化した「Ternary Bonsai 2.5 27B」を公開。サイズは約54GBから最小約6GBに圧縮され、汎用性能は約97%を維持。内蔵GPUでも動作報告がある。",
+      "url": "https://note.com/gyokuto15/n/nf474a6a42cc7?hl=en"
+    },
+    {
+      "tag": "research",
+      "date": "2026.11.26",
+      "title": "llama.cpp、AMD Ryzen/Radeon向けベンチマークダッシュボードを公開",
+      "summary": "ggml-orgがHugging Faceでllama.cpp×AMDベンチマークダッシュボードを公開。Radeon 8060SやAI Pro R9700SでのPP512・TG128性能をモデル・量子化・ビルド別に比較できる。",
+      "url": "https://huggingface.co/blog/ggml-org/llamacpp-amd-bench"
+    },
     {
       "tag": "trend",
       "date": "2026.11.25",
@@ -552,6 +581,13 @@
       "title": "Inkling 2 MiniをRTX PRO 6000 1枚で最適化、デコード速度+40%",
       "summary": "Hugging Faceがコーディングエージェントに推論最適化を任せ、RTX PRO 6000 96GB 1枚でInkling 2 Miniの推論を最適化。46回のベンチマークでデコード速度が136→190.6 tok/s（+40%）…",
       "url": "https://huggingface.co/blog/inkling-2-mini-inference-hillclimb"
+    },
+    {
+      "tag": "model",
+      "date": "2026.11.24",
+      "title": "MemTensor、554Bメモリネイティブモデル「MemT-1.0-Pro」を公開",
+      "summary": "MemTensorがNVIDIAと共同開発したメモリネイティブモデルMemT-1.0-Proを公開・オープンソース化。総5540億・アクティブ590億パラメータで、履歴情報の保存・更新・検索を学習で獲得し、Flash比で記憶ベンチのスコアを向上した。",
+      "url": "https://pr.valdostadailytimes.com/article/MemTensor-Releases-and-Open-Sources-MemT-10-Pro-a-554B-Memory-Native-Model/6b050465bde2404dafe2214a"
     },
     {
       "tag": "tool",
@@ -573,41 +609,6 @@
       "title": "vLLM v0.34.1rc0: Qwen4ExpのSM100 skinny GEMM対応",
       "summary": "vLLMのv0.34.1rc0で、Qwen4Exp向けにSM100環境でのTP=2およびTP=8のskinny GEMMプランが追加された。パフォーマンス改善を目的とした変更で、GitHubコミット#69529として取り込まれた。",
       "url": "https://github.com/vllm-project/vllm/releases/tag/v0.34.1rc0"
-    },
-    {
-      "tag": "trend",
-      "date": "2026.11.24",
-      "title": "Tether、BitNet LLM向けエッジLoRAファインチューニング基盤を発表",
-      "summary": "TetherがMicrosoftの三値量子化LLM「Bitnet」向けエッジファーストLoRAファインチューニングフレームワークを発表。スマホや一般PCでのファインチューニングを可能にし、P2Pネットワークと併せAI利用の民主化を目指す。",
-      "url": "https://www.computerworld.com/article/4177577/democratizing-ai-adoption-with-tethers-bitnet-llm-fine-tuning-framework.html"
-    },
-    {
-      "tag": "trend",
-      "date": "2026.11.24",
-      "title": "ChatGPT Plusの日常用途の半分をローカルLLMで代替した体験談",
-      "summary": "XDA Developersの筆者が月20ドルのChatGPT Plusの日常タスクの一部をローカルLLMに移行。RTX 3070 8GBでLM Studioを使い、数学はQwythos 9B、コードはQwen 3.5…",
-      "url": "https://www.xda-developers.com/half-of-what-i-used-chatgpt-plus-for-now-runs-on-free-local-model/"
-    },
-    {
-      "tag": "model",
-      "date": "2026.11.24",
-      "title": "AWS、オープンウェイトのStrands Decider v2公開 双方向で文脈を読むエージェント判断モデル",
-      "summary": "AWSがオープンウェイトの判断モデル「Strands Decider v2」を公開しました。エージェントの状況全体を双方向に読み取って判断するモデルで、重みが公開されているためローカル環境での利用が可能です。エージェントの意思決定を担うモデルとして注目されます。",
-      "url": "https://venturebeat.com/data/awss-strands-decider-v2-targets-the-agent-decisions-that-hinge-on-a-single-detail"
-    },
-    {
-      "tag": "research",
-      "date": "2026.11.23",
-      "title": "Qwen 3.8-27bをStrix Halo搭載Z13で動かした検証: 32GB統合メモリで動作",
-      "summary": "MakeUseOfがRyzen AI Max 390搭載のROG Flow Z13でQwen 3.8-27bを検証。VRAM使用量は約18〜21GBで、BIOSでVRAMを24GBに設定し…",
-      "url": "https://www.makeuseof.com/i-gave-qwen-38-the-weakest-gpu-i-own-and-it-wasnt-what-i-expected/"
-    },
-    {
-      "tag": "research",
-      "date": "2026.11.23",
-      "title": "Inkling 2 Mini公開: 26.4BのLoop Transformer…",
-      "summary": "Thinking Machines Labが11月20日、Apache 2.0のオープンウェイトモデル「Inkling 2 Mini」を公開。24層のうち中間12層を3回通る構造で、総26.4B・アクティブ3.4B、コンテキスト最大100万トークン。",
-      "url": "https://note.com/sorairo_ai/n/na26307fc2675?hl=en"
     }
   ]
 }
